@@ -1389,8 +1389,15 @@ MonoBehaviour:
   islandSize: 100
   sizeX: 500
   sizeY: 500
-  seedString: 0010000000
+  gathables:
+  - color: {r: 0.13039613, g: 1, b: 0, a: 1}
+    tile: {fileID: 0}
+  - color: {r: 1, g: 0.6457231, b: 0, a: 1}
+    tile: {fileID: 0}
+  - color: {r: 0.9622642, g: 0.7986554, b: 0.6127626, a: 1}
+    tile: {fileID: 0}
   mapTex: {fileID: 0}
+  gatherablesQuantity: 8
 --- !u!114 &1364117803
 MonoBehaviour:
   m_ObjectHideFlags: 0

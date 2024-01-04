@@ -24,14 +24,31 @@ public class SCR_map_generation : MonoBehaviour {
     private int sizeY;
 
     public Dictionary<Vector2, RuleTile> mapData = new Dictionary<Vector2, RuleTile>();
+    public Dictionary<Color, Tile> colorToTile = new Dictionary<Color, Tile>();
+
+    [System.Serializable]
+    public struct gathableData {
+        public Color color;
+        public Tile tile;
+    }
+
+    [SerializeField]
+    private List<gathableData> gathables;
 
     [SerializeField]
     private Texture2D mapTex;
 
     private int randomPerlin;
 
+    [SerializeField]
+    private int gatherablesQuantity;
+
     private void Awake() {
         randomPerlin = 0;
+
+        foreach (gathableData item in gathables) {
+            colorToTile.Add(item.color, item.tile);
+        }
     }
     public string randomSeed() {
         string newSeed = "";
@@ -72,6 +89,8 @@ public class SCR_map_generation : MonoBehaviour {
         return offset;
     }
     public void generate(string seedString = "") {
+        tilemap.ClearAllTiles();
+
         if(seedString == "") {
             seedString = randomSeed();
         }
@@ -171,11 +190,16 @@ public class SCR_map_generation : MonoBehaviour {
         return Mathf.FloorToInt(scaled_perlin);
     }
     private int getUnorderedPerlinID(Vector2 v, Vector2 offset, int islandSize, int count = 1) {
-        int rawPerlin = getPerlinID(v, offset, islandSize, count);
-        randomPerlin ++;
-        _ = (randomPerlin > 20) ? randomPerlin = 1 : randomPerlin++;
-        print(randomPerlin);
-        return rawPerlin;
+        if(randomPerlin % gatherablesQuantity == 0) {
+            int rawPerlin = getPerlinID(v, offset * randomPerlin, islandSize, count);
+            randomPerlin++;
+            _ = (randomPerlin > 20) ? randomPerlin = 1 : randomPerlin++;
+            return rawPerlin;
+        }
+        else {
+            randomPerlin++;
+            return 0; 
+        }
     }
     #region utils
     public Vector2 mapCentre(bool round = false) {
