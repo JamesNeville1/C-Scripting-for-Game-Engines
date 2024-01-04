@@ -23,14 +23,24 @@ public class SCR_map_generation : MonoBehaviour {
     [SerializeField]
     private int sizeY;
 
-    [SerializeField]
-    private string seedString;
-
     public Dictionary<Vector2, RuleTile> mapData = new Dictionary<Vector2, RuleTile>();
 
     [SerializeField]
     private Texture2D mapTex;
 
+    private int randomPerlin;
+
+    private void Awake() {
+        randomPerlin = 0;
+    }
+    public string randomSeed() {
+        string newSeed = "";
+        for (int i = 0; i < 10; i++) {
+            int currentNum = UnityEngine.Random.Range(0, 10);
+            newSeed += currentNum;
+        }
+        return newSeed;
+    }
     public Vector2 readSeed(string seed = "") {
 
         if(seed.Length > 10) {
@@ -61,10 +71,14 @@ public class SCR_map_generation : MonoBehaviour {
 
         return offset;
     }
-    public void generate() {
+    public void generate(string seedString = "") {
+        if(seedString == "") {
+            seedString = randomSeed();
+        }
         Vector2 seed = readSeed(seedString);
-        Texture2D perlinTexture = generatePerlinTexture(seed);
-        Texture2D gatherablesTexture = generateGatherablesTexture(seed);
+        Texture2D perlinTexture = generatePerlinTexture(seed, islandSize, Color.white, getPerlinID,tiles.Count);
+        Vector2 gatherableseed = readSeed(seedString) * 5;
+        Texture2D gatherablesTexture = generatePerlinTexture(seed, 2, Color.green, getUnorderedPerlinID);
 
         mapTex = (Texture2D)mergeTextures(perlinTexture, gatherablesTexture);
 
@@ -125,16 +139,16 @@ public class SCR_map_generation : MonoBehaviour {
         tex.Apply();
         return tex;
     }
-    private Texture2D generatePerlinTexture(Vector2 seed) {
+    private Texture2D generatePerlinTexture(Vector2 seed, int islandSize, Color successColour, Func<Vector2,Vector2,int,int,int> action, int scaleBy = 1) { //add border
         Texture2D tex = new Texture2D(sizeX, sizeY);
 
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
                 Vector2 pos = new Vector2(x, y);
 
-                int perlin = getPerlinID(pos, seed);
+                int perlin = action(pos, seed, islandSize, scaleBy);
                 if (perlin != 0) {
-                    tex.SetPixel((int)pos.x, (int)pos.y, Color.white);
+                    tex.SetPixel((int)pos.x, (int)pos.y, successColour);
                 }
                 else {
                     tex.SetPixel((int)pos.x, (int)pos.y, Color.black);
@@ -146,15 +160,22 @@ public class SCR_map_generation : MonoBehaviour {
         tex.Apply();
         return tex;
     }
-    private int getPerlinID(Vector2 v, Vector2 offset) {
+    private int getPerlinID(Vector2 v, Vector2 offset, int islandSize, int count = 1) {
         float raw_perlin = Mathf.PerlinNoise(
             (v.x + offset.x) / islandSize,
             (v.y + offset.y) / islandSize
         );
-        int scaleBy = tiles.Count + 1;
+        int scaleBy = count + 1;
         float scaled_perlin = Mathf.Clamp01(raw_perlin) * scaleBy;
 
         return Mathf.FloorToInt(scaled_perlin);
+    }
+    private int getUnorderedPerlinID(Vector2 v, Vector2 offset, int islandSize, int count = 1) {
+        int rawPerlin = getPerlinID(v, offset, islandSize, count);
+        randomPerlin ++;
+        _ = (randomPerlin > 20) ? randomPerlin = 1 : randomPerlin++;
+        print(randomPerlin);
+        return rawPerlin;
     }
     #region utils
     public Vector2 mapCentre(bool round = false) {

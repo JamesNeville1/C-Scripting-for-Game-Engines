@@ -13,7 +13,9 @@ public class SCR_master : MonoBehaviour {
         mapGen = GetComponent<SCR_map_generation>();
     }
     private void Start() {
-        mapGen.generate();
+        string randSeed = mapGen.randomSeed();
+        Debug.Log("Map Seed: " + randSeed);
+        mapGen.generate(randSeed);
 
         Vector2 cameraPos = mapGen.mapCentre();
         Camera.main.transform.position = new Vector3(cameraPos.x, cameraPos.y, -10);
