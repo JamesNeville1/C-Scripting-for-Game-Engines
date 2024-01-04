@@ -6,6 +6,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using static UnityEditor.Progress;
 using Color = UnityEngine.Color;
 using Random = System.Random;
 
@@ -27,7 +28,7 @@ public class SCR_map_generation : MonoBehaviour {
     private int sizeY;
 
     public Dictionary<Vector2, RuleTile> mapData = new Dictionary<Vector2, RuleTile>();
-    public Dictionary<Color, SCO_gatherable> colorToTile = new Dictionary<Color, SCO_gatherable>();
+    public Dictionary<Color32, SCO_gatherable> colorToTile = new Dictionary<Color32, SCO_gatherable>();
 
     [System.Serializable]
     public struct gathableData {
@@ -41,11 +42,10 @@ public class SCR_map_generation : MonoBehaviour {
     [SerializeField]
     private Texture2D mapTex;
 
-    [SerializeField] [Range(3, 10)]
-    private int reduceGatheablesBy;
+    [SerializeField]
+    private int reduceGatherablesBy;
 
     public Texture2D test;
-    public Color test2;
 
     private void Awake() {
         foreach (gathableData item in gathables) {
@@ -62,6 +62,7 @@ public class SCR_map_generation : MonoBehaviour {
         }
         return newSeed;
     }
+
     public Vector2 readSeed(string seed = "") {
 
         if(seed.Length > 10) {
@@ -93,10 +94,6 @@ public class SCR_map_generation : MonoBehaviour {
         return offset;
     }
 
-    /// <summary>
-    /// test
-    /// </summary>
-    /// <param name="seedString"></param>
     public void generate(string seedString = "") {
         tilemap.ClearAllTiles();
 
@@ -104,11 +101,12 @@ public class SCR_map_generation : MonoBehaviour {
             seedString = randomSeed();
         }
         Vector2 seed = readSeed(seedString);
-        Texture2D perlinTexture = generatePerlinTexture(seed, islandSize, getPerlinID);
-        Texture2D gatherablesTexture = generatePerlinTexture(seed, reduceGatheablesBy, getUnorderedPerlinID, colorToTile.Keys.ToList(), colorToTile.Keys.ToList().Count);
+        Texture2D perlinTexture = generatePerlinTexture(seed, islandSize, getBasePerlinID);
+        Texture2D gatherablesTexture = generatePerlinTexture(seed, islandSize, getUnorderedPerlinID, colorToTile.Keys.ToList(), colorToTile.Keys.ToList().Count);
         test = gatherablesTexture;
 
         mapTex = (Texture2D)mergeTextures(perlinTexture, gatherablesTexture);
+
 
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
@@ -116,22 +114,24 @@ public class SCR_map_generation : MonoBehaviour {
                 Vector3Int posInt = new Vector3Int((int)pos.x, (int)pos.y);
 
                 Color currentColour = mapTex.GetPixel((int)pos.x, (int)pos.y);
-                test2 = currentColour;
-                print("current " + currentColour);
-                print(colorToTile.ElementAt(0).Key);
+                Debug.Log("Colours Contained = " + colorToTile.ContainsKey(currentColour));
 
                 if (currentColour != Color.black) {
                     tilemap.SetTile(posInt, tiles);
 
                     if(currentColour != Color.white) {
-                        tilemap.SetColor(posInt, currentColour); //For debugging
+                        //tilemap.SetColor(posInt, currentColour); //For debugging
+                        GameObject gatherable = new GameObject(pos.ToString());
+                        gatherable.transform.position = pos;
+                        SpriteRenderer sr = gatherable.AddComponent<SpriteRenderer>();
+                        sr.sprite = colorToTile[currentColour].sprite;
+                        sr.sortingOrder = 10000 - (int)pos.y;
                     }
-                }
-                else {
                 }
             }
         }
     }
+
     private Texture mergeTextures(Texture2D perlin, Texture2D gatherables) {
         Texture2D tex = perlin;
 
@@ -147,10 +147,13 @@ public class SCR_map_generation : MonoBehaviour {
         tex.Apply();
         return tex;
     }
-    private Texture2D generatePerlinTexture(Vector2 seed, int islandSize, Func<Vector2,Vector2,int,int,int> action, List<Color> successColours = null, int scaleBy = 1) { //add border
+
+    private Texture2D generatePerlinTexture(Vector2 seed, int islandSize, Func<Vector2,Vector2,int,int,int> action, 
+        List<Color32> successColours = null, int scaleBy = 1, Func<Texture2D, Texture2D> finalCheck = null) {
+
         Texture2D tex = new Texture2D(sizeX, sizeY);
         if (successColours == null) {
-            successColours = new List<Color>{
+            successColours = new List<Color32>{
                 Color.white
             };
         }
@@ -170,11 +173,12 @@ public class SCR_map_generation : MonoBehaviour {
             }
         }
         tex.filterMode = FilterMode.Point;
-
         tex.Apply();
+
         return tex;
     }
-    private int getPerlinID(Vector2 v, Vector2 offset, int islandSize, int count = 1) {
+    
+    private int getBasePerlinID(Vector2 v, Vector2 offset, int islandSize, int count = 1) {
         float rawPerlin = Mathf.PerlinNoise(
             (v.x + offset.x) / islandSize,
             (v.y + offset.y) / islandSize
@@ -185,15 +189,14 @@ public class SCR_map_generation : MonoBehaviour {
 
         return Mathf.FloorToInt(scaledPerlin);
     }
+    
     private int getUnorderedPerlinID(Vector2 v, Vector2 offset, int islandSize, int count = 1) {
-        int bounds = getPerlinID(v, offset, islandSize, 1);
-        if(bounds == 1) { 
-            Random rd = new Random(); //For now this is not seeded
-            int result = rd.Next(count + 1 + islandSize);
-            if(result > count) {
-                return 0;
-            }
-            return result;
+        int bounds = getBasePerlinID(v, offset, islandSize, 1);
+        if(bounds == 1) {
+            int rand = UnityEngine.Random.Range(0, count + reduceGatherablesBy);
+            if (rand > count) return 0;
+            
+            return rand;
         }
         return bounds;
     }
