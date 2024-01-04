@@ -1383,21 +1383,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ee3565d331f7049ba50e6430ca2feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles:
-  - {fileID: 11400000, guid: 0f2600e3f4db0ea419c8afc78189417a, type: 2}
+  tiles: {fileID: 11400000, guid: 0f2600e3f4db0ea419c8afc78189417a, type: 2}
   tilemap: {fileID: 1205570528}
-  islandSize: 100
-  sizeX: 500
-  sizeY: 500
+  islandSize: 20
+  sizeX: 100
+  sizeY: 100
   gathables:
   - color: {r: 0.13039613, g: 1, b: 0, a: 1}
-    tile: {fileID: 0}
-  - color: {r: 1, g: 0.6457231, b: 0, a: 1}
-    tile: {fileID: 0}
-  - color: {r: 0.9622642, g: 0.7986554, b: 0.6127626, a: 1}
-    tile: {fileID: 0}
+    data: {fileID: 11400000, guid: 7e4eedfa6dc139a4aaa38141cf62f4ad, type: 2}
+  - color: {r: 0.45154953, g: 0, b: 1, a: 1}
+    data: {fileID: 11400000, guid: 7e536eceaafeda44aa5a9036a2c0c27a, type: 2}
+  - color: {r: 1, g: 0.18228093, b: 0, a: 1}
+    data: {fileID: 11400000, guid: b75a30167a2ba2b449e56ed0996527df, type: 2}
+  - color: {r: 0, g: 0.9903989, b: 1, a: 1}
+    data: {fileID: 11400000, guid: 47174683fa2bc4d47a4d1e5b4d228ffd, type: 2}
   mapTex: {fileID: 0}
-  gatherablesQuantity: 8
+  reduceGatheablesBy: 6
+  test: {fileID: 0}
+  test2: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1364117803
 MonoBehaviour:
   m_ObjectHideFlags: 0
