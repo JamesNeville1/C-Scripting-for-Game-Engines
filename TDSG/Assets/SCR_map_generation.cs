@@ -88,6 +88,11 @@ public class SCR_map_generation : MonoBehaviour {
 
         return offset;
     }
+
+    /// <summary>
+    /// test
+    /// </summary>
+    /// <param name="seedString"></param>
     public void generate(string seedString = "") {
         tilemap.ClearAllTiles();
 
@@ -95,9 +100,9 @@ public class SCR_map_generation : MonoBehaviour {
             seedString = randomSeed();
         }
         Vector2 seed = readSeed(seedString);
-        Texture2D perlinTexture = generatePerlinTexture(seed, islandSize, Color.white, getPerlinID,tiles.Count);
+        Texture2D perlinTexture = generatePerlinTexture(seed, islandSize, getPerlinID);
         Vector2 gatherableseed = readSeed(seedString) * 5;
-        Texture2D gatherablesTexture = generatePerlinTexture(seed, 2, Color.green, getUnorderedPerlinID);
+        Texture2D gatherablesTexture = generatePerlinTexture(seed, 2, getUnorderedPerlinID, colorToTile.Keys.ToList());
 
         mapTex = (Texture2D)mergeTextures(perlinTexture, gatherablesTexture);
 
@@ -111,9 +116,8 @@ public class SCR_map_generation : MonoBehaviour {
                     tilemap.SetTile(new Vector3Int((int)pos.x, (int)pos.y), tiles[0]);
                     print("white");
 
-                    if(currentColour == Color.green) { //Map colour to gatherable, this is just a demo
-                        tilemap.SetColor(new Vector3Int((int)pos.x, (int)pos.y), Color.green);
-                        print("Green");
+                    if(currentColour != Color.white) { //Map colour to gatherable, this is just a demo
+                        tilemap.SetColor(new Vector3Int((int)pos.x, (int)pos.y), currentColour);
                     }
                 }
                 else {
@@ -158,8 +162,12 @@ public class SCR_map_generation : MonoBehaviour {
         tex.Apply();
         return tex;
     }
-    private Texture2D generatePerlinTexture(Vector2 seed, int islandSize, Color successColour, Func<Vector2,Vector2,int,int,int> action, int scaleBy = 1) { //add border
+    private Texture2D generatePerlinTexture(Vector2 seed, int islandSize, Func<Vector2,Vector2,int,int,int> action, List<Color> successColour = null, int scaleBy = 1) { //add border
         Texture2D tex = new Texture2D(sizeX, sizeY);
+        if (successColour == null) {
+            successColour = new List<Color>();
+            successColour.Add(Color.white);
+        }
 
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
@@ -167,7 +175,7 @@ public class SCR_map_generation : MonoBehaviour {
 
                 int perlin = action(pos, seed, islandSize, scaleBy);
                 if (perlin != 0) {
-                    tex.SetPixel((int)pos.x, (int)pos.y, successColour);
+                    tex.SetPixel((int)pos.x, (int)pos.y, successColour[perlin-1]);
                 }
                 else {
                     tex.SetPixel((int)pos.x, (int)pos.y, Color.black);
