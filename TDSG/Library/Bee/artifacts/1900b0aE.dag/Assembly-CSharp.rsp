@@ -381,7 +381,7 @@
 "Assets/SCR_master.cs"
 "Assets/SCR_player.cs"
 -langversion:9.0
-
+/unsafe+
 /deterministic
 /optimize+
 /debug:portable

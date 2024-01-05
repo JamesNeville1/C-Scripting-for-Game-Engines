@@ -107,6 +107,7 @@ public class SCR_map_generation : MonoBehaviour {
 
         mapTex = (Texture2D)mergeTextures(perlinTexture, gatherablesTexture);
 
+        GameObject gatherableParent = new GameObject("Gatherables Parent");
 
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
@@ -114,18 +115,13 @@ public class SCR_map_generation : MonoBehaviour {
                 Vector3Int posInt = new Vector3Int((int)pos.x, (int)pos.y);
 
                 Color currentColour = mapTex.GetPixel((int)pos.x, (int)pos.y);
-                Debug.Log("Colours Contained = " + colorToTile.ContainsKey(currentColour));
+                //Debug.Log("Colours Contained = " + colorToTile.ContainsKey(currentColour));
 
                 if (currentColour != Color.black) {
                     tilemap.SetTile(posInt, tiles);
 
                     if(currentColour != Color.white) {
-                        //tilemap.SetColor(posInt, currentColour); //For debugging
-                        GameObject gatherable = new GameObject(pos.ToString());
-                        gatherable.transform.position = pos;
-                        SpriteRenderer sr = gatherable.AddComponent<SpriteRenderer>();
-                        sr.sprite = colorToTile[currentColour].sprite;
-                        sr.sortingOrder = 10000 - (int)pos.y;
+                        colorToTile[currentColour].gatherableSetup(pos, gatherableParent.transform);                        
                     }
                 }
             }

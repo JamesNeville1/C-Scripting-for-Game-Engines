@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: SCO_tree_1
   m_EditorClassIdentifier: 
   sprite: {fileID: 339990877, guid: 2c8169dee42d3f847934b43d6fe3ce10, type: 3}
+  interactableRadius: 1
+  health: 10
