@@ -1383,7 +1383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ee3565d331f7049ba50e6430ca2feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles: {fileID: 11400000, guid: 26c27ed267fc40f4694601696e2b9557, type: 2}
+  tile: {fileID: 11400000, guid: 26c27ed267fc40f4694601696e2b9557, type: 2}
   tilemap: {fileID: 1205570528}
   islandSize: 20
   sizeX: 100
