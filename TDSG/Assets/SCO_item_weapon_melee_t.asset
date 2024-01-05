@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: e42cb5b453d26f54ab3cf0b897a87dcb, type: 3}
   m_Name: SCO_item_weapon_melee_t
   m_EditorClassIdentifier: Assembly-CSharp::SCO_item_weapon_melee
   itemName: 
   attribute: 0
-  damage: 0

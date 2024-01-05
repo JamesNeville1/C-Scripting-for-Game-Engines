@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using static UnityEditor.Progress;
 using Color = UnityEngine.Color;
+using Random = System.Random;
 
 public class SCR_map_generation : MonoBehaviour {
 
@@ -44,6 +45,9 @@ public class SCR_map_generation : MonoBehaviour {
     [Tooltip("Holds pixels to be used for the end map")] [SerializeField] [SCR_utils.customAttributes.ReadOnly]
     private Texture2D mapTex;
 
+    [Tooltip("Holds pixels to be used for the end map")] [SerializeField] [SCR_utils.customAttributes.ReadOnly]
+    int distributionStep;
+
     [Tooltip("Reduce gatherables by amount")] [SerializeField]
     private int reduceGatherablesBy;
 
@@ -56,6 +60,8 @@ public class SCR_map_generation : MonoBehaviour {
         }
 
         tilemap.transform.position -= new Vector3(0.5f, 0.5f);
+
+        distributionStep = 1;
     }
 
     //Randomly generates 10 digit seed
@@ -114,7 +120,7 @@ public class SCR_map_generation : MonoBehaviour {
         Texture2D gatherablesTexture = 
             generatePerlinTexture(seed, islandSize, getUnorderedPerlinID, colorToType.Keys.ToList()); //Generate distribued gatherables
         
-        //test = gatherablesTexture; //TEMP
+        test = gatherablesTexture; //TEMP
 
         mapTex = (Texture2D)mergeTextures(perlinTexture, gatherablesTexture); //Merge textures for generation
 
@@ -206,13 +212,15 @@ public class SCR_map_generation : MonoBehaviour {
     //Return seeded noise
     private int getUnorderedPerlinID(Vector2 v, Vector2 offset, int islandSize, int count = 1) {
         int bounds = getBasePerlinID(v, offset, islandSize, 1);
-        if(bounds == 1) {
-            int rand = UnityEngine.Random.Range(0, count + reduceGatherablesBy);
-            if (rand > count) return 0;
-            
-            return rand;
+
+        int rand = bounds;
+        if (bounds == 1) {
+            Random seedFormat = new Random((int)(offset.magnitude + v.magnitude * Mathf.Pow(distributionStep, 4)));
+            rand = seedFormat.Next(0, count + reduceGatherablesBy);
         }
-        return bounds;
+        if (rand > count) rand = 0;
+        _ = (distributionStep > 50) ? distributionStep = 1 : distributionStep++;
+        return rand;
     }
     #region utils
     public Vector2 mapCentre(bool round = false) {
