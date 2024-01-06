@@ -19,10 +19,18 @@ public class SCR_player_main : MonoBehaviour {
     [SerializeField]
     private int inventorySize;
 
+    [SerializeField]
+    private Animator animator;
+
+    [SerializeField]
+    private SpriteRenderer sr;
+
     public static SCO_gatherable.gatherableHook target; //What should be picked up
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
-        
+        animator = gameObject.GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+
         GameObject inv = new GameObject("Inventory");
         inv.transform.parent = gameObject.transform;
         inventory = inv.AddComponent<SCR_player_inventory>();
@@ -35,7 +43,16 @@ public class SCR_player_main : MonoBehaviour {
     }
 
     private Vector2 returnInput() {
-        return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if(movement.x != 0 || movement.y != 0) animator.SetBool("isMoving", true);
+        else animator.SetBool("isMoving", false);
+        if (movement.x == -1) {
+            sr.flipX = true;
+        }
+        else if (movement.x == 1){
+            sr.flipX = false;
+        }
+        return movement;
     }
     private void movePlayer(Vector2 input) {
         if(input.x == 0 || input.y == 0) {

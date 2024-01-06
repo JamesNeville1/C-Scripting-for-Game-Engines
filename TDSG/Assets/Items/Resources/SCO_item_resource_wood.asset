@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfad0cabad7e2c24e9a76da153ad9bf7, type: 3}
-  m_Name: SCO_item_edible_food_bread
+  m_Script: {fileID: 11500000, guid: 6fa4aea8b64656d42a218fb99b2462a7, type: 3}
+  m_Name: SCO_item_resource_wood
   m_EditorClassIdentifier: 
-  itemName: Bread
-  attribute: 4
+  itemName: Wood
+  attribute: 0

@@ -7,9 +7,6 @@ using UnityEngine.UIElements;
 public class SCO_gatherable : ScriptableObject {
     [SerializeField] private Sprite sprite;
     [SerializeField] private float interactableRadius = .1f;
-    [SerializeField] private int health = 1;
-    [SerializeField] private int maxGive = 1;
-    [SerializeField] private int minGive = 1;
     [SerializeField] private SCO_item item;
 
     public GameObject gatherableSetup(Vector2 pos, Transform parent) {

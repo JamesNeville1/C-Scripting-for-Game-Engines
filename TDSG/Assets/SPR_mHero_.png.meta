@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mHero__0
+      name: SPR_mHero__0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,995 +150,995 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bf19cad29bab6b499ce45af0b7d7a2c
-      internalID: -1114765749
+      spriteID: 99fdde2e0073d7a4e866217ef2a3e9ed
+      internalID: 2044368876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__1
+      name: SPR_mHero__1
       rect:
         serializedVersion: 2
         x: 24
         y: 120
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96c7c20b3390b3c4aa5100a2b5b8f941
-      internalID: 57639791
+      spriteID: 1544ca0e9f3f7814eac51a5e5d6731ef
+      internalID: 1967457191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__2
+      name: SPR_mHero__2
       rect:
         serializedVersion: 2
         x: 48
         y: 120
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b55afd4d85b51649bb4e980d9663e18
-      internalID: 13101856
+      spriteID: 1aca10de5c563a441af34146505062f6
+      internalID: -1512891824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__3
+      name: SPR_mHero__3
       rect:
         serializedVersion: 2
         x: 72
         y: 120
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccf7c929ba159a04bb4e194c54ea8517
-      internalID: 114570165
+      spriteID: 59e10b1283e86ac4682d978df1797c76
+      internalID: -2143930776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__4
+      name: SPR_mHero__4
       rect:
         serializedVersion: 2
         x: 96
         y: 120
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37a44909c3b3eb14abe33c1828e3030f
-      internalID: -2041995437
+      spriteID: 05bf65ccf24f5184f8c2231434f28f3e
+      internalID: -478107057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__5
+      name: SPR_mHero__5
       rect:
         serializedVersion: 2
         x: 120
         y: 120
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60504d5f64dcf09438c07e3111fe1dad
-      internalID: 1591948414
+      spriteID: 864ed130f5b40e1449fc6d951339cf54
+      internalID: -678658942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__6
+      name: SPR_mHero__6
       rect:
         serializedVersion: 2
         x: 144
         y: 120
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdb4f1c85f087e04f9e74e295421bd25
-      internalID: 1734621724
+      spriteID: 1b1d7e30d528a2749ac68a4e07aba989
+      internalID: 384471429
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__7
+      name: SPR_mHero__7
       rect:
         serializedVersion: 2
         x: 168
         y: 120
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e73585250dfca164692211c011587039
-      internalID: -1855923047
+      spriteID: 0fd4cd5fee4020a47b4de6bcf137d0fd
+      internalID: -903800414
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__8
+      name: SPR_mHero__8
       rect:
         serializedVersion: 2
         x: 0
         y: 96
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 020b7c1a48d376940934d804293bf6b4
-      internalID: 92895974
+      spriteID: a3a50d60ec581f44b8bb3a46067019f6
+      internalID: 784498235
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__9
+      name: SPR_mHero__9
       rect:
         serializedVersion: 2
         x: 24
         y: 96
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35b73eab908ada042a5737b7d0b0b84c
-      internalID: 835178809
+      spriteID: 0d0040d7c0dfa454a8b883eadb9ad7f8
+      internalID: 2040113299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__10
+      name: SPR_mHero__10
       rect:
         serializedVersion: 2
         x: 48
         y: 96
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb146cd039ac3f44da9ca0b79d3fc39e
-      internalID: -1088176700
+      spriteID: 672b3ead66d6c984ab942cda3caa7641
+      internalID: -1073449255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__11
+      name: SPR_mHero__11
       rect:
         serializedVersion: 2
         x: 72
         y: 96
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6763101b99da214795f678b8be5a31e
-      internalID: -1963153122
+      spriteID: 41ac3a7218fa3874a925ca00da747091
+      internalID: -1644874190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__12
+      name: SPR_mHero__12
       rect:
         serializedVersion: 2
         x: 96
         y: 96
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d993d33c7b31bb440b2a57e639621d19
-      internalID: -1144436323
+      spriteID: c94fd2f2460017e48b4ff51b3f5d48f1
+      internalID: -907169053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__13
+      name: SPR_mHero__13
       rect:
         serializedVersion: 2
         x: 120
         y: 96
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7834a074226254488af6a6e59ccc585
-      internalID: 1761734654
+      spriteID: b6776feea14d233498a601ee57a8b333
+      internalID: 276484461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__14
+      name: SPR_mHero__14
       rect:
         serializedVersion: 2
         x: 144
         y: 96
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4f49dd78417a5a48b5a7ab1752090fa
-      internalID: 1429602597
+      spriteID: e27c0af9531d010408a25c111c1176df
+      internalID: 861654298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__15
+      name: SPR_mHero__15
       rect:
         serializedVersion: 2
         x: 168
         y: 96
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e48769916089c0643a56d6a282a9ead8
-      internalID: -1283108129
+      spriteID: 74aefec7a825a3041987612a90e58bd2
+      internalID: -251702827
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__16
+      name: SPR_mHero__16
       rect:
         serializedVersion: 2
         x: 0
         y: 72
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97d94cf6819a68247ab223e828b1b3f1
-      internalID: -213201884
+      spriteID: 94cee30248f3ca442a65ddc16b23ffce
+      internalID: -1374058139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__17
+      name: SPR_mHero__17
       rect:
         serializedVersion: 2
         x: 24
         y: 72
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58c3c32b3f9f4354bb7400803956be99
-      internalID: -1640555538
+      spriteID: 894a4c93116663b4fb1e6597c2214845
+      internalID: 1299839886
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__18
+      name: SPR_mHero__18
       rect:
         serializedVersion: 2
         x: 48
         y: 72
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f18652f2e0020144a1a38c5df2f0dd4
-      internalID: 459087435
+      spriteID: 05fd3f249dbbbe84fa2459853a88bec8
+      internalID: 1835214321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__19
+      name: SPR_mHero__19
       rect:
         serializedVersion: 2
         x: 72
         y: 72
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c2389121af525a46992c241715f29de
-      internalID: -900140113
+      spriteID: 0b614ffcb6132c245b27c21e3bb2c991
+      internalID: -1146450863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__20
+      name: SPR_mHero__20
       rect:
         serializedVersion: 2
         x: 96
         y: 72
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c4eeaa051f17e14aac962bc9424f758
-      internalID: 540177439
+      spriteID: b82970704cd5935409a4d751b7ec575c
+      internalID: -365808216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__21
+      name: SPR_mHero__21
       rect:
         serializedVersion: 2
         x: 120
         y: 72
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: debbea6e196be0041a38f1275addd338
-      internalID: 315305696
+      spriteID: badb86239bede964187decc9b43753e1
+      internalID: 353092696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__22
+      name: SPR_mHero__22
       rect:
         serializedVersion: 2
         x: 144
         y: 72
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 590a5cfa9713ae247b9f4fb108371da7
-      internalID: 1623427827
+      spriteID: 64c8d151e3416744991e542890e7a578
+      internalID: -1668356644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__23
+      name: SPR_mHero__23
       rect:
         serializedVersion: 2
         x: 168
         y: 72
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c87276ee603e74a45bede533e114bc2c
-      internalID: -1092850139
+      spriteID: ee2154030c987c9489b04fca477c9aba
+      internalID: -1516988934
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__24
+      name: SPR_mHero__24
       rect:
         serializedVersion: 2
         x: 0
         y: 48
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14bf268b7dedcb54cb241cb44b8e4dcd
-      internalID: 2095427746
+      spriteID: 9e0c7e7b2916aa642832a62f4167b513
+      internalID: -1650266159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__25
+      name: SPR_mHero__25
       rect:
         serializedVersion: 2
         x: 24
         y: 48
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0c375c60b7b03d439beba2d011bc585
-      internalID: 631874916
+      spriteID: 0f7b63a85ade99f459ee74ef11bce7dd
+      internalID: -864127835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__26
+      name: SPR_mHero__26
       rect:
         serializedVersion: 2
         x: 48
         y: 48
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fabaccea24cc086488debd90af281679
-      internalID: 665308443
+      spriteID: 9a456d8bc681ecb4e8c38d79c0c71321
+      internalID: -1368147037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__27
+      name: SPR_mHero__27
       rect:
         serializedVersion: 2
         x: 72
         y: 48
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abf1845c72e827b49b136d06648ae16c
-      internalID: 1505247758
+      spriteID: b249abbf1fe45594090e959318079734
+      internalID: -2039956769
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__28
+      name: SPR_mHero__28
       rect:
         serializedVersion: 2
         x: 96
         y: 48
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb71d84080665ec4e96d6da1709262ce
-      internalID: -1756433883
+      spriteID: a1933c921c40bc94e9203ac815bf273d
+      internalID: -911421564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__29
+      name: SPR_mHero__29
       rect:
         serializedVersion: 2
         x: 120
         y: 48
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12421428f44d32743af049b96366c96c
-      internalID: -79384269
+      spriteID: 28f73cc939daf164a96835a5586dc2df
+      internalID: -1102807386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__30
+      name: SPR_mHero__30
       rect:
         serializedVersion: 2
         x: 144
         y: 48
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 506839b8d205f7f4fadbe713dd06acfc
-      internalID: 1150654314
+      spriteID: e5721e5c63ad3ae42944335cb68f2819
+      internalID: 1147330897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__31
+      name: SPR_mHero__31
       rect:
         serializedVersion: 2
         x: 168
         y: 48
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 527dd3647b1db264683c49c8b1543b05
-      internalID: -1368965533
+      spriteID: 0dd94f73176ab0a46b17391b32e9e81c
+      internalID: 1102643004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__32
+      name: SPR_mHero__32
       rect:
         serializedVersion: 2
         x: 0
         y: 24
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac574eca499745542b232f2c52eb74dc
-      internalID: -1218827943
+      spriteID: 264a78fdb852ede40a1bf3e8e90d0c0e
+      internalID: -486889497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__33
+      name: SPR_mHero__33
       rect:
         serializedVersion: 2
         x: 24
         y: 24
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b313385d958fd1d4c9096903cdf42035
-      internalID: 1836301590
+      spriteID: da5da0df630830948b913c5fbf586da4
+      internalID: -309916236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__34
+      name: SPR_mHero__34
       rect:
         serializedVersion: 2
         x: 48
         y: 24
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2308629f92988114bbadcbc390b42769
-      internalID: -1247270587
+      spriteID: 4320423bb9bd6d04898c7c38e168d77d
+      internalID: 1357375153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__35
+      name: SPR_mHero__35
       rect:
         serializedVersion: 2
         x: 72
         y: 24
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76f45a8bf1095cb4ca89f41872607ff3
-      internalID: -1970874689
+      spriteID: 8585a0aa4604f3c43894a57736c10894
+      internalID: -1712377664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__36
+      name: SPR_mHero__36
       rect:
         serializedVersion: 2
         x: 96
         y: 24
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09fb181d9430d0747b38ac6dfed93735
-      internalID: -1782305499
+      spriteID: 7931f3dc7e5f5804a8b292da3de3c61a
+      internalID: 796427277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__37
+      name: SPR_mHero__37
       rect:
         serializedVersion: 2
         x: 120
         y: 24
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7c07bceafb5170408827221ec0c628b
-      internalID: -1814176698
+      spriteID: c32a055aea15b7643ac1bc70fc132c31
+      internalID: 633753482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__38
+      name: SPR_mHero__38
       rect:
         serializedVersion: 2
         x: 144
         y: 24
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af462b021358dde438955d581fcdb3e5
-      internalID: 1444882085
+      spriteID: 9bd55432201805b4b8d09ac7a4d60bcb
+      internalID: 51914938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__39
+      name: SPR_mHero__39
       rect:
         serializedVersion: 2
         x: 168
         y: 24
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 730db33b59230f941a9f7c020b4138d6
-      internalID: 32787595
+      spriteID: 9355377948af3ee41a942c4d703c5c63
+      internalID: -2012658469
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__40
+      name: SPR_mHero__40
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 013072060ce728c4d92ac3847997470d
-      internalID: -335975426
+      spriteID: 5703aeff3afea2b4bbe2eb633d69e560
+      internalID: -1083459186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__41
+      name: SPR_mHero__41
       rect:
         serializedVersion: 2
         x: 24
         y: 0
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d84a6d9e48551544a474e7027d035dc
-      internalID: -958058980
+      spriteID: 34bbd3530b47840418e8285187fba5f3
+      internalID: -1768082150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__42
+      name: SPR_mHero__42
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad53155b2f4c1b64081b96ee99c701b7
-      internalID: 387353337
+      spriteID: 8877f61255404c7439cfd7ab3475ab9a
+      internalID: -1387732159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__43
+      name: SPR_mHero__43
       rect:
         serializedVersion: 2
         x: 72
         y: 0
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6eb732fbd9fde845b1da8f986e8ab53
-      internalID: -237754975
+      spriteID: 441b6f2a72d96ab46a4693cebccfada4
+      internalID: 1339803030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__44
+      name: SPR_mHero__44
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b041b4201c558f49ac2bcb8b8e89965
-      internalID: -1654128904
+      spriteID: 7953d7969e2b7be4e942d4ce0922e6aa
+      internalID: -1088280348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__45
+      name: SPR_mHero__45
       rect:
         serializedVersion: 2
         x: 120
         y: 0
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26e385c376c658b4681561ab589b0250
-      internalID: -493952522
+      spriteID: 17554a9bd17650f478965aff762ba934
+      internalID: -857518308
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__46
+      name: SPR_mHero__46
       rect:
         serializedVersion: 2
         x: 144
         y: 0
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b6524f75845a14db93390490e30d3f
-      internalID: 838425615
+      spriteID: eb408c98bbd13a747a3b6e5232b893cd
+      internalID: 80707301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mHero__47
+      name: SPR_mHero__47
       rect:
         serializedVersion: 2
         x: 168
         y: 0
         width: 24
         height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac57dd76ab6d7534e85d7cce3a6f6427
-      internalID: -1146482243
+      spriteID: efd53d8284392e04592f8a839a73a186
+      internalID: -253040562
       vertices: []
       indices: 
       edges: []
@@ -1154,54 +1154,54 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mHero__0: -1114765749
-      mHero__1: 57639791
-      mHero__10: -1088176700
-      mHero__11: -1963153122
-      mHero__12: -1144436323
-      mHero__13: 1761734654
-      mHero__14: 1429602597
-      mHero__15: -1283108129
-      mHero__16: -213201884
-      mHero__17: -1640555538
-      mHero__18: 459087435
-      mHero__19: -900140113
-      mHero__2: 13101856
-      mHero__20: 540177439
-      mHero__21: 315305696
-      mHero__22: 1623427827
-      mHero__23: -1092850139
-      mHero__24: 2095427746
-      mHero__25: 631874916
-      mHero__26: 665308443
-      mHero__27: 1505247758
-      mHero__28: -1756433883
-      mHero__29: -79384269
-      mHero__3: 114570165
-      mHero__30: 1150654314
-      mHero__31: -1368965533
-      mHero__32: -1218827943
-      mHero__33: 1836301590
-      mHero__34: -1247270587
-      mHero__35: -1970874689
-      mHero__36: -1782305499
-      mHero__37: -1814176698
-      mHero__38: 1444882085
-      mHero__39: 32787595
-      mHero__4: -2041995437
-      mHero__40: -335975426
-      mHero__41: -958058980
-      mHero__42: 387353337
-      mHero__43: -237754975
-      mHero__44: -1654128904
-      mHero__45: -493952522
-      mHero__46: 838425615
-      mHero__47: -1146482243
-      mHero__5: 1591948414
-      mHero__6: 1734621724
-      mHero__7: -1855923047
-      mHero__8: 92895974
-      mHero__9: 835178809
+      SPR_mHero__0: 2044368876
+      SPR_mHero__1: 1967457191
+      SPR_mHero__10: -1073449255
+      SPR_mHero__11: -1644874190
+      SPR_mHero__12: -907169053
+      SPR_mHero__13: 276484461
+      SPR_mHero__14: 861654298
+      SPR_mHero__15: -251702827
+      SPR_mHero__16: -1374058139
+      SPR_mHero__17: 1299839886
+      SPR_mHero__18: 1835214321
+      SPR_mHero__19: -1146450863
+      SPR_mHero__2: -1512891824
+      SPR_mHero__20: -365808216
+      SPR_mHero__21: 353092696
+      SPR_mHero__22: -1668356644
+      SPR_mHero__23: -1516988934
+      SPR_mHero__24: -1650266159
+      SPR_mHero__25: -864127835
+      SPR_mHero__26: -1368147037
+      SPR_mHero__27: -2039956769
+      SPR_mHero__28: -911421564
+      SPR_mHero__29: -1102807386
+      SPR_mHero__3: -2143930776
+      SPR_mHero__30: 1147330897
+      SPR_mHero__31: 1102643004
+      SPR_mHero__32: -486889497
+      SPR_mHero__33: -309916236
+      SPR_mHero__34: 1357375153
+      SPR_mHero__35: -1712377664
+      SPR_mHero__36: 796427277
+      SPR_mHero__37: 633753482
+      SPR_mHero__38: 51914938
+      SPR_mHero__39: -2012658469
+      SPR_mHero__4: -478107057
+      SPR_mHero__40: -1083459186
+      SPR_mHero__41: -1768082150
+      SPR_mHero__42: -1387732159
+      SPR_mHero__43: 1339803030
+      SPR_mHero__44: -1088280348
+      SPR_mHero__45: -857518308
+      SPR_mHero__46: 80707301
+      SPR_mHero__47: -253040562
+      SPR_mHero__5: -678658942
+      SPR_mHero__6: 384471429
+      SPR_mHero__7: -903800414
+      SPR_mHero__8: 784498235
+      SPR_mHero__9: 2040113299
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
