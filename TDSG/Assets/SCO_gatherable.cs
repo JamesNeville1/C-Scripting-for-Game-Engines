@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [CreateAssetMenu(fileName = "SCO_", menuName = "ScriptableObjects/Gatherables")]
 public class SCO_gatherable : ScriptableObject {
     [SerializeField] private Sprite sprite;
-    [SerializeField] private float interactableRadius = 1;
+    [SerializeField] private float interactableRadius = .1f;
     [SerializeField] private int health = 1;
     [SerializeField] private int maxGive = 1;
     [SerializeField] private int minGive = 1;
@@ -15,7 +16,7 @@ public class SCO_gatherable : ScriptableObject {
         
         GameObject obj = new GameObject(pos.ToString());
 
-        obj.AddComponent<gatherableHook>().hookConstructor(health, maxGive, minGive, item);
+        obj.AddComponent<gatherableHook>().hookConstructor(item);
 
         obj.transform.position = pos;
         obj.transform.parent = parent;
@@ -32,23 +33,33 @@ public class SCO_gatherable : ScriptableObject {
     }
 
     public class gatherableHook : MonoBehaviour {
-        [System.Serializable]
-        private struct itemData {
-            public int health;
-            public int maxGive;
-            public int minGive;
-            public SCO_item item;
-        }
-        [SerializeField] private itemData data;
-        public void hookConstructor(int health, int maxGive, int minGive, SCO_item item = null) {
-            data.health = health;
-            data.maxGive = maxGive;
-            data.minGive = minGive;
-            data.item = item;
+        private SpriteRenderer sr;
+        private Color32 originalColor;
+        private KeyCode keyToGather = KeyCode.Mouse0;
+
+        [SerializeField] private SCO_item item;
+        public void hookConstructor(SCO_item item) {
+            this.item = item;
         }
         public SCO_item returnItem() { //Ask how to make override?
             Destroy(gameObject);
-            return data.item;
+            print("ded");
+            return item;
+        }
+        private void Start() {
+            sr = GetComponent<SpriteRenderer>();
+            originalColor = sr.color;
+        }
+        private void OnMouseEnter() {
+            sr.color = new Color32(originalColor.r, originalColor.g, originalColor.b, 100);
+        }
+        private void OnMouseExit() {
+            sr.color = originalColor;
+        }
+        private void OnMouseOver() {
+            if(Input.GetKeyDown(keyToGather)) {
+                SCR_player_main.SCR_player_inventory.addItem(returnItem());
+            }
         }
     }
 }
