@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 [CreateAssetMenu(fileName = "SCO_", menuName = "ScriptableObjects/Gatherables")]
 public class SCO_gatherable : ScriptableObject {
@@ -16,7 +15,7 @@ public class SCO_gatherable : ScriptableObject {
         
         GameObject obj = new GameObject(pos.ToString());
 
-        obj.AddComponent<gatherableHook>().hookConstructor(health, maxGive, minGive);
+        obj.AddComponent<gatherableHook>().hookConstructor(health, maxGive, minGive, item);
 
         obj.transform.position = pos;
         obj.transform.parent = parent;

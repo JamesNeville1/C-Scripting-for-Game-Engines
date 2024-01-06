@@ -1386,8 +1386,8 @@ MonoBehaviour:
   tile: {fileID: 11400000, guid: 26c27ed267fc40f4694601696e2b9557, type: 2}
   tilemap: {fileID: 1205570528}
   islandSize: 20
-  sizeX: 1000
-  sizeY: 1000
+  sizeX: 100
+  sizeY: 100
   gathables:
   - color: {r: 0.54509807, g: 0.5686275, b: 0.3137255, a: 1}
     data: {fileID: 11400000, guid: 7e4eedfa6dc139a4aaa38141cf62f4ad, type: 2}

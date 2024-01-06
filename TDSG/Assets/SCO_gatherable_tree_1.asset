@@ -17,3 +17,4 @@ MonoBehaviour:
   health: 10
   maxGive: 4
   minGive: 1
+  item: {fileID: 11400000, guid: 706f1d0656acd2a44b646d171e070b0f, type: 2}
