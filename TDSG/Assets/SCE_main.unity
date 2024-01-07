@@ -281,7 +281,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 7
-  m_StartCorner: 0
+  m_StartCorner: 2
   m_StartAxis: 0
   m_CellSize: {x: 45, y: 45}
   m_Spacing: {x: 5, y: -200}
@@ -1631,7 +1631,6 @@ GameObject:
   - component: {fileID: 1364117801}
   - component: {fileID: 1364117803}
   - component: {fileID: 1364117802}
-  - component: {fileID: 1364117804}
   m_Layer: 0
   m_Name: Game Master
   m_TagString: Untagged
@@ -1702,17 +1701,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5207933277885795846, guid: 8dde42ce927554c4db156dfbb8b2acb0, type: 3}
---- !u!114 &1364117804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364117800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f902c7e095bbb641b40909e5b78ac28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventorySlot: {fileID: 5977495281630916866, guid: 4e0d31a3e4479c64ca1c19074a100c41, type: 3}
-  inventorySlotParent: {fileID: 477627104}

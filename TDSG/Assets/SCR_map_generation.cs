@@ -41,6 +41,8 @@ public class SCR_map_generation : MonoBehaviour {
     private List<gathableData> gathables;
     public Dictionary<Color32, SCO_gatherable> colorToType = new Dictionary<Color32, SCO_gatherable>(); //Maps colour to gatherable scriptable object
 
+    private Dictionary<Vector2, Color32> posToColour = new Dictionary<Vector2, Color32>();
+
     [Tooltip("Holds pixels to be used for the end map")] [SerializeField] [SCR_utils.customAttributes.ReadOnly]
     private Texture2D mapTex;
 
@@ -155,7 +157,7 @@ public class SCR_map_generation : MonoBehaviour {
 
                 int seededID = getUnorderedPerlinID(pos, seed, islandSize, successColours.Count);
                 if (seededID != 0) {
-                    //Debug.Log("seededID: " + seededID + " SuccessColours: " + successColours.Count);
+                    posToColour.Add(pos, successColours[seededID-1]);
                     tex.SetPixel((int)pos.x, (int)pos.y, successColours[seededID - 1]);
                 }
                 else {
@@ -166,9 +168,46 @@ public class SCR_map_generation : MonoBehaviour {
         tex.filterMode = FilterMode.Point;
         tex.Apply();
 
+        //tex = cleanUp(tex); //Fix
+
         return tex;
     }
-    
+
+    //Final Clean-Up
+    private Texture2D cleanUp(Texture2D raw) {
+        for (int x = 0; x < sizeX; x++) {
+            for (int y = 0; y < sizeX; y++) {
+                if(checkPixel(x, y)) {
+                    raw.SetPixel(x, y, Color.white);
+                }
+            }
+        }
+        return raw;
+    }
+
+    private bool checkPixel(int x, int y) {
+        Vector2 pos = new Vector2(x, y);
+
+        Vector2[] toCheck = {
+            pos + Vector2.left,
+            pos + Vector2.right,
+            pos + Vector2.up,
+            pos + Vector2.down,
+                    
+            pos + Vector2.left + Vector2.up,
+            pos + Vector2.right + Vector2.up,
+            pos + Vector2.left + Vector2.down,
+            pos + Vector2.right + Vector2.down,
+        };
+
+        foreach (Vector2 v in toCheck) {
+            if (posToColour[v] == Color.black) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     //Return perlin
     private int getBasePerlinID(Vector2 v, Vector2 offset, int islandSize, int count = 1) {
         float rawPerlin = Mathf.PerlinNoise(

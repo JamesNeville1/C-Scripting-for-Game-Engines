@@ -3,28 +3,43 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SCR_player_main : MonoBehaviour {
+
+    [Header("Main")]
+
     [SerializeField]
     private float defaultSpeed;
-    
+
+    [Header("Components")]
+
+    [SerializeField] [SCR_utils.customAttributes.ReadOnly]
     private Rigidbody2D rb;
 
-    private static SCR_player_inventory inventory;
+    [SerializeField] [SCR_utils.customAttributes.ReadOnly]
+    private Animator animator;
 
-    [SerializeField]
-    private SCO_item[] startingItems;
+    [SerializeField] [SCR_utils.customAttributes.ReadOnly]
+    private SpriteRenderer sr;
+
+    [Header("Inventory Vars")]
 
     [SerializeField]
     private int inventorySize;
 
     [SerializeField]
-    private Animator animator;
+    private GameObject inventorySlot;
+
+    [SerializeField] [SCR_utils.customAttributes.ReadOnly]
+    private GameObject inventorySlotsParent;
 
     [SerializeField]
-    private SpriteRenderer sr;
+    private SCO_item[] startingItems;
+
+    private static SCR_player_inventory inventory;
 
     public static SCO_gatherable.gatherableHook target; //What should be picked up
     private void Awake() {
@@ -35,7 +50,9 @@ public class SCR_player_main : MonoBehaviour {
         GameObject inv = new GameObject("Inventory");
         inv.transform.parent = gameObject.transform;
         inventory = inv.AddComponent<SCR_player_inventory>();
-        inventory.setUp(inventorySize, startingItems.ToList());
+
+        inventorySlotsParent = GameObject.Find("Inventory Slots");
+        inventory.setUp(inventorySize, startingItems.ToList(), inventorySlot, inventorySlotsParent.transform);
     }
     private void Update() {
         Vector2 input = returnInput();
@@ -65,43 +82,64 @@ public class SCR_player_main : MonoBehaviour {
     }
 
     public class SCR_player_inventory : MonoBehaviour {
-        public static Dictionary<Image, SCO_item>inventory; //Display and Scriptable Object
-        //internal static 
+        public class inventoryData {
+            public SCO_item item;
+            public Image display;
 
-        internal void setUp(int inventorySize, List<SCO_item> startingItems) {
-            inventory = new Dictionary<Image, SCO_item>(inventorySize);
+            public inventoryData(Image display, SCO_item item = null) {
+                this.item = item;
+                this.display = display;
+            }
+
+            public void changeDisplay(Sprite sprite) {
+                this.display.sprite = sprite;
+
+            }
+        }
+        public static List<inventoryData> inventory = new List<inventoryData>(); //Display and Scriptable Object
+
+        internal void setUp(int inventorySize, List<SCO_item> startingItems, GameObject uiSlot, Transform parent) {
+            for (int i = 0; i < inventorySize; i++) {
+                Image image = Instantiate(uiSlot, parent).GetComponentsInChildren<Image>()[1];
+                inventory.Add(new inventoryData(image));
+            }
 
             foreach(SCO_item item in startingItems) {
-                int slotRef = findFreeSlot();
-                if (slotRef != -1) {
-                    var key = inventory.ElementAt(slotRef).Key;
-                    inventory[key] = item;
-                }
+                addItem(item);
             }
         }
 
         internal static int findFreeSlot() { //Find free slot in inventory array, if can't, return minus one
             for (int i = 0; i < inventory.Count; i++) {
-                if (inventory.ElementAt(i).Value == null) return i;
+                if (inventory[i].item == null) return i;
             }
             return -1;
         }
         public static bool addItem(SCO_item item) {
             int id = findFreeSlot();
             if(id == -1) return false;
-            var key = inventory.ElementAt(id).Key;
-            inventory[key] = item;
-            updateUI(id);
+            inventory[id].item = item;
+            inventory[id].changeDisplay(item.returnSprite());
+            return true;
+        }
+        public static bool removeItem(int index) {
+            if (inventory[index].item == null) return false;
+
+            inventory[index].item = null;
+            inventory[index].changeDisplay(null);
             return true;
         }
 
-        private static void updateUI(int index) {
-            //inventory
-            //SCR_ui_main.setImage(index,inventory[index].returnSprite());
+        public static void dump() {
+            for (int i = 0; i < inventory.Count; i++) {
+                removeItem(i);
+            }
         }
 
-        private void Update() {
-            //updateUI();
+        private void Update() { 
+            if(Input.GetKeyDown(KeyCode.Delete)) {
+                dump();
+            }
         }
     }
 }

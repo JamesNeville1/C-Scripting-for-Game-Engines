@@ -20,8 +20,5 @@ public class SCR_master : MonoBehaviour {
 
         //Make Player (player contains inventory logic)
         SCR_player_main player = Instantiate(playerPrefab, mapGen.mapCentre(true), Quaternion.identity).GetComponent<SCR_player_main>();
-
-        //Make Inventory Display
-        SCR_ui_main.setupInventory(SCR_player_main.SCR_player_inventory.inventory.Count);
     }
 }

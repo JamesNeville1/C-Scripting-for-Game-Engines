@@ -102,9 +102,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultSpeed: 5.75
   startingItems: []
-  inventorySize: 30
+  inventorySize: 10
   animator: {fileID: 0}
   sr: {fileID: 0}
+  inventorySlot: {fileID: 5977495281630916866, guid: 4e0d31a3e4479c64ca1c19074a100c41, type: 3}
+  inventorySlotsParent: {fileID: 0}
 --- !u!50 &3903683744039567537
 Rigidbody2D:
   serializedVersion: 4
