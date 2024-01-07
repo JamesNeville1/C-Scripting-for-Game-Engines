@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5838526340912802595}
   - component: {fileID: 1638651887771361930}
   - component: {fileID: 84076130210256538}
+  - component: {fileID: 4366492743712515690}
   - component: {fileID: 3903683744039567537}
   - component: {fileID: 9043039355727994593}
   - component: {fileID: 7303173091059305810}
@@ -101,12 +102,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSpeed: 5.75
-  startingItems: []
-  inventorySize: 10
+  rb: {fileID: 0}
   animator: {fileID: 0}
   sr: {fileID: 0}
+  inventorySize: 10
   inventorySlot: {fileID: 5977495281630916866, guid: 4e0d31a3e4479c64ca1c19074a100c41, type: 3}
   inventorySlotsParent: {fileID: 0}
+  startingItems:
+  - {fileID: 11400000, guid: 77b82a6a729a2e747bd41311647fc786, type: 2}
+  - {fileID: 11400000, guid: 706f1d0656acd2a44b646d171e070b0f, type: 2}
+  mainHand: {fileID: 0}
+  offHand: {fileID: 0}
+--- !u!114 &4366492743712515690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5207933277885795846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fbc3114b1674b54d9c2a6571e48c25d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health:
+    current: 10
+    max: 10
+  hunger:
+    current: 100
+    max: 100
+  tiredness:
+    current: 3
+    max: 3
 --- !u!50 &3903683744039567537
 Rigidbody2D:
   serializedVersion: 4

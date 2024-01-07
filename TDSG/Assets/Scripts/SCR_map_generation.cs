@@ -226,12 +226,24 @@ public class SCR_map_generation : MonoBehaviour {
     //Return "random" seeded noise
     private int getUnorderedPerlinID(Vector2 v, Vector2 offset, int islandSize, int count = 1) {
         int bounds = getBasePerlinID(v, offset, islandSize, 1);
+        int[] soundroundings = {
+            getBasePerlinID(v, offset+Vector2.left, islandSize, 1),
+            getBasePerlinID(v, offset+Vector2.right, islandSize, 1),
+            getBasePerlinID(v, offset+Vector2.up, islandSize, 1),
+            getBasePerlinID(v, offset+Vector2.down, islandSize, 1),
+            getBasePerlinID(v, offset+Vector2.left+Vector2.up, islandSize, 1),
+            getBasePerlinID(v, offset+Vector2.left+Vector2.down, islandSize, 1),
+            getBasePerlinID(v, offset+Vector2.right+Vector2.up, islandSize, 1),
+            getBasePerlinID(v, offset+Vector2.right+Vector2.down, islandSize, 1),
+        };
 
         int rand = 0;
         if (bounds == 1) {
             Random seedFormat = new Random((int)(offset.magnitude + v.magnitude * Mathf.Pow(distributionStep, 4)));
             rand = seedFormat.Next(0, count + reduceGatherablesBy);
-            if (rand > count || rand < 1) return count;
+            if (rand > count || rand < 1 || soundroundings.Contains<int>(0)) {
+                return count;
+            } 
         }
         _ = (distributionStep > 50) ? distributionStep = 1 : distributionStep++;
         return rand;

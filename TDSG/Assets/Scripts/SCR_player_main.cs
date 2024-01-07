@@ -10,12 +10,10 @@ using UnityEngine.UI;
 public class SCR_player_main : MonoBehaviour {
 
     [Header("Main")]
-
     [SerializeField]
     private float defaultSpeed;
 
     [Header("Components")]
-
     [SerializeField] [SCR_utils.customAttributes.ReadOnly]
     private Rigidbody2D rb;
 
@@ -26,7 +24,6 @@ public class SCR_player_main : MonoBehaviour {
     private SpriteRenderer sr;
 
     [Header("Inventory Vars")]
-
     [SerializeField]
     private int inventorySize;
 
@@ -41,7 +38,11 @@ public class SCR_player_main : MonoBehaviour {
 
     private static SCR_player_inventory inventory;
 
-    public static SCO_gatherable.gatherableHook target; //What should be picked up
+    [Header("Combat")]
+    [SerializeField]
+    private SCO_ABS_item_weapon mainHand;
+    [SerializeField]
+    private SCO_ABS_item_weapon offHand;
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
@@ -136,10 +137,22 @@ public class SCR_player_main : MonoBehaviour {
             }
         }
 
-        private void Update() { 
+        //public static int findItemOfType<T>(T obj) {
+        //    for (int i = 0;i < inventory.Count;i++) {
+        //        if (inventory[i].item != T) return i;
+        //    }
+        //}
+        private void Update() {
+            //TEMP
             if(Input.GetKeyDown(KeyCode.Delete)) {
                 dump();
             }
+            //else if (Input.GetKeyDown(KeyCode.Q)) {
+            //    findItemOfType<SCO_item_edible_healing>();
+            //}
+            //else if (Input.GetKeyDown(KeyCode.E)) {
+            //    findItemOfType<SCO_item_edible_food>();
+            //}
         }
     }
 }
