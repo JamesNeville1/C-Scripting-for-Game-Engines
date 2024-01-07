@@ -17,9 +17,11 @@ public class SCR_master : MonoBehaviour {
         Debug.Log("Map Seed: " + randSeed);
         mapGen.generate(randSeed);
 
-        Vector2 cameraPos = mapGen.mapCentre();
-        Camera.main.transform.position = new Vector3(cameraPos.x, cameraPos.y, -10);
 
-        Instantiate(playerPrefab, mapGen.mapCentre(true), Quaternion.identity);
+        //Make Player (player contains inventory logic)
+        SCR_player_main player = Instantiate(playerPrefab, mapGen.mapCentre(true), Quaternion.identity).GetComponent<SCR_player_main>();
+
+        //Make Inventory Display
+        SCR_ui_main.setupInventory(SCR_player_main.SCR_player_inventory.inventory.Count);
     }
 }

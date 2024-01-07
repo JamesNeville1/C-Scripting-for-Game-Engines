@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SCR_player_main : MonoBehaviour {
     [SerializeField]
@@ -64,32 +65,43 @@ public class SCR_player_main : MonoBehaviour {
     }
 
     public class SCR_player_inventory : MonoBehaviour {
-        public static SCO_item[] inventory;
+        public static Dictionary<Image, SCO_item>inventory; //Display and Scriptable Object
+        //internal static 
 
         internal void setUp(int inventorySize, List<SCO_item> startingItems) {
-            inventory = new SCO_item[inventorySize];
+            inventory = new Dictionary<Image, SCO_item>(inventorySize);
 
             foreach(SCO_item item in startingItems) {
                 int slotRef = findFreeSlot();
-                if(slotRef != -1) inventory[slotRef] = item;
+                if (slotRef != -1) {
+                    var key = inventory.ElementAt(slotRef).Key;
+                    inventory[key] = item;
+                }
             }
         }
 
-        internal static int findFreeSlot() {
-            for (int i = 0; i < inventory.Length; i++) {
-                if (inventory[i] == null) return i;
+        internal static int findFreeSlot() { //Find free slot in inventory array, if can't, return minus one
+            for (int i = 0; i < inventory.Count; i++) {
+                if (inventory.ElementAt(i).Value == null) return i;
             }
             return -1;
         }
         public static bool addItem(SCO_item item) {
             int id = findFreeSlot();
             if(id == -1) return false;
-            inventory[id] = item;
+            var key = inventory.ElementAt(id).Key;
+            inventory[key] = item;
+            updateUI(id);
             return true;
         }
 
-        private void Update() {
+        private static void updateUI(int index) {
+            //inventory
+            //SCR_ui_main.setImage(index,inventory[index].returnSprite());
+        }
 
+        private void Update() {
+            //updateUI();
         }
     }
 }

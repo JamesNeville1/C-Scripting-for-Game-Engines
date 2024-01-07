@@ -14,7 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 339990877, guid: 2c8169dee42d3f847934b43d6fe3ce10, type: 3}
   interactableRadius: 1
-  health: 10
-  maxGive: 4
-  minGive: 1
-  item: {fileID: 11400000, guid: 706f1d0656acd2a44b646d171e070b0f, type: 2}
+  item: {fileID: 11400000, guid: a48a7de10d2a4654e8af58c9e59168a4, type: 2}

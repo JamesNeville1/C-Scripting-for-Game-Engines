@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfad0cabad7e2c24e9a76da153ad9bf7, type: 3}
-  m_Name: SCO_item_edible_food_mushroom
+  m_Name: SCO_item_edible_food_mushroom_2
   m_EditorClassIdentifier: 
-  itemName: Bread
+  itemName: Mushroon
   attribute: 4
+  sprite: {fileID: 1174752705, guid: 2c8169dee42d3f847934b43d6fe3ce10, type: 3}

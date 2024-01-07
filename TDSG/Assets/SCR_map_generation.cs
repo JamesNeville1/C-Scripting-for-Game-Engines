@@ -58,7 +58,7 @@ public class SCR_map_generation : MonoBehaviour {
             colorToType.Add(item.color, item.data);
         }
 
-        tilemap.transform.position -= new Vector3(0.5f, 0.5f);
+        tilemap.transform.position = new Vector3(-0.5f, -0.5f);
 
         distributionStep = 1;
     }

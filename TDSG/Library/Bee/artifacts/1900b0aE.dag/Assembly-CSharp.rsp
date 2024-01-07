@@ -388,6 +388,7 @@
 "Assets/SCR_map_generation.cs"
 "Assets/SCR_master.cs"
 "Assets/SCR_player_main.cs"
+"Assets/SCR_setup_ui.cs"
 "Assets/SCR_utils.cs"
 -langversion:9.0
 /unsafe+
