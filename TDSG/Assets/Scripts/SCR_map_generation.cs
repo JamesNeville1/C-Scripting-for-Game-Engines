@@ -18,14 +18,18 @@ public class SCR_map_generation : MonoBehaviour {
     [Tooltip("Main tile for map")] [SerializeField]
     private RuleTile groundTile;
 
-    [SerializeField]
-    private RuleTile boundsTile;
+    //[SerializeField]
+    //private RuleTile boundsTile;
 
     [SerializeField]
     private RuleTile waterTile;
 
     [Tooltip("Where to place tile")] [SerializeField]
     private Tilemap tilemap;
+    [Tooltip("Where to place water tile")] [SerializeField]
+    private Tilemap waterTilemap;
+    //[Tooltip("Where to place water tile")] [SerializeField]
+    //private Tilemap boundsTileMap;
 
     [Tooltip("Magnify how large perlin map is")] [SerializeField]
     private int islandSize = 8;
@@ -58,6 +62,10 @@ public class SCR_map_generation : MonoBehaviour {
 
     [Tooltip("Reduce gatherables by amount")] [SerializeField]
     private int reduceGatherablesBy;
+
+    [Header("Other")]
+    [Tooltip("")][SerializeField]
+    private Vector2 playerStartPos;
 
     [Header("TEMP")]
     public Texture2D test;
@@ -117,8 +125,9 @@ public class SCR_map_generation : MonoBehaviour {
     //Generate map using tilemap
     public void generate(string seedString = "") {
         tilemap.ClearAllTiles();
+        waterTilemap.ClearAllTiles();
 
-        if(seedString == "") { //If string is empty, create one
+        if (seedString == "") { //If string is empty, create one
             seedString = randomSeed();
         }
         Vector2 seed = readSeed(seedString);
@@ -133,8 +142,6 @@ public class SCR_map_generation : MonoBehaviour {
 
         GameObject gatherableParent = new GameObject("Gatherables Parent");
 
-        GameObject TEMPparent = new GameObject("TEMP");
-
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
                 Vector2 pos = new Vector2(x, y);
@@ -145,48 +152,34 @@ public class SCR_map_generation : MonoBehaviour {
                 //Debug.Log("Colours Contained = " + colorToTile.ContainsKey(currentColour));
                 //Debug.Log("Current Pos: " + pos);
 
-                bool canGatherable = false;
 
                 //If bounds, can't place gatherable
-                if (pos.x == 0) {
-                    pos = new Vector2(x -1, y);
-                    TEMPCOL(pos).transform.parent = TEMPparent.transform;
+                bool isBound = false;
+                if (pos.x == 0 || pos.y >= sizeX - 1) {
+                    isBound = true;
                 }
-                else if (pos.y >= sizeX - 1) {
-                    pos = new Vector2(x + 1, y);
-                    TEMPCOL(pos).transform.parent = TEMPparent.transform;
-                }
-                else if (pos.y == 0) {
-                    pos = new Vector2(x,  y - 1);
-                    TEMPCOL(pos).transform.parent = TEMPparent.transform;
-                }
-                else if (pos.x >= sizeY - 1) {
-                    pos = new Vector2(x, y + 1);
-                    TEMPCOL(pos).transform.parent = TEMPparent.transform;
-                }
-                else {
-                    canGatherable = true;
+                else if (pos.y == 0 || pos.x >= sizeY - 1) {
+                    isBound = true;
                 }
 
                 if (currentColour != Color.black) {
                     tilemap.SetTile(posInt, groundTile);
 
-                    if(currentColour != Color.white && canGatherable) { //If pixel isn't white, place gatherable from dictionairy 
-                        colorToType[currentColour].gatherableSetup(pos, gatherableParent.transform);                        
+                    if (currentColour != Color.white && !isBound)
+                    { //If pixel isn't white, place gatherable from dictionairy 
+                        colorToType[currentColour].gatherableSetup(pos, gatherableParent.transform);
                     }
+                    //TEMP
+                    else {
+                        playerStartPos = pos;
+                    }
+                    //TEMP
                 }
                 else {
-                    TEMPCOL(pos).transform.parent = TEMPparent.transform;
+                    waterTilemap.SetTile(posInt, waterTile);
                 }
             }
         }
-    }
-
-    private GameObject TEMPCOL(Vector2 pos) {
-        GameObject obj = new GameObject("TEMP", typeof(BoxCollider2D));
-        obj.transform.position = pos;
-        obj.GetComponent<BoxCollider2D>().size += new Vector2(.75f, 0.75f);
-        return obj;
     }
 
     //Generate all textures
@@ -303,6 +296,9 @@ public class SCR_map_generation : MonoBehaviour {
     }
     public void removeTile(Vector2 pos) {
         tilemap.SetTile(new Vector3Int((int)pos.x,(int)pos.y), null);
+    }
+    public Vector2 startPos() {
+        return playerStartPos;
     }
     #endregion
 }

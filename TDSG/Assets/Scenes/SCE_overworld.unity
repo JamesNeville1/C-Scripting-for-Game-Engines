@@ -504,7 +504,6 @@ GameObject:
   - component: {fileID: 1205570526}
   - component: {fileID: 1205570528}
   - component: {fileID: 1205570527}
-  - component: {fileID: 1205570529}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -1622,42 +1621,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!19719996 &1205570529
-TilemapCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1205570525}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_MaximumTileChangeCount: 1000
-  m_ExtrusionFactor: 0
-  m_UseDelaunayMesh: 0
 --- !u!1 &1364117800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,9 +1668,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundTile: {fileID: 11400000, guid: 0f2600e3f4db0ea419c8afc78189417a, type: 2}
-  boundsTile: {fileID: 11400000, guid: 1b075c07d2e4ac145b60fc50ae51ac55, type: 2}
   waterTile: {fileID: 11400000, guid: d0d455e8e97a4644c89d1b29ef1f2d04, type: 2}
   tilemap: {fileID: 1205570528}
+  waterTilemap: {fileID: 1630317134}
   islandSize: 35
   sizeX: 100
   sizeY: 100
@@ -1727,6 +1690,7 @@ MonoBehaviour:
   mapTex: {fileID: 0}
   distributionStep: 0
   reduceGatherablesBy: 35
+  playerStartPos: {x: 0, y: 0}
   test: {fileID: 0}
 --- !u!114 &1364117803
 MonoBehaviour:

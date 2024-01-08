@@ -19,6 +19,6 @@ public class SCR_master : MonoBehaviour {
 
 
         //Make Player (player contains inventory logic)
-        SCR_player_main player = Instantiate(playerPrefab, mapGen.mapCentre(true), Quaternion.identity).GetComponent<SCR_player_main>();
+        SCR_player_main player = Instantiate(playerPrefab, mapGen.startPos(), Quaternion.identity).GetComponent<SCR_player_main>();
     }
 }
