@@ -6,6 +6,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using static UnityEditor.PlayerSettings;
 using Color = UnityEngine.Color;
 using Random = System.Random;
 
@@ -15,7 +16,13 @@ public class SCR_map_generation : MonoBehaviour {
 
     [Header("Map Base")]
     [Tooltip("Main tile for map")] [SerializeField]
-    private RuleTile tile;
+    private RuleTile groundTile;
+
+    [SerializeField]
+    private RuleTile boundsTile;
+
+    [SerializeField]
+    private RuleTile waterTile;
 
     [Tooltip("Where to place tile")] [SerializeField]
     private Tilemap tilemap;
@@ -126,6 +133,8 @@ public class SCR_map_generation : MonoBehaviour {
 
         GameObject gatherableParent = new GameObject("Gatherables Parent");
 
+        GameObject TEMPparent = new GameObject("TEMP");
+
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
                 Vector2 pos = new Vector2(x, y);
@@ -134,16 +143,50 @@ public class SCR_map_generation : MonoBehaviour {
                 Color currentColour = mapTex.GetPixel((int)pos.x, (int)pos.y); //Get pixel on texture
 
                 //Debug.Log("Colours Contained = " + colorToTile.ContainsKey(currentColour));
+                //Debug.Log("Current Pos: " + pos);
+
+                bool canGatherable = false;
+
+                //If bounds, can't place gatherable
+                if (pos.x == 0) {
+                    pos = new Vector2(x -1, y);
+                    TEMPCOL(pos).transform.parent = TEMPparent.transform;
+                }
+                else if (pos.y >= sizeX - 1) {
+                    pos = new Vector2(x + 1, y);
+                    TEMPCOL(pos).transform.parent = TEMPparent.transform;
+                }
+                else if (pos.y == 0) {
+                    pos = new Vector2(x,  y - 1);
+                    TEMPCOL(pos).transform.parent = TEMPparent.transform;
+                }
+                else if (pos.x >= sizeY - 1) {
+                    pos = new Vector2(x, y + 1);
+                    TEMPCOL(pos).transform.parent = TEMPparent.transform;
+                }
+                else {
+                    canGatherable = true;
+                }
 
                 if (currentColour != Color.black) {
-                    tilemap.SetTile(posInt, tile);
+                    tilemap.SetTile(posInt, groundTile);
 
-                    if(currentColour != Color.white) {
+                    if(currentColour != Color.white && canGatherable) { //If pixel isn't white, place gatherable from dictionairy 
                         colorToType[currentColour].gatherableSetup(pos, gatherableParent.transform);                        
                     }
                 }
+                else {
+                    TEMPCOL(pos).transform.parent = TEMPparent.transform;
+                }
             }
         }
+    }
+
+    private GameObject TEMPCOL(Vector2 pos) {
+        GameObject obj = new GameObject("TEMP", typeof(BoxCollider2D));
+        obj.transform.position = pos;
+        obj.GetComponent<BoxCollider2D>().size += new Vector2(.75f, 0.75f);
+        return obj;
     }
 
     //Generate all textures
