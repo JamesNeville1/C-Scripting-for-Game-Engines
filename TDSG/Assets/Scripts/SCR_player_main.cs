@@ -5,13 +5,14 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Diagnostics;
 using UnityEngine.UI;
 
 public class SCR_player_main : MonoBehaviour {
 
     [Header("Main")]
-    [SerializeField]
-    private float defaultSpeed;
+    [SerializeField] [SCR_utils.customAttributes.ReadOnly]
+    private float overworldSpeed;
 
     [Header("Components")]
     [SerializeField] [SCR_utils.customAttributes.ReadOnly]
@@ -22,6 +23,9 @@ public class SCR_player_main : MonoBehaviour {
 
     [SerializeField] [SCR_utils.customAttributes.ReadOnly]
     private SpriteRenderer sr;
+
+    [SerializeField] [SCR_utils.customAttributes.ReadOnly]
+    private SCR_entity_attributes att;
 
     [Header("Inventory Vars")]
     [SerializeField]
@@ -38,33 +42,53 @@ public class SCR_player_main : MonoBehaviour {
 
     private static SCR_player_inventory inventory;
 
-    [Header("Combat")]
+    //[Header("Combat")]
+    //[SerializeField]
+    //private SCO_ABS_item_weapon mainHand;
+    //[SerializeField]
+    //private SCO_ABS_item_weapon offHand;
+
+    [Header("Animation")]
+    [Tooltip("")][SerializeField]
+    private string animationPrefix;
+
+    [Header("Will not change once built")]
     [SerializeField]
-    private SCO_ABS_item_weapon mainHand;
-    [SerializeField]
-    private SCO_ABS_item_weapon offHand;
+    private float modifOverworldSpeed;
+
     private void Awake() {
+        //Get Components
         rb = GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        att = GetComponent<SCR_entity_attributes>();
 
+        //Create Inventory
         GameObject inv = new GameObject("Inventory");
         inv.transform.parent = gameObject.transform;
         inventory = inv.AddComponent<SCR_player_inventory>();
-
         inventorySlotsParent = GameObject.Find("Inventory Slots");
         inventory.setUp(inventorySize, startingItems.ToList(), inventorySlot, inventorySlotsParent.transform);
+
+        //Define Animation Prefix
+        animationPrefix = "ANI_" + animationPrefix + "_";
+
+        //Adjust Speed
+        changeOverworldSpeed();
     }
     private void Update() {
-        Vector2 input = returnInput();
-        movePlayer(input);
-        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+        playerMovementMain();
     }
-
-    private Vector2 returnInput() {
+    //All movement related stuff here
+    private void playerMovementMain() {
+        Vector2 input = returnMovementInput(); //Get Input
+        movePlayer(input); //Move Player
+        SCR_utils.functions.animate(animator, animationPrefix, rb.velocity != Vector2.zero); //Animate Player
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10); //Move Camera to follow player
+    }
+    #region movement
+    private Vector2 returnMovementInput() {
         Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if(movement.x != 0 || movement.y != 0) animator.SetBool("isMoving", true);
-        else animator.SetBool("isMoving", false);
         if (movement.x == -1) {
             sr.flipX = true;
         }
@@ -75,13 +99,17 @@ public class SCR_player_main : MonoBehaviour {
     }
     private void movePlayer(Vector2 input) {
         if(input.x == 0 || input.y == 0) {
-            rb.velocity = input * defaultSpeed;
+            rb.velocity = input * overworldSpeed;
         }
         else {
-            rb.velocity = (input * defaultSpeed) * 0.71f;
+            rb.velocity = (input * overworldSpeed) * 0.71f;
         }
     }
-
+    public void changeOverworldSpeed(int modifBy = 0) {
+        overworldSpeed = (att.speed.current * modifOverworldSpeed) - modifBy;
+    }
+    #endregion
+    #region inventory
     public class SCR_player_inventory : MonoBehaviour {
         public class inventoryData {
             public SCO_item item;
@@ -155,4 +183,5 @@ public class SCR_player_main : MonoBehaviour {
             //}
         }
     }
+    #endregion
 }

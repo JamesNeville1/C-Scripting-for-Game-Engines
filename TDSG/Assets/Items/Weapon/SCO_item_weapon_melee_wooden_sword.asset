@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2600e0d813832034db8f31340f88bcbb, type: 3}
   m_Name: SCO_item_weapon_melee_wooden_sword
   m_EditorClassIdentifier: 
-  itemName: 
-  attribute: 0
-  damage: 0
+  itemName: Wood Sword
+  attribute: 2
+  sprite: {fileID: 7482667652216324306, guid: db40f4ea9dde67c4988234420af52528, type: 3}

@@ -389,6 +389,8 @@
 "Assets/Scripts/SCR_master.cs"
 "Assets/Scripts/SCR_player_main.cs"
 "Assets/Scripts/SCR_utils.cs"
+"Assets/SCR_setup_combat.cs"
+"Assets/SCR_unit.cs"
 -langversion:9.0
 
 /deterministic

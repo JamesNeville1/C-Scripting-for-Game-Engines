@@ -28,6 +28,10 @@ public class SCR_utils {
 
             return valid;
         }
+        public static void animate(Animator animator, string prefix, bool moving = false) {
+            if (moving) animator.Play(prefix + "move");
+            else animator.Play(prefix + "idle");
+        }
     }
     public class monoFunctions : MonoBehaviour {
         public static void createButton(string name, Action onClick, GameObject prefab, GameObject parent) {

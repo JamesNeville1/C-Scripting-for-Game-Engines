@@ -27,4 +27,5 @@ public class SCR_entity_attributes : MonoBehaviour {
     public attribute health;
     public attribute hunger;
     public attribute tiredness;
+    public attribute speed;
 }

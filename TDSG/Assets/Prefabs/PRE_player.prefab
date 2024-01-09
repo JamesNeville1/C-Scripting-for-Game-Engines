@@ -101,18 +101,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039649df72968544ba91b1c8ee229416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSpeed: 5.75
+  overworldSpeed: 0
   rb: {fileID: 0}
   animator: {fileID: 0}
   sr: {fileID: 0}
+  att: {fileID: 0}
   inventorySize: 10
   inventorySlot: {fileID: 5977495281630916866, guid: 4e0d31a3e4479c64ca1c19074a100c41, type: 3}
   inventorySlotsParent: {fileID: 0}
   startingItems:
   - {fileID: 11400000, guid: 77b82a6a729a2e747bd41311647fc786, type: 2}
   - {fileID: 11400000, guid: 706f1d0656acd2a44b646d171e070b0f, type: 2}
-  mainHand: {fileID: 0}
-  offHand: {fileID: 0}
+  animationPrefix: player
+  modifOverworldSpeed: 1.25
 --- !u!114 &4366492743712515690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +135,9 @@ MonoBehaviour:
   tiredness:
     current: 3
     max: 3
+  speed:
+    current: 5
+    max: 5
 --- !u!50 &3903683744039567537
 Rigidbody2D:
   serializedVersion: 4
