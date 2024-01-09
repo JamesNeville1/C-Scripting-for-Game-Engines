@@ -109,6 +109,7 @@
 -define:ENABLE_UNITY_COLLECTIONS_CHECKS
 -define:ENABLE_BURST_AOT
 -define:UNITY_TEAM_LICENSE
+-define:UNITY_PRO_LICENSE
 -define:ENABLE_CUSTOM_RENDER_TEXTURE
 -define:ENABLE_DIRECTOR
 -define:ENABLE_LOCALIZATION
@@ -389,7 +390,8 @@
 "Assets/Scripts/SCR_master.cs"
 "Assets/Scripts/SCR_player_main.cs"
 "Assets/Scripts/SCR_utils.cs"
-"Assets/SCR_setup_combat.cs"
+"Assets/SCR_combat_manager.cs"
+"Assets/SCR_tile.cs"
 "Assets/SCR_unit.cs"
 -langversion:9.0
 
