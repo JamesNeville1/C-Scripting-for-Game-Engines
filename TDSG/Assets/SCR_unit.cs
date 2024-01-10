@@ -12,17 +12,13 @@ public class SCR_unit : MonoBehaviour {
     [SerializeField]
     private List<SCO_item> additionalItems;
 
-    public IEnumerator move(List<Vector2> pos) {
-        int i = 0;
-        while (i < pos.Count) {
-            if (Vector2.Distance(transform.position, pos[i]) < .1f) {
-                transform.position = pos[i];
-                i++;
-                yield return new WaitForSeconds(2);
-            }
-            else {
-                transform.position = Vector2.MoveTowards(transform.position, pos[i], 2 * Time.deltaTime);
-            }
-        }
+    SCR_entity_attributes characterAttributes;
+
+    private void Awake() {
+        characterAttributes = GetComponent<SCR_entity_attributes>();
+    }
+
+    public void move(List<Vector2> steps = null) {
+        transform.position = Vector2.zero;
     }
 }

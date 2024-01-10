@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SCR_combat_manager : MonoBehaviour {
-    
+
     [SerializeField]
     private GameObject tile;
 
@@ -13,18 +14,43 @@ public class SCR_combat_manager : MonoBehaviour {
     static public Vector2? pressed;
 
     [SerializeField]
-    private SCR_unit currentUnit;
+    private KeyValuePair<SCR_unit, unitType> currentUnit;
+
+    [SerializeField]
+    private GameObject unitPrefab;
+
+    public enum unitType {
+        PLAYER,
+        Enemy
+    }
+
+    private List<KeyValuePair<SCR_unit, unitType>> units = new List<KeyValuePair<SCR_unit, unitType>>();
+    private List<List<GameObject>> grid = new List<List<GameObject>>();
 
     private void Start() {
-        gridSetup();
-        currentUnit = GameObject.Find("PRE_unit").GetComponent<SCR_unit>();
-        comatMain();
+        setup();
+        currentUnit = units[0];
+        print(currentUnit);
     }
 
     private void Update() {
+        comatMain();
     }
 
-    private List<List<GameObject>> gridSetup(int boundsX=16, int boundsY=9) {
+    public void setup() {
+        grid = gridSetup();
+        units = unitSetup();
+    }
+    private void comatMain() {
+        int i = 0;
+        if (units[i].Value == unitType.PLAYER) {
+            if(pressed != null) {
+                units[i].Key.move(null);
+                i++;
+            }
+        }
+    }
+    private List<List<GameObject>> gridSetup(int boundsX = 16, int boundsY = 9) {
         GameObject parent = new GameObject("Grid Parent");
         List<List<GameObject>> grid = new List<List<GameObject>>();
         for (int x = 0; x < boundsX; x++) {
@@ -39,14 +65,14 @@ public class SCR_combat_manager : MonoBehaviour {
         parent.transform.position = gridPos;
         return grid;
     }
-    private void comatMain() {
-        if(pressed != null) {
-            List<Vector2> temp = new List<Vector2> {
-                (Vector2)pressed,
-                (Vector2)pressed + Vector2.left,
-                (Vector2)pressed + Vector2.left + Vector2.left
-            };
-            StartCoroutine(currentUnit.move(temp));
-        }
+    private List<KeyValuePair<SCR_unit, unitType>> unitSetup() {
+        GameObject parent = new GameObject("Units");
+        List<KeyValuePair<SCR_unit, unitType>> toPass = new List<KeyValuePair<SCR_unit, unitType>>();  //TEMP
+        
+        toPass.Add(new KeyValuePair<SCR_unit, unitType>
+            (Instantiate(unitPrefab, grid[4][5].transform.position, Quaternion.identity, parent.transform).GetComponent<SCR_unit>(), unitType.PLAYER));
+        toPass.Add(new KeyValuePair<SCR_unit, unitType>
+            (Instantiate(unitPrefab, grid[8][5].transform.position, Quaternion.identity, parent.transform).GetComponent<SCR_unit>(), unitType.Enemy));
+        return toPass;
     }
 }
