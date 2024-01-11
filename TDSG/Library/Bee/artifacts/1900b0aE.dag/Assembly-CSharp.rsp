@@ -393,6 +393,7 @@
 "Assets/Scripts/SCR_player_inventory.cs"
 "Assets/Scripts/SCR_player_main.cs"
 "Assets/Scripts/SCR_utils.cs"
+"Assets/SCR_iventory_piece.cs"
 -langversion:9.0
 
 /deterministic

@@ -32,6 +32,10 @@ public class SCR_utils {
             if (moving) animator.Play(prefix + "move");
             else animator.Play(prefix + "idle");
         }
+        public static Vector2 getMousePos(Camera cam) {
+            Vector3 worldPosition = cam.ScreenToWorldPoint(Input.mousePosition);
+            return worldPosition;
+        }
     }
     public class monoFunctions : MonoBehaviour {
         public static void createButton(string name, Action onClick, GameObject prefab, GameObject parent) {
