@@ -13,8 +13,10 @@ public class SCO_item : ScriptableObject {
     public Sprite returnSprite() {
         return sprite;
     }
-
     public Vector2[] returnSpaces() {
         return spaces;
+    }
+    public Color returnColor(){
+        return displayBlockColour;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class SCR_iventory_piece : MonoBehaviour {
     bool pressed = false;
@@ -15,6 +16,7 @@ public class SCR_iventory_piece : MonoBehaviour {
 
     private void Awake() {
         playerInventory = SCR_player_inventory.returnInstance();
+        print(playerInventory);
     }
 
     private void OnMouseOver() {
@@ -23,25 +25,30 @@ public class SCR_iventory_piece : MonoBehaviour {
         }
     }
     private void Update() {
-        if (Input.GetMouseButton(0) && pressed) {
-            transform.position = SCR_utils.functions.getMousePos(Camera.main);
-        }
-        else if(Input.GetMouseButtonUp(0)) {
-            pressed = false;
-            print(Camera.main);
-            transform.position = playerInventory.closest(SCR_utils.functions.getMousePos(Camera.main));
+        if (pressed) {
+            if (Input.GetMouseButton(0)) {
+                transform.position = SCR_utils.functions.getMousePos(Camera.main);
+            }
+            else if (Input.GetMouseButtonUp(0)) {
+                pressed = false;
+                transform.position = (Vector3Int)playerInventory.closest(SCR_utils.functions.getMousePos(Camera.main));
+            }
         }
     }
 
     private void Start() {
         Vector2[] blocks = source.returnSpaces();
 
+        Color blockColour = source.returnColor();
+
         foreach (Vector2 block in blocks) {
             GameObject newBlock = new GameObject("Block:" + block.x + ", " + block.y, typeof(SpriteRenderer));
             newBlock.transform.parent = transform;
             newBlock.transform.localPosition = block;
 
-            newBlock.GetComponent<SpriteRenderer>().sprite = blockSprite;
+            SpriteRenderer sr = newBlock.GetComponent<SpriteRenderer>();
+            sr.sprite = blockSprite;
+            sr.color = blockColour;
 
             newBlock.AddComponent<BoxCollider2D>().usedByComposite = true;
         }

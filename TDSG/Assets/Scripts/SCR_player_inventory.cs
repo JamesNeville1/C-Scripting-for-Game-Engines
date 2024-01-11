@@ -47,16 +47,7 @@ public class SCR_player_inventory : MonoBehaviour {
         inventoryCamera.transform.position = new Vector3(3.5f, 3.5f, -10); //TEMP
     }
 
-    public Vector2 closest(Vector2 toCheck) {
-        Vector2 toPass = avaliable.ElementAt(0).Key;
-        float lastDist = Mathf.Infinity;
-        foreach(Vector2 pos in avaliable.Keys) {
-            float dist = Vector2.Distance(toCheck, pos);
-            if (dist < lastDist) {
-                toPass = pos;
-                lastDist = dist;
-            }
-        }
-        return toPass;
+    public Vector2Int closest(Vector2 toCheck) {
+        return (new Vector2Int(Mathf.RoundToInt(toCheck.x), Mathf.RoundToInt(toCheck.y)));
     }
 }
