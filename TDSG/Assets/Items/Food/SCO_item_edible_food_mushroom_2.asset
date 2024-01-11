@@ -15,3 +15,5 @@ MonoBehaviour:
   itemName: Mushroon
   attribute: 4
   sprite: {fileID: 1174752705, guid: 2c8169dee42d3f847934b43d6fe3ce10, type: 3}
+  displayBlock: {fileID: 21300000, guid: d8ae8cb60f334584d9efa2f6bcc2fb6a, type: 3}
+  displayBlockColour: {r: 0, g: 0, b: 0, a: 0}

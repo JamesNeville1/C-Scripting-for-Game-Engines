@@ -53,9 +53,9 @@ public class SCO_gatherable : ScriptableObject {
             sr.color = originalColor;
         }
         private void OnMouseOver() {
-            if(Input.GetKeyDown(keyToGather) && SCR_player_main.SCR_player_inventory.findFreeSlot() != -1) {
-                SCR_player_main.SCR_player_inventory.addItem(returnItem());
-            }
+            //if(Input.GetKeyDown(keyToGather) && SCR_player_main.SCR_player_inventory.findFreeSlot() != -1) {
+                //SCR_player_main.SCR_player_inventory.addItem(returnItem());
+            //}
         }
     }
 }
