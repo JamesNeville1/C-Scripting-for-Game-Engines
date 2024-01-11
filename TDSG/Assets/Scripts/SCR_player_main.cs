@@ -39,8 +39,6 @@ public class SCR_player_main : MonoBehaviour {
     [SerializeField]
     private SCO_item[] startingItems;
 
-    private static SCR_player_inventory inventory;
-
     //[Header("Combat")]
     //[SerializeField]
     //private SCO_ABS_item_weapon mainHand;
@@ -62,20 +60,11 @@ public class SCR_player_main : MonoBehaviour {
         sr = GetComponent<SpriteRenderer>();
         att = GetComponent<SCR_entity_attributes>();
 
-        //Create Inventory
-        //GameObject inv = inventory.setUp(inventorySlot, inventorySizeX, inventorySizeY).transform.parent = gameObject.transform;
-        //inv.transform.parent = gameObject.transform;
-        //inv.transform.localPosition = Vector3.zero;
-        //inventory = inv.AddComponent<SCR_player_inventory>();
-
         //Define Animation Prefix
         animationPrefix = "ANI_" + animationPrefix + "_";
 
         //Adjust Speed
         changeOverworldSpeed();
-
-
-
     }
     private void Update() {
         playerMovementMain();
@@ -108,28 +97,6 @@ public class SCR_player_main : MonoBehaviour {
     }
     public void changeOverworldSpeed(int modifBy = 0) {
         overworldSpeed = (att.speed.current * modifOverworldSpeed) - modifBy;
-    }
-    #endregion
-    #region inventory
-    public class SCR_player_inventory : MonoBehaviour {
-        List<List<Vector2>> inventoryGrid = new List<List<Vector2>>();
-
-        public GameObject setUp(Sprite display,int sizeX, int sizeY) {
-            GameObject parent = new GameObject("Slots Parent");
-            for (int x = 0; x < sizeX; x++) {
-                inventoryGrid.Add(new List<Vector2>());
-                for (int y = 0; y < sizeY; y++) {
-                    inventoryGrid[x].Add(new Vector2(x,y));
-
-
-                    GameObject displaySlot = new GameObject(x.ToString() + " " + y.ToString(), typeof(SpriteRenderer));
-                    displaySlot.transform.position = inventoryGrid[x][y];
-                    displaySlot.transform.parent = parent.transform;
-                    displaySlot.GetComponent<SpriteRenderer>().sprite = display;
-                }
-            }
-            return parent;
-        }
     }
     #endregion
 }

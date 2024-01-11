@@ -384,14 +384,15 @@
 "Assets/Items/SCO_item_edible_healing.cs"
 "Assets/Items/SCO_item_weapon_melee.cs"
 "Assets/Items/SCO_item_weapon_ranged.cs"
+"Assets/Scripts/Combat Only/SCR_combat_manager.cs"
+"Assets/Scripts/Combat Only/SCR_tile.cs"
+"Assets/Scripts/Combat Only/SCR_unit.cs"
 "Assets/Scripts/SCR_entity_attributes.cs"
 "Assets/Scripts/SCR_map_generation.cs"
 "Assets/Scripts/SCR_master.cs"
+"Assets/Scripts/SCR_player_inventory.cs"
 "Assets/Scripts/SCR_player_main.cs"
 "Assets/Scripts/SCR_utils.cs"
-"Assets/SCR_combat_manager.cs"
-"Assets/SCR_tile.cs"
-"Assets/SCR_unit.cs"
 -langversion:9.0
 
 /deterministic
