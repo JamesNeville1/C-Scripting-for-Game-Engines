@@ -23,10 +23,7 @@ public class SCR_player_inventory : MonoBehaviour {
     private Sprite cellSprite;
 
     [SerializeField]
-    private HashSet<Vector2> avaliable = new HashSet<Vector2>();
-
-    [SerializeField]
-    private HashSet<SCR_inventory_piece> used = new HashSet<SCR_inventory_piece>();
+    private Dictionary<Vector2, GameObject> avaliable = new Dictionary<Vector2, GameObject>();
 
     private void Awake() {
         instance = this;
@@ -41,41 +38,39 @@ public class SCR_player_inventory : MonoBehaviour {
                 cell.transform.parent = transform;
                 cell.GetComponent<SpriteRenderer>().sprite = cellSprite;
 
-                avaliable.Add(pos);
+                avaliable.Add(pos, null);
             }
         }
         Camera.main.transform.position = new Vector3(3.5f, 3.5f, -10); //TEMP
     }
 
-    public Vector2 closest(Vector2 toCheck, SCR_inventory_piece piece) {
-        Vector2Int pos = new Vector2Int(Mathf.RoundToInt(toCheck.x), Mathf.RoundToInt(toCheck.y));
-        if (avaliable.Contains(pos)) {
-            used.Add(piece);
-            return pos;
+    public bool tryPlace(SCR_inventory_piece toManipulate) {
+        //Check if it can even be placed?
+        Vector2Int pos = new Vector2Int(Mathf.RoundToInt(toManipulate.transform.position.x), Mathf.RoundToInt(toManipulate.transform.position.y));
+        if (!avaliable.ContainsKey(pos)) {
+            return false;
         }
-        else {
-            return toCheck;
-        }
-    }
 
-    public void remove(SCR_inventory_piece piece) {
-        used.Remove(piece);
+        toManipulate.transform.position = (Vector2)pos;
+
+        return true;
     }
 
     private void Update() {
-        print(pack());
+
     }
 
-    public bool pack() {
-        foreach (SCR_inventory_piece piece in used) {
-            List<Vector2> vecs = piece.returnPositions();
-            foreach (Vector2 vect in vecs) {
-                //print(vect);
-                if(!avaliable.Contains(vect)) {
-                   return false;
-                }
+    public void packButton() {
+        SCR_inventory_piece[] pieces = FindObjectsOfType<SCR_inventory_piece>();
+
+        List<SCR_inventory_piece> validPieces = new List<SCR_inventory_piece>();
+
+        foreach (SCR_inventory_piece piece in pieces) {
+            if (piece.isPlaced) {
+                validPieces.Add(piece);
             }
         }
-        return true;
+
+
     }
 }

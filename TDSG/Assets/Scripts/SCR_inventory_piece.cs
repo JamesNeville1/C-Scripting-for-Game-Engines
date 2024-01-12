@@ -15,12 +15,18 @@ public class SCR_inventory_piece : MonoBehaviour {
     private Sprite blockSprite;
 
     private SCR_player_inventory playerInventory;
+
     private List<SpriteRenderer> data = new List<SpriteRenderer>();
-    private HashSet<Vector2> BlockPos = new HashSet<Vector2>(); 
+
+    private HashSet<GameObject> children = new HashSet<GameObject>();
+
+    private Vector2 originPos;
+
+    public bool isPlaced = false;
 
     private void Awake() {
         playerInventory = SCR_player_inventory.returnInstance();
-        print(playerInventory);
+        originPos = transform.position;
     }
 
     private void OnMouseOver() {
@@ -37,7 +43,8 @@ public class SCR_inventory_piece : MonoBehaviour {
             }
             else if (Input.GetMouseButtonUp(0)) {
                 pressed = false;
-                transform.position = playerInventory.closest(SCR_utils.functions.getMousePos(Camera.main), this);
+                adjustSortingOrder(1);
+                isPlaced = playerInventory.tryPlace(this);
             }
         }
     }
@@ -56,7 +63,7 @@ public class SCR_inventory_piece : MonoBehaviour {
             sr.sprite = blockSprite;
             sr.color = blockColour;
             sr.sortingOrder = 1;
-            BlockPos.Add(newBlock.transform.localPosition);
+            children.Add(newBlock);
 
             newBlock.AddComponent<BoxCollider2D>().usedByComposite = true;
         }
@@ -66,16 +73,5 @@ public class SCR_inventory_piece : MonoBehaviour {
         foreach (SpriteRenderer sr in data) {
             sr.sortingOrder = adjustTo;
         }
-    }
-
-    public List<Vector2> returnPositions() {
-        List<Vector2> vecs = BlockPos.ToList();
-        List<Vector2> toLoop = vecs;
-
-        for (int i = 0; i < toLoop.Count; i++) {
-            vecs[i] += (Vector2)transform.position;
-        }
-
-        return vecs;
     }
 }
