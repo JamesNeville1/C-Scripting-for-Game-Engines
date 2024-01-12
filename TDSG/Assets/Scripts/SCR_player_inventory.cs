@@ -23,17 +23,17 @@ public class SCR_player_inventory : MonoBehaviour {
     private Sprite cellSprite;
 
     [SerializeField]
-    private Camera inventoryCamera;
+    private HashSet<Vector2> avaliable = new HashSet<Vector2>();
 
     [SerializeField]
-    public Dictionary<Vector2, bool> avaliable = new Dictionary<Vector2, bool>();
+    private HashSet<SCR_inventory_piece> used = new HashSet<SCR_inventory_piece>();
 
     private void Awake() {
         instance = this;
     }
     private void Start() {
-        for (int y = 1; y <= startingY; y++) {
-            for (int x = 1; x <= startingX; x++) {
+        for (int y = 0; y <= startingY - 1; y++) {
+            for (int x = 0; x <= startingX - 1; x++) {
                 Vector2 pos = new Vector2(x, y);
 
                 GameObject cell = new GameObject("Inventory Grid Cell: " + x.ToString() + ", " + y.ToString(), typeof(SpriteRenderer));
@@ -41,13 +41,41 @@ public class SCR_player_inventory : MonoBehaviour {
                 cell.transform.parent = transform;
                 cell.GetComponent<SpriteRenderer>().sprite = cellSprite;
 
-                avaliable.Add(pos, false);
+                avaliable.Add(pos);
             }
         }
-        inventoryCamera.transform.position = new Vector3(3.5f, 3.5f, -10); //TEMP
+        Camera.main.transform.position = new Vector3(3.5f, 3.5f, -10); //TEMP
     }
 
-    public Vector2Int closest(Vector2 toCheck) {
-        return (new Vector2Int(Mathf.RoundToInt(toCheck.x), Mathf.RoundToInt(toCheck.y)));
+    public Vector2 closest(Vector2 toCheck, SCR_inventory_piece piece) {
+        Vector2Int pos = new Vector2Int(Mathf.RoundToInt(toCheck.x), Mathf.RoundToInt(toCheck.y));
+        if (avaliable.Contains(pos)) {
+            used.Add(piece);
+            return pos;
+        }
+        else {
+            return toCheck;
+        }
+    }
+
+    public void remove(SCR_inventory_piece piece) {
+        used.Remove(piece);
+    }
+
+    private void Update() {
+        print(pack());
+    }
+
+    public bool pack() {
+        foreach (SCR_inventory_piece piece in used) {
+            List<Vector2> vecs = piece.returnPositions();
+            foreach (Vector2 vect in vecs) {
+                //print(vect);
+                if(!avaliable.Contains(vect)) {
+                   return false;
+                }
+            }
+        }
+        return true;
     }
 }

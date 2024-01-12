@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.U2D;
+using UnityEngine.UIElements;
 
-public class SCR_iventory_piece : MonoBehaviour {
+public class SCR_inventory_piece : MonoBehaviour {
     bool pressed = false;
 
     [SerializeField]
@@ -12,7 +14,9 @@ public class SCR_iventory_piece : MonoBehaviour {
     [SerializeField]
     private Sprite blockSprite;
 
-    SCR_player_inventory playerInventory;
+    private SCR_player_inventory playerInventory;
+    private List<SpriteRenderer> data = new List<SpriteRenderer>();
+    private HashSet<Vector2> BlockPos = new HashSet<Vector2>(); 
 
     private void Awake() {
         playerInventory = SCR_player_inventory.returnInstance();
@@ -28,10 +32,12 @@ public class SCR_iventory_piece : MonoBehaviour {
         if (pressed) {
             if (Input.GetMouseButton(0)) {
                 transform.position = SCR_utils.functions.getMousePos(Camera.main);
+                adjustSortingOrder(2);
+                //print(name + " " + returnPositions()[1]);
             }
             else if (Input.GetMouseButtonUp(0)) {
                 pressed = false;
-                transform.position = (Vector3Int)playerInventory.closest(SCR_utils.functions.getMousePos(Camera.main));
+                transform.position = playerInventory.closest(SCR_utils.functions.getMousePos(Camera.main), this);
             }
         }
     }
@@ -49,8 +55,27 @@ public class SCR_iventory_piece : MonoBehaviour {
             SpriteRenderer sr = newBlock.GetComponent<SpriteRenderer>();
             sr.sprite = blockSprite;
             sr.color = blockColour;
+            sr.sortingOrder = 1;
+            BlockPos.Add(newBlock.transform.localPosition);
 
             newBlock.AddComponent<BoxCollider2D>().usedByComposite = true;
         }
+    }
+
+    private void adjustSortingOrder(int adjustTo) {
+        foreach (SpriteRenderer sr in data) {
+            sr.sortingOrder = adjustTo;
+        }
+    }
+
+    public List<Vector2> returnPositions() {
+        List<Vector2> vecs = BlockPos.ToList();
+        List<Vector2> toLoop = vecs;
+
+        for (int i = 0; i < toLoop.Count; i++) {
+            vecs[i] += (Vector2)transform.position;
+        }
+
+        return vecs;
     }
 }
