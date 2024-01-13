@@ -22,8 +22,13 @@ public class SCR_player_inventory : MonoBehaviour {
     [SerializeField]
     private Sprite cellSprite;
 
-    [SerializeField]
-    private Dictionary<Vector2, GameObject> avaliable = new Dictionary<Vector2, GameObject>();
+    enum cellState {
+        EMPTY,
+        OCCUPIED
+    }
+
+    private Dictionary<Vector2, cellState> gridData = new Dictionary<Vector2, cellState>();
+    private Dictionary<SCR_inventory_piece, List<Vector2>> pieceData = new Dictionary<SCR_inventory_piece, List<Vector2>>();
 
     private void Awake() {
         instance = this;
@@ -38,39 +43,54 @@ public class SCR_player_inventory : MonoBehaviour {
                 cell.transform.parent = transform;
                 cell.GetComponent<SpriteRenderer>().sprite = cellSprite;
 
-                avaliable.Add(pos, null);
+                gridData.Add(pos, cellState.EMPTY);
             }
         }
         Camera.main.transform.position = new Vector3(3.5f, 3.5f, -10); //TEMP
+    }
+    
+    public void removePiece(SCR_inventory_piece toCheck) {
+        if (pieceData.ContainsKey(toCheck)) {
+            Vector2[] toRemove = pieceData[toCheck].ToArray();
+            pieceData.Remove(toCheck);
+        }
     }
 
     public bool tryPlace(SCR_inventory_piece toManipulate) {
         //Check if it can even be placed?
         Vector2Int pos = new Vector2Int(Mathf.RoundToInt(toManipulate.transform.position.x), Mathf.RoundToInt(toManipulate.transform.position.y));
-        if (!avaliable.ContainsKey(pos)) {
+        if (!gridData.ContainsKey(pos)) {
             return false;
         }
 
         toManipulate.transform.position = (Vector2)pos;
 
+        pieceData.Add(toManipulate, toManipulate.returnChildren());
+
         return true;
     }
 
     private void Update() {
-
+        
     }
 
     public void packButton() {
-        SCR_inventory_piece[] pieces = FindObjectsOfType<SCR_inventory_piece>();
+        Debug.Log("Valid Placements:" + packCheck());
+    }
 
-        List<SCR_inventory_piece> validPieces = new List<SCR_inventory_piece>();
-
-        foreach (SCR_inventory_piece piece in pieces) {
-            if (piece.isPlaced) {
-                validPieces.Add(piece);
+    public bool packCheck() {
+        foreach(SCR_inventory_piece piece in pieceData.Keys) {
+            foreach(Vector2 vec in pieceData[piece]) {
+                if (!gridData.ContainsKey(vec)) {
+                    Debug.Log("Grid Data Doesnt Contain: " + vec);
+                    return false;
+                }
+                else if (gridData[vec] == cellState.OCCUPIED) {
+                    Debug.Log("Grid Data: " + vec + " is ocupied");
+                    return false;
+                }
             }
         }
-
-
+        return true;
     }
 }

@@ -1601,8 +1601,8 @@ MonoBehaviour:
   tilemap: {fileID: 1205570528}
   waterTilemap: {fileID: 1630317134}
   islandSize: 35
-  sizeX: 1000
-  sizeY: 1000
+  sizeX: 300
+  sizeY: 300
   gathables:
   - color: {r: 0.54509807, g: 0.5686275, b: 0.3137255, a: 1}
     data: {fileID: 11400000, guid: 7e4eedfa6dc139a4aaa38141cf62f4ad, type: 2}
