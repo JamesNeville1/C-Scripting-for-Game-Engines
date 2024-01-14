@@ -16,17 +16,15 @@ public class SCR_inventory_piece : MonoBehaviour {
 
     private SCR_player_inventory playerInventory;
 
-    private List<SpriteRenderer> data = new List<SpriteRenderer>();
-
-    private Vector2 originPos;
+    private List<SpriteRenderer> srs = new List<SpriteRenderer>();
 
     private void Awake() {
         playerInventory = SCR_player_inventory.returnInstance();
-        originPos = transform.position;
     }
 
     private void OnMouseOver() {
         if (Input.GetMouseButtonDown(0)) {
+            adjustSortingOrder(2);
             pressed = true;
         }
     }
@@ -36,12 +34,12 @@ public class SCR_inventory_piece : MonoBehaviour {
                 transform.position = SCR_utils.functions.getMousePos(Camera.main);
                 adjustSortingOrder(2);
                 //print(name + " " + returnPositions()[1]);
+                playerInventory.removePiece(this);
             }
             else if (Input.GetMouseButtonUp(0)) {
                 pressed = false;
-                adjustSortingOrder(1);
-                playerInventory.removePiece(this);
-                playerInventory.tryPlace(this);
+                if(playerInventory.tryPlace(this)) adjustSortingOrder(1);
+                else adjustSortingOrder(2);
             }
         }
     }
@@ -56,25 +54,26 @@ public class SCR_inventory_piece : MonoBehaviour {
             newBlock.transform.parent = transform;
             newBlock.transform.localPosition = blockPos;
 
-            SpriteRenderer sr = newBlock.GetComponent<SpriteRenderer>();
-            sr.sprite = blockSprite;
-            sr.color = blockColour;
-            sr.sortingOrder = 1;
+            srs.Add(newBlock.GetComponent<SpriteRenderer>());
+            srs[srs.Count-1].sprite = blockSprite;
+            srs[srs.Count-1].color = blockColour;
+            srs[srs.Count-1].sortingOrder = 2;
 
             newBlock.AddComponent<BoxCollider2D>().usedByComposite = true;
         }
     }
 
     private void adjustSortingOrder(int adjustTo) {
-        foreach (SpriteRenderer sr in data) {
+        foreach (SpriteRenderer sr in srs) {
             sr.sortingOrder = adjustTo;
         }
     }
 
-    public List<Vector2> returnChildren() {
+    public List<Vector2> returnChildren(Vector2 parentPos) {
         List<Vector2> children = new List<Vector2>();
         for (int i = 0; i < transform.childCount; i++) {
-            children.Add(gameObject.transform.GetChild(i).transform.position);
+            children.Add(gameObject.transform.GetChild(i).transform.localPosition + (Vector3)parentPos);
+            print(children[i]);
         }
         return children.ToList();
     }

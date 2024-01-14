@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SCR_player_inventory : MonoBehaviour {
@@ -51,21 +52,25 @@ public class SCR_player_inventory : MonoBehaviour {
     
     public void removePiece(SCR_inventory_piece toCheck) {
         if (pieceData.ContainsKey(toCheck)) {
-            Vector2[] toRemove = pieceData[toCheck].ToArray();
             pieceData.Remove(toCheck);
+            Vector2 roundedPos = roundVect(toCheck.transform.position);
+            adjustGridState(toCheck.returnChildren(roundedPos), cellState.EMPTY);
         }
     }
 
-    public bool tryPlace(SCR_inventory_piece toManipulate) {
+    public bool tryPlace(SCR_inventory_piece toManipulate) {        
         //Check if it can even be placed?
         Vector2Int pos = new Vector2Int(Mathf.RoundToInt(toManipulate.transform.position.x), Mathf.RoundToInt(toManipulate.transform.position.y));
         if (!gridData.ContainsKey(pos)) {
             return false;
         }
+        else if(!checkPiece(toManipulate,pos)) {
+            return false;
+        }
 
         toManipulate.transform.position = (Vector2)pos;
 
-        pieceData.Add(toManipulate, toManipulate.returnChildren());
+        pieceData.Add(toManipulate, toManipulate.returnChildren(pos));
 
         return true;
     }
@@ -75,22 +80,33 @@ public class SCR_player_inventory : MonoBehaviour {
     }
 
     public void packButton() {
-        Debug.Log("Valid Placements:" + packCheck());
+        
     }
 
-    public bool packCheck() {
-        foreach(SCR_inventory_piece piece in pieceData.Keys) {
-            foreach(Vector2 vec in pieceData[piece]) {
-                if (!gridData.ContainsKey(vec)) {
-                    Debug.Log("Grid Data Doesnt Contain: " + vec);
-                    return false;
-                }
-                else if (gridData[vec] == cellState.OCCUPIED) {
-                    Debug.Log("Grid Data: " + vec + " is ocupied");
-                    return false;
-                }
+    public bool checkPiece(SCR_inventory_piece piece, Vector2 pos) {
+        List<Vector2> children = piece.returnChildren(pos);
+        foreach(Vector2 vec in children) {
+            if (!gridData.ContainsKey(vec)) {
+                Debug.Log("Grid Data Doesnt Contain: " + vec);
+                return false;
+            }
+            else if (gridData[vec] == cellState.OCCUPIED) {
+                Debug.Log("Grid Data: " + vec + " is ocupied");
+                return false;
             }
         }
+        adjustGridState(children, cellState.OCCUPIED);
         return true;
+    }
+
+    private void adjustGridState(List<Vector2> toAdjust, cellState state) {
+        foreach (Vector2 vec in toAdjust) {
+            gridData[vec] = state;
+        }
+    }
+
+    private Vector2 roundVect(Vector2 vect) {
+        vect = new Vector2(Mathf.RoundToInt(vect.x), Mathf.RoundToInt(vect.y));
+        return vect;
     }
 }
