@@ -8,12 +8,6 @@ public class SCR_player_inventory : MonoBehaviour {
 
     private static SCR_player_inventory instance;
 
-    public static SCR_player_inventory returnInstance() {
-        return instance;
-    }
-
-    public List<SCO_item> inventory = new List<SCO_item>();
-
     [SerializeField]
     private int startingX;
 
@@ -23,6 +17,9 @@ public class SCR_player_inventory : MonoBehaviour {
     [SerializeField]
     private Sprite cellSprite;
 
+    [SerializeField]
+    private GameObject piecePerfab;
+
     enum cellState {
         EMPTY,
         OCCUPIED
@@ -31,23 +28,35 @@ public class SCR_player_inventory : MonoBehaviour {
     private Dictionary<Vector2, cellState> gridData = new Dictionary<Vector2, cellState>();
     private Dictionary<SCR_inventory_piece, List<Vector2>> pieceData = new Dictionary<SCR_inventory_piece, List<Vector2>>();
 
+    public static SCR_player_inventory returnInstance() {
+        return instance;
+    }
+
     private void Awake() {
         instance = this;
     }
     private void Start() {
-        for (int y = 0; y <= startingY - 1; y++) {
-            for (int x = 0; x <= startingX - 1; x++) {
+        Camera.main.transform.position = new Vector3(3.5f, 3.5f, -10); //TEMP
+    }
+
+    public void setup(List<SCO_item> items, int sizeX, int sizeY) {
+        for (int y = 0; y <= sizeY - 1; y++) {
+            for (int x = 0; x <= sizeX - 1; x++) {
                 Vector2 pos = new Vector2(x, y);
 
                 GameObject cell = new GameObject("Inventory Grid Cell: " + x.ToString() + ", " + y.ToString(), typeof(SpriteRenderer));
                 cell.transform.position = pos;
-                cell.transform.parent = transform;
-                cell.GetComponent<SpriteRenderer>().sprite = cellSprite;
+                cell.transform.parent = instance.transform;
+                cell.GetComponent<SpriteRenderer>().sprite = instance.cellSprite;
 
-                gridData.Add(pos, cellState.EMPTY);
+                instance.gridData.Add(pos, cellState.EMPTY);
             }
         }
-        Camera.main.transform.position = new Vector3(3.5f, 3.5f, -10); //TEMP
+        
+        foreach (SCO_item item in items) {
+            GameObject piece = Instantiate(piecePerfab, Vector3.zero, Quaternion.identity);
+            piece.GetComponent<SCR_inventory_piece>().setup(item);
+        }
     }
     
     public void removePiece(SCR_inventory_piece toCheck) {
@@ -73,10 +82,6 @@ public class SCR_player_inventory : MonoBehaviour {
         pieceData.Add(toManipulate, toManipulate.returnChildren(pos));
 
         return true;
-    }
-
-    private void Update() {
-        
     }
 
     public void packButton() {

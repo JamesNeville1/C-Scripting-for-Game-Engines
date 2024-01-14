@@ -54,7 +54,7 @@ public class SCO_gatherable : ScriptableObject {
         }
         private void OnMouseOver() {
             if(Input.GetKeyDown(keyToGather)) {
-                //SCR_player_inventory.returnInstance().inventory.Add(returnItem());
+                SCR_player_main.returnInstance().unuseableItems.Add(returnItem());
             }
         }
     }

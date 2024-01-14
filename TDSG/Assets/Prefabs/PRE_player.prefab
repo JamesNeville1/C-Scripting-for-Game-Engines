@@ -108,8 +108,8 @@ MonoBehaviour:
   att: {fileID: 0}
   inventorySizeX: 3
   inventorySizeY: 3
-  inventorySlot: {fileID: 21300000, guid: 8eeedd5b06c35c949ba394c4b2c484a7, type: 3}
-  startingItems:
+  useableItems: []
+  unuseableItems:
   - {fileID: 11400000, guid: 77b82a6a729a2e747bd41311647fc786, type: 2}
   - {fileID: 11400000, guid: 706f1d0656acd2a44b646d171e070b0f, type: 2}
   animationPrefix: player

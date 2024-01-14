@@ -32,18 +32,9 @@ public class SCR_player_main : MonoBehaviour {
     private int inventorySizeX;
     [SerializeField]
     private int inventorySizeY;
-
-    [SerializeField]
-    private Sprite inventorySlot;
-
-    [SerializeField]
-    private SCO_item[] startingItems;
-
-    //[Header("Combat")]
-    //[SerializeField]
-    //private SCO_ABS_item_weapon mainHand;
-    //[SerializeField]
-    //private SCO_ABS_item_weapon offHand;
+    [SerializeField] [SCR_utils.customAttributes.ReadOnly]
+    private List<SCO_item> useableItems = new List<SCO_item>();
+    public List<SCO_item> unuseableItems = new List<SCO_item>();
 
     [Header("Animation")]
     [Tooltip("")][SerializeField]
@@ -52,6 +43,8 @@ public class SCR_player_main : MonoBehaviour {
     [Header("Will not change once built")]
     [SerializeField]
     private float modifOverworldSpeed;
+    [SerializeField]
+    private static SCR_player_main instance;
 
     private void Awake() {
         //Get Components
@@ -65,9 +58,17 @@ public class SCR_player_main : MonoBehaviour {
 
         //Adjust Speed
         changeOverworldSpeed();
+
+        instance = this;
+    }
+    private void Start() {
+        SCR_player_inventory.returnInstance().setup(unuseableItems, inventorySizeX, inventorySizeY);
     }
     private void Update() {
         playerMovementMain();
+    }
+    public static SCR_player_main returnInstance() {
+        return instance;
     }
     //All movement related stuff here
     private void playerMovementMain() {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D;
 using UnityEngine.UIElements;
@@ -9,14 +10,13 @@ public class SCR_inventory_piece : MonoBehaviour {
     bool pressed = false;
 
     [SerializeField]
-    private SCO_item source;
-
-    [SerializeField]
     private Sprite blockSprite;
 
     private SCR_player_inventory playerInventory;
 
     private List<SpriteRenderer> srs = new List<SpriteRenderer>();
+
+    private string itemName;
 
     private void Awake() {
         playerInventory = SCR_player_inventory.returnInstance();
@@ -26,7 +26,9 @@ public class SCR_inventory_piece : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             adjustSortingOrder(2);
             pressed = true;
+            playerInventory.removePiece(this);
         }
+        Debug.Log("This is a " + itemName);
     }
     private void Update() {
         if (pressed) {
@@ -34,7 +36,6 @@ public class SCR_inventory_piece : MonoBehaviour {
                 transform.position = SCR_utils.functions.getMousePos(Camera.main);
                 adjustSortingOrder(2);
                 //print(name + " " + returnPositions()[1]);
-                playerInventory.removePiece(this);
             }
             else if (Input.GetMouseButtonUp(0)) {
                 pressed = false;
@@ -44,7 +45,7 @@ public class SCR_inventory_piece : MonoBehaviour {
         }
     }
 
-    private void Start() {
+    public void setup(SCO_item source) {
         Vector2[] blocks = source.returnSpaces();
 
         Color blockColour = source.returnColor();
@@ -55,12 +56,16 @@ public class SCR_inventory_piece : MonoBehaviour {
             newBlock.transform.localPosition = blockPos;
 
             srs.Add(newBlock.GetComponent<SpriteRenderer>());
-            srs[srs.Count-1].sprite = blockSprite;
-            srs[srs.Count-1].color = blockColour;
-            srs[srs.Count-1].sortingOrder = 2;
+            int arrayPos = srs.Count - 1;
+
+            srs[arrayPos].sprite = blockSprite;
+            srs[arrayPos].color = blockColour;
+            srs[arrayPos].sortingOrder = 2;
 
             newBlock.AddComponent<BoxCollider2D>().usedByComposite = true;
         }
+
+        itemName = source.returnName();
     }
 
     private void adjustSortingOrder(int adjustTo) {
@@ -73,7 +78,6 @@ public class SCR_inventory_piece : MonoBehaviour {
         List<Vector2> children = new List<Vector2>();
         for (int i = 0; i < transform.childCount; i++) {
             children.Add(gameObject.transform.GetChild(i).transform.localPosition + (Vector3)parentPos);
-            print(children[i]);
         }
         return children.ToList();
     }

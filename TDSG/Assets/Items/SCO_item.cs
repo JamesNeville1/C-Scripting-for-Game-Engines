@@ -7,7 +7,6 @@ public class SCO_item : ScriptableObject {
     [SerializeField] private string itemName;
     [SerializeField] internal int attribute = 0;
     [SerializeField] private Sprite sprite;
-    [SerializeField] private Sprite displayBlock;
     [SerializeField] private Color displayBlockColour;
     [SerializeField] private Vector2[] spaces = new Vector2[1];
     public Sprite returnSprite() {
@@ -18,5 +17,8 @@ public class SCO_item : ScriptableObject {
     }
     public Color returnColor(){
         return displayBlockColour;
+    }
+    public string returnName() {
+        return itemName;
     }
 }
