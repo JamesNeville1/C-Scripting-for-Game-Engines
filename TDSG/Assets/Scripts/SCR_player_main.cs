@@ -46,6 +46,10 @@ public class SCR_player_main : MonoBehaviour {
     [SerializeField]
     private static SCR_player_main instance;
 
+    [Header("SFX")]
+    [SerializeField]
+    private AudioClip[] walkClips;
+
     private void Awake() {
         //Get Components
         rb = GetComponent<Rigidbody2D>();
@@ -63,6 +67,8 @@ public class SCR_player_main : MonoBehaviour {
     }
     private void Start() {
         SCR_player_inventory.returnInstance().setup(unuseableItems, inventorySizeX, inventorySizeY);
+
+        SCR_audio_manager.playEffect(walkClips);
     }
     private void Update() {
         playerMovementMain();

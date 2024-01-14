@@ -114,6 +114,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 706f1d0656acd2a44b646d171e070b0f, type: 2}
   animationPrefix: player
   modifOverworldSpeed: 1.25
+  walkClips:
+  - {fileID: 8300000, guid: 4681e3a2aa3036f4b974842775edffd3, type: 3}
+  - {fileID: 8300000, guid: 17955426c4d4f074480be5893a5ed8c6, type: 3}
+  - {fileID: 8300000, guid: af43c4c96adc2f04bb15712c060faa4c, type: 3}
+  - {fileID: 8300000, guid: af2de5cf891d91d43a9ee1d9271d31b1, type: 3}
+  - {fileID: 8300000, guid: f04822db727e9d94396dc7b2ff4c8029, type: 3}
 --- !u!114 &4366492743712515690
 MonoBehaviour:
   m_ObjectHideFlags: 0

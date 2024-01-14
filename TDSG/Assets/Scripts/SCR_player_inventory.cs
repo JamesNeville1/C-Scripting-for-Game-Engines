@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class SCR_player_inventory : MonoBehaviour {
 
@@ -19,6 +20,9 @@ public class SCR_player_inventory : MonoBehaviour {
 
     [SerializeField]
     private GameObject piecePerfab;
+
+    [SerializeField]
+    private SCO_item[] tempItems;
 
     enum cellState {
         EMPTY,
@@ -37,8 +41,12 @@ public class SCR_player_inventory : MonoBehaviour {
     }
     private void Start() {
         Camera.main.transform.position = new Vector3(3.5f, 3.5f, -10); //TEMP
-    }
 
+        setup(tempItems.ToList() ,4,4);
+    }
+    private void OnDestroy() {
+        PlayerPrefs.Save();
+    }
     public void setup(List<SCO_item> items, int sizeX, int sizeY) {
         for (int y = 0; y <= sizeY - 1; y++) {
             for (int x = 0; x <= sizeX - 1; x++) {
