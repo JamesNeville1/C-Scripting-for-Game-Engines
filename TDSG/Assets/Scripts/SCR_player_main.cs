@@ -66,7 +66,7 @@ public class SCR_player_main : MonoBehaviour {
         instance = this;
     }
     private void Start() {
-        SCR_player_inventory.returnInstance().setup(unuseableItems, inventorySizeX, inventorySizeY);
+        SCR_player_inventory.returnInstance().setup(unuseableItems, inventorySizeY, inventorySizeY);
 
         SCR_audio_manager.playEffect(walkClips);
     }

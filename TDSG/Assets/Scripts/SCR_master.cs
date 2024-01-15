@@ -12,17 +12,9 @@ public class SCR_master : MonoBehaviour {
 
     private void Awake() {
         mapGen = GetComponent<SCR_map_generation>();
-
-        SceneManager.LoadSceneAsync("SCE_inventory", LoadSceneMode.Additive);
     }
-
-    private void OnDestroy() {
-        PlayerPrefs.Save();
-    }
-
     public void temp() {
-        SceneManager.UnloadSceneAsync("SCE_overworld");
-        SceneManager.LoadSceneAsync("SCE_inventory");
+        
     }
 
     private void Start() {
