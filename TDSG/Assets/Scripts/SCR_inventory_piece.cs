@@ -9,14 +9,22 @@ using UnityEngine.UIElements;
 public class SCR_inventory_piece : MonoBehaviour {
     bool pressed = false;
 
-    [SerializeField]
-    private Sprite blockSprite;
-
     private SCR_player_inventory playerInventory;
 
     private List<SpriteRenderer> srs = new List<SpriteRenderer>();
 
-    private string itemName;
+    public static GameObject createInstance(SCO_item item, Vector2 spawnPos) {
+        GameObject newPiece = new GameObject(item.name + " Piece", typeof(SCR_inventory_piece));
+        newPiece.transform.position = spawnPos;
+
+        SCR_player_inventory instance = SCR_player_inventory.returnInstance();
+        newPiece.transform.parent = instance.returnCellParent().transform;
+
+        SCR_inventory_piece newScript = newPiece.GetComponent<SCR_inventory_piece>();
+        newScript.setup(item, instance.returnItemSprite());
+
+        return newPiece;
+    }
 
     private void Awake() {
         playerInventory = SCR_player_inventory.returnInstance();
@@ -42,7 +50,7 @@ public class SCR_inventory_piece : MonoBehaviour {
         }
     }
 
-    public void setup(SCO_item source) {
+    public void setup(SCO_item source, Sprite blockSprite) {
         Vector2[] blocks = source.returnSpaces();
 
         Color blockColour = source.returnColor();
@@ -63,7 +71,11 @@ public class SCR_inventory_piece : MonoBehaviour {
             newBlock.AddComponent<BoxCollider2D>().usedByComposite = true;
         }
 
-        itemName = source.returnName();
+        
+        gameObject.AddComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        CompositeCollider2D compCol = gameObject.AddComponent<CompositeCollider2D>();
+        compCol.geometryType = CompositeCollider2D.GeometryType.Polygons;
+        compCol.isTrigger = true;
     }
 
     public List<Vector2> returnChildren(Vector2 parentPos) {

@@ -19,10 +19,9 @@ public class SCR_player_inventory : MonoBehaviour {
     private Sprite cellSprite;
 
     [SerializeField]
-    private GameObject piecePerfab;
+    private Sprite itemBlockSprite;
 
-    [SerializeField]
-    private SCO_item[] tempItems;
+    private GameObject cellParent;
 
     enum cellState {
         EMPTY,
@@ -39,8 +38,8 @@ public class SCR_player_inventory : MonoBehaviour {
     private void Awake() {
         instance = this;
     }
-    public void setup(List<SCO_item> items, int sizeX, int sizeY) {
-        GameObject cellParent = new GameObject("Inventory Cells");
+    public void setup(int sizeX, int sizeY) {
+        cellParent = new GameObject("Inventory Cells");
         cellParent.transform.parent = Camera.main.transform;
         cellParent.transform.localPosition = new Vector3(-7, -3,10);
         for (int y = 0; y <= sizeY - 1; y++) {
@@ -58,15 +57,17 @@ public class SCR_player_inventory : MonoBehaviour {
             }
         }
         
-        foreach (SCO_item item in items) {
-            GameObject piece = Instantiate(piecePerfab, cellParent.transform);
-            piece.transform.localPosition = new Vector3(0, 0, 10);
-            piece.GetComponent<SCR_inventory_piece>().setup(item);
-        }
+        //if(items != null) { 
+        //    foreach (SCO_item item in items) {
+        //        GameObject piece = Instantiate(piecePerfab, cellParent.transform);
+        //        piece.transform.localPosition = new Vector3(0, 0, 10);
+        //        piece.GetComponent<SCR_inventory_piece>().setup(item, returnInstance().returnItemSprite());
+        //    }
 
-        foreach(Vector2 vec in gridData.Keys) {
-            Debug.Log(vec + " " + gridData[vec].ToString());
-        }
+        //    foreach(Vector2 vec in gridData.Keys) {
+        //        Debug.Log(vec + " " + gridData[vec].ToString());
+        //    }
+        //}
     }
     
     public void removePiece(SCR_inventory_piece toCheck) {
@@ -120,5 +121,13 @@ public class SCR_player_inventory : MonoBehaviour {
     private Vector2 roundVect(Vector2 vect) {
         vect = new Vector2(Mathf.RoundToInt(vect.x), Mathf.RoundToInt(vect.y));
         return vect;
+    }
+
+    public Sprite returnItemSprite() {
+        return itemBlockSprite;
+    }
+
+    public GameObject returnCellParent() {
+        return cellParent;
     }
 }

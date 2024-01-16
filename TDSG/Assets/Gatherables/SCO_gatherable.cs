@@ -40,6 +40,7 @@ public class SCO_gatherable : ScriptableObject {
         }
         public SCO_item returnItem() { //Ask how to make override?
             Destroy(gameObject);
+            SCR_inventory_piece.createInstance(item, transform.position);
             return item;
         }
         private void Start() {
