@@ -23,24 +23,21 @@ public class SCR_inventory_piece : MonoBehaviour {
     }
 
     private void OnMouseOver() {
-        if (Input.GetMouseButtonDown(0)) {
-            adjustSortingOrder(2);
+        if (Input.GetMouseButtonDown(0)) { 
             pressed = true;
             playerInventory.removePiece(this);
         }
-        Debug.Log("This is a " + itemName);
+        //Debug.Log("This is a " + itemName);
     }
     private void Update() {
         if (pressed) {
             if (Input.GetMouseButton(0)) {
                 transform.position = SCR_utils.functions.getMousePos(Camera.main);
-                adjustSortingOrder(2);
                 //print(name + " " + returnPositions()[1]);
             }
             else if (Input.GetMouseButtonUp(0)) {
                 pressed = false;
-                if(playerInventory.tryPlace(this)) adjustSortingOrder(1);
-                else adjustSortingOrder(2);
+                playerInventory.tryPlace(this);
             }
         }
     }
@@ -61,17 +58,12 @@ public class SCR_inventory_piece : MonoBehaviour {
             srs[arrayPos].sprite = blockSprite;
             srs[arrayPos].color = blockColour;
             srs[arrayPos].sortingOrder = 2;
+            srs[arrayPos].sortingLayerName = "Inventory Piece";
 
             newBlock.AddComponent<BoxCollider2D>().usedByComposite = true;
         }
 
         itemName = source.returnName();
-    }
-
-    private void adjustSortingOrder(int adjustTo) {
-        foreach (SpriteRenderer sr in srs) {
-            sr.sortingOrder = adjustTo;
-        }
     }
 
     public List<Vector2> returnChildren(Vector2 parentPos) {

@@ -42,52 +42,57 @@ public class SCR_player_inventory : MonoBehaviour {
     public void setup(List<SCO_item> items, int sizeX, int sizeY) {
         GameObject cellParent = new GameObject("Inventory Cells");
         cellParent.transform.parent = Camera.main.transform;
+        cellParent.transform.localPosition = new Vector3(-7, -3,10);
         for (int y = 0; y <= sizeY - 1; y++) {
             for (int x = 0; x <= sizeX - 1; x++) {
                 Vector2 pos = new Vector2(x, y);
 
                 GameObject cell = new GameObject("Inventory Grid Cell: " + x.ToString() + ", " + y.ToString(), typeof(SpriteRenderer));
-                cell.transform.position = pos;
-                cell.transform.parent = instance.transform;
-                cell.GetComponent<SpriteRenderer>().sprite = instance.cellSprite;
+                cell.transform.parent = cellParent.transform;
+                cell.transform.localPosition = pos;
 
+                SpriteRenderer sr = cell.GetComponent<SpriteRenderer>();
+                sr.sprite = instance.cellSprite;
+                sr.sortingLayerName = "Inventory";
                 instance.gridData.Add(pos, cellState.EMPTY);
             }
         }
         
         foreach (SCO_item item in items) {
-            GameObject piece = Instantiate(piecePerfab, Vector3.zero, Quaternion.identity);
+            GameObject piece = Instantiate(piecePerfab, cellParent.transform);
+            piece.transform.localPosition = new Vector3(0, 0, 10);
             piece.GetComponent<SCR_inventory_piece>().setup(item);
+        }
+
+        foreach(Vector2 vec in gridData.Keys) {
+            Debug.Log(vec + " " + gridData[vec].ToString());
         }
     }
     
     public void removePiece(SCR_inventory_piece toCheck) {
         if (pieceData.ContainsKey(toCheck)) {
             pieceData.Remove(toCheck);
-            Vector2 roundedPos = roundVect(toCheck.transform.position);
+            Vector2 roundedPos = roundVect(toCheck.transform.localPosition);
             adjustGridState(toCheck.returnChildren(roundedPos), cellState.EMPTY);
         }
     }
 
     public bool tryPlace(SCR_inventory_piece toManipulate) {        
         //Check if it can even be placed?
-        Vector2Int pos = new Vector2Int(Mathf.RoundToInt(toManipulate.transform.position.x), Mathf.RoundToInt(toManipulate.transform.position.y));
+        Vector2Int pos = new Vector2Int(Mathf.RoundToInt(toManipulate.transform.localPosition.x), Mathf.RoundToInt(toManipulate.transform.localPosition.y));
         if (!gridData.ContainsKey(pos)) {
+            Debug.Log("Grid Data Doesnt Contain: " + pos);
             return false;
         }
         else if(!checkPiece(toManipulate,pos)) {
             return false;
         }
 
-        toManipulate.transform.position = (Vector2)pos;
+        toManipulate.transform.localPosition = (Vector2)pos;
 
         pieceData.Add(toManipulate, toManipulate.returnChildren(pos));
 
         return true;
-    }
-
-    public void packButton() {
-        
     }
 
     public bool checkPiece(SCR_inventory_piece piece, Vector2 pos) {

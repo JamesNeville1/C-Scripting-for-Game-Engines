@@ -19,7 +19,7 @@ public class SCR_master : MonoBehaviour {
 
     private void Start() {
         string randSeed = mapGen.randomSeed();
-        Debug.Log("Map Seed: " + randSeed);
+        //Debug.Log("Map Seed: " + randSeed);
         mapGen.generate(randSeed);
 
 
