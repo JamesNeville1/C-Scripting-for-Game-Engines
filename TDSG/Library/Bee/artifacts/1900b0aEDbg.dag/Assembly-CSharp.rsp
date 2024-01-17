@@ -395,6 +395,7 @@
 "Assets/Scripts/SCR_player_main.cs"
 "Assets/Scripts/SCR_utils.cs"
 "Assets/SCR_audio_manager.cs"
+"Assets/SCR_destroy_after.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs"

@@ -21,9 +21,19 @@ public class SCR_player_inventory : MonoBehaviour {
     [SerializeField]
     private Sprite itemBlockSprite;
 
-    private GameObject cellParent;
+    [SerializeField]
+    private Transform cellParent;
 
-    enum cellState {
+    [SerializeField]
+    private KeyValuePair<Transform, SCR_inventory_piece> tempSlot;
+
+    [SerializeField]
+    private Transform tempSlotKey;
+
+    [SerializeField]
+    private GameObject destroyVFX;
+
+    private enum cellState { //Why has to be public?
         EMPTY,
         OCCUPIED
     }
@@ -37,11 +47,11 @@ public class SCR_player_inventory : MonoBehaviour {
 
     private void Awake() {
         instance = this;
+
+        tempSlot = new KeyValuePair<Transform, SCR_inventory_piece>(tempSlotKey, null);
+        tempSlotKey = null; //Removing since I don't want to use it after it is used here
     }
     public void setup(int sizeX, int sizeY) {
-        cellParent = new GameObject("Inventory Cells");
-        cellParent.transform.parent = Camera.main.transform;
-        cellParent.transform.localPosition = new Vector3(-7, -3,10);
         for (int y = 0; y <= sizeY - 1; y++) {
             for (int x = 0; x <= sizeX - 1; x++) {
                 Vector2 pos = new Vector2(x, y);
@@ -51,23 +61,13 @@ public class SCR_player_inventory : MonoBehaviour {
                 cell.transform.localPosition = pos;
 
                 SpriteRenderer sr = cell.GetComponent<SpriteRenderer>();
-                sr.sprite = instance.cellSprite;
+                sr.sprite = cellSprite;
                 sr.sortingLayerName = "Inventory";
                 instance.gridData.Add(pos, cellState.EMPTY);
             }
         }
-        
-        //if(items != null) { 
-        //    foreach (SCO_item item in items) {
-        //        GameObject piece = Instantiate(piecePerfab, cellParent.transform);
-        //        piece.transform.localPosition = new Vector3(0, 0, 10);
-        //        piece.GetComponent<SCR_inventory_piece>().setup(item, returnInstance().returnItemSprite());
-        //    }
 
-        //    foreach(Vector2 vec in gridData.Keys) {
-        //        Debug.Log(vec + " " + gridData[vec].ToString());
-        //    }
-        //}
+        tempSlot.Key.AddComponent<SpriteRenderer>().sprite = cellSprite;
     }
     
     public void removePiece(SCR_inventory_piece toCheck) {
@@ -75,6 +75,9 @@ public class SCR_player_inventory : MonoBehaviour {
             pieceData.Remove(toCheck);
             Vector2 roundedPos = roundVect(toCheck.transform.localPosition);
             adjustGridState(toCheck.returnChildren(roundedPos), cellState.EMPTY);
+        }
+        else if (tempSlot.Value == toCheck) {
+            tempSlot = new KeyValuePair<Transform, SCR_inventory_piece>(tempSlot.Key, null);
         }
     }
 
@@ -93,6 +96,15 @@ public class SCR_player_inventory : MonoBehaviour {
 
         pieceData.Add(toManipulate, toManipulate.returnChildren(pos));
 
+        return true;
+    }
+
+    public bool tryPlaceTempSlot(SCR_inventory_piece toManipulate) {
+        if(tempSlot.Value != null) {
+            return false;
+        }
+        toManipulate.transform.localPosition = tempSlot.Key.localPosition;
+        tempSlot = new KeyValuePair<Transform, SCR_inventory_piece>(tempSlot.Key, toManipulate);
         return true;
     }
 
@@ -127,7 +139,15 @@ public class SCR_player_inventory : MonoBehaviour {
         return itemBlockSprite;
     }
 
-    public GameObject returnCellParent() {
+    public Transform returnCellParent() {
         return cellParent;
+    }
+
+    public KeyValuePair<Transform, SCR_inventory_piece> returnTempSlot() {
+        return tempSlot;
+    }
+
+    public GameObject returnDestroyVFX() {
+        return destroyVFX;
     }
 }

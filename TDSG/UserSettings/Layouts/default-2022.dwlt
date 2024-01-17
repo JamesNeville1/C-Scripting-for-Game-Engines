@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -292,8 +292,8 @@ MonoBehaviour:
     y: 491
     width: 1051
     height: 70
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 24}
   m_Panes:
   - {fileID: 24}
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 50}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 198
+  controlID: 196
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -494,7 +494,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 34630000
     m_LastClickedID: 25396
-    m_ExpandedIDs: 0000000004630000
+    m_ExpandedIDs: 000000001a630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -522,7 +522,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000004630000
+    m_ExpandedIDs: 000000001a630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -623,7 +623,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Items/Food
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -631,16 +631,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Items/Food
+  - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\n013403n.STUDENT.006\Documents\GitHub\C-Scripting-for-Game-Engines\TDSG
+  m_LastProjectPath: C:\Users\n013403n\Documents\GitHub\C-Scripting-for-Game-Engines\TDSG
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 68630000
-    m_LastClickedID: 25448
-    m_ExpandedIDs: 00000000046300003063000000ca9a3bffffff7f
+    m_SelectedIDs: 1a630000
+    m_LastClickedID: 25370
+    m_ExpandedIDs: 000000001a63000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -668,7 +668,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000004630000
+    m_ExpandedIDs: 000000001a630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1093,9 +1093,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 291.62158, y: 268.683, z: -0.018539065}
+    m_Target: {x: 298.81723, y: 274.9011, z: -0.2879697}
     speed: 2
-    m_Value: {x: 291.62158, y: 268.683, z: -0.018539065}
+    m_Value: {x: 298.81723, y: 274.9011, z: -0.2879697}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1145,9 +1145,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 2.9962294
+    m_Target: 30.149792
     speed: 2
-    m_Value: 2.9962294
+    m_Value: 30.149792
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1211,7 +1211,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 
+      m_ExpandedIDs: 0efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1439,7 +1439,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -622872
+  m_LastSelectedObjectID: -197386
 --- !u!114 &25
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1485,7 +1485,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Gatherables
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1493,16 +1493,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Gatherables
+  - Assets
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: C:\Users\n013403n.STUDENT.006\Documents\GitHub\C-Scripting-for-Game-Engines\TDSG
+  m_LastProjectPath: C:\Users\n013403n\Documents\GitHub\C-Scripting-for-Game-Engines\TDSG
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 2e630000
-    m_LastClickedID: 25390
-    m_ExpandedIDs: 000000000463000000ca9a3bffffff7f
+    m_SelectedIDs: 1a630000
+    m_LastClickedID: 25370
+    m_ExpandedIDs: 000000001a63000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1530,7 +1530,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000004630000
+    m_ExpandedIDs: 000000001a630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1648,7 +1648,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 42630000
     m_LastClickedID: 25410
-    m_ExpandedIDs: 0000000004630000
+    m_ExpandedIDs: 000000001a630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1676,7 +1676,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000004630000
+    m_ExpandedIDs: 000000001a630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

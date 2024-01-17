@@ -18,7 +18,7 @@ public class SCR_inventory_piece : MonoBehaviour {
         newPiece.transform.position = spawnPos;
 
         SCR_player_inventory instance = SCR_player_inventory.returnInstance();
-        newPiece.transform.parent = instance.returnCellParent().transform;
+        newPiece.transform.parent = instance.returnCellParent();
 
         SCR_inventory_piece newScript = newPiece.GetComponent<SCR_inventory_piece>();
         newScript.setup(item, instance.returnItemSprite());
@@ -41,11 +41,15 @@ public class SCR_inventory_piece : MonoBehaviour {
         if (pressed) {
             if (Input.GetMouseButton(0)) {
                 transform.position = SCR_utils.functions.getMousePos(Camera.main);
-                //print(name + " " + returnPositions()[1]);
             }
             else if (Input.GetMouseButtonUp(0)) {
                 pressed = false;
-                playerInventory.tryPlace(this);
+                if (!playerInventory.tryPlace(this)) {
+                    if (!playerInventory.tryPlaceTempSlot(this)) {
+                        Debug.Log(gameObject.name + " has been destroyed");
+                        Destroy(this.gameObject);
+                    }
+                }
             }
         }
     }
