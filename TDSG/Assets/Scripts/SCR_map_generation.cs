@@ -54,10 +54,10 @@ public class SCR_map_generation : MonoBehaviour {
 
     private Dictionary<Vector2, Color32> posToColour = new Dictionary<Vector2, Color32>();
 
-    [Tooltip("Holds pixels to be used for the end map")] [SerializeField] [SCR_utils.customAttributes.ReadOnly]
+    [Tooltip("Holds pixels to be used for the end map")] [SerializeField] [IzzetUtils.IzzetAttributes.MyReadOnly]
     private Texture2D mapTex;
 
-    [Tooltip("Holds pixels to be used for the end map")] [SerializeField] [SCR_utils.customAttributes.ReadOnly]
+    [Tooltip("Holds pixels to be used for the end map")] [SerializeField] [IzzetUtils.IzzetAttributes.MyReadOnly]
     int distributionStep;
 
     [Tooltip("Reduce gatherables by amount")] [SerializeField]

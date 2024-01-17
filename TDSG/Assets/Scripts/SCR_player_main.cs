@@ -7,48 +7,29 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Diagnostics;
 using UnityEngine.UI;
+using IzzetUtils;
+using IzzetUtils.IzzetAttributes;
 
 public class SCR_player_main : MonoBehaviour {
 
     [Header("Main")]
-    [SerializeField] [SCR_utils.customAttributes.ReadOnly]
-    private float overworldSpeed;
+    [SerializeField] [MyReadOnly] private float overworldSpeed;
 
     [Header("Components")]
-    [SerializeField] [SCR_utils.customAttributes.ReadOnly]
-    private Rigidbody2D rb;
-
-    [SerializeField] [SCR_utils.customAttributes.ReadOnly]
-    private Animator animator;
-
-    [SerializeField] [SCR_utils.customAttributes.ReadOnly]
-    private SpriteRenderer sr;
-
-    [SerializeField] [SCR_utils.customAttributes.ReadOnly]
-    private SCR_entity_attributes att;
-
-    [Header("Inventory Vars")]
-    [SerializeField]
-    private int inventorySizeX;
-    [SerializeField]
-    private int inventorySizeY;
-    [SerializeField] [SCR_utils.customAttributes.ReadOnly]
-    private List<SCO_item> useableItems = new List<SCO_item>();
-    public List<SCO_item> unuseableItems = new List<SCO_item>();
+    [SerializeField] [MyReadOnly] private Rigidbody2D rb;
+    [SerializeField] [MyReadOnly] private Animator animator;
+    [SerializeField] [MyReadOnly] private SpriteRenderer sr;
+    [SerializeField] [MyReadOnly] private SCR_entity_attributes att;
 
     [Header("Animation")]
-    [Tooltip("")][SerializeField]
-    private string animationPrefix;
+    [Tooltip("Used to determine what animations we will use, THIS IS TEMPORARY")][SerializeField] private string animationPrefix;
 
     [Header("Will not change once built")]
-    [SerializeField]
-    private float modifOverworldSpeed;
-    [SerializeField]
-    private static SCR_player_main instance;
+    [SerializeField] [Tooltip("Multiply this by the speed attribute")] private float modifOverworldSpeed;
+    [SerializeField] private static SCR_player_main instance;
 
     [Header("SFX")]
-    [SerializeField]
-    private AudioClip[] walkClips;
+    [SerializeField] private AudioClip[] walkClips;
 
     private void Awake() {
         //Get Components
@@ -66,8 +47,6 @@ public class SCR_player_main : MonoBehaviour {
         instance = this;
     }
     private void Start() {
-        SCR_player_inventory.returnInstance().setup(inventorySizeY, inventorySizeY);
-
         SCR_audio_manager.playEffect(walkClips);
     }
     private void Update() {
@@ -80,7 +59,7 @@ public class SCR_player_main : MonoBehaviour {
     private void playerMovementMain() {
         Vector2 input = returnMovementInput(); //Get Input
         movePlayer(input); //Move Player
-        SCR_utils.functions.animate(animator, animationPrefix, rb.velocity != Vector2.zero); //Animate Player
+        IzzetMain.animate(animator, animationPrefix, rb.velocity != Vector2.zero); //Animate Player
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10); //Move Camera to follow player
     }
     #region movement

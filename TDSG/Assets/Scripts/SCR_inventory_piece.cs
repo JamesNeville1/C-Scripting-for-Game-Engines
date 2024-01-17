@@ -5,14 +5,16 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.U2D;
 using UnityEngine.UIElements;
+using IzzetUtils;
+using IzzetUtils.IzzetAttributes;
 
 public class SCR_inventory_piece : MonoBehaviour {
-    bool pressed = false;
+    [SerializeField] [Tooltip("IsPressed")] [MyReadOnly] private bool pressed = false;
 
-    private SCR_player_inventory playerInventory;
+    private SCR_player_inventory playerInventory; //Reference to inventory
+    private List<SpriteRenderer> srs = new List<SpriteRenderer>(); //All sprite renderers of children
 
-    private List<SpriteRenderer> srs = new List<SpriteRenderer>();
-
+    //Create brand new instance from anywhere with no reference required
     public static GameObject createInstance(SCO_item item, Vector2 spawnPos) {
         GameObject newPiece = new GameObject(item.name + " Piece", typeof(SCR_inventory_piece));
         newPiece.transform.position = spawnPos;
@@ -38,15 +40,20 @@ public class SCR_inventory_piece : MonoBehaviour {
         //Debug.Log("This is a " + itemName);
     }
     private void Update() {
+        move();
+    }
+
+    private void move() { //Move piece via mouse input
         if (pressed) {
             if (Input.GetMouseButton(0)) {
-                transform.position = SCR_utils.functions.getMousePos(Camera.main);
+                transform.position = IzzetMain.getMousePos(Camera.main);
             }
             else if (Input.GetMouseButtonUp(0)) {
                 pressed = false;
-                if (!playerInventory.tryPlace(this)) {
+                if (!playerInventory.tryPlaceGrid(this)) {
                     if (!playerInventory.tryPlaceTempSlot(this)) {
                         Debug.Log(gameObject.name + " has been destroyed");
+                        Instantiate(playerInventory.returnDestroyVFX(), transform.position, Quaternion.identity);
                         Destroy(this.gameObject);
                     }
                 }
@@ -54,7 +61,7 @@ public class SCR_inventory_piece : MonoBehaviour {
         }
     }
 
-    public void setup(SCO_item source, Sprite blockSprite) {
+    private void setup(SCO_item source, Sprite blockSprite) { //Called from create instance. It creates children acording to the source (item)
         Vector2[] blocks = source.returnSpaces();
 
         Color blockColour = source.returnColor();
@@ -82,10 +89,11 @@ public class SCR_inventory_piece : MonoBehaviour {
         compCol.isTrigger = true;
     }
 
-    public List<Vector2> returnChildren(Vector2 parentPos) {
-        List<Vector2> children = new List<Vector2>();
+    public List<Vector2Int> returnChildren(Vector2Int parentPos) { //Return all positions the piece takes up
+        List<Vector2Int> children = new List<Vector2Int>();
         for (int i = 0; i < transform.childCount; i++) {
-            children.Add(gameObject.transform.GetChild(i).transform.localPosition + (Vector3)parentPos);
+            Vector2 beforeCast = gameObject.transform.GetChild(i).transform.localPosition + (Vector3Int)parentPos;
+            children.Add(IzzetMain.castVector2(beforeCast));
         }
         return children.ToList();
     }

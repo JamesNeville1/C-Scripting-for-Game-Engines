@@ -5,11 +5,12 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SCR_utils {
-    public class customAttributes {
-        public class ReadOnlyAttribute : PropertyAttribute { }
+namespace IzzetUtils {
+    namespace IzzetAttributes {
+        public class MyReadOnlyAttribute : PropertyAttribute { }
     }
-    public class functions {
+    public class IzzetMain : MonoBehaviour {
+        //Note to marker: I use this to trim the input of the string input by the user for the seed
         public static int validateIntFromString(string invalid, int max = 10000) {
             int valid = 0;
             string validString = "";
@@ -29,30 +30,16 @@ public class SCR_utils {
 
             return valid;
         }
-        public static void animate(Animator animator, string prefix, bool moving = false) {
+        public static void animate(Animator animator, string prefix, bool moving = false) { //Simple animation hookup
             if (moving) animator.Play(prefix + "move");
             else animator.Play(prefix + "idle");
         }
-        public static Vector2 getMousePos(Camera cam) {
+        public static Vector2 getMousePos(Camera cam) { //Get mouse position in world
             Vector3 worldPosition = cam.ScreenToWorldPoint(Input.mousePosition);
             return worldPosition;
         }
-    }
-    public class monoFunctions : MonoBehaviour {
-        public static void createButton(string name, Action onClick, GameObject prefab, GameObject parent) {
-            Button newButton = Instantiate(prefab, parent.transform).GetComponent<Button>();
-            newButton.gameObject.name = name + " Button";
-            newButton.onClick.AddListener(delegate { onClick(); });
-            newButton.transform.SetParent(parent.transform);
-            newButton.gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = name;
-        }
-        public static TMP_InputField createField(string name, GameObject prefab, GameObject parent, Action onEndExit = null) {
-            TMP_InputField newField = Instantiate(prefab, parent.transform).GetComponent<TMP_InputField>();
-            newField.gameObject.name = name + " Field";
-            if(onEndExit != null) newField.onEndEdit.AddListener(delegate { onEndExit(); });
-            newField.transform.SetParent(parent.transform);
-            newField.gameObject.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = name;
-            return newField;
+        public static Vector2Int castVector2(Vector2 vec) {
+            return new Vector2Int(Mathf.RoundToInt(vec.x), Mathf.RoundToInt(vec.y));
         }
     }
 }

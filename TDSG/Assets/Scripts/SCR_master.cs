@@ -5,25 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class SCR_master : MonoBehaviour {
 
-    private SCR_map_generation mapGen;
+    [SerializeField] private GameObject playerPrefab;
 
-    [SerializeField]
-    private GameObject playerPrefab;
-
-    private void Awake() {
-        mapGen = GetComponent<SCR_map_generation>();
-    }
+    [Header("Inventory Vars")]
+    [SerializeField] private int inventorySizeX;
+    [SerializeField] private int inventorySizeY;
     public void temp() {
         
     }
 
     private void Start() {
-        string randSeed = mapGen.randomSeed();
-        //Debug.Log("Map Seed: " + randSeed);
-        mapGen.generate(randSeed);
+        //Get Required References
+        SCR_map_generation mapRef = GetComponent<SCR_map_generation>();
 
+        //Make Map
+        string randSeed = mapRef.randomSeed();
+        //Debug.Log("Map Seed: " + randSeed);
+        mapRef.generate(randSeed);
+
+        SCR_player_inventory.returnInstance().setup(inventorySizeY, inventorySizeY);
 
         //Make Player (player contains inventory logic)
-        SCR_player_main player = Instantiate(playerPrefab, mapGen.startPos(), Quaternion.identity).GetComponent<SCR_player_main>();
+        SCR_player_main player = Instantiate(playerPrefab, mapRef.startPos(), Quaternion.identity).GetComponent<SCR_player_main>();
     }
 }

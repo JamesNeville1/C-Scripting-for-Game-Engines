@@ -5,9 +5,9 @@ using UnityEngine.UIElements;
 
 [CreateAssetMenu(fileName = "SCO_", menuName = "ScriptableObjects/Gatherables")]
 public class SCO_gatherable : ScriptableObject {
-    [SerializeField] private Sprite sprite;
-    [SerializeField] private float interactableRadius = .1f;
-    [SerializeField] private SCO_item item;
+    [SerializeField] [Tooltip("Sprite is shown in overworld, ensure pivot is in correct location")] private Sprite sprite;
+    [SerializeField] [Tooltip("Size of colider")] private float interactableRadius = .1f;
+    [SerializeField] [Tooltip("What item does it give?")] private SCO_item item;
 
     public GameObject gatherableSetup(Vector2 pos, Transform parent) {
         
@@ -38,24 +38,20 @@ public class SCO_gatherable : ScriptableObject {
         public void hookConstructor(SCO_item item) {
             this.item = item;
         }
-        public SCO_item returnItem() { //Ask how to make override?
-            Destroy(gameObject);
-            SCR_inventory_piece.createInstance(item, transform.position);
-            return item;
-        }
         private void Start() {
             sr = GetComponent<SpriteRenderer>();
             originalColor = sr.color;
         }
         private void OnMouseEnter() {
-            sr.color = new Color32(originalColor.r, originalColor.g, originalColor.b, 100);
+            sr.color = new Color32(originalColor.r, originalColor.g, originalColor.b, 100); //Display that the player is hovering over this object
         }
-        private void OnMouseExit() {
+        private void OnMouseExit() { //Reset colour
             sr.color = originalColor;
         }
         private void OnMouseOver() {
-            if(Input.GetKeyDown(keyToGather)) {
-                SCR_player_main.returnInstance().unuseableItems.Add(returnItem());
+            if(Input.GetKeyDown(keyToGather)) { //Create instance of puzzle piece, then destroy
+                SCR_inventory_piece.createInstance(item, transform.position);
+                Destroy (gameObject);
             }
         }
     }

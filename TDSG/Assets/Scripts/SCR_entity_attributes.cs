@@ -24,8 +24,8 @@ public class SCR_entity_attributes : MonoBehaviour {
 
         public bool check() { if (current <= 0) return true; return false; }
     }
-    public attribute health;
-    public attribute hunger;
-    public attribute tiredness;
-    public attribute speed;
+    [Tooltip("Has little effect in overworld, but is used in combat")] public attribute health;
+    [Tooltip("Player will take damage after a few ticks if at 0")] public attribute hunger;
+    [Tooltip("Player will do less damage in combat until they have slept")] public attribute tiredness;
+    [Tooltip("Speed in battle, and multiplied in overworld")] public attribute speed;
 }

@@ -1668,6 +1668,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5207933277885795846, guid: 8dde42ce927554c4db156dfbb8b2acb0, type: 3}
+  inventorySizeX: 3
+  inventorySizeY: 3
 --- !u!114 &1364117804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1680,9 +1682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c1a2d5cb07995499df7a6b68bacca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingX: 0
-  startingY: 0
-  cellSprite: {fileID: 21300000, guid: 8eeedd5b06c35c949ba394c4b2c484a7, type: 3}
+  gridCellSprite: {fileID: 21300000, guid: 8eeedd5b06c35c949ba394c4b2c484a7, type: 3}
   itemBlockSprite: {fileID: 21300000, guid: d8ae8cb60f334584d9efa2f6bcc2fb6a, type: 3}
   cellParent: {fileID: 554863859}
   tempSlotKey: {fileID: 1567140262}
