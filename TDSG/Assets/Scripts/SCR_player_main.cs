@@ -55,6 +55,9 @@ public class SCR_player_main : MonoBehaviour {
     public static SCR_player_main returnInstance() {
         return instance;
     }
+    public SCR_entity_attributes returnAttributes() {
+        return att;
+    }
     //All movement related stuff here
     private void playerMovementMain() {
         Vector2 input = returnMovementInput(); //Get Input

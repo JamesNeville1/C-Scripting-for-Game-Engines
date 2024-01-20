@@ -63,11 +63,7 @@ public class SCR_player_inventory : MonoBehaviour {
     public bool tryPlaceGrid(SCR_inventory_piece toManipulate) { //Try to place in grid
         //Check if it can even be placed?
         Vector2Int pos = new Vector2Int(Mathf.RoundToInt(toManipulate.transform.localPosition.x), Mathf.RoundToInt(toManipulate.transform.localPosition.y));
-        if (!gridData.ContainsKey(pos)) {
-            Debug.Log("Grid Data Doesnt Contain: " + pos);
-            return false;
-        }
-        else if(!checkPiece(toManipulate,pos)) {
+        if(!checkPiece(toManipulate,pos)) {
             return false;
         }
 
@@ -82,11 +78,11 @@ public class SCR_player_inventory : MonoBehaviour {
         Vector2Int[] children = piece.returnChildren(pos);
         foreach(Vector2Int vec in children) {
             if (!gridData.ContainsKey(vec)) {
-                Debug.Log("Grid Data Doesnt Contain: " + vec);
+                //Debug.Log("Grid Data Doesnt Contain: " + vec);
                 return false;
             }
             else if (gridData[vec] == cellState.OCCUPIED) {
-                Debug.Log("Grid Data: " + vec + " is ocupied");
+                //Debug.Log("Grid Data: " + vec + " is ocupied");
                 return false;
             }
         }

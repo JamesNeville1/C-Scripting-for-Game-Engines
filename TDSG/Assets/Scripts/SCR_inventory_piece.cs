@@ -7,11 +7,13 @@ using UnityEngine.U2D;
 using UnityEngine.UIElements;
 using IzzetUtils;
 using IzzetUtils.IzzetAttributes;
+using System.Runtime.CompilerServices;
 
 public class SCR_inventory_piece : MonoBehaviour {
     [SerializeField] [Tooltip("IsPressed")] [MyReadOnly] private bool active = true;
     [SerializeField] [Tooltip("IsPressed")] [MyReadOnly] private bool mouseOver = true;
     [SerializeField] [Tooltip("Slots the piece takes up")] [MyReadOnly] private Vector2Int[] slots;
+    [SerializeField] [Tooltip("The Item this piece represents")] [MyReadOnly] private SCO_item pieceItem;
 
     private SCR_player_inventory playerInventory; //Reference to inventory
     private List<SpriteRenderer> srs = new List<SpriteRenderer>(); //All sprite renderers of children
@@ -39,6 +41,23 @@ public class SCR_inventory_piece : MonoBehaviour {
 
     private void OnMouseOver() {
         mouseOver = true;
+
+        if(Input.GetMouseButtonDown(1)) {
+            switch (pieceItem) {
+                case SCO_ABS_item_edible:
+                    Debug.Log("Eating");
+                    SCO_ABS_item_edible casted = pieceItem as SCO_ABS_item_edible;
+                    casted.eat(SCR_player_main.returnInstance().returnAttributes());
+                    break;
+                case SCO_ABS_item_weapon:
+                    print("This is a weapon");
+                    break;
+                case SCO_item:
+                    Debug.Log("This is just a resource, you may not eat it!");
+                    break;
+
+            }
+        }
     }
 
     private void OnMouseExit() {
@@ -51,7 +70,7 @@ public class SCR_inventory_piece : MonoBehaviour {
             if (!Input.GetMouseButton(0)) {
                 active = false;
                 if (!playerInventory.tryPlaceGrid(this)) {
-                    Debug.Log("I've fallen, and I can't get up");
+                    //Debug.Log("I've fallen, and I can't get up");
                     drop();
                 }
                 adjustSortingOrder(1);
@@ -105,6 +124,8 @@ public class SCR_inventory_piece : MonoBehaviour {
         compCol.isTrigger = true;
 
         slots = source.returnSpaces();
+
+        pieceItem = source;
     }
 
     public Vector2Int[] returnChildren(Vector2Int parentPos) { //Return all positions the piece takes up
