@@ -6,7 +6,6 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using static UnityEditor.PlayerSettings;
 using Color = UnityEngine.Color;
 using Random = System.Random;
 

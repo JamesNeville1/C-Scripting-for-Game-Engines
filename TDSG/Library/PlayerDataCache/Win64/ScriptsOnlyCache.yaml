@@ -1,10 +1,22 @@
 ScriptsOnlyBuild:
   usedScripts:
+    Assembly-CSharp:
+    - SCO_item
     Assembly-CSharp.dll:
     - SCO_gatherable
+    - SCO_item
+    - SCO_item_edible_food
+    - SCO_item_edible_healing
+    - SCO_item_weapon_melee
+    - SCO_item_weapon_ranged
+    - SCR_combat_manager
+    - SCR_entity_attributes
     - SCR_map_generation
     - SCR_master
+    - SCR_player_inventory
     - SCR_player_main
+    - SCR_tile
+    - SCR_unit
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Animation.Runtime.dll:
@@ -16,7 +28,6 @@ ScriptsOnlyBuild:
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridBrushEditor
-    - UnityEditor.Tilemaps.GridPaintPaletteClipboard
     - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -36,18 +47,55 @@ ScriptsOnlyBuild:
     - UnityEngine.RuleTile
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.TextMeshPro:
+    - TMPro.TMP_ColorGradient
+    - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
   serializedClasses:
     Assembly-CSharp:
+    - SCR_entity_attributes/attribute
     - SCR_map_generation/gathableData
     Unity.2D.Tilemap.Extras:
     - UnityEngine.RuleTile/TilingRule
+    Unity.TextMeshPro:
+    - TMPro.FaceInfo_Legacy
+    - TMPro.FontAssetCreationSettings
+    - TMPro.KerningTable
+    - TMPro.TMP_Character
+    - TMPro.TMP_FontFeatureTable
+    - TMPro.TMP_FontWeightPair
+    - TMPro.TMP_GlyphAdjustmentRecord
+    - TMPro.TMP_GlyphPairAdjustmentRecord
+    - TMPro.TMP_GlyphValueRecord
+    - TMPro.TMP_Sprite
+    - TMPro.TMP_SpriteCharacter
+    - TMPro.TMP_SpriteGlyph
+    - TMPro.TMP_Style
+    UnityEngine.TextCoreFontEngineModule:
+    - UnityEngine.TextCore.FaceInfo
+    - UnityEngine.TextCore.Glyph
+    - UnityEngine.TextCore.GlyphMetrics
+    - UnityEngine.TextCore.GlyphRect
   methodsToPreserve: []
   sceneClasses:
-    Assets/SCE_main.unity:
+    Assets/Scenes/SCE_combat.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -60,24 +108,34 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 50
-      Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 17994}
+      Script: {instanceID: 17174}
     - Class: 114
-      Script: {instanceID: 18374}
+      Script: {instanceID: 18032}
     - Class: 114
-      Script: {instanceID: 19778}
+      Script: {instanceID: 20074}
     - Class: 114
-      Script: {instanceID: 22916}
+      Script: {instanceID: 20956}
     - Class: 114
-      Script: {instanceID: 23102}
+      Script: {instanceID: 22780}
+    - Class: 114
+      Script: {instanceID: 23054}
+    - Class: 114
+      Script: {instanceID: 24410}
+    - Class: 114
+      Script: {instanceID: 24492}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -94,7 +152,119 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 1839735485
       Script: {instanceID: 0}
+    Assets/Scenes/SCE_menu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    Assets/Scenes/SCE_overworld.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 66
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 17426}
+    - Class: 114
+      Script: {instanceID: 17952}
+    - Class: 114
+      Script: {instanceID: 18076}
+    - Class: 114
+      Script: {instanceID: 18334}
+    - Class: 114
+      Script: {instanceID: 18460}
+    - Class: 114
+      Script: {instanceID: 18480}
+    - Class: 114
+      Script: {instanceID: 19702}
+    - Class: 114
+      Script: {instanceID: 19844}
+    - Class: 114
+      Script: {instanceID: 19882}
+    - Class: 114
+      Script: {instanceID: 20170}
+    - Class: 114
+      Script: {instanceID: 21094}
+    - Class: 114
+      Script: {instanceID: 22420}
+    - Class: 114
+      Script: {instanceID: 22780}
+    - Class: 114
+      Script: {instanceID: 23054}
+    - Class: 114
+      Script: {instanceID: 23244}
+    - Class: 114
+      Script: {instanceID: 24766}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 19719996
+      Script: {instanceID: 0}
+    - Class: 156049354
+      Script: {instanceID: 0}
+    - Class: 483693784
+      Script: {instanceID: 0}
+    - Class: 1839735485
+      Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: 0249933f35dcc970b31eaae0159aebf9
+    assemblyName: UnityEngine.UI
+    namespaceName: UnityEngine.UI
+    className: ContentSizeFitter
+  - hash:
+      serializedVersion: 2
+      Hash: 16c8cbd24a32f9d6625615e0e9098073
+    assemblyName: UnityEngine.UI
+    namespaceName: UnityEngine.UI
+    className: Image
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -103,10 +273,10 @@ ScriptsOnlyBuild:
     className: PanelRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 16c8cbd24a32f9d6625615e0e9098073
-    assemblyName: UnityEngine.UI
-    namespaceName: UnityEngine.UI
-    className: Image
+      Hash: 2c68651f5d0a1452f9061e8c5634c005
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SCR_inventory_piece
   - hash:
       serializedVersion: 2
       Hash: 74007bf515c4306e564934b368232bdb
@@ -139,6 +309,12 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
+      Hash: 454fd3834dc328ef5399a9a42e53d592
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: SkewTextExample
+  - hash:
+      serializedVersion: 2
       Hash: ea1569413d805748b7cef2dcb4622c85
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
@@ -157,10 +333,16 @@ ScriptsOnlyBuild:
     className: UnityOnMouseExitMessageListener
   - hash:
       serializedVersion: 2
-      Hash: eca810eec7ebcbe4bd73110bc5a5a761
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: SimpleScript
+  - hash:
+      serializedVersion: 2
+      Hash: 3259454475e368b7ecc35e29dc759394
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: SCO_item
+    className: SCR_combat_manager
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -235,6 +417,12 @@ ScriptsOnlyBuild:
     className: UnityOnBecameVisibleMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 1bfcfbce150993e56fae19f40f3da27f
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: Benchmark01_UGUI
+  - hash:
+      serializedVersion: 2
       Hash: bcdedb1b3a567eb05111be4716618ce1
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.EventSystems
@@ -271,7 +459,19 @@ ScriptsOnlyBuild:
     className: UnityMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 2a137c66091f7dab91aa682c2d1b79cd
+      Hash: 44ac8b25752daafd54e30c812a6a97b7
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SCR_unit
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: TMP_TextSelector_A
+  - hash:
+      serializedVersion: 2
+      Hash: 3ffe7c788de86c3d8649edb426f93064
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: SCR_player_main
@@ -343,16 +543,40 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
+      Hash: 580d34b72c2f3fab84826cc51a987278
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SCO_item_edible_food
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnDropdownValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 3e0e65ddc034a5f9e0fb52581dde5b6f
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SCR_audio_manager
+  - hash:
+      serializedVersion: 2
+      Hash: c1bd68d82a3ffded249ad74146a6c734
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: SCO_gatherable
+  - hash:
+      serializedVersion: 2
+      Hash: 621c767d2befc1f15a89f44257ab3c90
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SCR_player_inventory
+  - hash:
+      serializedVersion: 2
+      Hash: 9f5cca8c22d9a2d2a819c5ba5c0675a8
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: VertexShakeA
   - hash:
       serializedVersion: 2
       Hash: a4d905db69ca7f45f45458ae380fb66f
@@ -371,6 +595,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Button
+  - hash:
+      serializedVersion: 2
+      Hash: 85000d725b3d59681683bd7467fe9099
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: Benchmark04
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -403,12 +633,6 @@ ScriptsOnlyBuild:
     className: UnityOnTransformParentChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 0249933f35dcc970b31eaae0159aebf9
-    assemblyName: UnityEngine.UI
-    namespaceName: UnityEngine.UI
-    className: ContentSizeFitter
-  - hash:
-      serializedVersion: 2
       Hash: f6831ac80ec81c5d5b370c0ed0fee997
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -433,10 +657,22 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
+      Hash: 4aeaabfb5368e1c79d66e90575c29ce1
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ChatController
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.EventSystems
     className: BaseInput
+  - hash:
+      serializedVersion: 2
+      Hash: 995ded12fd23487c35be69ad8c37f000
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: TextMeshProFloatingText
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -475,6 +711,18 @@ ScriptsOnlyBuild:
     className: ScriptGraphAsset
   - hash:
       serializedVersion: 2
+      Hash: d6466f80c7f1eb77305ce84a967e5aeb
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SCR_destroy_after
+  - hash:
+      serializedVersion: 2
+      Hash: b6e08e9716184d5736af5af9ffaf1513
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: VertexShakeB
+  - hash:
+      serializedVersion: 2
       Hash: 0286ed84936a6e3c4dba049ae21a7b1c
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
@@ -485,6 +733,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnPointerExitMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 8a64c0f8522bcdc3b5511041fb34cc1e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: EnvMapAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: 098f025716fad3521c89a222b6058556
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: TMP_UiFrameRateCounter
   - hash:
       serializedVersion: 2
       Hash: b18151310f999106767addd7177d1a99
@@ -553,7 +813,13 @@ ScriptsOnlyBuild:
     className: UnityOnJointBreak2DMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 329a180d240f9399a5106efd54ef6387
+      Hash: 9fd8740de42a4337a3f3676ce2914c04
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: CameraController
+  - hash:
+      serializedVersion: 2
+      Hash: 2fba3e159db29c2904bbcd7ef0aeb822
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: SCR_map_generation
@@ -571,6 +837,12 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
+      Hash: 4806a06f0f94de59733b5f9bf8b8314c
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SCO_item_weapon_ranged
+  - hash:
+      serializedVersion: 2
       Hash: fcc569162a8d9bd9df34e8c9dee84212
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -583,10 +855,34 @@ ScriptsOnlyBuild:
     className: UnityOnCancelMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 8092d6aa649f9a77e3aaba32d32d0107
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: TMPro_InstructionOverlay
+  - hash:
+      serializedVersion: 2
       Hash: d0517205fcfc45f1f388e707a723983b
     assemblyName: Unity.2D.Tilemap.Extras
     namespaceName: UnityEngine.Tilemaps
     className: AnimatedTile
+  - hash:
+      serializedVersion: 2
+      Hash: f6bf0fc71f5b6dfe19329b1c4df9fee0
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: TMP_ExampleScript_01
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: TextConsoleSimulator
+  - hash:
+      serializedVersion: 2
+      Hash: 26dacff44c1c1bb89901b0b06dafc1de
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: ObjectSpin
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -599,6 +895,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.Animation.Runtime
     namespaceName: UnityEngine.U2D.Animation
     className: BufferManager
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: TMP_TextInfoDebugTool
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -623,6 +925,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: GridLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 6fc777aac0ea7171de5755ec920b26c3
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: TMP_TextEventCheck
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -661,6 +969,12 @@ ScriptsOnlyBuild:
     className: UnityOnTriggerStayMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 32dfe76194c51f0d62549c972eb43775
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: ShaderPropAnimator
+  - hash:
+      serializedVersion: 2
       Hash: fa7c62595553866a25a1f687b1914fd2
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
@@ -677,6 +991,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime
     namespaceName: UnityEngine.U2D.IK
     className: CCDSolver2D
+  - hash:
+      serializedVersion: 2
+      Hash: 580d34b72c2f3fab84826cc51a987278
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SCO_item_edible_healing
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -709,10 +1029,22 @@ ScriptsOnlyBuild:
     className: UnityOnTriggerExitMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 50ff3748c8810a6032e49b292aa2bda3
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: WarpTextExample
+  - hash:
+      serializedVersion: 2
       Hash: 1b4a83f2a2f1a4def12cdc9223cce72c
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
     className: TMP_FontAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro
+    className: TMP_DigitValidator
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -757,10 +1089,22 @@ ScriptsOnlyBuild:
     className: StateGraphAsset
   - hash:
       serializedVersion: 2
+      Hash: d2938fd574d28d48888d4f06beab689c
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: Benchmark02
+  - hash:
+      serializedVersion: 2
       Hash: 6a356b04c25c0bb008c1b24bf8b0f996
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: 925a889a282ea89c4d9bd41afd22e4c2
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: TextMeshSpawner
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -785,6 +1129,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnMouseUpAsButtonMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: af33740fd008fddf067c2bd4ecacf9c0
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: Benchmark03
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -841,7 +1191,13 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 751e5bae2a317288c2ab58d66687092b
+      Hash: 098f025716fad3521c89a222b6058556
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: TMP_FrameRateCounter
+  - hash:
+      serializedVersion: 2
+      Hash: e6d2ebb820a5e8b27cb06463fba84ab1
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: SCR_entity_attributes
@@ -901,6 +1257,12 @@ ScriptsOnlyBuild:
     className: UnityOnTriggerEnter2DMessageListener
   - hash:
       serializedVersion: 2
+      Hash: b6e08e9716184d5736af5af9ffaf1513
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: VertexJitter
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
@@ -937,7 +1299,13 @@ ScriptsOnlyBuild:
     className: UnityOnPointerDownMessageListener
   - hash:
       serializedVersion: 2
-      Hash: f787ebc9052e685e422da5b37eac6c4b
+      Hash: 6829bea31b0631acecdc94f44ca7ede8
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro
+    className: TMP_TextEventHandler
+  - hash:
+      serializedVersion: 2
+      Hash: e82b8a278cd1839a81ea5686bc63f828
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: SCR_master
@@ -977,6 +1345,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Dropdown
+  - hash:
+      serializedVersion: 2
+      Hash: a31fd79490479c7454bc49ff7ef65bbf
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: TMP_TextSelector_B
   - hash:
       serializedVersion: 2
       Hash: ff06596e682343f04b451cdb376b1850
@@ -1045,10 +1419,28 @@ ScriptsOnlyBuild:
     className: Variables
   - hash:
       serializedVersion: 2
+      Hash: 783de51efb343429d5d4c515cb889d12
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: DropdownSample
+  - hash:
+      serializedVersion: 2
       Hash: f6831ac80ec81c5d5b370c0ed0fee997
     assemblyName: Unity.VisualScripting.State
     namespaceName: Unity.VisualScripting
     className: StateMachine
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro
+    className: TMP_PhoneNumberValidator
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: VertexColorCycler
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -1067,6 +1459,30 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.Animation.Runtime
     namespaceName: UnityEngine.U2D.Animation
     className: SpriteLibrarySourceAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: TeleType
+  - hash:
+      serializedVersion: 2
+      Hash: b6e08e9716184d5736af5af9ffaf1513
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: VertexZoom
+  - hash:
+      serializedVersion: 2
+      Hash: 6d316cdf35fa7b5a4b50d3c843e56d66
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SCR_tile
+  - hash:
+      serializedVersion: 2
+      Hash: 580d34b72c2f3fab84826cc51a987278
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SCO_item_weapon_melee
   - hash:
       serializedVersion: 2
       Hash: afe1800287c9574079eab3fea2622416
@@ -1093,6 +1509,12 @@ ScriptsOnlyBuild:
     className: UnityOnMouseEnterMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 86b3f904003c4ef3e621cd0f54dbdc40
+    assemblyName: Assembly-CSharp
+    namespaceName: TMPro.Examples
+    className: Benchmark01
+  - hash:
+      serializedVersion: 2
       Hash: 0e28d8006f33a4c6bf3ef39e20820f9c
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.EventSystems
@@ -1111,11 +1533,19 @@ ScriptsOnlyBuild:
     className: UnityOnTriggerExit2DMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 580d34b72c2f3fab84826cc51a987278
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SCO_item
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
   platform: 19
   scenePathNames:
-  - Assets/SCE_main.unity
-  playerPath: C:/Users/n013403n/Downloads/TDSG - Build - V1.1/Map Gen System.exe
+  - Assets/Scenes/SCE_overworld.unity
+  - Assets/Scenes/SCE_combat.unity
+  - Assets/Scenes/SCE_menu.unity
+  playerPath: C:/Users/n013403n/Documents/TDSG V2.1/Map Gen System.exe

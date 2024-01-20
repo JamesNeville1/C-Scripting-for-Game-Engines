@@ -9,7 +9,9 @@ using IzzetUtils;
 using IzzetUtils.IzzetAttributes;
 
 public class SCR_inventory_piece : MonoBehaviour {
-    [SerializeField] [Tooltip("IsPressed")] [MyReadOnly] private bool pressed = false;
+    [SerializeField] [Tooltip("IsPressed")] [MyReadOnly] private bool active = true;
+    [SerializeField] [Tooltip("IsPressed")] [MyReadOnly] private bool mouseOver = true;
+    [SerializeField] [Tooltip("Slots the piece takes up")] [MyReadOnly] private Vector2Int[] slots;
 
     private SCR_player_inventory playerInventory; //Reference to inventory
     private List<SpriteRenderer> srs = new List<SpriteRenderer>(); //All sprite renderers of children
@@ -31,38 +33,52 @@ public class SCR_inventory_piece : MonoBehaviour {
     private void Awake() {
         playerInventory = SCR_player_inventory.returnInstance();
     }
-
-    private void OnMouseOver() {
-        if (Input.GetMouseButtonDown(0)) { 
-            pressed = true;
-            playerInventory.removePiece(this);
-        }
-        //Debug.Log("This is a " + itemName);
-    }
     private void Update() {
         move();
     }
 
+    private void OnMouseOver() {
+        mouseOver = true;
+    }
+
+    private void OnMouseExit() {
+        mouseOver = false;
+    }
+
     private void move() { //Move piece via mouse input
-        if (pressed) {
-            if (Input.GetMouseButton(0)) {
-                transform.position = IzzetMain.getMousePos(Camera.main);
-            }
-            else if (Input.GetMouseButtonUp(0)) {
-                pressed = false;
+        if (active) {
+            transform.position = IzzetMain.getMousePos(Camera.main);
+            if (!Input.GetMouseButton(0)) {
+                active = false;
                 if (!playerInventory.tryPlaceGrid(this)) {
-                    if (!playerInventory.tryPlaceTempSlot(this)) {
-                        Debug.Log(gameObject.name + " has been destroyed");
-                        Instantiate(playerInventory.returnDestroyVFX(), transform.position, Quaternion.identity);
-                        Destroy(this.gameObject);
-                    }
+                    Debug.Log("I've fallen, and I can't get up");
+                    drop();
                 }
+                adjustSortingOrder(1);
+            }
+        }
+        else {
+            if(Input.GetMouseButtonDown(0) && mouseOver) {
+                active=true;
+                pickUp();
             }
         }
     }
 
+    private void drop() {
+        playerInventory.removePiece(this);
+        transform.parent = null;
+        adjustSize(.55f);
+    }
+    private void pickUp() {
+        adjustSize(1);
+        adjustSortingOrder(2);
+        transform.parent = playerInventory.returnCellParent();
+        playerInventory.removePiece(this);
+    }
+
     private void setup(SCO_item source, Sprite blockSprite) { //Called from create instance. It creates children acording to the source (item)
-        Vector2[] blocks = source.returnSpaces();
+        Vector2Int[] blocks = source.returnSpaces();
 
         Color blockColour = source.returnColor();
 
@@ -87,14 +103,25 @@ public class SCR_inventory_piece : MonoBehaviour {
         CompositeCollider2D compCol = gameObject.AddComponent<CompositeCollider2D>();
         compCol.geometryType = CompositeCollider2D.GeometryType.Polygons;
         compCol.isTrigger = true;
+
+        slots = source.returnSpaces();
     }
 
-    public List<Vector2Int> returnChildren(Vector2Int parentPos) { //Return all positions the piece takes up
-        List<Vector2Int> children = new List<Vector2Int>();
-        for (int i = 0; i < transform.childCount; i++) {
-            Vector2 beforeCast = gameObject.transform.GetChild(i).transform.localPosition + (Vector3Int)parentPos;
-            children.Add(IzzetMain.castVector2(beforeCast));
+    public Vector2Int[] returnChildren(Vector2Int parentPos) { //Return all positions the piece takes up
+        List<Vector2Int> vecs = new List<Vector2Int>();
+        foreach (Vector2Int item in slots) {
+            vecs.Add(item + parentPos);
         }
-        return children.ToList();
+        return vecs.ToArray();
+    }
+
+    private void adjustSortingOrder(int i) {
+        foreach (SpriteRenderer sr in srs) {
+            sr.sortingOrder = i;
+        }
+    }
+    
+    private void adjustSize(float i) {
+        transform.localScale = new Vector2(i,i);
     }
 }

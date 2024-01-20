@@ -8,11 +8,11 @@ public class SCO_item : ScriptableObject {
     [SerializeField] internal int attribute = 0;
     [SerializeField] private Sprite sprite;
     [SerializeField] private Color displayBlockColour;
-    [SerializeField] private Vector2[] spaces = new Vector2[1];
+    [SerializeField] private Vector2Int[] spaces = new Vector2Int[1];
     public Sprite returnSprite() {
         return sprite;
     }
-    public Vector2[] returnSpaces() {
+    public Vector2Int[] returnSpaces() {
         return spaces;
     }
     public Color returnColor(){
