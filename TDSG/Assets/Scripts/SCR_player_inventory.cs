@@ -13,8 +13,6 @@ public class SCR_player_inventory : MonoBehaviour {
 
     [SerializeField] private Transform cellParent;
 
-    [SerializeField] private Transform tempSlotKey;
-
     [Header("Other")]
     private static SCR_player_inventory inventoryInstance; //To be returned to others
 

@@ -27,7 +27,7 @@ public class SCR_inventory_piece : MonoBehaviour {
         newPiece.transform.parent = instance.returnCellParent();
 
         SCR_inventory_piece newScript = newPiece.GetComponent<SCR_inventory_piece>();
-        newScript.setup(item, instance.returnItemSprite());
+        newScript.setup(item, instance.returnItemSprite(), item.returnSprite());
 
         return newPiece;
     }
@@ -43,20 +43,23 @@ public class SCR_inventory_piece : MonoBehaviour {
         mouseOver = true;
 
         if(Input.GetMouseButtonDown(1)) {
-            switch (pieceItem) {
-                case SCO_ABS_item_edible:
-                    Debug.Log("Eating");
-                    SCO_ABS_item_edible casted = pieceItem as SCO_ABS_item_edible;
-                    casted.eat(SCR_player_main.returnInstance().returnAttributes());
-                    break;
-                case SCO_ABS_item_weapon:
-                    print("This is a weapon");
-                    break;
-                case SCO_item:
-                    Debug.Log("This is just a resource, you may not eat it!");
-                    break;
+            useItemLogic();
+        }
+    }
 
-            }
+    private void useItemLogic() {
+        switch (pieceItem) {
+            case SCO_ABS_item_edible:
+                Debug.Log("Eating");
+                SCO_ABS_item_edible casted = pieceItem as SCO_ABS_item_edible;
+                casted.eat(SCR_player_main.returnInstance().returnAttributes());
+                break;
+            case SCO_ABS_item_weapon:
+                print("This is a weapon");
+                break;
+            case SCO_item:
+                Debug.Log("This is just a resource, you may not eat it!");
+                break;
         }
     }
 
@@ -73,7 +76,9 @@ public class SCR_inventory_piece : MonoBehaviour {
                     //Debug.Log("I've fallen, and I can't get up");
                     drop();
                 }
-                adjustSortingOrder(1);
+                else {
+                    adjustSortingOrder(1);
+                }
             }
         }
         else {
@@ -88,6 +93,7 @@ public class SCR_inventory_piece : MonoBehaviour {
         playerInventory.removePiece(this);
         transform.parent = null;
         adjustSize(.55f);
+        adjustSortingOrder(0, "Default"); //In future 0 should be replaced with an oppropriate order, relative to the world.
     }
     private void pickUp() {
         adjustSize(1);
@@ -96,7 +102,7 @@ public class SCR_inventory_piece : MonoBehaviour {
         playerInventory.removePiece(this);
     }
 
-    private void setup(SCO_item source, Sprite blockSprite) { //Called from create instance. It creates children acording to the source (item)
+    private void setup(SCO_item source, Sprite blockSprite, Sprite itemSprite) { //Called from create instance. It creates children acording to the source (item)
         Vector2Int[] blocks = source.returnSpaces();
 
         Color blockColour = source.returnColor();
@@ -109,7 +115,7 @@ public class SCR_inventory_piece : MonoBehaviour {
             srs.Add(newBlock.GetComponent<SpriteRenderer>());
             int arrayPos = srs.Count - 1;
 
-            srs[arrayPos].sprite = blockSprite;
+            srs[arrayPos].sprite = IzzetMain.mergeSprite(blockSprite, itemSprite);
             srs[arrayPos].color = blockColour;
             srs[arrayPos].sortingOrder = 2;
             srs[arrayPos].sortingLayerName = "Inventory Piece";
@@ -136,9 +142,10 @@ public class SCR_inventory_piece : MonoBehaviour {
         return vecs.ToArray();
     }
 
-    private void adjustSortingOrder(int i) {
+    private void adjustSortingOrder(int i, string sortingLayer = "Inventory Piece") {
         foreach (SpriteRenderer sr in srs) {
             sr.sortingOrder = i;
+            sr.sortingLayerName = sortingLayer;
         }
     }
     

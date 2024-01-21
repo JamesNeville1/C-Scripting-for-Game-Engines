@@ -1583,7 +1583,6 @@ MonoBehaviour:
   gridCellSprite: {fileID: 21300000, guid: 8eeedd5b06c35c949ba394c4b2c484a7, type: 3}
   itemBlockSprite: {fileID: 21300000, guid: d8ae8cb60f334584d9efa2f6bcc2fb6a, type: 3}
   cellParent: {fileID: 554863859}
-  tempSlotKey: {fileID: 1567140262}
 --- !u!1 &1567140261
 GameObject:
   m_ObjectHideFlags: 0
