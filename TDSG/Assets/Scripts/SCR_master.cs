@@ -5,14 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class SCR_master : MonoBehaviour {
 
+    [Header("Require Dev Input")]
     [SerializeField] private GameObject playerPrefab;
-
-    [Header("Inventory Vars")]
     [SerializeField] private int inventorySizeX;
     [SerializeField] private int inventorySizeY;
-    public void temp() {
-        
-    }
 
     private void Start() {
         //Get Required References

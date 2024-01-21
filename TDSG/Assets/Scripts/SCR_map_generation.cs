@@ -1,84 +1,61 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using Color = UnityEngine.Color;
 using Random = System.Random;
+using IzzetUtils.IzzetAttributes;
 
 public class SCR_map_generation : MonoBehaviour {
 
-    public Dictionary<Vector2, RuleTile> mapData = new Dictionary<Vector2, RuleTile>(); //Hold tile data
-
     [Header("Map Base")]
-    [Tooltip("Main tile for map")] [SerializeField]
-    private RuleTile groundTile;
-
-    //[SerializeField]
-    //private RuleTile boundsTile;
-
-    [SerializeField]
-    private RuleTile waterTile;
-
-    [Tooltip("Where to place tile")] [SerializeField]
-    private Tilemap tilemap;
-    [Tooltip("Where to place water tile")] [SerializeField]
-    private Tilemap waterTilemap;
-    //[Tooltip("Where to place water tile")] [SerializeField]
-    //private Tilemap boundsTileMap;
-
-    [Tooltip("Magnify how large perlin map is")] [SerializeField]
-    private int islandSize = 8;
-
-    [Tooltip("Number of tiles (x)")] [SerializeField]
-    private int sizeX;
-
-    [Tooltip("Number of tiles (y)")] [SerializeField]
-    private int sizeY;
+    [SerializeField] [Tooltip("Main tile for map")] private RuleTile groundTile;
+    [SerializeField] [Tooltip("Water tile for map")] private RuleTile waterTile;
+    [SerializeField] [Tooltip("Where to place tile")] private Tilemap tilemap;
+    [SerializeField] [Tooltip("Where to place water tile")] private Tilemap waterTilemap;
+    [SerializeField] [Tooltip("Magnify how large perlin map is")] private int islandSize = 8;
+    [SerializeField] [Tooltip("Number of tiles (x)")] private int sizeX;
+    [SerializeField] [Tooltip("Number of tiles (y)")] private int sizeY;
     
 
+    [Header("Map Gatherables")]
+    [SerializeField] [Tooltip("Inspector friendly, passed to 'colorToType' dictionary on awake")] private List<gathableData> gathables;
+    [SerializeField] [MyReadOnly] [Tooltip("Holds pixels to be used for the end map")] private Texture2D mapTex;
+    [SerializeField] [MyReadOnly] [Tooltip("Holds pixels to be used for the end map")] int distributionStep = 1;
+    [SerializeField] [Tooltip("Reduce gatherables by amount")] private int reduceGatherablesBy;
+
+    [Header("Other")]
+    [SerializeField] [Tooltip("Temp start pos of player")] private Vector2 playerStartPos;
+
+    #region Won't be Serialised
+    public Dictionary<Color32, SCO_gatherable> colorToType = new Dictionary<Color32, SCO_gatherable>(); //Maps colour to gatherable scriptable object
+    private Dictionary<Vector2, Color32> posToColour = new Dictionary<Vector2, Color32>();
+
     [System.Serializable]
-    public struct gathableData { 
+    public struct gathableData {
         public Color color;
         public SCO_gatherable data;
     }
-
-    [Header("Map Gatherables")]
-    [Tooltip("Inspector friendly, passed to 'colorToType' dictionary on awake")] [SerializeField]
-    private List<gathableData> gathables;
-    public Dictionary<Color32, SCO_gatherable> colorToType = new Dictionary<Color32, SCO_gatherable>(); //Maps colour to gatherable scriptable object
-
-    private Dictionary<Vector2, Color32> posToColour = new Dictionary<Vector2, Color32>();
-
-    [Tooltip("Holds pixels to be used for the end map")] [SerializeField] [IzzetUtils.IzzetAttributes.MyReadOnly]
-    private Texture2D mapTex;
-
-    [Tooltip("Holds pixels to be used for the end map")] [SerializeField] [IzzetUtils.IzzetAttributes.MyReadOnly]
-    int distributionStep;
-
-    [Tooltip("Reduce gatherables by amount")] [SerializeField]
-    private int reduceGatherablesBy;
-
-    [Header("Other")]
-    [Tooltip("")][SerializeField]
-    private Vector2 playerStartPos;
-
-    [Header("TEMP")]
-    public Texture2D test;
+    #endregion
 
     private void Awake() {
-        foreach (gathableData item in gathables) {
-            colorToType.Add(item.color, item.data);
-        }
+        passToDictionary();
 
         tilemap.transform.position = new Vector3(-0.5f, -0.5f);
 
         distributionStep = 1;
     }
 
+    #region Setup
+    private void passToDictionary() {
+        foreach (gathableData item in gathables) {
+            colorToType.Add(item.color, item.data);
+        }
+    }
+    #endregion
+    #region Seed Generation & Authentication
     //Randomly generates 10 digit seed
     public string randomSeed() {
         string newSeed = "";
@@ -120,7 +97,8 @@ public class SCR_map_generation : MonoBehaviour {
 
         return offset;
     }
-
+    #endregion
+    #region Generate From Texture
     //Generate map using tilemap
     public void generate(string seedString = "") {
         tilemap.ClearAllTiles();
@@ -164,8 +142,7 @@ public class SCR_map_generation : MonoBehaviour {
                 if (currentColour != Color.black) {
                     tilemap.SetTile(posInt, groundTile);
 
-                    if (currentColour != Color.white && !isBound)
-                    { //If pixel isn't white, place gatherable from dictionairy 
+                    if (currentColour != Color.white && !isBound) { //If pixel isn't white, place gatherable from dictionairy 
                         colorToType[currentColour].gatherableSetup(pos, gatherableParent.transform);
                     }
                     //TEMP
@@ -180,7 +157,8 @@ public class SCR_map_generation : MonoBehaviour {
             }
         }
     }
-
+    #endregion
+    #region Generate Texture
     //Generate all textures
     private Texture2D generatePerlinTexture(Vector2 seed, int islandSize, List<Color32> successColours) {
 
@@ -203,46 +181,8 @@ public class SCR_map_generation : MonoBehaviour {
         tex.filterMode = FilterMode.Point;
         tex.Apply();
 
-        //tex = cleanUp(tex); //Fix
-
         return tex;
     }
-
-    //Final Clean-Up
-    private Texture2D cleanUp(Texture2D raw) {
-        for (int x = 0; x < sizeX; x++) {
-            for (int y = 0; y < sizeX; y++) {
-                if(checkPixel(x, y)) {
-                    raw.SetPixel(x, y, Color.white);
-                }
-            }
-        }
-        return raw;
-    }
-
-    private bool checkPixel(int x, int y) {
-        Vector2 pos = new Vector2(x, y);
-
-        Vector2[] toCheck = {
-            pos + Vector2.left,
-            pos + Vector2.right,
-            pos + Vector2.up,
-            pos + Vector2.down,
-                    
-            pos + Vector2.left + Vector2.up,
-            pos + Vector2.right + Vector2.up,
-            pos + Vector2.left + Vector2.down,
-            pos + Vector2.right + Vector2.down,
-        };
-
-        foreach (Vector2 v in toCheck) {
-            if (posToColour[v] == Color.black) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     //Return perlin
     private int getBasePerlinID(Vector2 v, Vector2 offset, int islandSize, int count = 1) {
         float rawPerlin = Mathf.PerlinNoise(
@@ -283,16 +223,8 @@ public class SCR_map_generation : MonoBehaviour {
         _ = (distributionStep > 50) ? distributionStep = 1 : distributionStep++;
         return rand;
     }
+    #endregion
     #region utils
-    public Vector2 mapCentre(bool round = false) {
-        if(mapData.Count == 0) return new Vector2(0, 0);
-        Vector2 dist = (mapData.ElementAt(0).Key + mapData.ElementAt(mapData.Count - 1).Key) / 2;
-
-        if (round) {
-            return new Vector2(Mathf.Round(dist.x), Mathf.Round(dist.y));
-        }
-        return dist;
-    }
     public void removeTile(Vector2 pos) {
         tilemap.SetTile(new Vector3Int((int)pos.x,(int)pos.y), null);
     }

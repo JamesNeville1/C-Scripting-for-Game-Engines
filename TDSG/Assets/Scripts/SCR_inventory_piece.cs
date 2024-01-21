@@ -1,23 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.U2D;
-using UnityEngine.UIElements;
 using IzzetUtils;
 using IzzetUtils.IzzetAttributes;
-using System.Runtime.CompilerServices;
 
 public class SCR_inventory_piece : MonoBehaviour {
-    [SerializeField] [Tooltip("IsPressed")] [MyReadOnly] private bool active = true;
-    [SerializeField] [Tooltip("IsPressed")] [MyReadOnly] private bool mouseOver = true;
+    [Header("Input Related")]
+    [SerializeField] [Tooltip("Is the piece currently moving?")] [MyReadOnly] private bool active = true;
+    [SerializeField] [Tooltip("Is the mouse currently over the piece?")] [MyReadOnly] private bool mouseOver = true;
+
+    [Header("Mechanical Implementations")]
     [SerializeField] [Tooltip("Slots the piece takes up")] [MyReadOnly] private Vector2Int[] slots;
     [SerializeField] [Tooltip("The Item this piece represents")] [MyReadOnly] private SCO_item pieceItem;
 
+    #region Won't be Seen in Inspector
     private SCR_player_inventory playerInventory; //Reference to inventory
     private List<SpriteRenderer> srs = new List<SpriteRenderer>(); //All sprite renderers of children
+    #endregion
 
+    #region Create Instance
     //Create brand new instance from anywhere with no reference required
     public static GameObject createInstance(SCO_item item, Vector2 spawnPos) {
         GameObject newPiece = new GameObject(item.name + " Piece", typeof(SCR_inventory_piece));
@@ -31,12 +33,44 @@ public class SCR_inventory_piece : MonoBehaviour {
 
         return newPiece;
     }
+    private void setup(SCO_item source, Sprite blockSprite, Sprite itemSprite) { //Called from create instance. It creates children acording to the source (item)
+        Vector2Int[] blocks = source.returnSpaces();
+
+        Color blockColour = source.returnColor();
+
+        foreach (Vector2 blockPos in blocks) {
+            GameObject newBlock = new GameObject("Block:" + blockPos.x + ", " + blockPos.y, typeof(SpriteRenderer));
+            newBlock.transform.parent = transform;
+            newBlock.transform.localPosition = blockPos;
+
+            srs.Add(newBlock.GetComponent<SpriteRenderer>());
+            int arrayPos = srs.Count - 1;
+
+            srs[arrayPos].sprite = blockSprite;
+            srs[arrayPos].color = blockColour;
+            srs[arrayPos].sortingOrder = 2;
+            srs[arrayPos].sortingLayerName = "Inventory Piece";
+
+            newBlock.AddComponent<BoxCollider2D>().usedByComposite = true;
+        }
+
+        
+        gameObject.AddComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        CompositeCollider2D compCol = gameObject.AddComponent<CompositeCollider2D>();
+        compCol.geometryType = CompositeCollider2D.GeometryType.Polygons;
+        compCol.isTrigger = true;
+
+        slots = source.returnSpaces();
+
+        pieceItem = source;
+    }
+    #endregion
 
     private void Awake() {
-        playerInventory = SCR_player_inventory.returnInstance();
+        playerInventory = SCR_player_inventory.returnInstance(); //Get reference to inventory
     }
     private void Update() {
-        move();
+        playerInput();
     }
 
     private void OnMouseOver() {
@@ -46,7 +80,11 @@ public class SCR_inventory_piece : MonoBehaviour {
             useItemLogic();
         }
     }
+    private void OnMouseExit() {
+        mouseOver = false;
+    }
 
+    #region Item Logic
     private void useItemLogic() {
         switch (pieceItem) {
             case SCO_ABS_item_edible:
@@ -62,12 +100,9 @@ public class SCR_inventory_piece : MonoBehaviour {
                 break;
         }
     }
-
-    private void OnMouseExit() {
-        mouseOver = false;
-    }
-
-    private void move() { //Move piece via mouse input
+    #endregion
+    #region Input
+    private void playerInput() { //Move piece via mouse input
         if (active) {
             transform.position = IzzetMain.getMousePos(Camera.main);
             if (!Input.GetMouseButton(0)) {
@@ -88,7 +123,6 @@ public class SCR_inventory_piece : MonoBehaviour {
             }
         }
     }
-
     private void drop() {
         playerInventory.removePiece(this);
         transform.parent = null;
@@ -101,39 +135,8 @@ public class SCR_inventory_piece : MonoBehaviour {
         transform.parent = playerInventory.returnCellParent();
         playerInventory.removePiece(this);
     }
-
-    private void setup(SCO_item source, Sprite blockSprite, Sprite itemSprite) { //Called from create instance. It creates children acording to the source (item)
-        Vector2Int[] blocks = source.returnSpaces();
-
-        Color blockColour = source.returnColor();
-
-        foreach (Vector2 blockPos in blocks) {
-            GameObject newBlock = new GameObject("Block:" + blockPos.x + ", " + blockPos.y, typeof(SpriteRenderer));
-            newBlock.transform.parent = transform;
-            newBlock.transform.localPosition = blockPos;
-
-            srs.Add(newBlock.GetComponent<SpriteRenderer>());
-            int arrayPos = srs.Count - 1;
-
-            srs[arrayPos].sprite = IzzetMain.mergeSprite(blockSprite, itemSprite);
-            srs[arrayPos].color = blockColour;
-            srs[arrayPos].sortingOrder = 2;
-            srs[arrayPos].sortingLayerName = "Inventory Piece";
-
-            newBlock.AddComponent<BoxCollider2D>().usedByComposite = true;
-        }
-
-        
-        gameObject.AddComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        CompositeCollider2D compCol = gameObject.AddComponent<CompositeCollider2D>();
-        compCol.geometryType = CompositeCollider2D.GeometryType.Polygons;
-        compCol.isTrigger = true;
-
-        slots = source.returnSpaces();
-
-        pieceItem = source;
-    }
-
+    #endregion
+    #region Grid Authentication
     public Vector2Int[] returnChildren(Vector2Int parentPos) { //Return all positions the piece takes up
         List<Vector2Int> vecs = new List<Vector2Int>();
         foreach (Vector2Int item in slots) {
@@ -141,7 +144,8 @@ public class SCR_inventory_piece : MonoBehaviour {
         }
         return vecs.ToArray();
     }
-
+    #endregion
+    #region Adjust Sprite Renderers
     private void adjustSortingOrder(int i, string sortingLayer = "Inventory Piece") {
         foreach (SpriteRenderer sr in srs) {
             sr.sortingOrder = i;
@@ -152,4 +156,5 @@ public class SCR_inventory_piece : MonoBehaviour {
     private void adjustSize(float i) {
         transform.localScale = new Vector2(i,i);
     }
+    #endregion
 }

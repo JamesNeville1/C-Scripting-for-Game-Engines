@@ -30,27 +30,37 @@ namespace IzzetUtils {
 
             return valid;
         }
-        public static void animate(Animator animator, string prefix, bool moving = false) { //Simple animation hookup
+        //Simple animation hookup
+        public static void animate(Animator animator, string prefix = "", bool moving = false) {
             if (moving) animator.Play(prefix + "move");
             else animator.Play(prefix + "idle");
         }
-        public static Vector2 getMousePos(Camera cam) { //Get mouse position in world
+        //Get mouse position in world
+        public static Vector2 getMousePos(Camera cam) {
             Vector3 worldPosition = cam.ScreenToWorldPoint(Input.mousePosition);
             return worldPosition;
         }
+        //Cast Vector2 to Vector2Int
         public static Vector2Int castVector2(Vector2 vec) {
             return new Vector2Int(Mathf.RoundToInt(vec.x), Mathf.RoundToInt(vec.y));
         }
-        public static Sprite mergeSprite(Sprite baseSprite, Sprite pasted) {
-            for (int x = 0; x < baseSprite.texture.width; x++) {
-                for (int y = 0; y < baseSprite.texture.height; y++) {
-                    Color32 color = pasted.texture.GetPixel(x, y);
-                    if(color.a != 0) {
-                        baseSprite.texture.SetPixel(x, y, color);
-                    }
-                }
-            }
-            return baseSprite;
-        }
+        //public static Sprite mergeSprite(Sprite baseSprite, Sprite pasted) {
+        //    Texture2D toPass = baseSprite.texture;
+
+        //    Texture2D toPaste = pasted.texture;
+        //    toPaste.Reinitialize((int)pasted.rect.x, (int)pasted.rect.y);
+            
+        //    toPaste.l
+
+        //    for (int x = 0; x <toPass.width; x++) {
+        //        for (int y = 0; y < toPass.height; y++) {
+        //            if(toPaste.GetPixel(x, y).a != 0) {
+                        
+        //            }
+        //        }
+        //    }
+
+        //    return Sprite.Create(toPaste, new Rect(0,0, toPass.width, toPass.height), new Vector2(.5f, .5f), 16);
+        //}
     }
 }

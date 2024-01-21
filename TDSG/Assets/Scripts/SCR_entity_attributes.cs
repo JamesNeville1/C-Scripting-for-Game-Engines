@@ -5,15 +5,15 @@ using UnityEngine;
 public class SCR_entity_attributes : MonoBehaviour {
     [System.Serializable]
     public class attribute {
-        public int current;
-        public int max;
+        [Tooltip("Current Int")] public int current;
+        [Tooltip("Max Int")] public int max;
 
-        public attribute(int current, int max) {
+        public attribute(int current, int max) { //Constructor
             this.current = current;
             this.max = max;
         }
 
-        public void adjust(int adjustBy) {
+        public void adjust(int adjustBy) { //Adjust attribute, can not go over max
             if (current + adjustBy > max) {
                 current = max;
             }

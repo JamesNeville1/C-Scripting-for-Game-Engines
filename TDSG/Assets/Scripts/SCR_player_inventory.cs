@@ -2,27 +2,23 @@ using IzzetUtils;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SCR_player_inventory : MonoBehaviour {
-    [Header("Main")]
+    [Header("Require Dev Input")]
     [SerializeField] [Tooltip("What sprite should the grid cells use")] private Sprite gridCellSprite;
-
     [SerializeField] [Tooltip("What sprite should the item use")] private Sprite itemBlockSprite;
-
     [SerializeField] private Transform cellParent;
 
-    [Header("Other")]
-    private static SCR_player_inventory inventoryInstance; //To be returned to others
-
-
+    #region Can't / Won't be Serialised
     private enum cellState {
         EMPTY,
         OCCUPIED
     }
     private Dictionary<Vector2Int, cellState> gridData = new Dictionary<Vector2Int, cellState>(); //Holds grid and where it is occupied or not
     private Dictionary<SCR_inventory_piece, Vector2Int[]> pieceData = new Dictionary<SCR_inventory_piece, Vector2Int[]>(); //Hold data of pieces
+    private static SCR_player_inventory inventoryInstance; //To be returned to others
+    #endregion
 
     public static SCR_player_inventory returnInstance() {
         return inventoryInstance;
@@ -49,7 +45,7 @@ public class SCR_player_inventory : MonoBehaviour {
             }
         }
     }
-    
+    #region Piece Placement
     public void removePiece(SCR_inventory_piece toCheck) { //Remove piece from dictionaries
         if (pieceData.ContainsKey(toCheck)) {
             pieceData.Remove(toCheck);
@@ -71,7 +67,8 @@ public class SCR_player_inventory : MonoBehaviour {
 
         return true;
     }
-
+    #endregion
+    #region Grid Authentication
     public bool checkPiece(SCR_inventory_piece piece, Vector2Int pos) { //Loop through children //LOOK AT THIS, THIS IS BAD ;-;
         Vector2Int[] children = piece.returnChildren(pos);
         foreach(Vector2Int vec in children) {
@@ -93,8 +90,8 @@ public class SCR_player_inventory : MonoBehaviour {
             gridData[vec] = state;
         }
     }
-
-    #region All Public Functions to return variables
+    #endregion
+    #region Returns & Publics
     public Sprite returnItemSprite() {
         return itemBlockSprite;
     }
