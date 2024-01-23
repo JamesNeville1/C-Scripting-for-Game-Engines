@@ -16,6 +16,7 @@ public class SCR_inventory_piece : MonoBehaviour {
 
     #region Won't be Seen in Inspector
     private SCR_player_inventory playerInventory; //Reference to inventory
+    private SCR_player_crafting playerCrafting;
     private List<SpriteRenderer> srs = new List<SpriteRenderer>(); //All sprite renderers of children
     #endregion
 
@@ -68,6 +69,7 @@ public class SCR_inventory_piece : MonoBehaviour {
 
     private void Awake() {
         playerInventory = SCR_player_inventory.returnInstance(); //Get reference to inventory
+        playerCrafting = SCR_player_crafting.returnInstance(); //Get reference to crafting
     }
     private void Update() {
         playerInput();
@@ -108,8 +110,10 @@ public class SCR_inventory_piece : MonoBehaviour {
             if (!Input.GetMouseButton(0)) {
                 active = false;
                 if (!playerInventory.tryPlaceGrid(this)) {
-                    //Debug.Log("I've fallen, and I can't get up");
-                    drop();
+                    if(!playerCrafting.tryPlace(this)) {
+                        //Debug.Log("I've fallen, and I can't get up");
+                        drop();
+                    }
                 }
                 else {
                     adjustSortingOrder(1);
