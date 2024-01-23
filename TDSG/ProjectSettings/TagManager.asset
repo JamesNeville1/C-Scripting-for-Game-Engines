@@ -8,10 +8,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Level
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
@@ -42,8 +42,8 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Inventory
-    uniqueID: 3746256665
+    uniqueID: 97952743
     locked: 0
   - name: Inventory Piece
-    uniqueID: 1428665659
+    uniqueID: 2685519571
     locked: 0

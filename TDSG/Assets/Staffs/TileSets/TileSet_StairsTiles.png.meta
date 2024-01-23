@@ -1,0 +1,5109 @@
+fileFormatVersion: 2
+guid: 04cf095a86e7a544e8e0188cea2b4b25
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6565964955580560924
+    second: TileSet_StairsTiles_0
+  - first:
+      213: 1674675667749174625
+    second: TileSet_StairsTiles_1
+  - first:
+      213: -3800249667439658901
+    second: TileSet_StairsTiles_2
+  - first:
+      213: 7536620402027107763
+    second: TileSet_StairsTiles_3
+  - first:
+      213: 1101814193370115176
+    second: TileSet_StairsTiles_4
+  - first:
+      213: 3975403874133543620
+    second: TileSet_StairsTiles_5
+  - first:
+      213: -3890747867059588167
+    second: TileSet_StairsTiles_6
+  - first:
+      213: -471357295460900812
+    second: TileSet_StairsTiles_7
+  - first:
+      213: -4759150913754591153
+    second: TileSet_StairsTiles_8
+  - first:
+      213: -2753238727039722397
+    second: TileSet_StairsTiles_9
+  - first:
+      213: 8851352145438777977
+    second: TileSet_StairsTiles_10
+  - first:
+      213: -1519971849274796908
+    second: TileSet_StairsTiles_11
+  - first:
+      213: -372595352974739424
+    second: TileSet_StairsTiles_12
+  - first:
+      213: 4315720989821155209
+    second: TileSet_StairsTiles_13
+  - first:
+      213: 2356032999752438229
+    second: TileSet_StairsTiles_14
+  - first:
+      213: 4124037457368247717
+    second: TileSet_StairsTiles_15
+  - first:
+      213: 8252882484956506115
+    second: TileSet_StairsTiles_16
+  - first:
+      213: -1853646659619674076
+    second: TileSet_StairsTiles_17
+  - first:
+      213: -3648490963689355408
+    second: TileSet_StairsTiles_18
+  - first:
+      213: -6966436027425571250
+    second: TileSet_StairsTiles_19
+  - first:
+      213: 4244444611612435384
+    second: TileSet_StairsTiles_20
+  - first:
+      213: 900902901499459421
+    second: TileSet_StairsTiles_21
+  - first:
+      213: 7531554767266258460
+    second: TileSet_StairsTiles_22
+  - first:
+      213: -2247881568109183829
+    second: TileSet_StairsTiles_23
+  - first:
+      213: -1284022090266939585
+    second: TileSet_StairsTiles_24
+  - first:
+      213: 3514522878731299402
+    second: TileSet_StairsTiles_25
+  - first:
+      213: -6629548866218973906
+    second: TileSet_StairsTiles_26
+  - first:
+      213: -8100638597417170833
+    second: TileSet_StairsTiles_27
+  - first:
+      213: -7949986721294430844
+    second: TileSet_StairsTiles_28
+  - first:
+      213: 4929307504956757517
+    second: TileSet_StairsTiles_29
+  - first:
+      213: 5226986250208344454
+    second: TileSet_StairsTiles_30
+  - first:
+      213: 2882187798185768882
+    second: TileSet_StairsTiles_31
+  - first:
+      213: -5649361562045551418
+    second: TileSet_StairsTiles_32
+  - first:
+      213: 8809125763918762724
+    second: TileSet_StairsTiles_33
+  - first:
+      213: -8774516902784169927
+    second: TileSet_StairsTiles_34
+  - first:
+      213: 4321989158638280287
+    second: TileSet_StairsTiles_35
+  - first:
+      213: 6006009257459124568
+    second: TileSet_StairsTiles_36
+  - first:
+      213: -6616686876861186018
+    second: TileSet_StairsTiles_37
+  - first:
+      213: -5806333197063286511
+    second: TileSet_StairsTiles_38
+  - first:
+      213: -7855472547525312048
+    second: TileSet_StairsTiles_39
+  - first:
+      213: -7488270947878966398
+    second: TileSet_StairsTiles_40
+  - first:
+      213: -6678567608176172701
+    second: TileSet_StairsTiles_41
+  - first:
+      213: -1817309706400350164
+    second: TileSet_StairsTiles_42
+  - first:
+      213: 3511596876913953913
+    second: TileSet_StairsTiles_43
+  - first:
+      213: -3590678691583308550
+    second: TileSet_StairsTiles_44
+  - first:
+      213: -3293710465183800803
+    second: TileSet_StairsTiles_45
+  - first:
+      213: 2608842218732189010
+    second: TileSet_StairsTiles_46
+  - first:
+      213: 2036600427787778703
+    second: TileSet_StairsTiles_47
+  - first:
+      213: -1348548977157522038
+    second: TileSet_StairsTiles_48
+  - first:
+      213: -3696942377547329534
+    second: TileSet_StairsTiles_49
+  - first:
+      213: -7971821475753865090
+    second: TileSet_StairsTiles_50
+  - first:
+      213: -5813268389918680038
+    second: TileSet_StairsTiles_51
+  - first:
+      213: 3787657861003805516
+    second: TileSet_StairsTiles_52
+  - first:
+      213: -6769936112996293257
+    second: TileSet_StairsTiles_53
+  - first:
+      213: -1013727691735216846
+    second: TileSet_StairsTiles_54
+  - first:
+      213: 6006816449588655359
+    second: TileSet_StairsTiles_55
+  - first:
+      213: 1234008124511684297
+    second: TileSet_StairsTiles_56
+  - first:
+      213: 8109168131882518641
+    second: TileSet_StairsTiles_57
+  - first:
+      213: 9038325149342091003
+    second: TileSet_StairsTiles_58
+  - first:
+      213: 8175669246530476356
+    second: TileSet_StairsTiles_59
+  - first:
+      213: -4571882916229099622
+    second: TileSet_StairsTiles_60
+  - first:
+      213: -4172559419994315576
+    second: TileSet_StairsTiles_61
+  - first:
+      213: -7827723030552527609
+    second: TileSet_StairsTiles_62
+  - first:
+      213: -4466445052571334395
+    second: TileSet_StairsTiles_63
+  - first:
+      213: 3711186767459305482
+    second: TileSet_StairsTiles_64
+  - first:
+      213: -5318621240832077032
+    second: TileSet_StairsTiles_65
+  - first:
+      213: 2739000518185842996
+    second: TileSet_StairsTiles_66
+  - first:
+      213: 6826970362349357705
+    second: TileSet_StairsTiles_67
+  - first:
+      213: 7991092777798590687
+    second: TileSet_StairsTiles_68
+  - first:
+      213: -7931564553479352369
+    second: TileSet_StairsTiles_69
+  - first:
+      213: 7216389844742136468
+    second: TileSet_StairsTiles_70
+  - first:
+      213: -7702372420590415517
+    second: TileSet_StairsTiles_71
+  - first:
+      213: -9034020342336248479
+    second: TileSet_StairsTiles_72
+  - first:
+      213: -6820185846133002970
+    second: TileSet_StairsTiles_73
+  - first:
+      213: -3590155190547219514
+    second: TileSet_StairsTiles_74
+  - first:
+      213: 3208328209833214408
+    second: TileSet_StairsTiles_75
+  - first:
+      213: 493377504667471715
+    second: TileSet_StairsTiles_76
+  - first:
+      213: 9033710146362871893
+    second: TileSet_StairsTiles_77
+  - first:
+      213: -446450898536640656
+    second: TileSet_StairsTiles_78
+  - first:
+      213: 7232097155491956261
+    second: TileSet_StairsTiles_79
+  - first:
+      213: 8153446608419377551
+    second: TileSet_StairsTiles_80
+  - first:
+      213: 8735815893011046279
+    second: TileSet_StairsTiles_81
+  - first:
+      213: -8098633895490265059
+    second: TileSet_StairsTiles_82
+  - first:
+      213: 5343069449377417589
+    second: TileSet_StairsTiles_83
+  - first:
+      213: -8948299604287255017
+    second: TileSet_StairsTiles_84
+  - first:
+      213: 7862657828489060099
+    second: TileSet_StairsTiles_85
+  - first:
+      213: -4773602927784955412
+    second: TileSet_StairsTiles_86
+  - first:
+      213: 5624481222808326649
+    second: TileSet_StairsTiles_87
+  - first:
+      213: -2827445860609543688
+    second: TileSet_StairsTiles_88
+  - first:
+      213: -803390031827529200
+    second: TileSet_StairsTiles_89
+  - first:
+      213: 8520565667876512945
+    second: TileSet_StairsTiles_90
+  - first:
+      213: -4248143499758543080
+    second: TileSet_StairsTiles_91
+  - first:
+      213: 747875926420685759
+    second: TileSet_StairsTiles_92
+  - first:
+      213: -6008175045590568700
+    second: TileSet_StairsTiles_93
+  - first:
+      213: 7664092573820300012
+    second: TileSet_StairsTiles_94
+  - first:
+      213: 600485008678452729
+    second: TileSet_StairsTiles_95
+  - first:
+      213: -8099063199660826763
+    second: TileSet_StairsTiles_96
+  - first:
+      213: -4377678615489871168
+    second: TileSet_StairsTiles_97
+  - first:
+      213: 8884439720522990185
+    second: TileSet_StairsTiles_98
+  - first:
+      213: -8286970711741327477
+    second: TileSet_StairsTiles_99
+  - first:
+      213: 681695707903884498
+    second: TileSet_StairsTiles_100
+  - first:
+      213: -1629992428559864034
+    second: TileSet_StairsTiles_101
+  - first:
+      213: 7072567635583510237
+    second: TileSet_StairsTiles_102
+  - first:
+      213: 7443805831620389018
+    second: TileSet_StairsTiles_103
+  - first:
+      213: 8143133749108708370
+    second: TileSet_StairsTiles_104
+  - first:
+      213: 1269941678519292470
+    second: TileSet_StairsTiles_105
+  - first:
+      213: 9123719034135084916
+    second: TileSet_StairsTiles_106
+  - first:
+      213: -8583957573230580213
+    second: TileSet_StairsTiles_107
+  - first:
+      213: 8481277618752271333
+    second: TileSet_StairsTiles_108
+  - first:
+      213: 2835459448358547601
+    second: TileSet_StairsTiles_109
+  - first:
+      213: 5902717382943758717
+    second: TileSet_StairsTiles_110
+  - first:
+      213: -2822232150398468389
+    second: TileSet_StairsTiles_111
+  - first:
+      213: -1734358622358911065
+    second: TileSet_StairsTiles_112
+  - first:
+      213: 8280498609475349183
+    second: TileSet_StairsTiles_113
+  - first:
+      213: 159956253945362264
+    second: TileSet_StairsTiles_114
+  - first:
+      213: -6000577790830764204
+    second: TileSet_StairsTiles_115
+  - first:
+      213: -7510514618431582906
+    second: TileSet_StairsTiles_116
+  - first:
+      213: 4764662055978757638
+    second: TileSet_StairsTiles_117
+  - first:
+      213: 193604680726961473
+    second: TileSet_StairsTiles_118
+  - first:
+      213: -8952667102924627346
+    second: TileSet_StairsTiles_119
+  - first:
+      213: -4459878247263527127
+    second: TileSet_StairsTiles_120
+  - first:
+      213: -7990273932839776567
+    second: TileSet_StairsTiles_121
+  - first:
+      213: 8915787560925839081
+    second: TileSet_StairsTiles_122
+  - first:
+      213: 7673553015084736515
+    second: TileSet_StairsTiles_123
+  - first:
+      213: -6693132883674211838
+    second: TileSet_StairsTiles_124
+  - first:
+      213: -416443680552189731
+    second: TileSet_StairsTiles_125
+  - first:
+      213: 8030190306448894580
+    second: TileSet_StairsTiles_126
+  - first:
+      213: 1549534313502585738
+    second: TileSet_StairsTiles_127
+  - first:
+      213: -2160127315374254052
+    second: TileSet_StairsTiles_128
+  - first:
+      213: -5183785771744224342
+    second: TileSet_StairsTiles_129
+  - first:
+      213: 403770518471200617
+    second: TileSet_StairsTiles_130
+  - first:
+      213: -278617456341902008
+    second: TileSet_StairsTiles_131
+  - first:
+      213: 793533287028138517
+    second: TileSet_StairsTiles_132
+  - first:
+      213: 3894181435911005652
+    second: TileSet_StairsTiles_133
+  - first:
+      213: -2026193984584302166
+    second: TileSet_StairsTiles_134
+  - first:
+      213: 8981099691895068246
+    second: TileSet_StairsTiles_135
+  - first:
+      213: 1816627179682902509
+    second: TileSet_StairsTiles_136
+  - first:
+      213: -8436222185320900023
+    second: TileSet_StairsTiles_137
+  - first:
+      213: 1887648873512033869
+    second: TileSet_StairsTiles_138
+  - first:
+      213: -7540686390169848601
+    second: TileSet_StairsTiles_139
+  - first:
+      213: 3251668576246193680
+    second: TileSet_StairsTiles_140
+  - first:
+      213: 3360937147062191765
+    second: TileSet_StairsTiles_141
+  - first:
+      213: 6550116571902217266
+    second: TileSet_StairsTiles_142
+  - first:
+      213: -1874695162608384872
+    second: TileSet_StairsTiles_143
+  - first:
+      213: -6458129380733236795
+    second: TileSet_StairsTiles_144
+  - first:
+      213: 2002208752659359470
+    second: TileSet_StairsTiles_145
+  - first:
+      213: -4558524595755098242
+    second: TileSet_StairsTiles_146
+  - first:
+      213: 4736921140258105474
+    second: TileSet_StairsTiles_147
+  - first:
+      213: 5796284945919987129
+    second: TileSet_StairsTiles_148
+  - first:
+      213: -930857372319194782
+    second: TileSet_StairsTiles_149
+  - first:
+      213: 2211917390191990128
+    second: TileSet_StairsTiles_150
+  - first:
+      213: -5783622067714145256
+    second: TileSet_StairsTiles_151
+  - first:
+      213: 3391078092743178178
+    second: TileSet_StairsTiles_152
+  - first:
+      213: -9090915422009633319
+    second: TileSet_StairsTiles_153
+  - first:
+      213: 2362435495975089920
+    second: TileSet_StairsTiles_154
+  - first:
+      213: 4914238646586467087
+    second: TileSet_StairsTiles_155
+  - first:
+      213: -6897616385217842240
+    second: TileSet_StairsTiles_156
+  - first:
+      213: 3665591183459585106
+    second: TileSet_StairsTiles_157
+  - first:
+      213: 3005894147923157191
+    second: TileSet_StairsTiles_158
+  - first:
+      213: 2633510917695174527
+    second: TileSet_StairsTiles_159
+  - first:
+      213: -2618215116692223720
+    second: TileSet_StairsTiles_160
+  - first:
+      213: 8796537206955061029
+    second: TileSet_StairsTiles_161
+  - first:
+      213: -860345155842410661
+    second: TileSet_StairsTiles_162
+  - first:
+      213: -3141639932322594496
+    second: TileSet_StairsTiles_163
+  - first:
+      213: -1349914345525079757
+    second: TileSet_StairsTiles_164
+  - first:
+      213: 9117404575792219114
+    second: TileSet_StairsTiles_165
+  - first:
+      213: -6086670898336568346
+    second: TileSet_StairsTiles_166
+  - first:
+      213: 5918335157822158372
+    second: TileSet_StairsTiles_167
+  - first:
+      213: -4987847838452784112
+    second: TileSet_StairsTiles_168
+  - first:
+      213: -8929177215345871241
+    second: TileSet_StairsTiles_169
+  - first:
+      213: 3707768400445172613
+    second: TileSet_StairsTiles_170
+  - first:
+      213: 4065663063744731081
+    second: TileSet_StairsTiles_171
+  - first:
+      213: 1012598481173386351
+    second: TileSet_StairsTiles_172
+  - first:
+      213: 2974662388466841535
+    second: TileSet_StairsTiles_173
+  - first:
+      213: -7646973969254445776
+    second: TileSet_StairsTiles_174
+  - first:
+      213: 4040935799726320450
+    second: TileSet_StairsTiles_175
+  - first:
+      213: 2710479813698210678
+    second: TileSet_StairsTiles_176
+  - first:
+      213: 3579190044983240722
+    second: TileSet_StairsTiles_0
+  - first:
+      213: 4539171623114853193
+    second: TileSet_StairsTiles_1
+  - first:
+      213: -4955305130541066920
+    second: TileSet_StairsTiles_2
+  - first:
+      213: 5122514367099676975
+    second: TileSet_StairsTiles_3
+  - first:
+      213: -2826017403544635340
+    second: TileSet_StairsTiles_4
+  - first:
+      213: 4117084944121639673
+    second: TileSet_StairsTiles_5
+  - first:
+      213: 4361658050762242737
+    second: TileSet_StairsTiles_6
+  - first:
+      213: 958929070239107107
+    second: TileSet_StairsTiles_7
+  - first:
+      213: 482014704982408193
+    second: TileSet_StairsTiles_8
+  - first:
+      213: -4299898240390424688
+    second: TileSet_StairsTiles_9
+  - first:
+      213: 5289684411054179768
+    second: TileSet_StairsTiles_10
+  - first:
+      213: -4796463971450105182
+    second: TileSet_StairsTiles_11
+  - first:
+      213: -7292074764504385382
+    second: TileSet_StairsTiles_12
+  - first:
+      213: 7961780108772259956
+    second: TileSet_StairsTiles_13
+  - first:
+      213: -298968298255151314
+    second: TileSet_StairsTiles_14
+  - first:
+      213: 2531553763749170446
+    second: TileSet_StairsTiles_15
+  - first:
+      213: -6746022520744930714
+    second: TileSet_StairsTiles_16
+  - first:
+      213: 666728341387016296
+    second: TileSet_StairsTiles_17
+  - first:
+      213: 5731386560668968245
+    second: TileSet_StairsTiles_18
+  - first:
+      213: -1527836110214325671
+    second: TileSet_StairsTiles_19
+  - first:
+      213: -7355331533410269735
+    second: TileSet_StairsTiles_20
+  - first:
+      213: 6588442076958933236
+    second: TileSet_StairsTiles_21
+  - first:
+      213: -495542555608720946
+    second: TileSet_StairsTiles_22
+  - first:
+      213: -4841167555769739621
+    second: TileSet_StairsTiles_23
+  - first:
+      213: 657402458599936298
+    second: TileSet_StairsTiles_24
+  - first:
+      213: -9010276148197749317
+    second: TileSet_StairsTiles_25
+  - first:
+      213: 983398550338014273
+    second: TileSet_StairsTiles_26
+  - first:
+      213: -4795001751829528458
+    second: TileSet_StairsTiles_27
+  - first:
+      213: 4296687576232658835
+    second: TileSet_StairsTiles_28
+  - first:
+      213: 20219618366867084
+    second: TileSet_StairsTiles_29
+  - first:
+      213: 5364880753171239613
+    second: TileSet_StairsTiles_30
+  - first:
+      213: 1674112794187645776
+    second: TileSet_StairsTiles_31
+  - first:
+      213: 4320744570051649087
+    second: TileSet_StairsTiles_32
+  - first:
+      213: 142768813827449422
+    second: TileSet_StairsTiles_33
+  - first:
+      213: -7641094173000898576
+    second: TileSet_StairsTiles_34
+  - first:
+      213: 7517178841216216862
+    second: TileSet_StairsTiles_35
+  - first:
+      213: -462504454654314756
+    second: TileSet_StairsTiles_36
+  - first:
+      213: -576572007980887563
+    second: TileSet_StairsTiles_37
+  - first:
+      213: 2816174346161456400
+    second: TileSet_StairsTiles_38
+  - first:
+      213: -7843051380395015593
+    second: TileSet_StairsTiles_39
+  - first:
+      213: 1425463784931260921
+    second: TileSet_StairsTiles_40
+  - first:
+      213: 4487554638900563991
+    second: TileSet_StairsTiles_41
+  - first:
+      213: -8421643715586733027
+    second: TileSet_StairsTiles_42
+  - first:
+      213: 7161644428484128970
+    second: TileSet_StairsTiles_43
+  - first:
+      213: 7469471434066129495
+    second: TileSet_StairsTiles_44
+  - first:
+      213: -8102979602558772410
+    second: TileSet_StairsTiles_45
+  - first:
+      213: 2558281859648201375
+    second: TileSet_StairsTiles_46
+  - first:
+      213: 4563562596700128302
+    second: TileSet_StairsTiles_47
+  - first:
+      213: -1668652688491274192
+    second: TileSet_StairsTiles_48
+  - first:
+      213: -5875065737610145481
+    second: TileSet_StairsTiles_49
+  - first:
+      213: -7770594201880789160
+    second: TileSet_StairsTiles_50
+  - first:
+      213: 6043821130281391586
+    second: TileSet_StairsTiles_51
+  - first:
+      213: -403081516691983255
+    second: TileSet_StairsTiles_52
+  - first:
+      213: 2200761119683739128
+    second: TileSet_StairsTiles_53
+  - first:
+      213: -1348643375444936792
+    second: TileSet_StairsTiles_54
+  - first:
+      213: 7049603678016731962
+    second: TileSet_StairsTiles_55
+  - first:
+      213: -2801988888535693030
+    second: TileSet_StairsTiles_56
+  - first:
+      213: 89543423164963224
+    second: TileSet_StairsTiles_57
+  - first:
+      213: -4404146773548646314
+    second: TileSet_StairsTiles_58
+  - first:
+      213: -5687992285839043063
+    second: TileSet_StairsTiles_59
+  - first:
+      213: -414992404730350840
+    second: TileSet_StairsTiles_60
+  - first:
+      213: 4298247649788410251
+    second: TileSet_StairsTiles_61
+  - first:
+      213: -938428747003621072
+    second: TileSet_StairsTiles_62
+  - first:
+      213: 3653456334914858024
+    second: TileSet_StairsTiles_63
+  - first:
+      213: -1965773426574537040
+    second: TileSet_StairsTiles_64
+  - first:
+      213: -6160109383290596611
+    second: TileSet_StairsTiles_65
+  - first:
+      213: 4034620798202328976
+    second: TileSet_StairsTiles_66
+  - first:
+      213: -3494659739305545273
+    second: TileSet_StairsTiles_67
+  - first:
+      213: -2308260514399551331
+    second: TileSet_StairsTiles_68
+  - first:
+      213: -2841578367090665014
+    second: TileSet_StairsTiles_69
+  - first:
+      213: -2658954264602219532
+    second: TileSet_StairsTiles_70
+  - first:
+      213: -8048264457101258475
+    second: TileSet_StairsTiles_71
+  - first:
+      213: 658073231045535755
+    second: TileSet_StairsTiles_72
+  - first:
+      213: 1680258406214007242
+    second: TileSet_StairsTiles_73
+  - first:
+      213: 3435532339436288321
+    second: TileSet_StairsTiles_74
+  - first:
+      213: -8367153396921777904
+    second: TileSet_StairsTiles_75
+  - first:
+      213: 7645611120121454323
+    second: TileSet_StairsTiles_76
+  - first:
+      213: -6280433579815432075
+    second: TileSet_StairsTiles_77
+  - first:
+      213: 719843496767406053
+    second: TileSet_StairsTiles_78
+  - first:
+      213: -1317194954429476933
+    second: TileSet_StairsTiles_79
+  - first:
+      213: 1091058651438197628
+    second: TileSet_StairsTiles_80
+  - first:
+      213: -7055293895339757273
+    second: TileSet_StairsTiles_81
+  - first:
+      213: 320055834790129401
+    second: TileSet_StairsTiles_82
+  - first:
+      213: -8114594104447786445
+    second: TileSet_StairsTiles_83
+  - first:
+      213: -3825829896198702986
+    second: TileSet_StairsTiles_84
+  - first:
+      213: 7859511337312956479
+    second: TileSet_StairsTiles_85
+  - first:
+      213: 832042740609815806
+    second: TileSet_StairsTiles_86
+  - first:
+      213: 8811280240887379921
+    second: TileSet_StairsTiles_87
+  - first:
+      213: -5933243189024557750
+    second: TileSet_StairsTiles_88
+  - first:
+      213: 7571763924597110271
+    second: TileSet_StairsTiles_89
+  - first:
+      213: -4981677103792673861
+    second: TileSet_StairsTiles_90
+  - first:
+      213: 2672517803149953805
+    second: TileSet_StairsTiles_91
+  - first:
+      213: -7054848545865085215
+    second: TileSet_StairsTiles_92
+  - first:
+      213: -747407922409517161
+    second: TileSet_StairsTiles_93
+  - first:
+      213: -4190077406922718693
+    second: TileSet_StairsTiles_94
+  - first:
+      213: 3023867382270638705
+    second: TileSet_StairsTiles_95
+  - first:
+      213: -3513634989319198477
+    second: TileSet_StairsTiles_96
+  - first:
+      213: 4676471899684138862
+    second: TileSet_StairsTiles_97
+  - first:
+      213: -5878743308900854668
+    second: TileSet_StairsTiles_98
+  - first:
+      213: 7305003078452609964
+    second: TileSet_StairsTiles_99
+  - first:
+      213: -164465005031533764
+    second: TileSet_StairsTiles_100
+  - first:
+      213: -8401347419225449074
+    second: TileSet_StairsTiles_101
+  - first:
+      213: -4764956558285243837
+    second: TileSet_StairsTiles_102
+  - first:
+      213: -3088343399810558887
+    second: TileSet_StairsTiles_103
+  - first:
+      213: -3128586541278685410
+    second: TileSet_StairsTiles_104
+  - first:
+      213: 4155028253164825196
+    second: TileSet_StairsTiles_105
+  - first:
+      213: -6041156505471007449
+    second: TileSet_StairsTiles_106
+  - first:
+      213: 694278424628319054
+    second: TileSet_StairsTiles_107
+  - first:
+      213: 45277592351519394
+    second: TileSet_StairsTiles_108
+  - first:
+      213: -4051910003542530256
+    second: TileSet_StairsTiles_109
+  - first:
+      213: 1812395218675522606
+    second: TileSet_StairsTiles_110
+  - first:
+      213: 6558818039749474346
+    second: TileSet_StairsTiles_111
+  - first:
+      213: -3471490412889865733
+    second: TileSet_StairsTiles_112
+  - first:
+      213: 702171085585853551
+    second: TileSet_StairsTiles_113
+  - first:
+      213: -2271531954433543832
+    second: TileSet_StairsTiles_114
+  - first:
+      213: 441256029920240734
+    second: TileSet_StairsTiles_115
+  - first:
+      213: -9010795679660994521
+    second: TileSet_StairsTiles_116
+  - first:
+      213: 4001258643553445576
+    second: TileSet_StairsTiles_117
+  - first:
+      213: 7750905495323929682
+    second: TileSet_StairsTiles_118
+  - first:
+      213: -4637628600863336522
+    second: TileSet_StairsTiles_119
+  - first:
+      213: 4912909072292944544
+    second: TileSet_StairsTiles_120
+  - first:
+      213: 7215641726859719323
+    second: TileSet_StairsTiles_121
+  - first:
+      213: 1555403019317979072
+    second: TileSet_StairsTiles_122
+  - first:
+      213: 4522722807990539752
+    second: TileSet_StairsTiles_123
+  - first:
+      213: 40552407288097969
+    second: TileSet_StairsTiles_124
+  - first:
+      213: 4095315587522199872
+    second: TileSet_StairsTiles_125
+  - first:
+      213: -7115401467056218487
+    second: TileSet_StairsTiles_126
+  - first:
+      213: 563775904059135627
+    second: TileSet_StairsTiles_127
+  - first:
+      213: -6641129460280240587
+    second: TileSet_StairsTiles_128
+  - first:
+      213: -4462305460335577313
+    second: TileSet_StairsTiles_129
+  - first:
+      213: 3139009784172579160
+    second: TileSet_StairsTiles_130
+  - first:
+      213: 7952522512515452003
+    second: TileSet_StairsTiles_131
+  - first:
+      213: -4354440176081041196
+    second: TileSet_StairsTiles_132
+  - first:
+      213: -5748054369829529222
+    second: TileSet_StairsTiles_133
+  - first:
+      213: 4159029919967815158
+    second: TileSet_StairsTiles_134
+  - first:
+      213: 1286796284395248192
+    second: TileSet_StairsTiles_135
+  - first:
+      213: 142297185335664754
+    second: TileSet_StairsTiles_136
+  - first:
+      213: -2351541218204668246
+    second: TileSet_StairsTiles_137
+  - first:
+      213: 6482332822801998018
+    second: TileSet_StairsTiles_138
+  - first:
+      213: 6556581524587721260
+    second: TileSet_StairsTiles_139
+  - first:
+      213: -7440705921817275427
+    second: TileSet_StairsTiles_140
+  - first:
+      213: -8554575880852768132
+    second: TileSet_StairsTiles_141
+  - first:
+      213: 342410138060361296
+    second: TileSet_StairsTiles_142
+  - first:
+      213: 4257209801601840492
+    second: TileSet_StairsTiles_143
+  - first:
+      213: -3301132281854078091
+    second: TileSet_StairsTiles_144
+  - first:
+      213: -5001160138692665452
+    second: TileSet_StairsTiles_145
+  - first:
+      213: -8433946646262974967
+    second: TileSet_StairsTiles_146
+  - first:
+      213: 4815996185122196134
+    second: TileSet_StairsTiles_147
+  - first:
+      213: -5460859509907654792
+    second: TileSet_StairsTiles_148
+  - first:
+      213: 3695901322697057229
+    second: TileSet_StairsTiles_149
+  - first:
+      213: 4244757554881129937
+    second: TileSet_StairsTiles_150
+  - first:
+      213: -7168985132501234818
+    second: TileSet_StairsTiles_151
+  - first:
+      213: -4799451835788090488
+    second: TileSet_StairsTiles_152
+  - first:
+      213: 5047881090498836559
+    second: TileSet_StairsTiles_153
+  - first:
+      213: -1957911276680578427
+    second: TileSet_StairsTiles_154
+  - first:
+      213: -8477678965614881342
+    second: TileSet_StairsTiles_155
+  - first:
+      213: -5930096775864254565
+    second: TileSet_StairsTiles_156
+  - first:
+      213: -7461437339462597
+    second: TileSet_StairsTiles_157
+  - first:
+      213: 1641100191479907022
+    second: TileSet_StairsTiles_158
+  - first:
+      213: -2277354642077188510
+    second: TileSet_StairsTiles_159
+  - first:
+      213: -4837781012764859170
+    second: TileSet_StairsTiles_160
+  - first:
+      213: 8748374989408579843
+    second: TileSet_StairsTiles_161
+  - first:
+      213: 4049263468804803606
+    second: TileSet_StairsTiles_162
+  - first:
+      213: 2823506793681266252
+    second: TileSet_StairsTiles_163
+  - first:
+      213: -9138354563614325762
+    second: TileSet_StairsTiles_164
+  - first:
+      213: -3665713436834863575
+    second: TileSet_StairsTiles_165
+  - first:
+      213: 6729726383343202212
+    second: TileSet_StairsTiles_166
+  - first:
+      213: 4887332930587018186
+    second: TileSet_StairsTiles_167
+  - first:
+      213: 6874710851602541039
+    second: TileSet_StairsTiles_168
+  - first:
+      213: 3209517700397902158
+    second: TileSet_StairsTiles_169
+  - first:
+      213: 3020084205970687164
+    second: TileSet_StairsTiles_170
+  - first:
+      213: 424026265203837583
+    second: TileSet_StairsTiles_171
+  - first:
+      213: -2558577087824942718
+    second: TileSet_StairsTiles_172
+  - first:
+      213: 3721935352916733314
+    second: TileSet_StairsTiles_173
+  - first:
+      213: 816634908693734883
+    second: TileSet_StairsTiles_174
+  - first:
+      213: 3206127427120309012
+    second: TileSet_StairsTiles_175
+  - first:
+      213: 5586074916698032103
+    second: TileSet_StairsTiles_176
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21827dee166dba130800000000000000
+      internalID: 6565964955580560924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94b4b4aaa806efe30800000000000000
+      internalID: 1674675667749174625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 855dd64fc383b3bb0800000000000000
+      internalID: -3800249667439658901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f29afc73da3d61740800000000000000
+      internalID: 7536620402027107763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43876a4f428f7c8d0800000000000000
+      internalID: 1101814193370115176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f2ba7481f2d22930800000000000000
+      internalID: 3975403874133543620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1baf76b53e8b78c30800000000000000
+      internalID: -3890747867059588167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_7
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328c564a8ecce4d00800000000000000
+      internalID: -471357295460900812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_8
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10cbdf202d570b600800000000000000
+      internalID: -4759150913754591153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 097933b0551b354c0800000000000000
+      internalID: -2753238727039722397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_10
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b54ec622fbb86940800000000000000
+      internalID: 8851352145438777977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_11
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2d1c34e698f6db0800000000000000
+      internalID: -1519971849274796908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_12
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a98302203a85dca90800000000000000
+      internalID: -372595352974739424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_13
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 478342b53dced7e60800000000000000
+      internalID: 4315720989821155209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_14
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2f066faae9d9dbf0800000000000000
+      internalID: 2356032999752438229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_15
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0d82124cb2e12320800000000000000
+      internalID: 4124037457368247717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_16
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 662963462405162a0800000000000000
+      internalID: 8252882484956506115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_17
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 868fe0ed4e1b04900800000000000000
+      internalID: -1853646659619674076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_18
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5352f13f5b9f98f40800000000000000
+      internalID: -3648490963689355408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a19af07290ccae0800000000000000
+      internalID: -6966436027425571250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_20
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d50ad9c0fc9ce990800000000000000
+      internalID: 4244444611612435384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_21
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f0cf547929de6b50800000000000000
+      internalID: 900902901499459421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_22
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec95ad1dbaa7f19f0800000000000000
+      internalID: 7531554767266258460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_23
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b96d234f1c7b0dcb0800000000000000
+      internalID: -2247881568109183829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_24
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2151539d009f1900800000000000000
+      internalID: -1284022090266939585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_25
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd8f7ae49115f280800000000000000
+      internalID: 3514522878731299402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_26
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c088175cbb5ad00800000000000000
+      internalID: -6629548866218973906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_27
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67043dccf4bb47db0800000000000000
+      internalID: -8100638597417170833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_28
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3978e24f596e0ab30800000000000000
+      internalID: -7949986721294430844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_29
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c864042c2a5d74000800000000000000
+      internalID: 4929307504956757517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_30
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db21a13ee92e37a40800000000000000
+      internalID: 5226986250208344454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_31
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 053cd7b67b4ab3710800000000000000
+      internalID: 2882187798185768882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_32
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e502f4b4e56fb30800000000000000
+      internalID: -5649361562045551418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_33
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e426031da773bf100800000000000000
+      internalID: 8809125763918762724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_34
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f769fa755165f590800000000000000
+      internalID: -8774516902784169927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_35
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f66cf0452625860800000000000000
+      internalID: 4321989158638280287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_36
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf63b4126aad499f0800000000000000
+      internalID: 6006009257459124568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_37
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f19dd440da9ff7f0800000000000000
+      internalID: -6616686876861186018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_38
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0158588a5af051720800000000000000
+      internalID: -5806333197063286511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_39
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7520b64e252e72390800000000000000
+      internalID: -7855472547525312048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_40
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f9f20d82c348c310800000000000000
+      internalID: -7488270947878966398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_41
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71013d10b2ff64e30800000000000000
+      internalID: -6678567608176172701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_42
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c4d8319af402b80800000000000000
+      internalID: -1817309706400350164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_43
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac0b377e9a5436360800000000000000
+      internalID: 3511596876913953913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_44
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 752707fb1b4e8a760800000000000000
+      internalID: -3590678691583308550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_45
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64b9f3f9bfe6c8f80800000000000000
+      internalID: -3293710465183800803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_46
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9228a70cc7d08320800000000000000
+      internalID: 2608842218732189010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_47
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e24029eb008055f30800000000000000
+      internalID: 2036600427787778703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_48
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0302af08831c7d8e0800000000000000
+      internalID: -1348548977157522038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_49
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 731ddadc6d2977ea0800000000000000
+      internalID: -3696942377547329534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_50
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85f7f276ebd492490800000000000000
+      internalID: -7971821475753865090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_51
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e51c64eb47ffd350800000000000000
+      internalID: -5813268389918680038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_52
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9647c060f77f76af0800000000000000
+      internalID: 3787657861003805516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_53
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fd7d36049caa8e10800000000000000
+      internalID: -6769936112996293257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_54
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a7bbe5def7a84de0800000000000000
+      internalID: -1013727691735216846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_55
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b797bd13935d160800000000000000
+      internalID: 6006816449588655359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_56
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a190d3293f55d19d0800000000000000
+      internalID: 1234008124511684297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_57
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89958b9d44f1e3100800000000000000
+      internalID: 8109168131882518641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_58
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65043f7f7d351e2c0800000000000000
+      internalID: 9038325149342091003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_59
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 906d66df6213011b0800000000000000
+      internalID: 8175669246530476356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_60
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 803ff8b4b96ad3af0800000000000000
+      internalID: -4571882916229099622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_61
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b89bb42e67176ab30800000000000000
+      internalID: -4172559419994315576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_62
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03195dfc6080af2f0800000000000000
+      internalID: -7827723030552527609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_63
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82c20050e2fa3b230800000000000000
+      internalID: -4466445052571334395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_64
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0be4f10db7b28b4e0800000000000000
+      internalID: 3711186767459305482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_65
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df2d96f4725e28aa0800000000000000
+      internalID: -5318621240832077032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_66
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 097b0485d3addf730800000000000000
+      internalID: 2739000518185842996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_67
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c175db8b79708fc0800000000000000
+      internalID: 6826970362349357705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_68
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d908726ba4967ffd0800000000000000
+      internalID: 7991092777798590687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_69
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac9502cc78fa098d0800000000000000
+      internalID: -7931564553479352369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_70
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fbef502f2f791bd0800000000000000
+      internalID: 7216389844742136468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_71
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 511d3182e12de4090800000000000000
+      internalID: -7702372420590415517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_72
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b08a9a4fd12f12900800000000000000
+      internalID: -9034020342336248479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_73
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac9ff393e1a715710800000000000000
+      internalID: -6820185846133002970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_74
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1497772e5767daf20800000000000000
+      internalID: -3590155190547219514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_75
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 011464b0156e1eb80800000000000000
+      internalID: 3208328209833214408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_76
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe9d993ecaaa1a60800000000000000
+      internalID: 493377504667471715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_77
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5709aaf2fea67d8a0800000000000000
+      internalID: 9033710146362871893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_78
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef32bea8d56df900800000000000000
+      internalID: -446450898536640656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_79
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbf4b41fa2268bde0800000000000000
+      internalID: 7232097155491956261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_80
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7b27141018342f00800000000000000
+      internalID: 8153446608419377551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_81
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 721ba4e259f861e90800000000000000
+      internalID: 8735815893011046279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_82
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fee4f40611117400800000000000000
+      internalID: -8098633895490265059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_83
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33229eba7ab236f80800000000000000
+      internalID: 5343069449377417589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_84
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 678b102cafbe7eac0800000000000000
+      internalID: -8948299604287255017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_85
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f30b1b87be7921d60800000000000000
+      internalID: 7862657828489060099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_86
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef49df7d6720c8b00800000000000000
+      internalID: -4773602927784955412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_87
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d7b286e1b4f74a70800000000000000
+      internalID: 5624481222808326649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_88
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a457f2851c2e8ada0800000000000000
+      internalID: -2827445860609543688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_89
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff57ab82c2f441960800000000000000
+      internalID: -803390031827529200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_90
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbbadb271178ddab0800000000000000
+      internalID: 8520565667876512945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_91
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b09a848c0b61520800000000000000
+      internalID: -4248143499758543080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_92
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eec78f20a4281e90800000000000000
+      internalID: 747875926420685759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_93
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79fc77a547ca0a5f0800000000000000
+      internalID: -6008175045590568700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_94
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b124bf26ccad9d5c0800000000000000
+      internalID: 7664092573820300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_95
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17ab120fc5fe6f920800000000000000
+      internalID: 600485008678452729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_96
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f8ee3fd79f0d3fc0800000000000000
+      internalID: -8099063199660826763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_97
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6fe4ce6a6a26e040800000000000000
+      internalID: -4377678615489871168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_98
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47492438b128a6ea0800000000000000
+      internalID: 8884439720522990185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_99
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca38d46a895906560800000000000000
+      internalID: -8286970711741327477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_100
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33dc1503f3b7bdf0800000000000000
+      internalID: 681695707903884498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_101
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8d1c62d80b686b80800000000000000
+      internalID: -1629992428559864034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_102
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a7d3d81497fddb0800000000000000
+      internalID: 7072567635583510237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_103
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9549ed56a000425d0800000000000000
+      internalID: 7443805831620389018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_104
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e17140edd170594d0800000000000000
+      internalID: 8143133749108708370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_105
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6ae9959e20a9a930800000000000000
+      internalID: 1269941678519292470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_106
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7254cda6a20892ca0800000000000000
+      internalID: 9123719034135084916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_107
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e43503b7c8292a900800000000000000
+      internalID: -8583957573230580213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_108
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2b568fabbd0a000800000000000000
+      internalID: 8481277618752271333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_109
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 037eef8d159b4c7c0800000000000000
+      internalID: 2835459448358547601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_110
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2c55c159dbe62910800000000000000
+      internalID: 5902717382943758717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_111
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a28f0bdc14a950b50800000000000000
+      internalID: -2822232150398468389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_112
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf1868abcd9c2dfc0800000000000000
+      internalID: -1734358622358911065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_113
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6c25efc1ec9eb900800000000000000
+      internalID: 8280498609475349183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_114
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8613a08f8b5e970e0800000000000000
+      internalID: 159956253945362264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_115
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5425667508af1600800000000000000
+      internalID: -6000577790830764204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_116
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7209e22121933f280800000000000000
+      internalID: -7510514618431582906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_117
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c6e6776983578730800000000000000
+      internalID: 4764662055978757638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_118
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25ce7606b7fb09b60800000000000000
+      internalID: 193604680726961473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_119
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b75955db55d3afb0800000000000000
+      internalID: -8952667102924627346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_120
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa90d385c82e2440800000000000000
+      internalID: -4459878247263527127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_121
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b92b5f3abeb132460800000000000000
+      internalID: -7990273932839776567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_122
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c7a4012ec6e59510800000000000000
+      internalID: 8915787560925839081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_123
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e555d37e60f3ce30800000000000000
+      internalID: 7673553015084736515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_124
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bca1371332109000800000000000000
+      internalID: -6693132883674211838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_125
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 041816534db75d830800000000000000
+      internalID: -416443680552189731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_126
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e12d19014014d90800000000000000
+      internalID: 8030190306448894580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_127
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b869e5e923fe2d700800000000000000
+      internalID: 1549534313502585738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_128
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5365d9c21f7f5d3a0800000000000000
+      internalID: -2160127315374254052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_129
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f17796d73d4b212c0800000000000000
+      internalID: -5183785771744224342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_130
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 859051c74c0009b20800000000000000
+      internalID: 403770518471200617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_131
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36cc7c247190d5e60800000000000000
+      internalID: -278617456341902008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_132
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d8000d0bbbe193c0800000000000000
+      internalID: 793533287028138517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_133
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a79dda0510fca30b0800000000000000
+      internalID: 3894181435911005652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_134
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f527ed3da7d7b930800000000000000
+      internalID: -2026193984584302166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_135
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04adba5276e9bd110800000000000000
+      internalID: 8981099691895068246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_136
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2706870498a89f100800000000000000
+      internalID: 1816627179682902509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_137
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaea83698b5ad5fd0800000000000000
+      internalID: -8436222185320900023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_138
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c0e7f28b5fd5f950800000000000000
+      internalID: 1887648873512033869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_139
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c22b0f98828adfa50800000000000000
+      internalID: -7540686390169848601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_140
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd39febf26d4db890800000000000000
+      internalID: 3251668576246193680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_141
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7a75a97f8a084980800000000000000
+      internalID: 3360937147062191765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_142
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05e8496d43c70c400800000000000000
+      internalID: 6550116571902217266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_143
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c65f9c642c5a41b30800000000000000
+      internalID: -1874695162608384872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_144
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57353870ea50032d0800000000000000
+      internalID: -6458129380733236795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_145
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f5164e95f489ab0800000000000000
+      internalID: 2002208752659359470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_146
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 906f5eec53a94fa80800000000000000
+      internalID: -4558524595755098242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_147
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aa48dd930bd5d240800000000000000
+      internalID: 4736921140258105474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_148
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 877f3a765312734b0800000000000000
+      internalID: 5796284945919987129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_149
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc32148dbaa7a4330800000000000000
+      internalID: -930857372319194782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_150
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dd6858a18868ea30800000000000000
+      internalID: 2211917390191990128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_151
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7b05314106a28c90800000000000000
+      internalID: -5783622067714145256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_152
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8832143ebfbe46db0800000000000000
+      internalID: 3391078092743178178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_153
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4838936b1dad0640800000000000000
+      internalID: -9090915422009633319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_154
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58af8bb311a14d4e0800000000000000
+      internalID: 2362435495975089920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_155
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c559beb5eb395a80800000000000000
+      internalID: 4914238646586467087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_156
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9ffbeeb66014bda0800000000000000
+      internalID: -6897616385217842240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_157
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b341eddbcdd75eff0800000000000000
+      internalID: 3665591183459585106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_158
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec24cf1edeb56c610800000000000000
+      internalID: 3005894147923157191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_159
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ef66bd4063560e0800000000000000
+      internalID: 2633510917695174527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_160
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed46501fccfbcdcb0800000000000000
+      internalID: -2618215116692223720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_161
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3013c95b3b8786970800000000000000
+      internalID: 8796537206955061029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_162
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c8314cbafd13830800000000000000
+      internalID: -860345155842410661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_163
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c462642287c1f2720800000000000000
+      internalID: -3141639932322594496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_164
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef3c23401fa0e2180800000000000000
+      internalID: -1349914345525079757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_165
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 926e41d0d05c02dc0800000000000000
+      internalID: 9117404575792219114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_166
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4afeeb27d7ac46d50800000000000000
+      internalID: -6086670898336568346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_167
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac345baf76b43d340800000000000000
+      internalID: 5918335157822158372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_168
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe9ea438811e76f50800000000000000
+      internalID: -4987847838452784112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_169
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e49ab80085f7a8c20800000000000000
+      internalID: -8929177215345871241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_170
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb486a0959e79e920800000000000000
+      internalID: 3707768400445172613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_171
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a09e044a172e500800000000000000
+      internalID: 4065663063744731081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_172
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 289adbdc1bb1e7cd0800000000000000
+      internalID: 1012598481173386351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_173
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28de19bdb78f6a330800000000000000
+      internalID: 2974662388466841535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_174
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e5afdb6f15455b00800000000000000
+      internalID: -7646973969254445776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_175
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 413a42e78e37e7c20800000000000000
+      internalID: 4040935799726320450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_StairsTiles_176
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e7818a5a89b58d40800000000000000
+      internalID: 2710479813698210678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      TileSet_StairsTiles_0: 6565964955580560924
+      TileSet_StairsTiles_1: 1674675667749174625
+      TileSet_StairsTiles_10: 8851352145438777977
+      TileSet_StairsTiles_100: 681695707903884498
+      TileSet_StairsTiles_101: -1629992428559864034
+      TileSet_StairsTiles_102: 7072567635583510237
+      TileSet_StairsTiles_103: 7443805831620389018
+      TileSet_StairsTiles_104: 8143133749108708370
+      TileSet_StairsTiles_105: 1269941678519292470
+      TileSet_StairsTiles_106: 9123719034135084916
+      TileSet_StairsTiles_107: -8583957573230580213
+      TileSet_StairsTiles_108: 8481277618752271333
+      TileSet_StairsTiles_109: 2835459448358547601
+      TileSet_StairsTiles_11: -1519971849274796908
+      TileSet_StairsTiles_110: 5902717382943758717
+      TileSet_StairsTiles_111: -2822232150398468389
+      TileSet_StairsTiles_112: -1734358622358911065
+      TileSet_StairsTiles_113: 8280498609475349183
+      TileSet_StairsTiles_114: 159956253945362264
+      TileSet_StairsTiles_115: -6000577790830764204
+      TileSet_StairsTiles_116: -7510514618431582906
+      TileSet_StairsTiles_117: 4764662055978757638
+      TileSet_StairsTiles_118: 193604680726961473
+      TileSet_StairsTiles_119: -8952667102924627346
+      TileSet_StairsTiles_12: -372595352974739424
+      TileSet_StairsTiles_120: -4459878247263527127
+      TileSet_StairsTiles_121: -7990273932839776567
+      TileSet_StairsTiles_122: 8915787560925839081
+      TileSet_StairsTiles_123: 7673553015084736515
+      TileSet_StairsTiles_124: -6693132883674211838
+      TileSet_StairsTiles_125: -416443680552189731
+      TileSet_StairsTiles_126: 8030190306448894580
+      TileSet_StairsTiles_127: 1549534313502585738
+      TileSet_StairsTiles_128: -2160127315374254052
+      TileSet_StairsTiles_129: -5183785771744224342
+      TileSet_StairsTiles_13: 4315720989821155209
+      TileSet_StairsTiles_130: 403770518471200617
+      TileSet_StairsTiles_131: -278617456341902008
+      TileSet_StairsTiles_132: 793533287028138517
+      TileSet_StairsTiles_133: 3894181435911005652
+      TileSet_StairsTiles_134: -2026193984584302166
+      TileSet_StairsTiles_135: 8981099691895068246
+      TileSet_StairsTiles_136: 1816627179682902509
+      TileSet_StairsTiles_137: -8436222185320900023
+      TileSet_StairsTiles_138: 1887648873512033869
+      TileSet_StairsTiles_139: -7540686390169848601
+      TileSet_StairsTiles_14: 2356032999752438229
+      TileSet_StairsTiles_140: 3251668576246193680
+      TileSet_StairsTiles_141: 3360937147062191765
+      TileSet_StairsTiles_142: 6550116571902217266
+      TileSet_StairsTiles_143: -1874695162608384872
+      TileSet_StairsTiles_144: -6458129380733236795
+      TileSet_StairsTiles_145: 2002208752659359470
+      TileSet_StairsTiles_146: -4558524595755098242
+      TileSet_StairsTiles_147: 4736921140258105474
+      TileSet_StairsTiles_148: 5796284945919987129
+      TileSet_StairsTiles_149: -930857372319194782
+      TileSet_StairsTiles_15: 4124037457368247717
+      TileSet_StairsTiles_150: 2211917390191990128
+      TileSet_StairsTiles_151: -5783622067714145256
+      TileSet_StairsTiles_152: 3391078092743178178
+      TileSet_StairsTiles_153: -9090915422009633319
+      TileSet_StairsTiles_154: 2362435495975089920
+      TileSet_StairsTiles_155: 4914238646586467087
+      TileSet_StairsTiles_156: -6897616385217842240
+      TileSet_StairsTiles_157: 3665591183459585106
+      TileSet_StairsTiles_158: 3005894147923157191
+      TileSet_StairsTiles_159: 2633510917695174527
+      TileSet_StairsTiles_16: 8252882484956506115
+      TileSet_StairsTiles_160: -2618215116692223720
+      TileSet_StairsTiles_161: 8796537206955061029
+      TileSet_StairsTiles_162: -860345155842410661
+      TileSet_StairsTiles_163: -3141639932322594496
+      TileSet_StairsTiles_164: -1349914345525079757
+      TileSet_StairsTiles_165: 9117404575792219114
+      TileSet_StairsTiles_166: -6086670898336568346
+      TileSet_StairsTiles_167: 5918335157822158372
+      TileSet_StairsTiles_168: -4987847838452784112
+      TileSet_StairsTiles_169: -8929177215345871241
+      TileSet_StairsTiles_17: -1853646659619674076
+      TileSet_StairsTiles_170: 3707768400445172613
+      TileSet_StairsTiles_171: 4065663063744731081
+      TileSet_StairsTiles_172: 1012598481173386351
+      TileSet_StairsTiles_173: 2974662388466841535
+      TileSet_StairsTiles_174: -7646973969254445776
+      TileSet_StairsTiles_175: 4040935799726320450
+      TileSet_StairsTiles_176: 2710479813698210678
+      TileSet_StairsTiles_18: -3648490963689355408
+      TileSet_StairsTiles_19: -6966436027425571250
+      TileSet_StairsTiles_2: -3800249667439658901
+      TileSet_StairsTiles_20: 4244444611612435384
+      TileSet_StairsTiles_21: 900902901499459421
+      TileSet_StairsTiles_22: 7531554767266258460
+      TileSet_StairsTiles_23: -2247881568109183829
+      TileSet_StairsTiles_24: -1284022090266939585
+      TileSet_StairsTiles_25: 3514522878731299402
+      TileSet_StairsTiles_26: -6629548866218973906
+      TileSet_StairsTiles_27: -8100638597417170833
+      TileSet_StairsTiles_28: -7949986721294430844
+      TileSet_StairsTiles_29: 4929307504956757517
+      TileSet_StairsTiles_3: 7536620402027107763
+      TileSet_StairsTiles_30: 5226986250208344454
+      TileSet_StairsTiles_31: 2882187798185768882
+      TileSet_StairsTiles_32: -5649361562045551418
+      TileSet_StairsTiles_33: 8809125763918762724
+      TileSet_StairsTiles_34: -8774516902784169927
+      TileSet_StairsTiles_35: 4321989158638280287
+      TileSet_StairsTiles_36: 6006009257459124568
+      TileSet_StairsTiles_37: -6616686876861186018
+      TileSet_StairsTiles_38: -5806333197063286511
+      TileSet_StairsTiles_39: -7855472547525312048
+      TileSet_StairsTiles_4: 1101814193370115176
+      TileSet_StairsTiles_40: -7488270947878966398
+      TileSet_StairsTiles_41: -6678567608176172701
+      TileSet_StairsTiles_42: -1817309706400350164
+      TileSet_StairsTiles_43: 3511596876913953913
+      TileSet_StairsTiles_44: -3590678691583308550
+      TileSet_StairsTiles_45: -3293710465183800803
+      TileSet_StairsTiles_46: 2608842218732189010
+      TileSet_StairsTiles_47: 2036600427787778703
+      TileSet_StairsTiles_48: -1348548977157522038
+      TileSet_StairsTiles_49: -3696942377547329534
+      TileSet_StairsTiles_5: 3975403874133543620
+      TileSet_StairsTiles_50: -7971821475753865090
+      TileSet_StairsTiles_51: -5813268389918680038
+      TileSet_StairsTiles_52: 3787657861003805516
+      TileSet_StairsTiles_53: -6769936112996293257
+      TileSet_StairsTiles_54: -1013727691735216846
+      TileSet_StairsTiles_55: 6006816449588655359
+      TileSet_StairsTiles_56: 1234008124511684297
+      TileSet_StairsTiles_57: 8109168131882518641
+      TileSet_StairsTiles_58: 9038325149342091003
+      TileSet_StairsTiles_59: 8175669246530476356
+      TileSet_StairsTiles_6: -3890747867059588167
+      TileSet_StairsTiles_60: -4571882916229099622
+      TileSet_StairsTiles_61: -4172559419994315576
+      TileSet_StairsTiles_62: -7827723030552527609
+      TileSet_StairsTiles_63: -4466445052571334395
+      TileSet_StairsTiles_64: 3711186767459305482
+      TileSet_StairsTiles_65: -5318621240832077032
+      TileSet_StairsTiles_66: 2739000518185842996
+      TileSet_StairsTiles_67: 6826970362349357705
+      TileSet_StairsTiles_68: 7991092777798590687
+      TileSet_StairsTiles_69: -7931564553479352369
+      TileSet_StairsTiles_7: -471357295460900812
+      TileSet_StairsTiles_70: 7216389844742136468
+      TileSet_StairsTiles_71: -7702372420590415517
+      TileSet_StairsTiles_72: -9034020342336248479
+      TileSet_StairsTiles_73: -6820185846133002970
+      TileSet_StairsTiles_74: -3590155190547219514
+      TileSet_StairsTiles_75: 3208328209833214408
+      TileSet_StairsTiles_76: 493377504667471715
+      TileSet_StairsTiles_77: 9033710146362871893
+      TileSet_StairsTiles_78: -446450898536640656
+      TileSet_StairsTiles_79: 7232097155491956261
+      TileSet_StairsTiles_8: -4759150913754591153
+      TileSet_StairsTiles_80: 8153446608419377551
+      TileSet_StairsTiles_81: 8735815893011046279
+      TileSet_StairsTiles_82: -8098633895490265059
+      TileSet_StairsTiles_83: 5343069449377417589
+      TileSet_StairsTiles_84: -8948299604287255017
+      TileSet_StairsTiles_85: 7862657828489060099
+      TileSet_StairsTiles_86: -4773602927784955412
+      TileSet_StairsTiles_87: 5624481222808326649
+      TileSet_StairsTiles_88: -2827445860609543688
+      TileSet_StairsTiles_89: -803390031827529200
+      TileSet_StairsTiles_9: -2753238727039722397
+      TileSet_StairsTiles_90: 8520565667876512945
+      TileSet_StairsTiles_91: -4248143499758543080
+      TileSet_StairsTiles_92: 747875926420685759
+      TileSet_StairsTiles_93: -6008175045590568700
+      TileSet_StairsTiles_94: 7664092573820300012
+      TileSet_StairsTiles_95: 600485008678452729
+      TileSet_StairsTiles_96: -8099063199660826763
+      TileSet_StairsTiles_97: -4377678615489871168
+      TileSet_StairsTiles_98: 8884439720522990185
+      TileSet_StairsTiles_99: -8286970711741327477
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

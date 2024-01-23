@@ -1,9 +1,9 @@
 sceneSetups:
-- path: Assets/Scenes/SCE_overworld.unity
+- path: Assets/James Neville - Student Work/Scenes/SCE_overworld.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
-- path: Assets/Scenes/SCE_audio_manager.unity
+- path: Assets/James Neville - Student Work/Scenes/SCE_audio_manager.unity
   isLoaded: 1
   isActive: 0
   isSubScene: 0

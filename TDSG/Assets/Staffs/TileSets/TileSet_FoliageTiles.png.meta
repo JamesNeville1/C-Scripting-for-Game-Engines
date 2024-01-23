@@ -1,0 +1,4478 @@
+fileFormatVersion: 2
+guid: a414057c76af24549aac1f88506a2961
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7318297052487422161
+    second: TileSet_FoliageTiles_0
+  - first:
+      213: 5519434440153364995
+    second: TileSet_FoliageTiles_1
+  - first:
+      213: -7566136463182509798
+    second: TileSet_FoliageTiles_2
+  - first:
+      213: -2533739384483695312
+    second: TileSet_FoliageTiles_3
+  - first:
+      213: 435770180023139282
+    second: TileSet_FoliageTiles_4
+  - first:
+      213: 6640073846911543462
+    second: TileSet_FoliageTiles_5
+  - first:
+      213: -7907486131270848307
+    second: TileSet_FoliageTiles_6
+  - first:
+      213: 7364305268207891754
+    second: TileSet_FoliageTiles_7
+  - first:
+      213: -5172811504556611674
+    second: TileSet_FoliageTiles_8
+  - first:
+      213: 4723881281639689957
+    second: TileSet_FoliageTiles_9
+  - first:
+      213: -2620171679216457515
+    second: TileSet_FoliageTiles_10
+  - first:
+      213: -192324457873042646
+    second: TileSet_FoliageTiles_11
+  - first:
+      213: 4228877882283957948
+    second: TileSet_FoliageTiles_12
+  - first:
+      213: -8053297610326899976
+    second: TileSet_FoliageTiles_13
+  - first:
+      213: -7610276203452202910
+    second: TileSet_FoliageTiles_14
+  - first:
+      213: 5124199211222360702
+    second: TileSet_FoliageTiles_15
+  - first:
+      213: 6501298745791582946
+    second: TileSet_FoliageTiles_16
+  - first:
+      213: -1220637954556357183
+    second: TileSet_FoliageTiles_17
+  - first:
+      213: -8656011205509797175
+    second: TileSet_FoliageTiles_18
+  - first:
+      213: -4616528922334893716
+    second: TileSet_FoliageTiles_19
+  - first:
+      213: -5133127634574200948
+    second: TileSet_FoliageTiles_20
+  - first:
+      213: 4556800027805475246
+    second: TileSet_FoliageTiles_21
+  - first:
+      213: -6902619116217643963
+    second: TileSet_FoliageTiles_22
+  - first:
+      213: 617447216261863556
+    second: TileSet_FoliageTiles_23
+  - first:
+      213: -7640163289030185933
+    second: TileSet_FoliageTiles_24
+  - first:
+      213: -222725825859103943
+    second: TileSet_FoliageTiles_25
+  - first:
+      213: -6584109770349009110
+    second: TileSet_FoliageTiles_26
+  - first:
+      213: 8160961540101133945
+    second: TileSet_FoliageTiles_27
+  - first:
+      213: -2069757916271658995
+    second: TileSet_FoliageTiles_28
+  - first:
+      213: 1586015456400620925
+    second: TileSet_FoliageTiles_29
+  - first:
+      213: 262379185662302744
+    second: TileSet_FoliageTiles_30
+  - first:
+      213: 4308269795698178432
+    second: TileSet_FoliageTiles_31
+  - first:
+      213: 4516084572763246446
+    second: TileSet_FoliageTiles_32
+  - first:
+      213: 6514981218353920321
+    second: TileSet_FoliageTiles_33
+  - first:
+      213: -1578671169329808896
+    second: TileSet_FoliageTiles_34
+  - first:
+      213: -4789533110271805614
+    second: TileSet_FoliageTiles_35
+  - first:
+      213: 4245961234595379730
+    second: TileSet_FoliageTiles_36
+  - first:
+      213: 1768619711953525929
+    second: TileSet_FoliageTiles_37
+  - first:
+      213: 9159230402281759929
+    second: TileSet_FoliageTiles_38
+  - first:
+      213: -3529950821371919814
+    second: TileSet_FoliageTiles_39
+  - first:
+      213: 4575512411998042972
+    second: TileSet_FoliageTiles_40
+  - first:
+      213: 3771248038757402424
+    second: TileSet_FoliageTiles_41
+  - first:
+      213: -5511007335031278251
+    second: TileSet_FoliageTiles_42
+  - first:
+      213: -3196656827751720425
+    second: TileSet_FoliageTiles_43
+  - first:
+      213: -7619654944109384060
+    second: TileSet_FoliageTiles_44
+  - first:
+      213: 8855605553059536851
+    second: TileSet_FoliageTiles_45
+  - first:
+      213: 8418042688534434166
+    second: TileSet_FoliageTiles_46
+  - first:
+      213: 5401830245293150299
+    second: TileSet_FoliageTiles_47
+  - first:
+      213: 2013193859104487368
+    second: TileSet_FoliageTiles_48
+  - first:
+      213: 2263268394880449000
+    second: TileSet_FoliageTiles_49
+  - first:
+      213: 5883983390999821660
+    second: TileSet_FoliageTiles_50
+  - first:
+      213: 3593011848455943668
+    second: TileSet_FoliageTiles_51
+  - first:
+      213: 7090983709813672910
+    second: TileSet_FoliageTiles_52
+  - first:
+      213: 4741837483114614656
+    second: TileSet_FoliageTiles_53
+  - first:
+      213: -5745685242322718922
+    second: TileSet_FoliageTiles_54
+  - first:
+      213: 7811634938863977774
+    second: TileSet_FoliageTiles_55
+  - first:
+      213: 5997882441138357567
+    second: TileSet_FoliageTiles_56
+  - first:
+      213: 5324824779162130541
+    second: TileSet_FoliageTiles_57
+  - first:
+      213: -6566748711077497763
+    second: TileSet_FoliageTiles_58
+  - first:
+      213: 3323855042767387688
+    second: TileSet_FoliageTiles_59
+  - first:
+      213: -6684267260572731824
+    second: TileSet_FoliageTiles_60
+  - first:
+      213: 3172205631289510121
+    second: TileSet_FoliageTiles_61
+  - first:
+      213: -4361405955542453074
+    second: TileSet_FoliageTiles_62
+  - first:
+      213: 4695605699455354049
+    second: TileSet_FoliageTiles_63
+  - first:
+      213: -3001800075535609920
+    second: TileSet_FoliageTiles_64
+  - first:
+      213: -5739973589424010043
+    second: TileSet_FoliageTiles_65
+  - first:
+      213: 6292373293640592509
+    second: TileSet_FoliageTiles_66
+  - first:
+      213: -8077781352437787788
+    second: TileSet_FoliageTiles_67
+  - first:
+      213: 7732911478318774105
+    second: TileSet_FoliageTiles_68
+  - first:
+      213: 2829418538470570769
+    second: TileSet_FoliageTiles_69
+  - first:
+      213: -8370826372534391550
+    second: TileSet_FoliageTiles_70
+  - first:
+      213: -6008952568285004095
+    second: TileSet_FoliageTiles_71
+  - first:
+      213: -1377629151374625498
+    second: TileSet_FoliageTiles_72
+  - first:
+      213: -6793590519859202739
+    second: TileSet_FoliageTiles_73
+  - first:
+      213: -1605818516859753330
+    second: TileSet_FoliageTiles_74
+  - first:
+      213: 3303519292313974313
+    second: TileSet_FoliageTiles_75
+  - first:
+      213: 4454131204615056709
+    second: TileSet_FoliageTiles_76
+  - first:
+      213: 5037394977303053997
+    second: TileSet_FoliageTiles_77
+  - first:
+      213: 8668057353807683837
+    second: TileSet_FoliageTiles_78
+  - first:
+      213: 802471844938304680
+    second: TileSet_FoliageTiles_79
+  - first:
+      213: -495026187060049370
+    second: TileSet_FoliageTiles_80
+  - first:
+      213: 3465928304663926633
+    second: TileSet_FoliageTiles_81
+  - first:
+      213: -4874452349763363909
+    second: TileSet_FoliageTiles_82
+  - first:
+      213: -7658048081400405503
+    second: TileSet_FoliageTiles_83
+  - first:
+      213: -2826565984552977769
+    second: TileSet_FoliageTiles_84
+  - first:
+      213: -4682028755686804943
+    second: TileSet_FoliageTiles_85
+  - first:
+      213: -961073176959139639
+    second: TileSet_FoliageTiles_86
+  - first:
+      213: 8733661488007308941
+    second: TileSet_FoliageTiles_87
+  - first:
+      213: 7797960777011120905
+    second: TileSet_FoliageTiles_88
+  - first:
+      213: 1617819122535508832
+    second: TileSet_FoliageTiles_89
+  - first:
+      213: -8394367482914689415
+    second: TileSet_FoliageTiles_90
+  - first:
+      213: 7074246547116939119
+    second: TileSet_FoliageTiles_91
+  - first:
+      213: 8255129932370625375
+    second: TileSet_FoliageTiles_92
+  - first:
+      213: -7860649375562403206
+    second: TileSet_FoliageTiles_93
+  - first:
+      213: -247892979963163058
+    second: TileSet_FoliageTiles_94
+  - first:
+      213: 7100858830907428204
+    second: TileSet_FoliageTiles_95
+  - first:
+      213: -2647964293752768112
+    second: TileSet_FoliageTiles_96
+  - first:
+      213: 844418399971155165
+    second: TileSet_FoliageTiles_97
+  - first:
+      213: -1758754948697048540
+    second: TileSet_FoliageTiles_98
+  - first:
+      213: -2837689798528467715
+    second: TileSet_FoliageTiles_99
+  - first:
+      213: 4871982412644026619
+    second: TileSet_FoliageTiles_100
+  - first:
+      213: -4259055316363749689
+    second: TileSet_FoliageTiles_101
+  - first:
+      213: -314827635664037800
+    second: TileSet_FoliageTiles_102
+  - first:
+      213: 4248517761035824496
+    second: TileSet_FoliageTiles_103
+  - first:
+      213: -6574409854886271230
+    second: TileSet_FoliageTiles_104
+  - first:
+      213: -4594531003335808184
+    second: TileSet_FoliageTiles_105
+  - first:
+      213: 1812185763043873381
+    second: TileSet_FoliageTiles_106
+  - first:
+      213: -1412061733616470290
+    second: TileSet_FoliageTiles_107
+  - first:
+      213: -3207912923183430248
+    second: TileSet_FoliageTiles_108
+  - first:
+      213: -1136676499097448798
+    second: TileSet_FoliageTiles_109
+  - first:
+      213: 2613400986606537114
+    second: TileSet_FoliageTiles_110
+  - first:
+      213: -3753985860906859973
+    second: TileSet_FoliageTiles_111
+  - first:
+      213: -6691809347676230740
+    second: TileSet_FoliageTiles_112
+  - first:
+      213: 2197594285587470267
+    second: TileSet_FoliageTiles_113
+  - first:
+      213: 7025906219260716603
+    second: TileSet_FoliageTiles_114
+  - first:
+      213: 5662360618384282140
+    second: TileSet_FoliageTiles_115
+  - first:
+      213: 7388890294687281411
+    second: TileSet_FoliageTiles_116
+  - first:
+      213: -4028145669778032209
+    second: TileSet_FoliageTiles_117
+  - first:
+      213: -3683442489957790462
+    second: TileSet_FoliageTiles_118
+  - first:
+      213: 4606623841295477068
+    second: TileSet_FoliageTiles_119
+  - first:
+      213: 8860904254466904743
+    second: TileSet_FoliageTiles_120
+  - first:
+      213: 5336992087494176702
+    second: TileSet_FoliageTiles_121
+  - first:
+      213: 3167055675105147543
+    second: TileSet_FoliageTiles_122
+  - first:
+      213: -8464245517051602444
+    second: TileSet_FoliageTiles_123
+  - first:
+      213: 741881984101268887
+    second: TileSet_FoliageTiles_124
+  - first:
+      213: -1574628946065201951
+    second: TileSet_FoliageTiles_125
+  - first:
+      213: 733189253692834267
+    second: TileSet_FoliageTiles_126
+  - first:
+      213: -1894864120059026099
+    second: TileSet_FoliageTiles_127
+  - first:
+      213: 6383077962830915518
+    second: TileSet_FoliageTiles_128
+  - first:
+      213: -3455338493307017878
+    second: TileSet_FoliageTiles_129
+  - first:
+      213: -233365561840224717
+    second: TileSet_FoliageTiles_130
+  - first:
+      213: 2544983834145195214
+    second: TileSet_FoliageTiles_131
+  - first:
+      213: 5669692698136521420
+    second: TileSet_FoliageTiles_132
+  - first:
+      213: 1410289515284819893
+    second: TileSet_FoliageTiles_133
+  - first:
+      213: 8005307765136892490
+    second: TileSet_FoliageTiles_134
+  - first:
+      213: -8391383320635510747
+    second: TileSet_FoliageTiles_135
+  - first:
+      213: 1643879127944413299
+    second: TileSet_FoliageTiles_136
+  - first:
+      213: -9004311095577400146
+    second: TileSet_FoliageTiles_137
+  - first:
+      213: 4531015033982831348
+    second: TileSet_FoliageTiles_138
+  - first:
+      213: 2608076297950625644
+    second: TileSet_FoliageTiles_139
+  - first:
+      213: 6772006967189757808
+    second: TileSet_FoliageTiles_140
+  - first:
+      213: -1967709215126060380
+    second: TileSet_FoliageTiles_141
+  - first:
+      213: -1396464712622384654
+    second: TileSet_FoliageTiles_142
+  - first:
+      213: -7270751136367338091
+    second: TileSet_FoliageTiles_143
+  - first:
+      213: -7209651963823407745
+    second: TileSet_FoliageTiles_144
+  - first:
+      213: 4282118061193260550
+    second: TileSet_FoliageTiles_145
+  - first:
+      213: 262209054130548237
+    second: TileSet_FoliageTiles_146
+  - first:
+      213: 3863042275061772275
+    second: TileSet_FoliageTiles_147
+  - first:
+      213: -8573644002435607633
+    second: TileSet_FoliageTiles_148
+  - first:
+      213: -7936425836163359139
+    second: TileSet_FoliageTiles_149
+  - first:
+      213: -2677277968650570465
+    second: TileSet_FoliageTiles_150
+  - first:
+      213: -8190060511443865947
+    second: TileSet_FoliageTiles_151
+  - first:
+      213: -5922332964364387720
+    second: TileSet_FoliageTiles_152
+  - first:
+      213: 7318962046185080858
+    second: TileSet_FoliageTiles_153
+  - first:
+      213: 6653380200954205208
+    second: TileSet_FoliageTiles_154
+  - first:
+      213: -4309709485004117882
+    second: TileSet_FoliageTiles_155
+  - first:
+      213: 1468140960328394833
+    second: TileSet_FoliageTiles_156
+  - first:
+      213: 3245395905803919437
+    second: TileSet_FoliageTiles_157
+  - first:
+      213: 3213370791343380142
+    second: TileSet_FoliageTiles_158
+  - first:
+      213: 8815621403470260234
+    second: TileSet_FoliageTiles_159
+  - first:
+      213: -7226282127374535605
+    second: TileSet_FoliageTiles_160
+  - first:
+      213: 406887389771760778
+    second: TileSet_FoliageTiles_161
+  - first:
+      213: 3543654776866130272
+    second: TileSet_FoliageTiles_162
+  - first:
+      213: 5682728721360058503
+    second: TileSet_FoliageTiles_163
+  - first:
+      213: -8460084995774881388
+    second: TileSet_FoliageTiles_164
+  - first:
+      213: 6991168349413076718
+    second: TileSet_FoliageTiles_165
+  - first:
+      213: 2304997414748646724
+    second: TileSet_FoliageTiles_166
+  - first:
+      213: 3720840854801846112
+    second: TileSet_FoliageTiles_167
+  - first:
+      213: -7847963092570470281
+    second: TileSet_FoliageTiles_168
+  - first:
+      213: 1386145236174818411
+    second: TileSet_FoliageTiles_169
+  - first:
+      213: 2446071309989352589
+    second: TileSet_FoliageTiles_170
+  - first:
+      213: -898282252325380826
+    second: TileSet_FoliageTiles_171
+  - first:
+      213: -6845811568670831758
+    second: TileSet_FoliageTiles_172
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1abc0ca6ba1af764c9a8bb459ede2b9e
+      internalID: -7318297052487422161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69f44ec8330cdf84da34a2860864f825
+      internalID: 5519434440153364995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54b47bbb43b63684e99717bc860af515
+      internalID: -7566136463182509798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd9eb2aa59ec3b246a9b7836aab4b0bf
+      internalID: -2533739384483695312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfae14b8ffb8a394e86b05acf81a82e7
+      internalID: 435770180023139282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_5
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a4330c8bedfe2945a52bb2fac5b6a15
+      internalID: 6640073846911543462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_6
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5957321b625ea14496d348db1fea4cd
+      internalID: -7907486131270848307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3105fd3ce712b174eb78c86cc150b0c4
+      internalID: 7364305268207891754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9fd89a9999310641bca3aab3cba0a66
+      internalID: -5172811504556611674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_9
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93771890a886c69458f29d2753124cdd
+      internalID: 4723881281639689957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_10
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f93bf8bfcb87791458b0a88bdcafab91
+      internalID: -2620171679216457515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 986aaf010cfd4064695b55eb7ab9cc18
+      internalID: -192324457873042646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36e9186d3b4457445a0632ba106984d9
+      internalID: 4228877882283957948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82d0189427ce2a44ea5ae527dc79760e
+      internalID: -8053297610326899976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_14
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 662b11d0a362bf94abeba50778e989c0
+      internalID: -7610276203452202910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7380c581d8752ac43bcfbaa559b921eb
+      internalID: 5124199211222360702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_16
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 223d07f7eb92ca64e9a9850e9b34c590
+      internalID: 6501298745791582946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_17
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd82c91e7f5e70641bb78c72d1e30a30
+      internalID: -1220637954556357183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_18
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49412852f7791f447aa9f97eefd7c8dc
+      internalID: -8656011205509797175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68f128fafc7cf934b9ef9707d8a3edb1
+      internalID: -4616528922334893716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_20
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 436504507d4019541adbb09a8d416bf9
+      internalID: -5133127634574200948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_21
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 108058b024bcc934ab6957e7534333c0
+      internalID: 4556800027805475246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_22
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cf46ef1553adfd4b904ac676cec00fa
+      internalID: -6902619116217643963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 630daea5e5c2b4f418eda1d21f6170ec
+      internalID: 617447216261863556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_24
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92847744dcfa93e438091554ca8fa060
+      internalID: -7640163289030185933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fa1cdecfad90f0488d8f185967c932c
+      internalID: -222725825859103943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_26
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5cc3a7527344fa43831466950e61600
+      internalID: -6584109770349009110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_27
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93aeac0b7737a71428f639167b2fbec2
+      internalID: 8160961540101133945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_28
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f32ce143ad87e834eb693be773472205
+      internalID: -2069757916271658995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_29
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b0c65841455e4348bb1d776f8790d2a
+      internalID: 1586015456400620925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_30
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b50a8240c494aa4bb253829bf27f07d
+      internalID: 262379185662302744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_31
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24b8feec77949c1439d9ce02f0ac4f45
+      internalID: 4308269795698178432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_32
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f04af46c4697017479ccc37ff240510f
+      internalID: 4516084572763246446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_33
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc8e211687d10f3499531906054e278c
+      internalID: 6514981218353920321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_34
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 176
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71d96681610eec74c851a88e2f0be892
+      internalID: -1578671169329808896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6538db0912bc73c48a451c336a869d15
+      internalID: -4789533110271805614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_36
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f50b386cb7f85f47aea44a9c9e4330f
+      internalID: 4245961234595379730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_37
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc344cc5c58ff748a694427a2a46f6f
+      internalID: 1768619711953525929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_38
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edbeb419474c256499c6ecd6a75f1663
+      internalID: 9159230402281759929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_39
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6b726f86ce126941ad5a57f08fdc804
+      internalID: -3529950821371919814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_40
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 433750bcc39280a448ea40f25712e0a2
+      internalID: 4575512411998042972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_41
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 519f3f3d98b600649bb9a553ddf60285
+      internalID: 3771248038757402424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_42
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b182d26464334b47a9e66d56eebd990
+      internalID: -5511007335031278251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_43
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 146d4a4b38bd6b746bf0e432fd84aed0
+      internalID: -3196656827751720425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_44
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c9cfc6e28d29f34a9f6075b7566bc7a
+      internalID: -7619654944109384060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_45
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f49bb9fd54d659749a232186c3bfedca
+      internalID: 8855605553059536851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_46
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87b4d22bf704d86448efc5d3e703230f
+      internalID: 8418042688534434166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_47
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00efe4dff4479df41baeecc6d7275b34
+      internalID: 5401830245293150299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_48
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30271daea7ceeef44b9fa58b1969e3ac
+      internalID: 2013193859104487368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_49
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42b28b3d6f7b6da4aaf976fe66b63319
+      internalID: 2263268394880449000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_50
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f9e75d6e26d587458cc9cf6d13df0f1
+      internalID: 5883983390999821660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_51
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 524cc6026874bc548a6d739163e0e0e5
+      internalID: 3593011848455943668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_52
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0c99ae6d3d357c40af8115485802c30
+      internalID: 7090983709813672910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_53
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed2e1502a298e9644855a92397ae693b
+      internalID: 4741837483114614656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_54
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbede112411f9e64f8b152a81285a86d
+      internalID: -5745685242322718922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_55
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 160
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddf673c1ee25e8347ba3e4255fd6af87
+      internalID: 7811634938863977774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6ca8d68bb6958a40881320d78e2460f
+      internalID: 5997882441138357567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_57
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53561e33a6bb7fc44a2c55c8dac51d04
+      internalID: 5324824779162130541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_58
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b5020f279184cf4b93da817095bee66
+      internalID: -6566748711077497763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_59
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8e4429af3483384aa77883de13fd21f
+      internalID: 3323855042767387688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_60
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de7e1e718b24e5d45bd9fbb8baa47dd8
+      internalID: -6684267260572731824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_61
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e219863f74ea94ba0788a9c040dec5
+      internalID: 3172205631289510121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_62
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1df9abfd382a7bc48a60c35d07e26f6f
+      internalID: -4361405955542453074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_63
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df7fdd55707e2d248a9685958f8b505c
+      internalID: 4695605699455354049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_64
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8a0cf329112f1649badd8605688dac3
+      internalID: -3001800075535609920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_65
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2702723727507d4692b5a7aa9ea15b0
+      internalID: -5739973589424010043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_66
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 958dba9ff3e784040ba96135617dd820
+      internalID: 6292373293640592509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_67
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f253c238ad7ea8448a56f484e037632
+      internalID: -8077781352437787788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_68
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a2b00e540309084ebf6d00291db5fd8
+      internalID: 7732911478318774105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_69
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 860a411fa5b6b004ea1cf2fd00ca47c7
+      internalID: 2829418538470570769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_70
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24388faa18c587b4c983aecd91747754
+      internalID: -8370826372534391550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_71
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eecc3ef5ef8b78046a8ab1d40cf4a4b4
+      internalID: -6008952568285004095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_72
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47c95b2fab28a5a45937621a3461b488
+      internalID: -1377629151374625498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_73
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 560e1e6e37df85e429101934e210a8f9
+      internalID: -6793590519859202739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_74
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae5bde260f8d0b84c87c426d1f7637fe
+      internalID: -1605818516859753330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_75
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd18d3b2bdf22a94da9386509b844989
+      internalID: 3303519292313974313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_76
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26dc40440af617244a6f2f571a7e4e76
+      internalID: 4454131204615056709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 197a54d87a92d2145a829e2fb431dfdf
+      internalID: 5037394977303053997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_78
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e41e6b8c473fe664da7401693dd770e3
+      internalID: 8668057353807683837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_79
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f9d3e869a594644d94e0e1ddc95e180
+      internalID: 802471844938304680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_80
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9e5a5a1fb05a1429b90595ab03860b
+      internalID: -495026187060049370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_81
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 268f4aefbf44b4b48b9cf580acae1e66
+      internalID: 3465928304663926633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_82
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0408fd90ba4a7344a8d0e46fa77a0a76
+      internalID: -4874452349763363909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_83
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfc6ea879d7637b4691581f13b9b9206
+      internalID: -7658048081400405503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_84
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5153f8b817be9214488076d33238f4be
+      internalID: -2826565984552977769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_85
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23a44d0b0920563419c0f6ad8665556e
+      internalID: -4682028755686804943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_86
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07cd40b81d4b48c479c38b778a287e48
+      internalID: -961073176959139639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_87
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99b0851d3cfab1440852e0bc01954ba3
+      internalID: 8733661488007308941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_88
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73d19f6d01dd8744180dfe0ad6bfcb34
+      internalID: 7797960777011120905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_89
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e579fe9af847da408018e4d1e683a57
+      internalID: 1617819122535508832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_90
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08f672559abbb9148a975819426e32af
+      internalID: -8394367482914689415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_91
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5536c325783ef4d46b8812feebed2290
+      internalID: 7074246547116939119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_92
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 242e523b13df53c47ace53b15ff1b910
+      internalID: 8255129932370625375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_93
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5cdffa1ebd73b64c897578198585231
+      internalID: -7860649375562403206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_94
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ce5b450a98884348a7fbd083282389d
+      internalID: -247892979963163058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_95
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3403e6bdd05cfe943910c327c2b8b587
+      internalID: 7100858830907428204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_96
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1034ac7819aada6428093ac933cdb984
+      internalID: -2647964293752768112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_97
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4edb1f361b4ead44a0b0f1e55304005
+      internalID: 844418399971155165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_98
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85f90f9c16fa9cd42b313df3f7842828
+      internalID: -1758754948697048540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_99
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 191699d5c2cceff4e9a54af982ba71b9
+      internalID: -2837689798528467715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_100
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c32f08a7f2cb92e49bc8271c83a1d5fd
+      internalID: 4871982412644026619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_101
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c69d581fd3015540807abd304619f3c
+      internalID: -4259055316363749689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_102
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1a35d0381c73154ba41fe4fe6385446
+      internalID: -314827635664037800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_103
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa04b5ed6539664c95aa23388521b2a
+      internalID: 4248517761035824496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_104
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec2eed6ee21610241ad84ad4b6ff31b8
+      internalID: -6574409854886271230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_105
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dbaa1318aad33f4090bb96997867752
+      internalID: -4594531003335808184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_106
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbe53cfbe9537fa43bcd6b8793f01253
+      internalID: 1812185763043873381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_107
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5cbd8bab6f2a041b2d3923fe1fef2b
+      internalID: -1412061733616470290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_108
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f76144bcbeeac5f42b66dbc189753d0d
+      internalID: -3207912923183430248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_109
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cba747aef595ea34bb1dd5f213802105
+      internalID: -1136676499097448798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_110
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f546503e154e111459ef698796ad1d86
+      internalID: 2613400986606537114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_111
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6936160aa4fae54284263c5d4860980
+      internalID: -3753985860906859973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_112
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1612003650411eb4186b7fb72ccbf44b
+      internalID: -6691809347676230740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_113
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67287e329c727db4db2c1e7b334ef13e
+      internalID: 2197594285587470267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_114
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 888ae5fd8255fae4e87e26fe40210369
+      internalID: 7025906219260716603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_115
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2051ec68eddbc4492f8f40bf6b8956
+      internalID: 5662360618384282140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_116
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f9b4248c5e6ab4187b98a7c49e07f8
+      internalID: 7388890294687281411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_117
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558a2fcbb9152824e9f4638142da39a9
+      internalID: -4028145669778032209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_118
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b06a76da47638b644b71ca85b393cad4
+      internalID: -3683442489957790462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_119
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b904fae196ba90942873be4e3980e7d6
+      internalID: 4606623841295477068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_120
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2fdd5a2c94d81b4788437a1d7bab49f
+      internalID: 8860904254466904743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_121
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 628111975fab05f468c85d67f60ce05c
+      internalID: 5336992087494176702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_122
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a978010e1c670f24e94670ce9b339564
+      internalID: 3167055675105147543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_123
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f27db030407bb304495e85aaf9076913
+      internalID: -8464245517051602444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_124
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b1d06452c3c6964ba5886475492691e
+      internalID: 741881984101268887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_125
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8eb4ddd4e1519a4b8139decdcd4dc3c
+      internalID: -1574628946065201951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_126
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65886bb6b99e6c442815aebca03d5e7d
+      internalID: 733189253692834267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_127
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c6817edfa4ce584d95bf313bc07ffe1
+      internalID: -1894864120059026099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_128
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b6475627abdda47a24222f67b8e60e
+      internalID: 6383077962830915518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_129
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41e2384dbd85ea844a468377fd407f5d
+      internalID: -3455338493307017878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_130
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11ed55f286dfe724993c44bd44f89113
+      internalID: -233365561840224717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_131
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 96
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e6c41d38b440674dbf8cda78be86726
+      internalID: 2544983834145195214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_132
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be5c8348c7ea636459f081bfbb98a4c9
+      internalID: 5669692698136521420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_133
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 868df4078cd0fa14e8e810f2ac33b47a
+      internalID: 1410289515284819893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_134
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dcf2cf75b459f54f97f94b11c1a5228
+      internalID: 8005307765136892490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_135
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88df216543b0bfe44810d23698eee190
+      internalID: -8391383320635510747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_136
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47cef327b92849b4ea8d2c1900efb74c
+      internalID: 1643879127944413299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_137
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 919ca30d4b673164d80c953c42fab34d
+      internalID: -9004311095577400146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_138
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac91a9c4b3b1ce341aa0db36e774250d
+      internalID: 4531015033982831348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_139
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e3dc912fd2f4a428b116ca4c6ecfa4
+      internalID: 2608076297950625644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_140
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d5a82d96cf1a2c41987eb30e8863e2d
+      internalID: 6772006967189757808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_141
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e832cd1fb21ba4447b424018ccb3cc1f
+      internalID: -1967709215126060380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_142
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe05152b5179a2249a044d1bfdedc81f
+      internalID: -1396464712622384654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_143
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf1a551a9ad4a849a10a5eba323e9f7
+      internalID: -7270751136367338091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_144
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6ae9814affb62f44ab54523d62ae423
+      internalID: -7209651963823407745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_145
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced0ba237c799ea4ebb3f0d5fc078afa
+      internalID: 4282118061193260550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_146
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a914a2b6a7f00642a99ffe3bbbd771a
+      internalID: 262209054130548237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_147
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c43d9925fecd204689d00b006e22ee8
+      internalID: 3863042275061772275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_148
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8eda4cd76e6f4a479ffde6a6a3738a5
+      internalID: -8573644002435607633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_149
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a7bcf0aea7db3242a0795c1d8b9d807
+      internalID: -7936425836163359139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_150
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 740f83c3ad96b4949995c2a4b6a17122
+      internalID: -2677277968650570465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_151
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d140e35ebe73c2d429b528e48db15482
+      internalID: -8190060511443865947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_152
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5875216554fdf45b954dc403fa4604
+      internalID: -5922332964364387720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_153
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e26443275519444e847c7c1144cf3a4
+      internalID: 7318962046185080858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_154
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b532791f8c1fe4e4a81a7360a9d846a5
+      internalID: 6653380200954205208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_155
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b92da53d332e62546b91fef4d3aad94c
+      internalID: -4309709485004117882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_156
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2914e6c30f08a8148a61c0fb4b8f548e
+      internalID: 1468140960328394833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_157
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6592785b22e2dec42b34242134eac301
+      internalID: 3245395905803919437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_158
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 475acef23ac84fb498de485b62333c61
+      internalID: 3213370791343380142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_159
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef4654170d77cef49ab4dbb4aa0e7da4
+      internalID: 8815621403470260234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_160
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62a6d3ea87e56844ea634454565ff983
+      internalID: -7226282127374535605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_161
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 429f9e417cbe68d428adf12d73a6d4fc
+      internalID: 406887389771760778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_162
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb19d98d97198d54885185268ebc8366
+      internalID: 3543654776866130272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_163
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7204a4978cce2b142bf9871d4c5072bc
+      internalID: 5682728721360058503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_164
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b24ef307ba6efdd4bbc7389a89525775
+      internalID: -8460084995774881388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_165
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f147af74b1035e4ea7405584cf0a007
+      internalID: 6991168349413076718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_166
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5026cc947af13cd49b6797a6afaa332b
+      internalID: 2304997414748646724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_167
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc7a5ba14d36f5e4c8ff2e10daf16124
+      internalID: 3720840854801846112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_168
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c388c992b0697e48810c879a2001b9c
+      internalID: -7847963092570470281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_169
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e80933e45299d846bca1647a3bbc836
+      internalID: 1386145236174818411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_170
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05d188ac0b0adc441864e96cc6ef4f0c
+      internalID: 2446071309989352589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_171
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cd989dcf4bb6534e86d429381a5d6c0
+      internalID: -898282252325380826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileSet_FoliageTiles_172
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffbd023daa84f184e87ed6ec754fe187
+      internalID: -6845811568670831758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      TileSet_FoliageTiles_0: -7318297052487422161
+      TileSet_FoliageTiles_1: 5519434440153364995
+      TileSet_FoliageTiles_10: -2620171679216457515
+      TileSet_FoliageTiles_100: 4871982412644026619
+      TileSet_FoliageTiles_101: -4259055316363749689
+      TileSet_FoliageTiles_102: -314827635664037800
+      TileSet_FoliageTiles_103: 4248517761035824496
+      TileSet_FoliageTiles_104: -6574409854886271230
+      TileSet_FoliageTiles_105: -4594531003335808184
+      TileSet_FoliageTiles_106: 1812185763043873381
+      TileSet_FoliageTiles_107: -1412061733616470290
+      TileSet_FoliageTiles_108: -3207912923183430248
+      TileSet_FoliageTiles_109: -1136676499097448798
+      TileSet_FoliageTiles_11: -192324457873042646
+      TileSet_FoliageTiles_110: 2613400986606537114
+      TileSet_FoliageTiles_111: -3753985860906859973
+      TileSet_FoliageTiles_112: -6691809347676230740
+      TileSet_FoliageTiles_113: 2197594285587470267
+      TileSet_FoliageTiles_114: 7025906219260716603
+      TileSet_FoliageTiles_115: 5662360618384282140
+      TileSet_FoliageTiles_116: 7388890294687281411
+      TileSet_FoliageTiles_117: -4028145669778032209
+      TileSet_FoliageTiles_118: -3683442489957790462
+      TileSet_FoliageTiles_119: 4606623841295477068
+      TileSet_FoliageTiles_12: 4228877882283957948
+      TileSet_FoliageTiles_120: 8860904254466904743
+      TileSet_FoliageTiles_121: 5336992087494176702
+      TileSet_FoliageTiles_122: 3167055675105147543
+      TileSet_FoliageTiles_123: -8464245517051602444
+      TileSet_FoliageTiles_124: 741881984101268887
+      TileSet_FoliageTiles_125: -1574628946065201951
+      TileSet_FoliageTiles_126: 733189253692834267
+      TileSet_FoliageTiles_127: -1894864120059026099
+      TileSet_FoliageTiles_128: 6383077962830915518
+      TileSet_FoliageTiles_129: -3455338493307017878
+      TileSet_FoliageTiles_13: -8053297610326899976
+      TileSet_FoliageTiles_130: -233365561840224717
+      TileSet_FoliageTiles_131: 2544983834145195214
+      TileSet_FoliageTiles_132: 5669692698136521420
+      TileSet_FoliageTiles_133: 1410289515284819893
+      TileSet_FoliageTiles_134: 8005307765136892490
+      TileSet_FoliageTiles_135: -8391383320635510747
+      TileSet_FoliageTiles_136: 1643879127944413299
+      TileSet_FoliageTiles_137: -9004311095577400146
+      TileSet_FoliageTiles_138: 4531015033982831348
+      TileSet_FoliageTiles_139: 2608076297950625644
+      TileSet_FoliageTiles_14: -7610276203452202910
+      TileSet_FoliageTiles_140: 6772006967189757808
+      TileSet_FoliageTiles_141: -1967709215126060380
+      TileSet_FoliageTiles_142: -1396464712622384654
+      TileSet_FoliageTiles_143: -7270751136367338091
+      TileSet_FoliageTiles_144: -7209651963823407745
+      TileSet_FoliageTiles_145: 4282118061193260550
+      TileSet_FoliageTiles_146: 262209054130548237
+      TileSet_FoliageTiles_147: 3863042275061772275
+      TileSet_FoliageTiles_148: -8573644002435607633
+      TileSet_FoliageTiles_149: -7936425836163359139
+      TileSet_FoliageTiles_15: 5124199211222360702
+      TileSet_FoliageTiles_150: -2677277968650570465
+      TileSet_FoliageTiles_151: -8190060511443865947
+      TileSet_FoliageTiles_152: -5922332964364387720
+      TileSet_FoliageTiles_153: 7318962046185080858
+      TileSet_FoliageTiles_154: 6653380200954205208
+      TileSet_FoliageTiles_155: -4309709485004117882
+      TileSet_FoliageTiles_156: 1468140960328394833
+      TileSet_FoliageTiles_157: 3245395905803919437
+      TileSet_FoliageTiles_158: 3213370791343380142
+      TileSet_FoliageTiles_159: 8815621403470260234
+      TileSet_FoliageTiles_16: 6501298745791582946
+      TileSet_FoliageTiles_160: -7226282127374535605
+      TileSet_FoliageTiles_161: 406887389771760778
+      TileSet_FoliageTiles_162: 3543654776866130272
+      TileSet_FoliageTiles_163: 5682728721360058503
+      TileSet_FoliageTiles_164: -8460084995774881388
+      TileSet_FoliageTiles_165: 6991168349413076718
+      TileSet_FoliageTiles_166: 2304997414748646724
+      TileSet_FoliageTiles_167: 3720840854801846112
+      TileSet_FoliageTiles_168: -7847963092570470281
+      TileSet_FoliageTiles_169: 1386145236174818411
+      TileSet_FoliageTiles_17: -1220637954556357183
+      TileSet_FoliageTiles_170: 2446071309989352589
+      TileSet_FoliageTiles_171: -898282252325380826
+      TileSet_FoliageTiles_172: -6845811568670831758
+      TileSet_FoliageTiles_18: -8656011205509797175
+      TileSet_FoliageTiles_19: -4616528922334893716
+      TileSet_FoliageTiles_2: -7566136463182509798
+      TileSet_FoliageTiles_20: -5133127634574200948
+      TileSet_FoliageTiles_21: 4556800027805475246
+      TileSet_FoliageTiles_22: -6902619116217643963
+      TileSet_FoliageTiles_23: 617447216261863556
+      TileSet_FoliageTiles_24: -7640163289030185933
+      TileSet_FoliageTiles_25: -222725825859103943
+      TileSet_FoliageTiles_26: -6584109770349009110
+      TileSet_FoliageTiles_27: 8160961540101133945
+      TileSet_FoliageTiles_28: -2069757916271658995
+      TileSet_FoliageTiles_29: 1586015456400620925
+      TileSet_FoliageTiles_3: -2533739384483695312
+      TileSet_FoliageTiles_30: 262379185662302744
+      TileSet_FoliageTiles_31: 4308269795698178432
+      TileSet_FoliageTiles_32: 4516084572763246446
+      TileSet_FoliageTiles_33: 6514981218353920321
+      TileSet_FoliageTiles_34: -1578671169329808896
+      TileSet_FoliageTiles_35: -4789533110271805614
+      TileSet_FoliageTiles_36: 4245961234595379730
+      TileSet_FoliageTiles_37: 1768619711953525929
+      TileSet_FoliageTiles_38: 9159230402281759929
+      TileSet_FoliageTiles_39: -3529950821371919814
+      TileSet_FoliageTiles_4: 435770180023139282
+      TileSet_FoliageTiles_40: 4575512411998042972
+      TileSet_FoliageTiles_41: 3771248038757402424
+      TileSet_FoliageTiles_42: -5511007335031278251
+      TileSet_FoliageTiles_43: -3196656827751720425
+      TileSet_FoliageTiles_44: -7619654944109384060
+      TileSet_FoliageTiles_45: 8855605553059536851
+      TileSet_FoliageTiles_46: 8418042688534434166
+      TileSet_FoliageTiles_47: 5401830245293150299
+      TileSet_FoliageTiles_48: 2013193859104487368
+      TileSet_FoliageTiles_49: 2263268394880449000
+      TileSet_FoliageTiles_5: 6640073846911543462
+      TileSet_FoliageTiles_50: 5883983390999821660
+      TileSet_FoliageTiles_51: 3593011848455943668
+      TileSet_FoliageTiles_52: 7090983709813672910
+      TileSet_FoliageTiles_53: 4741837483114614656
+      TileSet_FoliageTiles_54: -5745685242322718922
+      TileSet_FoliageTiles_55: 7811634938863977774
+      TileSet_FoliageTiles_56: 5997882441138357567
+      TileSet_FoliageTiles_57: 5324824779162130541
+      TileSet_FoliageTiles_58: -6566748711077497763
+      TileSet_FoliageTiles_59: 3323855042767387688
+      TileSet_FoliageTiles_6: -7907486131270848307
+      TileSet_FoliageTiles_60: -6684267260572731824
+      TileSet_FoliageTiles_61: 3172205631289510121
+      TileSet_FoliageTiles_62: -4361405955542453074
+      TileSet_FoliageTiles_63: 4695605699455354049
+      TileSet_FoliageTiles_64: -3001800075535609920
+      TileSet_FoliageTiles_65: -5739973589424010043
+      TileSet_FoliageTiles_66: 6292373293640592509
+      TileSet_FoliageTiles_67: -8077781352437787788
+      TileSet_FoliageTiles_68: 7732911478318774105
+      TileSet_FoliageTiles_69: 2829418538470570769
+      TileSet_FoliageTiles_7: 7364305268207891754
+      TileSet_FoliageTiles_70: -8370826372534391550
+      TileSet_FoliageTiles_71: -6008952568285004095
+      TileSet_FoliageTiles_72: -1377629151374625498
+      TileSet_FoliageTiles_73: -6793590519859202739
+      TileSet_FoliageTiles_74: -1605818516859753330
+      TileSet_FoliageTiles_75: 3303519292313974313
+      TileSet_FoliageTiles_76: 4454131204615056709
+      TileSet_FoliageTiles_77: 5037394977303053997
+      TileSet_FoliageTiles_78: 8668057353807683837
+      TileSet_FoliageTiles_79: 802471844938304680
+      TileSet_FoliageTiles_8: -5172811504556611674
+      TileSet_FoliageTiles_80: -495026187060049370
+      TileSet_FoliageTiles_81: 3465928304663926633
+      TileSet_FoliageTiles_82: -4874452349763363909
+      TileSet_FoliageTiles_83: -7658048081400405503
+      TileSet_FoliageTiles_84: -2826565984552977769
+      TileSet_FoliageTiles_85: -4682028755686804943
+      TileSet_FoliageTiles_86: -961073176959139639
+      TileSet_FoliageTiles_87: 8733661488007308941
+      TileSet_FoliageTiles_88: 7797960777011120905
+      TileSet_FoliageTiles_89: 1617819122535508832
+      TileSet_FoliageTiles_9: 4723881281639689957
+      TileSet_FoliageTiles_90: -8394367482914689415
+      TileSet_FoliageTiles_91: 7074246547116939119
+      TileSet_FoliageTiles_92: 8255129932370625375
+      TileSet_FoliageTiles_93: -7860649375562403206
+      TileSet_FoliageTiles_94: -247892979963163058
+      TileSet_FoliageTiles_95: 7100858830907428204
+      TileSet_FoliageTiles_96: -2647964293752768112
+      TileSet_FoliageTiles_97: 844418399971155165
+      TileSet_FoliageTiles_98: -1758754948697048540
+      TileSet_FoliageTiles_99: -2837689798528467715
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
