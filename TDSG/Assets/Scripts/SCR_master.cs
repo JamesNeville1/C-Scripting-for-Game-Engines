@@ -21,6 +21,8 @@ public class SCR_master : MonoBehaviour {
 
         SCR_player_inventory.returnInstance().setup(inventorySizeY, inventorySizeY);
 
+        SCR_player_crafting.returnInstance().setup();
+
         //Make Player (player contains inventory logic)
         SCR_player_main player = Instantiate(playerPrefab, mapRef.startPos(), Quaternion.identity).GetComponent<SCR_player_main>();
     }

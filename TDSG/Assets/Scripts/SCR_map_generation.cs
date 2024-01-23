@@ -27,7 +27,7 @@ public class SCR_map_generation : MonoBehaviour {
     [SerializeField] [Tooltip("Reduce gatherables by amount")] private int reduceGatherablesBy;
 
     [Header("Other")]
-    [SerializeField] [Tooltip("Temp start pos of player")] private Vector2 playerStartPos;
+    [SerializeField] [MyReadOnly] [Tooltip("Temp start pos of player")] private Vector2 playerStartPos;
 
     #region Won't be Serialised
     public Dictionary<Color32, SCO_gatherable> colorToType = new Dictionary<Color32, SCO_gatherable>(); //Maps colour to gatherable scriptable object

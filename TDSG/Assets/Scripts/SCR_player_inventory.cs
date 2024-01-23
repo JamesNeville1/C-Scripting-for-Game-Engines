@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class SCR_player_inventory : MonoBehaviour {
     [Header("Require Dev Input")]
@@ -11,7 +12,7 @@ public class SCR_player_inventory : MonoBehaviour {
     [SerializeField] private Transform cellParent;
 
     #region Can't / Won't be Serialised
-    private enum cellState {
+    public enum cellState {
         EMPTY,
         OCCUPIED
     }
@@ -34,13 +35,7 @@ public class SCR_player_inventory : MonoBehaviour {
             for (int x = 0; x <= sizeX - 1; x++) {
                 Vector2Int pos = new Vector2Int(x, y);
 
-                GameObject cell = new GameObject("Inventory Grid Cell: " + x.ToString() + ", " + y.ToString(), typeof(SpriteRenderer));
-                cell.transform.parent = cellParent.transform;
-                cell.transform.localPosition = (Vector3Int)pos;
-
-                sr = cell.GetComponent<SpriteRenderer>();
-                sr.sprite = gridCellSprite;
-                sr.sortingLayerName = "Inventory";
+                createSlotDisplay("Inventory Grid Cell: ", cellParent, new Vector3(pos.x, pos.y, 0));
                 inventoryInstance.gridData.Add(pos, cellState.EMPTY);
             }
         }
@@ -98,6 +93,18 @@ public class SCR_player_inventory : MonoBehaviour {
 
     public Transform returnCellParent() {
         return cellParent;
+    }
+    public GameObject createSlotDisplay(string prefix, Transform parent, Vector3 localPos) {
+        SpriteRenderer sr;
+        GameObject obj = new GameObject(prefix + localPos.x.ToString() + ", " + localPos.y.ToString(), typeof(SpriteRenderer));
+        obj.transform.parent = parent.transform;
+        obj.transform.localPosition = localPos;
+
+        sr = obj.GetComponent<SpriteRenderer>();
+        sr.sprite = gridCellSprite;
+        sr.sortingLayerName = "Inventory";
+
+        return obj;
     }
     #endregion
 }
