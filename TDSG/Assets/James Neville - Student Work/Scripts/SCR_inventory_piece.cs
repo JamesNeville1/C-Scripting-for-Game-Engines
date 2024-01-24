@@ -89,15 +89,12 @@ public class SCR_inventory_piece : MonoBehaviour {
     #region Item Logic
     private void useItemLogic() {
         switch (pieceItem) {
-            case SCO_ABS_item_edible:
+            case SCO_ABS_item_useable_on_entity:
                 Debug.Log("Eating");
-                SCO_ABS_item_edible casted = pieceItem as SCO_ABS_item_edible;
-                casted.eat(SCR_player_main.returnInstance().returnAttributes());
+                SCO_ABS_item_useable_on_entity casted = pieceItem as SCO_ABS_item_useable_on_entity;
+                casted.useOnEntity(SCR_player_main.returnInstance().returnAttributes());
                 break;
-            case SCO_ABS_item_weapon:
-                print("This is a weapon");
-                break;
-            case SCO_item:
+            default:
                 Debug.Log("This is just a resource, you may not eat it!");
                 break;
         }
