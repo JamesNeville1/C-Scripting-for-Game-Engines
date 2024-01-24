@@ -414,6 +414,7 @@
 "Assets/James Neville - Student Work/Scripts/SCR_player_main.cs"
 "Assets/James Neville - Student Work/Scripts/Utils/IzzetUtils.cs"
 "Assets/James Neville - Student Work/SCR_player_crafting.cs"
+"Assets/James Neville - Student Work/SCR_ui_master.cs"
 "Assets/James Neville - Student Work/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/James Neville - Student Work/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
 "Assets/James Neville - Student Work/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs"
@@ -448,7 +449,6 @@
 "Assets/James Neville - Student Work/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs"
 "Assets/James Neville - Student Work/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs"
 "Assets/James Neville - Student Work/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs"
-"Assets/SCR_ui_master.cs"
 "Assets/Staffs/Scripts/TopDownCharacterController.cs"
 -langversion:9.0
 
