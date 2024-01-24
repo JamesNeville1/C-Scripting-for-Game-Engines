@@ -90,7 +90,7 @@ public class SCR_inventory_piece : MonoBehaviour {
     private void useItemLogic() {
         switch (pieceItem) {
             case SCO_ABS_item_useable_on_entity:
-                Debug.Log("Eating");
+                Debug.Log("Using " + pieceItem.name);
                 SCO_ABS_item_useable_on_entity casted = pieceItem as SCO_ABS_item_useable_on_entity;
                 casted.useOnEntity(SCR_player_main.returnInstance().returnAttributes());
                 break;

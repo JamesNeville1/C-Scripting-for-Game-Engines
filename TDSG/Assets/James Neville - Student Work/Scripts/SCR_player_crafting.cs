@@ -30,17 +30,17 @@ public class SCR_player_crafting : MonoBehaviour {
         slotsParent.gameObject.SetActive(false);
     }
     public bool tryPlace(SCR_inventory_piece toPlace) {
+        float dist = float.PositiveInfinity;
+        Vector2Int vec = new Vector2Int();
         foreach (Vector2Int slot in craftingSlots.Keys) {
-            if (IzzetMain.castVector2(toPlace.transform.position) != slot)
-            {
-                return false;
-            }
-            else {
-                place(toPlace, slot);
-                return true;
+            if (Vector2.Distance(slot, toPlace.transform.position) < dist){
+                vec = slot;
             }
         }
-        return false;
+
+        toPlace.transform.localPosition = (Vector2)vec;
+
+        return true;
     }
     private void place(SCR_inventory_piece toPlace, Vector2Int pos) {
         craftingSlots[pos] = SCR_player_inventory.cellState.OCCUPIED;
