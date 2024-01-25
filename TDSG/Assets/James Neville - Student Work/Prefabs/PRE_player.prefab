@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1638651887771361930}
   - component: {fileID: 84076130210256538}
   - component: {fileID: 4366492743712515690}
+  - component: {fileID: 637631082962288691}
   - component: {fileID: 3903683744039567537}
   - component: {fileID: 9043039355727994593}
   - component: {fileID: 7303173091059305810}
@@ -35,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1638651887771361930
 SpriteRenderer:
@@ -101,18 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039649df72968544ba91b1c8ee229416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overworldSpeed: 0
-  rb: {fileID: 0}
-  animator: {fileID: 0}
-  sr: {fileID: 0}
-  att: {fileID: 0}
-  inventorySizeX: 3
-  inventorySizeY: 3
-  useableItems: []
-  unuseableItems:
-  - {fileID: 11400000, guid: 77b82a6a729a2e747bd41311647fc786, type: 2}
-  - {fileID: 11400000, guid: 706f1d0656acd2a44b646d171e070b0f, type: 2}
-  animationPrefix: player
   modifOverworldSpeed: 1.25
   walkClips:
   - {fileID: 8300000, guid: 4681e3a2aa3036f4b974842775edffd3, type: 3}
@@ -120,6 +109,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: af43c4c96adc2f04bb15712c060faa4c, type: 3}
   - {fileID: 8300000, guid: af2de5cf891d91d43a9ee1d9271d31b1, type: 3}
   - {fileID: 8300000, guid: f04822db727e9d94396dc7b2ff4c8029, type: 3}
+  overworldSpeed: 0
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  sr: {fileID: 0}
+  playerAttributes: {fileID: 0}
+  playerAnimation: {fileID: 0}
 --- !u!114 &4366492743712515690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +139,24 @@ MonoBehaviour:
   speed:
     current: 5
     max: 5
+--- !u!114 &637631082962288691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5207933277885795846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e0b38c9cee2b34fbcd2c06d7f945c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  passer:
+  - type: 0
+    name: player_idle
+  - type: 1
+    name: player_walk
 --- !u!50 &3903683744039567537
 Rigidbody2D:
   serializedVersion: 4
@@ -226,7 +239,7 @@ Animator:
   m_GameObject: {fileID: 5207933277885795846}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2e4149a00318a5b4b8813d972b1ed99c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7cc8fcb6b38f3444c89784a096f08b20, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

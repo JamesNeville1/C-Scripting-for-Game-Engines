@@ -8,7 +8,6 @@ public class SCR_player_main : MonoBehaviour {
 
     [Header("Require Dev Input")]
     [SerializeField] [Tooltip("Multiply this by the speed attribute")] private float modifOverworldSpeed;
-    [Tooltip("Used to determine what animations we will use, THIS IS TEMPORARY")] [SerializeField] private string animationPrefix;
     [SerializeField] private AudioClip[] walkClips;
 
     [Header("Main")]
@@ -19,6 +18,7 @@ public class SCR_player_main : MonoBehaviour {
     [SerializeField] [MyReadOnly] private Animator animator;
     [SerializeField] [MyReadOnly] private SpriteRenderer sr;
     [SerializeField] [MyReadOnly] private SCR_entity_attributes playerAttributes;
+    [SerializeField] [MyReadOnly] private SCR_entity_animation playerAnimation;
 
     [Header("Will not change once built")]
 
@@ -37,8 +37,8 @@ public class SCR_player_main : MonoBehaviour {
     private void playerMovementMain() {
         Vector2Int input = returnMovementInput(); //Get Input
         movePlayer(input); //Move Player
-        IzzetMain.animate(animator, animationPrefix, rb.velocity != Vector2.zero); //Animate Player
         flipSprite(input); //Check If Should Flip Sprite
+        animate(input);
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10); //Move Camera to follow player
     }
 
@@ -47,11 +47,11 @@ public class SCR_player_main : MonoBehaviour {
         Vector2Int movement = new Vector2Int((int)Input.GetAxisRaw("Horizontal"), (int)Input.GetAxisRaw("Vertical"));
         return movement;
     }
-    private void flipSprite(Vector2Int movement) {
-        if (movement.x == -1) {
+    private void flipSprite(Vector2Int input) {
+        if (input.x == -1) {
             sr.flipX = true;
         }
-        else if (movement.x == 1) {
+        else if (input.x == 1) {
             sr.flipX = false;
         }
     }
@@ -61,6 +61,14 @@ public class SCR_player_main : MonoBehaviour {
         }
         else {
             rb.velocity = (input * overworldSpeed) * 0.71f;
+        }
+    }
+    private void animate(Vector2Int input) {
+        if(input.x != 0 || input.y != 0) {
+            playerAnimation.play(SCR_entity_animation.AnimationType.WALK);
+        }
+        else {
+            playerAnimation.play(SCR_entity_animation.AnimationType.IDLE);
         }
     }
     #endregion
@@ -85,9 +93,7 @@ public class SCR_player_main : MonoBehaviour {
         animator = gameObject.GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         playerAttributes = GetComponent<SCR_entity_attributes>();
-
-        //Define Animation Prefix
-        animationPrefix = "ANI_" + animationPrefix + "_";
+        playerAnimation = GetComponent<SCR_entity_animation>();
 
         //Adjust Speed
         changeOverworldSpeed();

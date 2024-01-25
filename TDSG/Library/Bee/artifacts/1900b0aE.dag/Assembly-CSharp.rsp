@@ -394,7 +394,6 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.4f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.4f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
-"Assets/James Neville - Student Work/Animation/SCO_izzet_animation.cs"
 "Assets/James Neville - Student Work/Gatherables/SCO_gatherable.cs"
 "Assets/James Neville - Student Work/Items/Logic/Children/SCO_item_edible.cs"
 "Assets/James Neville - Student Work/Items/Logic/Children/SCO_item_heal.cs"
@@ -448,6 +447,7 @@
 "Assets/James Neville - Student Work/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs"
 "Assets/James Neville - Student Work/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs"
 "Assets/James Neville - Student Work/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs"
+"Assets/SCR_entity_animation.cs"
 "Assets/Staffs/Scripts/TopDownCharacterController.cs"
 -langversion:9.0
 
