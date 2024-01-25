@@ -152,11 +152,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  unitPrefix: player
   passer:
   - type: 0
-    name: player_idle
+    name: idle
   - type: 1
-    name: player_walk
+    name: walk
 --- !u!50 &3903683744039567537
 Rigidbody2D:
   serializedVersion: 4

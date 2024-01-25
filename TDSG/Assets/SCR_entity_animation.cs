@@ -12,7 +12,9 @@ public class SCR_entity_animation : MonoBehaviour {
 
     private AnimationType? current;
 
-    private const string prefix = "ANI_";
+    private const string globalPrefix = "ANI_";
+
+    [SerializeField] private string unitPrefix = "";
 
     [System.Serializable]
     private struct animationPasser {
@@ -26,7 +28,7 @@ public class SCR_entity_animation : MonoBehaviour {
         animator = GetComponent<Animator>();
 
         foreach (animationPasser toPass in passer) {
-            animations.Add(toPass.type, prefix + toPass.name);
+            animations.Add(toPass.type, globalPrefix + unitPrefix + "_" + toPass.name);
         }
     }
     public void play(AnimationType type) {
@@ -37,7 +39,7 @@ public class SCR_entity_animation : MonoBehaviour {
             current = type;
         }
         else {
-            Debug.Log("The animation of type: " + type.ToString() + " does not exist in this context");
+            Debug.Log("The animation of type: " + type.ToString() + " does not exist in this contextw");
         }
     }
 }

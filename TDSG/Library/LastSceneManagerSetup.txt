@@ -1,5 +1,0 @@
-sceneSetups:
-- path: Assets/James Neville - Student Work/Scenes/SCE_overworld.unity
-  isLoaded: 1
-  isActive: 1
-  isSubScene: 0
