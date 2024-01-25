@@ -107,10 +107,8 @@ public class SCR_inventory_piece : MonoBehaviour {
             if (!Input.GetMouseButton(0)) {
                 active = false;
                 if (!playerInventory.tryPlaceGrid(this)) {
-                    if(!playerCrafting.tryPlace(this)) {
                         //Debug.Log("I've fallen, and I can't get up");
                         drop();
-                    }
                 }
                 else {
                     adjustSortingOrder(1);

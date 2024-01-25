@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 9}
   m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 50}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 151
+  controlID: 141
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -346,8 +346,8 @@ MonoBehaviour:
     y: 0
     width: 920
     height: 558
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -433,7 +433,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/James Neville - Student Work/Gatherables
+    - Assets/James Neville - Student Work/Scripts
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -441,16 +441,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/James Neville - Student Work/Gatherables
+  - Assets/James Neville - Student Work/Scripts
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\n013403n\Documents\GitHub\C-Scripting-for-Game-Engines\TDSG
+  m_LastProjectPath: C:\Users\n013403n.STUDENT.000\Documents\GitHub\C-Scripting-for-Game-Engines\TDSG
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
     scrollPos: {x: 0, y: 11}
-    m_SelectedIDs: 588b0000
-    m_LastClickedID: 35672
-    m_ExpandedIDs: 000000003a8b00003c8b00003e8b0000408b000000ca9a3bffffff7f
+    m_SelectedIDs: 7e820000
+    m_LastClickedID: 33406
+    m_ExpandedIDs: 000000001a6d000060820000628200006482000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -478,7 +478,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003a8b00003c8b00003e8b0000408b0000
+    m_ExpandedIDs: 000000001a6d0000608200006282000064820000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -505,22 +505,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: SPR_izzet_items
+      m_OriginalName: SPR_izzet_items
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 32864
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 3}
     m_CreateAssetUtility:
@@ -579,7 +579,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/James Neville - Student Work/Scripts
+    - Assets/James Neville - Student Work/Animation
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -587,16 +587,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/James Neville - Student Work/Scripts
+  - Assets/James Neville - Student Work/Animation
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: C:\Users\n013403n\Documents\GitHub\C-Scripting-for-Game-Engines\TDSG
+  m_LastProjectPath: C:\Users\n013403n.STUDENT.000\Documents\GitHub\C-Scripting-for-Game-Engines\TDSG
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 688b0000
-    m_LastClickedID: 35688
-    m_ExpandedIDs: 000000003a8b00003c8b00003e8b0000408b000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 36}
+    m_SelectedIDs: 74820000
+    m_LastClickedID: 33396
+    m_ExpandedIDs: 000000001a6d00006082000062820000648200008482000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -624,7 +624,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003a8b00003c8b00003e8b0000408b0000
+    m_ExpandedIDs: 000000001a6d0000608200006282000064820000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -651,22 +651,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000488b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Animation
+      m_OriginalName: Animation
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 33396
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 8}
     m_CreateAssetUtility:
@@ -764,9 +764,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 74820000
       m_LastClickedID: 0
-      m_ExpandedIDs: fcfaffff188800001e8800003e88000074880000
+      m_ExpandedIDs: a06afeff12f2ffffb27f0000ce7f0000d87f0000e47f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -854,7 +854,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -880,7 +880,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -1185,9 +1185,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 10.108039, y: -1.7380625, z: -0.04197461}
+    m_Target: {x: 2.8009808, y: 1.3297452, z: 1259.9591}
     speed: 2
-    m_Value: {x: 10.108039, y: -1.7380625, z: -0.04197461}
+    m_Value: {x: 2.8009808, y: 1.3297452, z: 1259.9591}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1223,13 +1223,13 @@ MonoBehaviour:
       m_Size: {x: 1, y: 1}
     zGrid:
       m_Fade:
-        m_Target: 0
+        m_Target: 1
         speed: 2
-        m_Value: 0
+        m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
-    m_ShowGrid: 0
+    m_ShowGrid: 1
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
@@ -1237,9 +1237,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 4.904578
+    m_Target: 10.421035
     speed: 2
-    m_Value: 4.904578
+    m_Value: 10.421035
   m_Ortho:
     m_Target: 1
     speed: 2

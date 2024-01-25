@@ -41,6 +41,7 @@ public class SCR_player_main : MonoBehaviour {
         flipSprite(input); //Check If Should Flip Sprite
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10); //Move Camera to follow player
     }
+
     #region playerMovementMainFuncs
     private Vector2Int returnMovementInput() {
         Vector2Int movement = new Vector2Int((int)Input.GetAxisRaw("Horizontal"), (int)Input.GetAxisRaw("Vertical"));
@@ -71,7 +72,10 @@ public class SCR_player_main : MonoBehaviour {
         return playerAttributes;
     }
     public void changeOverworldSpeed(int modifBy = 0) {
-        overworldSpeed = (playerAttributes.speed.current * modifOverworldSpeed) - modifBy;
+        overworldSpeed = (playerAttributes.speed.returnCurrent() * modifOverworldSpeed) - modifBy;
+    }
+    public void die(string reason = "") {
+        Debug.Log($"You dead fool, you died to {reason}");
     }
     #endregion
     #region Other
