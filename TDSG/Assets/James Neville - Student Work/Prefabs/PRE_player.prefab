@@ -36,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1638651887771361930
 SpriteRenderer:
@@ -128,17 +128,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health:
-    current: 10
-    max: 10
+    current: 0
+    max: 0
   hunger:
-    current: 100
-    max: 100
+    current: 0
+    max: 0
   tiredness:
-    current: 3
-    max: 3
+    current: 0
+    max: 0
   speed:
-    current: 5
-    max: 5
+    current: 0
+    max: 0
+  stats:
+    athletics: 0
+    dexterity: 0
+    endurance: 0
+    survival: 0
+    luck: 0
+  isPlayer: 1
+  healthModif: 2
+  hungerModif: 5
+  tirednessModif: 2
+  speedModif: 1
 --- !u!114 &637631082962288691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +228,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03, y: 0.5}
+  m_Offset: {x: 0, y: 0.2625599}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -228,7 +239,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7073045, y: 1.0078316}
+  m_Size: {x: 0.75, y: 0.5251198}
   m_EdgeRadius: 0
 --- !u!95 &7303173091059305810
 Animator:
