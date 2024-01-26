@@ -19,3 +19,4 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: 1}
   attribute: 5
+  breakOnUse: 1

@@ -91,11 +91,17 @@ public class SCR_inventory_piece : MonoBehaviour {
         switch (pieceItem) {
             case SCO_ABS_item_useable_on_entity:
                 Debug.Log("Using " + pieceItem.name);
+
                 SCO_ABS_item_useable_on_entity casted = pieceItem as SCO_ABS_item_useable_on_entity;
                 casted.useOnEntity(SCR_player_main.returnInstance().returnAttributes());
+                if (casted.returnBreakOnUse()) destroyPiece();
+
                 break;
+
             default:
+
                 Debug.Log("This is just a resource, you may not eat it!");
+
                 break;
         }
     }
@@ -142,6 +148,10 @@ public class SCR_inventory_piece : MonoBehaviour {
             vecs.Add(item + parentPos);
         }
         return vecs.ToArray();
+    }
+    private void destroyPiece() {
+        playerInventory.removePiece(this);
+        Destroy(gameObject);
     }
     #endregion
     #region Adjust Sprite Renderers
