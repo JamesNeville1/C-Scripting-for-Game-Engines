@@ -880,7 +880,7 @@ MonoBehaviour:
   waterTile: {fileID: 11400000, guid: 37dde2d5933436b419d0bfb7e6d589e9, type: 2}
   tilemap: {fileID: 2015916758}
   waterTilemap: {fileID: 1630317134}
-  islandSize: 35
+  islandSize: 60
   sizeX: 300
   sizeY: 300
   gathables:
@@ -899,18 +899,18 @@ MonoBehaviour:
   - color: {r: 0.7490196, g: 0.72156864, b: 0.7058824, a: 1}
     dataToPass:
       objectData: {fileID: 11400000, guid: 47174683fa2bc4d47a4d1e5b4d228ffd, type: 2}
-      randomWieght: 10
+      randomWieght: 25
   - color: {r: 0.8980393, g: 0.43529415, b: 0.29411766, a: 1}
     dataToPass:
       objectData: {fileID: 11400000, guid: 496a2512360fd8c438f49284bb043f65, type: 2}
-      randomWieght: 5
+      randomWieght: 4
   - color: {r: 0.37647063, g: 0.29411766, b: 0.2392157, a: 1}
     dataToPass:
       objectData: {fileID: 11400000, guid: 16c434f526f22a44bb61221f950a6fcb, type: 2}
-      randomWieght: 5
+      randomWieght: 10
   mapTex: {fileID: 0}
   distributionStep: 0
-  reduceGatherablesBy: 35
+  reduceGatherablesBy: 2000
   playerStartPos: {x: 0, y: 0}
 --- !u!114 &1364117803
 MonoBehaviour:

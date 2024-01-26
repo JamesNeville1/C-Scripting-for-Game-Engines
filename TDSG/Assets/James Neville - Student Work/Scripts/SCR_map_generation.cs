@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 using Color = UnityEngine.Color;
 using Random = System.Random;
 using IzzetUtils.IzzetAttributes;
+using Unity.VisualScripting;
 
 public class SCR_map_generation : MonoBehaviour {
 
@@ -21,7 +22,7 @@ public class SCR_map_generation : MonoBehaviour {
     
 
     [Header("Map Gatherables")]
-    [SerializeField] [Tooltip("Inspector friendly, passed to 'colorToType' dictionary on awake")] private List<gathableDataToPass> gathables;
+    [SerializeField] [Tooltip("Inspector friendly, passed to 'colorToType' dictionary on awake")] private gathableDataToPass[] gathables;
     [SerializeField] [MyReadOnly] [Tooltip("Holds pixels to be used for the end map")] private Texture2D mapTex;
     [SerializeField] [MyReadOnly] [Tooltip("Distributes more evenly")] int distributionStep = 1;
     [SerializeField] [Tooltip("Reduce gatherables by amount")] private int reduceGatherablesBy;
@@ -58,6 +59,7 @@ public class SCR_map_generation : MonoBehaviour {
         foreach (gathableDataToPass item in gathables) {
             colorToType.Add(item.color, item.dataToPass);
         }
+        gathables = null;
     }
     #endregion
     #region Seed Generation & Authentication
@@ -175,10 +177,17 @@ public class SCR_map_generation : MonoBehaviour {
             for (int y = 0; y < sizeY; y++) {
                 Vector2 pos = new Vector2(x, y);
 
-                int seededID = getUnorderedPerlinID(pos, seed, islandSize, successColours.Count);
+                int seededID = getUnorderedPerlinID(pos, seed, islandSize, totalWeight);
                 if (seededID != 0) {
-                    posToColour.Add(pos, successColours[seededID-1]);
-                    tex.SetPixel((int)pos.x, (int)pos.y, successColours[seededID - 1]);
+                    Color32 col;
+                    if (seededID > totalWeight) {
+                        col = Color.white;
+                    } 
+                    else {
+                        col = checkIntAgainstColour(seededID);
+                    }
+                    posToColour.Add(pos, col);
+                    tex.SetPixel((int)pos.x, (int)pos.y, col);
                 }
                 else {
                     tex.SetPixel((int)pos.x, (int)pos.y, Color.black);
@@ -206,7 +215,7 @@ public class SCR_map_generation : MonoBehaviour {
     }
     
     //Return "random" seeded noise
-    private int getUnorderedPerlinID(Vector2 v, Vector2 offset, int islandSize, int count = 1) {
+    private int getUnorderedPerlinID(Vector2 v, Vector2 offset, int islandSize, int randomWeight) {
         int bounds = getBasePerlinID(v, offset, islandSize, 1);
         int[] soundroundings = {
             getBasePerlinID(v, offset+Vector2.left, islandSize, 1),
@@ -220,11 +229,14 @@ public class SCR_map_generation : MonoBehaviour {
         };
 
         int rand = 0;
+
+        print(getBasePerlinID(v, offset + Vector2.left, islandSize, 1) == 0);
+
         if (bounds == 1) {
             Random seedFormat = new Random((int)(offset.magnitude + v.magnitude * Mathf.Pow(distributionStep, 4)));
-            rand = seedFormat.Next(0, count + reduceGatherablesBy);
-            if (rand > count || rand < 1 || soundroundings.Contains<int>(0)) {
-                return count;
+            rand = seedFormat.Next(1, randomWeight + reduceGatherablesBy);
+            if (soundroundings.Contains<int>(0)) {
+                return 0;
             } 
         }
         _ = (distributionStep > 50) ? distributionStep = 1 : distributionStep++;
@@ -245,8 +257,16 @@ public class SCR_map_generation : MonoBehaviour {
         }
         return totalWeight;
     }
-    private Color checkIntAgainstColour(int weight) {
-        
+    private Color32 checkIntAgainstColour(int rand) {
+        int step = 0;
+        //print(weight);
+        foreach (var item in colorToType.ToList()) {
+            step += item.Value.randomWieght;
+            if (step > rand) {
+                step = 0;
+                return item.Key;
+            }
+        }
         return Color.white;
     }
     #endregion
