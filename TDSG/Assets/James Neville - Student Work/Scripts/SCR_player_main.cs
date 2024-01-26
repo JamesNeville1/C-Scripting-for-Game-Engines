@@ -80,7 +80,7 @@ public class SCR_player_main : MonoBehaviour {
         return playerAttributes;
     }
     public void changeOverworldSpeed(int modifBy = 0) {
-        overworldSpeed = (playerAttributes.speed.returnCurrent() * modifOverworldSpeed) - modifBy;
+        overworldSpeed = (playerAttributes.speed * modifOverworldSpeed) - modifBy;
     }
     public void die(string reason = "") {
         Debug.Log($"You dead fool, you died to {reason}");

@@ -60,7 +60,7 @@ public class SCR_entity_attributes : MonoBehaviour {
     [Tooltip("Has little effect in overworld, but is used in combat")] public attribute health;
     [Tooltip("Player will take damage after a few ticks if at 0")] public attribute hunger;
     [Tooltip("Player will do less damage in combat until they have slept")] public attribute tiredness;
-    [Tooltip("Speed in battle, and multiplied in overworld")] public attribute speed;
+    [Tooltip("Speed in battle, and multiplied in overworld")] public int speed;
 
     [Header("Stats")]
     [SerializeField] private entStats stats;
@@ -79,8 +79,6 @@ public class SCR_entity_attributes : MonoBehaviour {
 
         getAttFromStat();
 
-        print(health.returnCurrent());
-
         if(isPlayer ) {
             SCR_player_main playerRef = SCR_player_main.returnInstance();
             health.subscribe(() => { playerRef.die("death"); });
@@ -91,6 +89,6 @@ public class SCR_entity_attributes : MonoBehaviour {
         health = new attribute(stats.endurance * healthModif);
         hunger = new attribute((stats.endurance + stats.survival) * hungerModif);
         tiredness = new attribute(Math.Clamp(Mathf.RoundToInt((stats.endurance + stats.survival) / tirednessModif), 1, int.MaxValue));
-        speed = new attribute((stats.dexterity + stats.athletics) * speedModif);
+        speed = (stats.dexterity + stats.athletics) * speedModif;
     }
 }

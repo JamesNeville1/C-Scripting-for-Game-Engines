@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039649df72968544ba91b1c8ee229416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modifOverworldSpeed: 1.25
+  modifOverworldSpeed: 0.6
   walkClips:
   - {fileID: 8300000, guid: 4681e3a2aa3036f4b974842775edffd3, type: 3}
   - {fileID: 8300000, guid: 17955426c4d4f074480be5893a5ed8c6, type: 3}
