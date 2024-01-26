@@ -21,22 +21,27 @@ public class SCR_map_generation : MonoBehaviour {
     
 
     [Header("Map Gatherables")]
-    [SerializeField] [Tooltip("Inspector friendly, passed to 'colorToType' dictionary on awake")] private List<gathableData> gathables;
+    [SerializeField] [Tooltip("Inspector friendly, passed to 'colorToType' dictionary on awake")] private List<gathableDataToPass> gathables;
     [SerializeField] [MyReadOnly] [Tooltip("Holds pixels to be used for the end map")] private Texture2D mapTex;
-    [SerializeField] [MyReadOnly] [Tooltip("Holds pixels to be used for the end map")] int distributionStep = 1;
+    [SerializeField] [MyReadOnly] [Tooltip("Distributes more evenly")] int distributionStep = 1;
     [SerializeField] [Tooltip("Reduce gatherables by amount")] private int reduceGatherablesBy;
 
     [Header("Other")]
     [SerializeField] [MyReadOnly] [Tooltip("Temp start pos of player")] private Vector2 playerStartPos;
 
     #region Won't be Serialised
-    public Dictionary<Color32, SCO_gatherable> colorToType = new Dictionary<Color32, SCO_gatherable>(); //Maps colour to gatherable scriptable object
+    private Dictionary<Color32, gatherableData> colorToType = new Dictionary<Color32, gatherableData>(); //Maps colour to gatherable scriptable object
     private Dictionary<Vector2, Color32> posToColour = new Dictionary<Vector2, Color32>();
 
     [System.Serializable]
-    public struct gathableData {
+    public struct gathableDataToPass {
         public Color color;
-        public SCO_gatherable data;
+        public gatherableData dataToPass;
+    }
+    [System.Serializable]
+    public struct gatherableData {
+        public SCO_gatherable objectData;
+        public int randomWieght;
     }
     #endregion
 
@@ -50,8 +55,8 @@ public class SCR_map_generation : MonoBehaviour {
 
     #region Setup
     private void passToDictionary() {
-        foreach (gathableData item in gathables) {
-            colorToType.Add(item.color, item.data);
+        foreach (gathableDataToPass item in gathables) {
+            colorToType.Add(item.color, item.dataToPass);
         }
     }
     #endregion
@@ -143,7 +148,7 @@ public class SCR_map_generation : MonoBehaviour {
                     tilemap.SetTile(posInt, groundTile);
 
                     if (currentColour != Color.white && !isBound) { //If pixel isn't white, place gatherable from dictionairy 
-                        colorToType[currentColour].gatherableSetup(pos, gatherableParent.transform);
+                        colorToType[currentColour].objectData.gatherableSetup(pos, gatherableParent.transform);
                     }
                     //TEMP
                     else {
@@ -163,6 +168,8 @@ public class SCR_map_generation : MonoBehaviour {
     private Texture2D generatePerlinTexture(Vector2 seed, int islandSize, List<Color32> successColours) {
 
         Texture2D tex = new Texture2D(sizeX, sizeY);
+
+        int totalWeight = returnTotalWeight();
 
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
@@ -230,6 +237,17 @@ public class SCR_map_generation : MonoBehaviour {
     }
     public Vector2 startPos() {
         return playerStartPos;
+    }
+    private int returnTotalWeight() {
+        int totalWeight = 0;
+        foreach (var weight in colorToType.Values) {
+            totalWeight += weight.randomWieght;
+        }
+        return totalWeight;
+    }
+    private Color checkIntAgainstColour(int weight) {
+        
+        return Color.white;
     }
     #endregion
 }

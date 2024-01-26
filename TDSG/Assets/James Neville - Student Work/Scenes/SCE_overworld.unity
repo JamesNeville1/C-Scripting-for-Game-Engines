@@ -885,17 +885,29 @@ MonoBehaviour:
   sizeY: 300
   gathables:
   - color: {r: 0.54509807, g: 0.5686275, b: 0.3137255, a: 1}
-    data: {fileID: 11400000, guid: 7e4eedfa6dc139a4aaa38141cf62f4ad, type: 2}
+    dataToPass:
+      objectData: {fileID: 11400000, guid: 7e4eedfa6dc139a4aaa38141cf62f4ad, type: 2}
+      randomWieght: 100
   - color: {r: 0.89019614, g: 0.5764706, b: 0.2784314, a: 1}
-    data: {fileID: 11400000, guid: 7e536eceaafeda44aa5a9036a2c0c27a, type: 2}
+    dataToPass:
+      objectData: {fileID: 11400000, guid: 7e536eceaafeda44aa5a9036a2c0c27a, type: 2}
+      randomWieght: 100
   - color: {r: 0.85098046, g: 0.6509804, b: 0.6509804, a: 1}
-    data: {fileID: 11400000, guid: b75a30167a2ba2b449e56ed0996527df, type: 2}
+    dataToPass:
+      objectData: {fileID: 11400000, guid: b75a30167a2ba2b449e56ed0996527df, type: 2}
+      randomWieght: 100
   - color: {r: 0.7490196, g: 0.72156864, b: 0.7058824, a: 1}
-    data: {fileID: 11400000, guid: 47174683fa2bc4d47a4d1e5b4d228ffd, type: 2}
+    dataToPass:
+      objectData: {fileID: 11400000, guid: 47174683fa2bc4d47a4d1e5b4d228ffd, type: 2}
+      randomWieght: 10
   - color: {r: 0.8980393, g: 0.43529415, b: 0.29411766, a: 1}
-    data: {fileID: 11400000, guid: 496a2512360fd8c438f49284bb043f65, type: 2}
+    dataToPass:
+      objectData: {fileID: 11400000, guid: 496a2512360fd8c438f49284bb043f65, type: 2}
+      randomWieght: 5
   - color: {r: 0.37647063, g: 0.29411766, b: 0.2392157, a: 1}
-    data: {fileID: 11400000, guid: 16c434f526f22a44bb61221f950a6fcb, type: 2}
+    dataToPass:
+      objectData: {fileID: 11400000, guid: 16c434f526f22a44bb61221f950a6fcb, type: 2}
+      randomWieght: 5
   mapTex: {fileID: 0}
   distributionStep: 0
   reduceGatherablesBy: 35
