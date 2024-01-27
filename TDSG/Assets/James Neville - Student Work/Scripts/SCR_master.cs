@@ -11,7 +11,7 @@ public class SCR_master : MonoBehaviour {
     [SerializeField] private int inventorySizeY;
 
     [Header("Other")]
-    [SerializeField] private bool gatheringLocked;
+    [SerializeField] private bool playerCrafting;
 
     //
     private static SCR_master instance;
@@ -40,10 +40,10 @@ public class SCR_master : MonoBehaviour {
     public static SCR_master returnInstance() {
         return instance;
     }
-    public bool returnGatheringLocked() {
-        return gatheringLocked;
+    public bool returnPlayerCrafting() {
+        return playerCrafting;
     }
     public void setGatheringLocked(bool setTo) {
-        gatheringLocked = setTo;
+        playerCrafting = setTo;
     }
 }

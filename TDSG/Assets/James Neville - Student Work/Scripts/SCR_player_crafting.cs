@@ -9,7 +9,20 @@ public class SCR_player_crafting : MonoBehaviour {
     [SerializeField] private Transform[] slotPos;
 
     private static SCR_player_crafting instance;
-    private KeyValuePair<Vector2Int, SCR_player_inventory.cellState>[] craftingSlots;
+    
+    private struct slotData {
+        public Vector2Int vec;
+        public SCO_item item;
+
+        public slotData(Vector2Int vec, SCO_item item) {
+            this .vec = vec;
+            this.item = item;
+        }
+    }
+    private slotData[] craftingSlots;
+
+    private SCR_player_inventory invRef;
+
 
     private enum craftingArrayPosName {
         SLOT1,
@@ -23,43 +36,44 @@ public class SCR_player_crafting : MonoBehaviour {
         instance = this;
     }
     public void setup() {
-        SCR_player_inventory invRef = SCR_player_inventory.returnInstance();
+        invRef = SCR_player_inventory.returnInstance();
 
-        craftingSlots = new KeyValuePair<Vector2Int, SCR_player_inventory.cellState>[3];
+        craftingSlots = new slotData[3];
         //Create two slots for input
-        GameObject slot = invRef.createSlotDisplay("Crafting Slot 1: ", slotsParent, slotPos[(int)craftingArrayPosName.SLOT1].localPosition);
-        craftingSlots[(int)craftingArrayPosName.SLOT1] =
-            new KeyValuePair<Vector2Int, SCR_player_inventory.cellState>(IzzetMain.castVector2((Vector2)slot.transform.localPosition), SCR_player_inventory.cellState.EMPTY);
-        
-        slot = invRef.createSlotDisplay("Crafting Slot 2: ", slotsParent, slotPos[(int)craftingArrayPosName.SLOT2].localPosition);
-        craftingSlots[(int)craftingArrayPosName.SLOT2] =
-            new KeyValuePair<Vector2Int, SCR_player_inventory.cellState>(IzzetMain.castVector2((Vector2)slot.transform.localPosition), SCR_player_inventory.cellState.EMPTY);
-
-        //Create one slot for output
-        slot = invRef.createSlotDisplay("Output Slot: ", slotsParent, slotPos[(int)craftingArrayPosName.OUTPUT].localPosition);
-        craftingSlots[(int)craftingArrayPosName.OUTPUT] =
-            new KeyValuePair<Vector2Int, SCR_player_inventory.cellState>(IzzetMain.castVector2((Vector2)slot.transform.localPosition), SCR_player_inventory.cellState.EMPTY);
+        createSingleSlot("Crafting Slot 1: ", craftingArrayPosName.SLOT1);
+        createSingleSlot("Crafting Slot 2: ", craftingArrayPosName.SLOT2);
+        createSingleSlot("Output Slot: ", craftingArrayPosName.OUTPUT);
 
         slotsParent.gameObject.SetActive(false);
     }
+    private void createSingleSlot(string name, craftingArrayPosName arrayPos) {
+        GameObject slot = invRef.createSlotDisplay(name, slotsParent, slotPos[(int)arrayPos].localPosition);
+        craftingSlots[(int)arrayPos] =
+            new slotData(IzzetMain.castVector2((Vector2)slot.transform.localPosition), null);
+    }
     public bool tryPlace(SCR_inventory_piece toPlace) {
-        bool isSlotOneClose = Vector2.Distance(toPlace.transform.position, craftingSlots[(int)craftingArrayPosName.SLOT1].Key)
-            < Vector2.Distance(toPlace.transform.position, craftingSlots[(int)craftingArrayPosName.SLOT2].Key);
-
+        
         toPlace.transform.parent = slotsParent;
+        bool isSlotOneClose = IzzetMain.castVector2(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT1].vec;
+        bool isSlotTwoClose = IzzetMain.castVector2(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT2].vec;
 
         if (isSlotOneClose) {
-            toPlace.transform.localPosition = (Vector2)craftingSlots[(int)craftingArrayPosName.SLOT1].Key;
+            place(toPlace, craftingArrayPosName.SLOT1);
+
+        }
+        else if (isSlotTwoClose) {
+            place(toPlace, craftingArrayPosName.SLOT2);
         }
         else {
-            toPlace.transform.localPosition = (Vector2)craftingSlots[(int)craftingArrayPosName.SLOT2].Key;
+            toPlace.drop();
+            return false;
         }
 
         return true;
     }
-    private void place(SCR_inventory_piece toPlace, Vector2Int pos) {
-        //craftingSlots[pos] = SCR_player_inventory.cellState.OCCUPIED;
-        //toPlace.transform.position = (Vector2)pos;
+    private void place(SCR_inventory_piece toPlace, craftingArrayPosName name) {
+        toPlace.transform.localPosition = (Vector2)craftingSlots[(int)name].vec;
+        craftingSlots[(int)name].item = toPlace.returnItem();
     }
     private void remove(Vector2Int pos) {
         //craftingSlots[pos] = SCR_player_inventory.cellState.EMPTY;
@@ -68,5 +82,11 @@ public class SCR_player_crafting : MonoBehaviour {
         bool currentState = slotsParent.gameObject.activeInHierarchy;
         SCR_master.returnInstance().setGatheringLocked(!currentState);
         slotsParent.gameObject.SetActive(!currentState);
+    }
+
+    private void Update() {
+        if (craftingSlots[(int)craftingArrayPosName.SLOT1].item != null && craftingSlots[(int)craftingArrayPosName.SLOT2].item != null) {
+            print("tr");
+        }
     }
 }
