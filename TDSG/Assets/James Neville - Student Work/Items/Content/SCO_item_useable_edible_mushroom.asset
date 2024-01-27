@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SCO_item_useable_edible_mushroom
   m_EditorClassIdentifier: 
   itemName: Cooking Mushroom
-  sprite: {fileID: 0}
+  sprite: {fileID: -673511445, guid: 832763b985e04084ba8d081f2ead2db1, type: 3}
   displayBlockColour: {r: 0.4811321, g: 0.3108405, b: 0.25645247, a: 1}
   spaces:
   - {x: 0, y: 0}

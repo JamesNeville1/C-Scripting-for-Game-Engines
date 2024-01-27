@@ -28,6 +28,7 @@ public class SCR_master : MonoBehaviour {
         //Debug.Log("Map Seed: " + randSeed);
         mapRef.generate("1");
 
+
         SCR_player_inventory.returnInstance().setup(inventorySizeY, inventorySizeY);
 
         SCR_player_crafting.returnInstance().setup();

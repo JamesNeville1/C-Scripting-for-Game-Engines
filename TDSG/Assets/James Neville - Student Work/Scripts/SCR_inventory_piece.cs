@@ -112,12 +112,15 @@ public class SCR_inventory_piece : MonoBehaviour {
             transform.position = IzzetMain.getMousePos(Camera.main);
             if (!Input.GetMouseButton(0)) {
                 active = false;
-                if (!playerInventory.tryPlaceGrid(this)) {
-                        //Debug.Log("I've fallen, and I can't get up");
-                        drop();
+                if (playerInventory.tryPlaceGrid(this)) {
+                    //Debug.Log("I've fallen, and I can't get up");
+                    adjustSortingOrder(1);
+                }
+                else if (playerCrafting.tryPlace(this)) {
+                    adjustSortingOrder(1);
                 }
                 else {
-                    adjustSortingOrder(1);
+                    drop();
                 }
             }
         }
