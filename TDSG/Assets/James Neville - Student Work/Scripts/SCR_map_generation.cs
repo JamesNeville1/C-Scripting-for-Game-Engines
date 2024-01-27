@@ -32,7 +32,12 @@ public class SCR_map_generation : MonoBehaviour {
 
     #region Won't be Serialised
     private Dictionary<Color32, gatherableData> colorToType = new Dictionary<Color32, gatherableData>(); //Maps colour to gatherable scriptable object
-    private Dictionary<Vector2, Color32> posToColour = new Dictionary<Vector2, Color32>();
+    //private Dictionary<Vector2, Color32> posToColour = new Dictionary<Vector2, Color32>();
+    private enum mapTileState {
+        EMPTY,
+        GROUND,
+        GATHERABLE
+    }
 
     [System.Serializable]
     public struct gathableDataToPass {
@@ -177,21 +182,20 @@ public class SCR_map_generation : MonoBehaviour {
             for (int y = 0; y < sizeY; y++) {
                 Vector2 pos = new Vector2(x, y);
 
-                int seededID = getUnorderedPerlinID(pos, seed, islandSize, totalWeight);
-                if (seededID != 0) {
-                    Color32 col;
-                    if (seededID > totalWeight) {
+                mapTileState tileState = getUnorderedPerlinID(pos, seed, islandSize);
+                Color32 col;
+                switch (tileState) {
+                    case mapTileState.EMPTY:
+                        col = Color.black;
+                        break;
+                    case mapTileState.GROUND:
                         col = Color.white;
-                    } 
-                    else {
-                        col = checkIntAgainstColour(seededID);
-                    }
-                    posToColour.Add(pos, col);
-                    tex.SetPixel((int)pos.x, (int)pos.y, col);
+                        break;
+                    default:
+                        col = returnRandomGatherable(pos, seed, totalWeight);
+                        break;
                 }
-                else {
-                    tex.SetPixel((int)pos.x, (int)pos.y, Color.black);
-                }
+                tex.SetPixel((int)pos.x, (int)pos.y, col);
             }
         }
         tex.filterMode = FilterMode.Point;
@@ -215,7 +219,7 @@ public class SCR_map_generation : MonoBehaviour {
     }
     
     //Return "random" seeded noise
-    private int getUnorderedPerlinID(Vector2 v, Vector2 offset, int islandSize, int randomWeight) {
+    private mapTileState getUnorderedPerlinID(Vector2 v, Vector2 offset, int islandSize) {
         int bounds = getBasePerlinID(v, offset, islandSize, 1);
         int[] soundroundings = {
             getBasePerlinID(v, offset+Vector2.left, islandSize, 1),
@@ -228,19 +232,20 @@ public class SCR_map_generation : MonoBehaviour {
             getBasePerlinID(v, offset+Vector2.right+Vector2.down, islandSize, 1),
         };
 
-        int rand = 0;
-
-        print(getBasePerlinID(v, offset + Vector2.left, islandSize, 1) == 0);
-
         if (bounds == 1) {
-            Random seedFormat = new Random((int)(offset.magnitude + v.magnitude * Mathf.Pow(distributionStep, 4)));
-            rand = seedFormat.Next(1, randomWeight + reduceGatherablesBy);
             if (soundroundings.Contains<int>(0)) {
-                return 0;
-            } 
+                return mapTileState.GROUND;
+            }
+            else return mapTileState.GATHERABLE;
         }
         _ = (distributionStep > 50) ? distributionStep = 1 : distributionStep++;
-        return rand;
+        return mapTileState.EMPTY;
+    }
+    private Color32 returnRandomGatherable(Vector2 v, Vector2 offset, int totalRandWeight) {
+        Random seedFormat = new Random((int)(offset.magnitude + v.magnitude * Mathf.Pow(distributionStep, 4)));
+        int rand = seedFormat.Next(1, totalRandWeight + reduceGatherablesBy);
+        if (rand > totalRandWeight) return Color.white;
+        else return checkIntAgainstColour(rand);
     }
     #endregion
     #region utils

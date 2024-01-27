@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: RUL_bounds
+  m_Name: RUL_temp_ground
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: -333281091, guid: 2c8169dee42d3f847934b43d6fe3ce10, type: 3}
+  m_DefaultSprite: {fileID: 860275598, guid: 2f4b40d5ecb585e4886ab91a52912b19, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules: []

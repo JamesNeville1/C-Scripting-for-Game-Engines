@@ -10,7 +10,7 @@ public class SCR_entity_animation : MonoBehaviour {
 
     private Dictionary<AnimationType, string> animations = new Dictionary<AnimationType, string>();
 
-    private AnimationType? current;
+    private AnimationType current;
 
     private const string globalPrefix = "ANI_";
 
