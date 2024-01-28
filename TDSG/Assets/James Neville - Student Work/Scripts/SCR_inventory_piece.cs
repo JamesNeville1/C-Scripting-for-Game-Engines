@@ -7,8 +7,8 @@ using IzzetUtils.IzzetAttributes;
 
 public class SCR_inventory_piece : MonoBehaviour {
     [Header("Input Related")]
-    [SerializeField] [Tooltip("Is the piece currently moving?")] [MyReadOnly] private bool active = true;
-    [SerializeField] [Tooltip("Is the mouse currently over the piece?")] [MyReadOnly] private bool mouseOver = true;
+    [SerializeField] [Tooltip("Is the piece currently moving?")] [MyReadOnly] private bool active = false;
+    [SerializeField] [Tooltip("Is the mouse currently over the piece?")] [MyReadOnly] private bool mouseOver = false;
 
     [Header("Mechanical Implementations")]
     [SerializeField] [Tooltip("Slots the piece takes up")] [MyReadOnly] private Vector2Int[] slots;
@@ -23,19 +23,20 @@ public class SCR_inventory_piece : MonoBehaviour {
 
     #region Create Instance
     //Create brand new instance from anywhere with no reference required
-    public static SCR_inventory_piece createInstance(SCO_item item, Vector2 spawnPos) {
+    public static SCR_inventory_piece createInstance(SCO_item item, Vector2 spawnPos, Transform parent, bool startActive = true) {
         GameObject newPiece = new GameObject(item.name + " Piece", typeof(SCR_inventory_piece));
         newPiece.transform.position = spawnPos;
 
-        SCR_player_inventory instance = SCR_player_inventory.returnInstance();
-        newPiece.transform.parent = instance.returnCellParent();
+        newPiece.transform.parent = parent;
 
         SCR_inventory_piece newScript = newPiece.GetComponent<SCR_inventory_piece>();
-        newScript.setup(item, instance.returnItemSprite(), item.returnSprite());
+        newScript.setup(item, SCR_player_inventory.returnInstance().returnItemSprite(), startActive);
 
         return newScript;
     }
-    private void setup(SCO_item source, Sprite blockSprite, Sprite itemSprite) { //Called from create instance. It creates children acording to the source (item)
+    private void setup(SCO_item source, Sprite blockSprite, bool startActive) { //Called from create instance. It creates children acording to the source (item)
+        active = startActive; mouseOver = startActive;
+        
         Vector2Int[] blocks = source.returnSpaces();
 
         Color blockColour = source.returnColor();

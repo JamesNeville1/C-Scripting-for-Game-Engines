@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using IzzetUtils;
-using Unity.VisualScripting;
 
 public class SCR_player_crafting : MonoBehaviour {
 
@@ -51,7 +50,7 @@ public class SCR_player_crafting : MonoBehaviour {
         createSingleSlot("Crafting Slot 1: ", craftingArrayPosName.SLOT1);
         createSingleSlot("Crafting Slot 2: ", craftingArrayPosName.SLOT2);
         createSingleSlot("Output Slot: ", craftingArrayPosName.OUTPUT);
-        print((int)craftingArrayPosName.SLOT2);
+        print(craftingSlots[(int)craftingArrayPosName.SLOT2].vec);
 
         slotsParent.gameObject.SetActive(false);
     }
@@ -116,14 +115,10 @@ public class SCR_player_crafting : MonoBehaviour {
                 remove(a); remove(b);
                 Destroy(a.gameObject); Destroy(b.gameObject);
 
-                SCR_inventory_piece createdItem = SCR_inventory_piece.createInstance(recipe.outputItem, craftingSlots[(int)craftingArrayPosName.OUTPUT].vec);
+                SCR_inventory_piece createdItem = SCR_inventory_piece.createInstance(recipe.outputItem, craftingSlots[(int)craftingArrayPosName.OUTPUT].vec, slotsParent, false);
                 place(createdItem, craftingArrayPosName.OUTPUT);
                 return;
             }
         }
-    }
-    private void Update()
-    {
-        craftButton();
     }
 }
