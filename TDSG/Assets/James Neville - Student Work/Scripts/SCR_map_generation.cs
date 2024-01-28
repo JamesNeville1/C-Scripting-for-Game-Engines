@@ -36,7 +36,7 @@ public class SCR_map_generation : MonoBehaviour {
     private enum mapTileState {
         EMPTY,
         GROUND,
-        GATHERABLE
+        CANGATHERABLE
     }
 
     [System.Serializable]
@@ -113,6 +113,8 @@ public class SCR_map_generation : MonoBehaviour {
     #region Generate From Texture
     //Generate map using tilemap
     public void generate(string seedString = "") {
+        
+        //Clear all tiles just incase
         tilemap.ClearAllTiles();
         waterTilemap.ClearAllTiles();
 
@@ -121,11 +123,8 @@ public class SCR_map_generation : MonoBehaviour {
         }
         Vector2 seed = readSeed(seedString);
 
-        List<Color32> colours = colorToType.Keys.ToList();
-        colours.Add(Color.white);
 
-
-        Texture2D gatherablesTexture = generatePerlinTexture(seed, islandSize, colours); //Generate distribued gatherables
+        Texture2D gatherablesTexture = generatePerlinTexture(seed, islandSize); //Generate distribued gatherables
 
         mapTex = gatherablesTexture;
 
@@ -142,14 +141,8 @@ public class SCR_map_generation : MonoBehaviour {
                 //Debug.Log("Current Pos: " + pos);
 
 
-                //If bounds, can't place gatherable
-                bool isBound = false;
-                if (pos.x == 0 || pos.y >= sizeX - 1) {
-                    isBound = true;
-                }
-                else if (pos.y == 0 || pos.x >= sizeY - 1) {
-                    isBound = true;
-                }
+                //Final small check to see if the gatherable is out of bounds
+                bool isBound = pos.x <= 0 || pos.y >= sizeX - 1 || pos.y <= 0 || pos.x >= sizeY - 1;
 
                 if (currentColour != Color.black) {
                     tilemap.SetTile(posInt, groundTile);
@@ -157,11 +150,12 @@ public class SCR_map_generation : MonoBehaviour {
                     if (currentColour != Color.white && !isBound) { //If pixel isn't white, place gatherable from dictionairy 
                         colorToType[currentColour].objectData.gatherableSetup(pos, gatherableParent.transform);
                     }
-                    //TEMP
-                    else {
+                    #region Temporary
+                    else
+                    {
                         playerStartPos = pos;
                     }
-                    //TEMP
+                    #endregion
                 }
                 else {
                     waterTilemap.SetTile(posInt, waterTile);
@@ -172,17 +166,19 @@ public class SCR_map_generation : MonoBehaviour {
     #endregion
     #region Generate Texture
     //Generate all textures
-    private Texture2D generatePerlinTexture(Vector2 seed, int islandSize, List<Color32> successColours) {
+    private Texture2D generatePerlinTexture(Vector2 seed, int islandSize) {
 
         Texture2D tex = new Texture2D(sizeX, sizeY);
 
-        int totalWeight = returnTotalWeight();
+        int totalWeight = calculateTotalWeight();
+        print("total " + totalWeight);
 
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {
                 Vector2 pos = new Vector2(x, y);
 
-                mapTileState tileState = getUnorderedPerlinID(pos, seed, islandSize);
+                mapTileState tileState = getSinglePixel(pos, seed, islandSize); //Get single pixel
+                
                 Color32 col;
                 switch (tileState) {
                     case mapTileState.EMPTY:
@@ -195,6 +191,7 @@ public class SCR_map_generation : MonoBehaviour {
                         col = returnRandomGatherable(pos, seed, totalWeight);
                         break;
                 }
+
                 tex.SetPixel((int)pos.x, (int)pos.y, col);
             }
         }
@@ -205,23 +202,22 @@ public class SCR_map_generation : MonoBehaviour {
     }
     //Return perlin
     private int getBasePerlinID(Vector2 v, Vector2 offset, int islandSize, int count = 1) {
-        float rawPerlin = Mathf.PerlinNoise(
+        float rawPerlin = Mathf.PerlinNoise( //Raw perlin position + seed, dividing it makes island size bigger
             (v.x + offset.x) / islandSize,
             (v.y + offset.y) / islandSize
-        );
+        ); 
 
-        int scaleBy = count + 1;
-        float scaledPerlin = Mathf.Clamp01(rawPerlin) * scaleBy;
-
-        if (scaledPerlin > count) return count;
+        //Clamp perlin between 0 and count
+        float scaledPerlin = Mathf.Clamp01(rawPerlin) * (count + 1);
 
         return Mathf.FloorToInt(scaledPerlin);
     }
     
-    //Return "random" seeded noise
-    private mapTileState getUnorderedPerlinID(Vector2 v, Vector2 offset, int islandSize) {
-        int bounds = getBasePerlinID(v, offset, islandSize, 1);
-        int[] soundroundings = {
+    //Return single pixel as enum
+    private mapTileState getSinglePixel(Vector2 v, Vector2 offset, int islandSize) {
+        bool isGround = getBasePerlinID(v, offset, islandSize, 1) == 1; //Is this pixel ground?
+
+        int[] soundroundings = { //All surounding pixels
             getBasePerlinID(v, offset+Vector2.left, islandSize, 1),
             getBasePerlinID(v, offset+Vector2.right, islandSize, 1),
             getBasePerlinID(v, offset+Vector2.up, islandSize, 1),
@@ -232,20 +228,35 @@ public class SCR_map_generation : MonoBehaviour {
             getBasePerlinID(v, offset+Vector2.right+Vector2.down, islandSize, 1),
         };
 
-        if (bounds == 1) {
-            if (soundroundings.Contains<int>(0)) {
+        if (isGround) {
+            if (soundroundings.Contains<int>(0)) { //Return ground if water is near
                 return mapTileState.GROUND;
             }
-            else return mapTileState.GATHERABLE;
+            else return mapTileState.CANGATHERABLE; //Return valid for gatherable areas
         }
-        _ = (distributionStep > 50) ? distributionStep = 1 : distributionStep++;
         return mapTileState.EMPTY;
     }
     private Color32 returnRandomGatherable(Vector2 v, Vector2 offset, int totalRandWeight) {
-        Random seedFormat = new Random((int)(offset.magnitude + v.magnitude * Mathf.Pow(distributionStep, 4)));
-        int rand = seedFormat.Next(1, totalRandWeight + reduceGatherablesBy);
-        if (rand > totalRandWeight) return Color.white;
+        Random randomStart = new Random((int)(offset.magnitude + v.magnitude * Mathf.Pow(distributionStep, 4)));
+        _ = (distributionStep > 50) ? distributionStep = 1 : distributionStep++; //Further "randomise" the gatherables as C#'s random class isn't perfect and does have patterns
+
+        int rand = randomStart.Next(1, totalRandWeight + reduceGatherablesBy);
+
+        if (rand > totalRandWeight) return Color.white; //If the random value is greater than the total, tile is empty
         else return checkIntAgainstColour(rand);
+    }
+    private Color32 checkIntAgainstColour(int rand) {
+        int step = 0; //Iterate through random weight
+
+        //Find gatherable in weight
+        foreach (var gatherable in colorToType.ToList()) { 
+            step += gatherable.Value.randomWieght;
+            if (step > rand) {
+                step = 0;
+                return gatherable.Key;
+            }
+        }
+        return Color.white;
     }
     #endregion
     #region utils
@@ -255,24 +266,12 @@ public class SCR_map_generation : MonoBehaviour {
     public Vector2 startPos() {
         return playerStartPos;
     }
-    private int returnTotalWeight() {
+    private int calculateTotalWeight() {
         int totalWeight = 0;
         foreach (var weight in colorToType.Values) {
             totalWeight += weight.randomWieght;
         }
         return totalWeight;
-    }
-    private Color32 checkIntAgainstColour(int rand) {
-        int step = 0;
-        //print(weight);
-        foreach (var item in colorToType.ToList()) {
-            step += item.Value.randomWieght;
-            if (step > rand) {
-                step = 0;
-                return item.Key;
-            }
-        }
-        return Color.white;
     }
     #endregion
 }

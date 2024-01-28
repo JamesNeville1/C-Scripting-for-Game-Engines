@@ -26,7 +26,7 @@ public class SCR_master : MonoBehaviour {
         //Make Map
         string randSeed = mapRef.randomSeed();
         //Debug.Log("Map Seed: " + randSeed);
-        mapRef.generate("1");
+        mapRef.generate(randSeed);
 
 
         SCR_player_inventory.returnInstance().setup(inventorySizeY, inventorySizeY);

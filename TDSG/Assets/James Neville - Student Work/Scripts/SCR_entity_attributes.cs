@@ -79,13 +79,13 @@ public class SCR_entity_attributes : MonoBehaviour {
 
         getAttFromStat();
 
-        if(isPlayer ) {
+        if(isPlayer) {
             SCR_player_main playerRef = SCR_player_main.returnInstance();
             health.subscribe(() => { playerRef.die("death"); });
         }
     }
 
-    private void getAttFromStat() {
+    private void getAttFromStat() { //All calculations for getting attributes
         health = new attribute(stats.endurance * healthModif);
         hunger = new attribute((stats.endurance + stats.survival) * hungerModif);
         tiredness = new attribute(Math.Clamp(Mathf.RoundToInt((stats.endurance + stats.survival) / tirednessModif), 1, int.MaxValue));

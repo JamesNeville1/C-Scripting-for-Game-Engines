@@ -72,7 +72,7 @@ public class SCR_inventory_piece : MonoBehaviour {
     private void Awake() {
         playerInventory = SCR_player_inventory.returnInstance(); //Get reference to inventory
         playerCrafting = SCR_player_crafting.returnInstance(); //Get reference to crafting
-        master = SCR_master.returnInstance();
+        master = SCR_master.returnInstance(); //Get reference to master
     }
     private void Update() {
         playerInput();

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a2606aa381ebe4d90288c6e560d660, type: 3}
+  m_Name: SCO_item_useable_health_stone_sword
+  m_EditorClassIdentifier: 
+  id: 6
+  itemName: Stone Sword
+  sprite: {fileID: 0}
+  displayBlockColour: {r: 0.5188679, g: 0.5176318, b: 0.5164204, a: 1}
+  spaces:
+  - {x: 0, y: 0}
+  - {x: 0, y: 1}
+  - {x: 0, y: 2}
+  - {x: 1, y: 0}
+  attribute: 5
+  breakOnUse: 0

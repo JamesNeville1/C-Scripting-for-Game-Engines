@@ -38,7 +38,7 @@ public class SCR_player_main : MonoBehaviour {
         Vector2Int input = returnMovementInput(); //Get Input
         movePlayer(input); //Move Player
         flipSprite(input); //Check If Should Flip Sprite
-        animate(input);
+        animate(input); //Do idle if still, and walk if moving
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10); //Move Camera to follow player
     }
 

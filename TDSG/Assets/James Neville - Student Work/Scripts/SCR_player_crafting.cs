@@ -50,7 +50,6 @@ public class SCR_player_crafting : MonoBehaviour {
         createSingleSlot("Crafting Slot 1: ", craftingArrayPosName.SLOT1);
         createSingleSlot("Crafting Slot 2: ", craftingArrayPosName.SLOT2);
         createSingleSlot("Output Slot: ", craftingArrayPosName.OUTPUT);
-        print(craftingSlots[(int)craftingArrayPosName.SLOT2].vec);
 
         slotsParent.gameObject.SetActive(false);
     }
