@@ -117,8 +117,10 @@ public class SCR_inventory_piece : MonoBehaviour {
                 if (playerInventory.tryPlaceGrid(this)) {
                     //Debug.Log("I've fallen, and I can't get up");
                     adjustSortingOrder(1);
+                    playerCrafting.remove(this);
                 }
                 else if (master.returnPlayerCrafting() && playerCrafting.tryPlace(this)) {
+                    playerInventory.removePiece(this);
                     adjustSortingOrder(1);
                 }
                 else {
@@ -135,6 +137,7 @@ public class SCR_inventory_piece : MonoBehaviour {
     }
     public void drop() {
         playerInventory.removePiece(this);
+        playerCrafting.remove(this);
         transform.parent = null;
         adjustSize(.55f);
         adjustSortingOrder(0, "Default"); //In future 0 should be replaced with an oppropriate order, relative to the world.

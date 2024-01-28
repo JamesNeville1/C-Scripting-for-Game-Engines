@@ -12,17 +12,16 @@ public class SCR_player_crafting : MonoBehaviour {
     
     private struct slotData {
         public Vector2Int vec;
-        public SCO_item item;
+        public SCR_inventory_piece piece;
 
-        public slotData(Vector2Int vec, SCO_item item) {
+        public slotData(Vector2Int vec, SCR_inventory_piece item) {
             this .vec = vec;
-            this.item = item;
+            this.piece = item;
         }
     }
     private slotData[] craftingSlots;
 
     private SCR_player_inventory invRef;
-
 
     private enum craftingArrayPosName {
         SLOT1,
@@ -73,20 +72,31 @@ public class SCR_player_crafting : MonoBehaviour {
     }
     private void place(SCR_inventory_piece toPlace, craftingArrayPosName name) {
         toPlace.transform.localPosition = (Vector2)craftingSlots[(int)name].vec;
-        craftingSlots[(int)name].item = toPlace.returnItem();
+        craftingSlots[(int)name].piece = toPlace;
     }
-    private void remove(Vector2Int pos) {
-        //craftingSlots[pos] = SCR_player_inventory.cellState.EMPTY;
+    public void remove(SCR_inventory_piece toRemove) {
+        if (craftingSlots[(int)craftingArrayPosName.SLOT1].piece == toRemove) {
+            craftingSlots[(int)craftingArrayPosName.SLOT1].piece = null;
+            return;
+        }
+        
+        else if (craftingSlots[(int)craftingArrayPosName.SLOT2].piece == toRemove) {
+            craftingSlots[(int)craftingArrayPosName.SLOT2].piece = null;
+            return;
+        }
+
     }
-    public void enable() {
+    public void toggle() {
         bool currentState = slotsParent.gameObject.activeInHierarchy;
         SCR_master.returnInstance().setGatheringLocked(!currentState);
         slotsParent.gameObject.SetActive(!currentState);
+
+        if (craftingSlots[(int)craftingArrayPosName.SLOT1].piece != null) { craftingSlots[(int)craftingArrayPosName.SLOT1].piece.drop(); }
+        if (craftingSlots[(int)craftingArrayPosName.SLOT2].piece != null) { craftingSlots[(int)craftingArrayPosName.SLOT2].piece.drop(); }
     }
 
     private void Update() {
-        if (craftingSlots[(int)craftingArrayPosName.SLOT1].item != null && craftingSlots[(int)craftingArrayPosName.SLOT2].item != null) {
-            print("tr");
-        }
+        print(craftingSlots[0].piece);
+        print(craftingSlots[1].piece);
     }
 }

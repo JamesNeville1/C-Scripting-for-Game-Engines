@@ -927,7 +927,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 5207933277885795846, guid: 8dde42ce927554c4db156dfbb8b2acb0, type: 3}
   inventorySizeX: 3
   inventorySizeY: 3
-  gatheringLocked: 0
+  playerCrafting: 0
 --- !u!114 &1364117804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,7 +960,6 @@ MonoBehaviour:
   - {fileID: 232872562}
   - {fileID: 1722373567}
   - {fileID: 1060685959}
-  parent: {fileID: 2074136794}
 --- !u!1 &1573873449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,7 +1046,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1364117805}
         m_TargetAssemblyTypeName: SCR_player_crafting, Assembly-CSharp
-        m_MethodName: enable
+        m_MethodName: toggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
