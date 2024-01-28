@@ -2,20 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using IzzetUtils;
+using Unity.VisualScripting;
 
 public class SCR_player_crafting : MonoBehaviour {
 
-    [SerializeField] private Transform slotsParent;
+    [SerializeField] private RectTransform slotsParent;
     [SerializeField] private Transform[] slotPos;
 
     private static SCR_player_crafting instance;
-    
+
     private struct slotData {
         public Vector2Int vec;
         public SCR_inventory_piece piece;
 
         public slotData(Vector2Int vec, SCR_inventory_piece item) {
-            this .vec = vec;
+            this.vec = vec;
             this.piece = item;
         }
     }
@@ -51,7 +52,7 @@ public class SCR_player_crafting : MonoBehaviour {
             new slotData(IzzetMain.castVector2((Vector2)slot.transform.localPosition), null);
     }
     public bool tryPlace(SCR_inventory_piece toPlace) {
-        
+
         toPlace.transform.parent = slotsParent;
         bool isSlotOneClose = IzzetMain.castVector2(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT1].vec;
         bool isSlotTwoClose = IzzetMain.castVector2(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT2].vec;
@@ -79,7 +80,7 @@ public class SCR_player_crafting : MonoBehaviour {
             craftingSlots[(int)craftingArrayPosName.SLOT1].piece = null;
             return;
         }
-        
+
         else if (craftingSlots[(int)craftingArrayPosName.SLOT2].piece == toRemove) {
             craftingSlots[(int)craftingArrayPosName.SLOT2].piece = null;
             return;
@@ -94,9 +95,15 @@ public class SCR_player_crafting : MonoBehaviour {
         if (craftingSlots[(int)craftingArrayPosName.SLOT1].piece != null) { craftingSlots[(int)craftingArrayPosName.SLOT1].piece.drop(); }
         if (craftingSlots[(int)craftingArrayPosName.SLOT2].piece != null) { craftingSlots[(int)craftingArrayPosName.SLOT2].piece.drop(); }
     }
+    public void craftButton() {
+        if (craftingSlots[(int)craftingArrayPosName.SLOT1].piece != null && craftingSlots[(int)craftingArrayPosName.SLOT2].piece != null) {
+            craft(craftingSlots[(int)craftingArrayPosName.SLOT1].piece.returnItem(), craftingSlots[(int)craftingArrayPosName.SLOT2].piece.returnItem());
+        }
+    }
 
-    private void Update() {
-        print(craftingSlots[0].piece);
-        print(craftingSlots[1].piece);
+    private void craft(SCO_item a, SCO_item b) {
+        if(a.returnName() == "Wood" && b.returnName() == "Wood") {
+            print("DOUBLE WOOD");
+        }
     }
 }

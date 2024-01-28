@@ -8,7 +8,7 @@ public class SCR_player_inventory : MonoBehaviour {
     [Header("Require Dev Input")]
     [SerializeField] [Tooltip("What sprite should the grid cells use")] private Sprite gridCellSprite;
     [SerializeField] [Tooltip("What sprite should the item use")] private Sprite itemBlockSprite;
-    [SerializeField] private Transform cellParent;
+    [SerializeField] private RectTransform cellParent;
 
     #region Can't / Won't be Serialised
     public enum cellState {
