@@ -23,7 +23,7 @@ public class SCR_inventory_piece : MonoBehaviour {
 
     #region Create Instance
     //Create brand new instance from anywhere with no reference required
-    public static GameObject createInstance(SCO_item item, Vector2 spawnPos) {
+    public static SCR_inventory_piece createInstance(SCO_item item, Vector2 spawnPos) {
         GameObject newPiece = new GameObject(item.name + " Piece", typeof(SCR_inventory_piece));
         newPiece.transform.position = spawnPos;
 
@@ -33,7 +33,7 @@ public class SCR_inventory_piece : MonoBehaviour {
         SCR_inventory_piece newScript = newPiece.GetComponent<SCR_inventory_piece>();
         newScript.setup(item, instance.returnItemSprite(), item.returnSprite());
 
-        return newPiece;
+        return newScript;
     }
     private void setup(SCO_item source, Sprite blockSprite, Sprite itemSprite) { //Called from create instance. It creates children acording to the source (item)
         Vector2Int[] blocks = source.returnSpaces();

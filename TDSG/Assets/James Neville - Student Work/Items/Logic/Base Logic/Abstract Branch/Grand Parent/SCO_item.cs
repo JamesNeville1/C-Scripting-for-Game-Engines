@@ -4,6 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "SCO_item_resource_", menuName = "ScriptableObjects/Items/Resource")]
 public class SCO_item : ScriptableObject {
+    [SerializeField] private int id;
     [SerializeField] private string itemName;
     [SerializeField] private Sprite sprite;
     [SerializeField] private Color displayBlockColour;
@@ -19,5 +20,8 @@ public class SCO_item : ScriptableObject {
     }
     public string returnName() {
         return itemName;
+    }
+    public int returnID() {
+        return id;
     }
 }

@@ -24,6 +24,14 @@ public class SCR_player_crafting : MonoBehaviour {
 
     private SCR_player_inventory invRef;
 
+    [System.Serializable]
+    private struct recipeData {
+        public SCO_item itemA;
+        public SCO_item itemB;
+        public SCO_item outputItem;
+    }
+    [SerializeField] private recipeData[] recipes;
+
     private enum craftingArrayPosName {
         SLOT1,
         SLOT2,
@@ -43,6 +51,7 @@ public class SCR_player_crafting : MonoBehaviour {
         createSingleSlot("Crafting Slot 1: ", craftingArrayPosName.SLOT1);
         createSingleSlot("Crafting Slot 2: ", craftingArrayPosName.SLOT2);
         createSingleSlot("Output Slot: ", craftingArrayPosName.OUTPUT);
+        print((int)craftingArrayPosName.SLOT2);
 
         slotsParent.gameObject.SetActive(false);
     }
@@ -97,13 +106,24 @@ public class SCR_player_crafting : MonoBehaviour {
     }
     public void craftButton() {
         if (craftingSlots[(int)craftingArrayPosName.SLOT1].piece != null && craftingSlots[(int)craftingArrayPosName.SLOT2].piece != null) {
-            craft(craftingSlots[(int)craftingArrayPosName.SLOT1].piece.returnItem(), craftingSlots[(int)craftingArrayPosName.SLOT2].piece.returnItem());
+            craft(craftingSlots[(int)craftingArrayPosName.SLOT1].piece, craftingSlots[(int)craftingArrayPosName.SLOT2].piece);
         }
     }
 
-    private void craft(SCO_item a, SCO_item b) {
-        if(a.returnName() == "Wood" && b.returnName() == "Wood") {
-            print("DOUBLE WOOD");
+    private void craft(SCR_inventory_piece a, SCR_inventory_piece b) {
+        foreach (recipeData recipe in recipes) {
+            if (a.returnItem() == recipe.itemA && b.returnItem() == recipe.itemB || b.returnItem() == recipe.itemA && a.returnItem() == recipe.itemB) {
+                remove(a); remove(b);
+                Destroy(a.gameObject); Destroy(b.gameObject);
+
+                SCR_inventory_piece createdItem = SCR_inventory_piece.createInstance(recipe.outputItem, craftingSlots[(int)craftingArrayPosName.OUTPUT].vec);
+                place(createdItem, craftingArrayPosName.OUTPUT);
+                return;
+            }
         }
+    }
+    private void Update()
+    {
+        craftButton();
     }
 }
