@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using IzzetUtils;
 using IzzetUtils.IzzetAttributes;
+using UnityEngine.Rendering;
 
 public class SCR_player_main : MonoBehaviour {
 
@@ -19,8 +20,13 @@ public class SCR_player_main : MonoBehaviour {
     [SerializeField] [MyReadOnly] private SpriteRenderer sr;
     [SerializeField] [MyReadOnly] private SCR_entity_attributes playerAttributes;
     [SerializeField] [MyReadOnly] private SCR_entity_animation playerAnimation;
+    [SerializeField][MyReadOnly] private SCR_audio_manager audioManager;
 
     [Header("Will not change once built")]
+    [SerializeField] private float timeBetweenWalkSFX;
+
+    [Header("Other")]
+    [SerializeField] [MyReadOnly] private bool courtineRunning = false;
 
     //Can't / Won't be serialised
     private static SCR_player_main instance;
@@ -56,11 +62,24 @@ public class SCR_player_main : MonoBehaviour {
         }
     }
     private void movePlayer(Vector2 input) {
-        if(input.x == 0 || input.y == 0) {
-            rb.velocity = input * overworldSpeed;
+        if (input.x == 0 && input.y == 0) { //If we aren't moving
+            if (courtineRunning == true) {
+                rb.velocity = Vector2.zero;
+                StopAllCoroutines();
+                courtineRunning = false;
+            }
         }
-        else {
-            rb.velocity = (input * overworldSpeed) * 0.71f;
+        else { //If we are moving
+            if(courtineRunning == false) {
+                StartCoroutine(Footstepsounds());
+            }
+            
+            if (input.x == 0 || input.y == 0) {
+                rb.velocity = input * overworldSpeed;
+            }
+            else {
+                rb.velocity = (input * overworldSpeed) * 0.71f;
+            }
         }
     }
     private void animate(Vector2Int input) {
@@ -69,6 +88,13 @@ public class SCR_player_main : MonoBehaviour {
         }
         else {
             playerAnimation.play(SCR_entity_animation.AnimationType.IDLE);
+        }
+    }
+    private IEnumerator Footstepsounds() {
+        while (true) {
+            courtineRunning = true;
+            audioManager.playManyEffect(SCR_audio_manager.sfx.WALK_STEP);
+            yield return new WaitForSeconds(timeBetweenWalkSFX);
         }
     }
     #endregion
@@ -94,6 +120,7 @@ public class SCR_player_main : MonoBehaviour {
         sr = GetComponent<SpriteRenderer>();
         playerAttributes = GetComponent<SCR_entity_attributes>();
         playerAnimation = GetComponent<SCR_entity_animation>();
+        audioManager = SCR_audio_manager.returnInstance();
 
         //Adjust Speed
         changeOverworldSpeed();

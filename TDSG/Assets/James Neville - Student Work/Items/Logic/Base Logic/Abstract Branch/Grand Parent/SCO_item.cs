@@ -9,6 +9,7 @@ public class SCO_item : ScriptableObject {
     [SerializeField] private Sprite sprite;
     [SerializeField] private Color displayBlockColour;
     [SerializeField] private Vector2Int[] spaces = new Vector2Int[1];
+
     public Sprite returnSprite() {
         return sprite;
     }

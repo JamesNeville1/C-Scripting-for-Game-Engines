@@ -115,6 +115,9 @@ MonoBehaviour:
   sr: {fileID: 0}
   playerAttributes: {fileID: 0}
   playerAnimation: {fileID: 0}
+  audioManager: {fileID: 0}
+  timeBetweenWalkSFX: 0.45
+  courtineRunning: 0
 --- !u!114 &4366492743712515690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,9 +139,7 @@ MonoBehaviour:
   tiredness:
     current: 0
     max: 0
-  speed:
-    current: 0
-    max: 0
+  speed: 0
   stats:
     athletics: 0
     dexterity: 0
@@ -162,13 +163,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e0b38c9cee2b34fbcd2c06d7f945c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   unitPrefix: player
   passer:
   - type: 0
     name: idle
   - type: 1
     name: walk
+  animator: {fileID: 0}
 --- !u!50 &3903683744039567537
 Rigidbody2D:
   serializedVersion: 4
