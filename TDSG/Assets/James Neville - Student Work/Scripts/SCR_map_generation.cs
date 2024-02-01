@@ -14,7 +14,7 @@ public class SCR_map_generation : MonoBehaviour {
     [Header("Map Base")]
     [SerializeField] [Tooltip("Main tile for map")] private RuleTile groundTile;
     [SerializeField] [Tooltip("Water tile for map")] private RuleTile waterTile;
-    [SerializeField] [Tooltip("Where to place tile")] private Tilemap tilemap;
+    [SerializeField] [Tooltip("Where to place tile")] private Tilemap groundTilemap;
     [SerializeField] [Tooltip("Where to place water tile")] private Tilemap waterTilemap;
     [SerializeField] [Tooltip("Magnify how large perlin map is")] private int islandSize = 8;
     [SerializeField] [Tooltip("Number of tiles (x)")] private int sizeX;
@@ -54,7 +54,10 @@ public class SCR_map_generation : MonoBehaviour {
     private void Awake() {
         passToDictionary();
 
-        tilemap.transform.position = new Vector3(-0.5f, -0.5f);
+        groundTilemap = GameObject.Find("Ground Tilemap").GetComponent<Tilemap>();
+        waterTilemap = GameObject.Find("Water Tilemap").GetComponent<Tilemap>();
+
+        groundTilemap.transform.position = new Vector3(-0.5f, -0.5f);
 
         distributionStep = 1;
     }
@@ -115,7 +118,7 @@ public class SCR_map_generation : MonoBehaviour {
     public void generate(string seedString = "") {
         
         //Clear all tiles just incase
-        tilemap.ClearAllTiles();
+        groundTilemap.ClearAllTiles();
         waterTilemap.ClearAllTiles();
 
         if (seedString == "") { //If string is empty, create one
@@ -145,7 +148,7 @@ public class SCR_map_generation : MonoBehaviour {
                 bool isBound = pos.x <= 0 || pos.y >= sizeX - 1 || pos.y <= 0 || pos.x >= sizeY - 1;
 
                 if (currentColour != Color.black) {
-                    tilemap.SetTile(posInt, groundTile);
+                    groundTilemap.SetTile(posInt, groundTile);
 
                     if (currentColour != Color.white && !isBound) { //If pixel isn't white, place gatherable from dictionairy 
                         colorToType[currentColour].objectData.gatherableSetup(pos, gatherableParent.transform);
@@ -260,7 +263,7 @@ public class SCR_map_generation : MonoBehaviour {
     #endregion
     #region utils
     public void removeTile(Vector2 pos) {
-        tilemap.SetTile(new Vector3Int((int)pos.x,(int)pos.y), null);
+        groundTilemap.SetTile(new Vector3Int((int)pos.x,(int)pos.y), null);
     }
     public Vector2 startPos() {
         return playerStartPos;

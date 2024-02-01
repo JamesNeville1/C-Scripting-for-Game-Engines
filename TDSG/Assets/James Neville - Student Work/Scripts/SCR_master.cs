@@ -20,6 +20,9 @@ public class SCR_master : MonoBehaviour {
     private static SCR_master instance;
 
     private void Awake() {
+        //SceneManager.LoadScene("SCE_audio_manager", LoadSceneMode.Additive);
+        //SceneManager.LoadScene("SCE_overworld", LoadSceneMode.Additive);
+
         instance = this;
     }
     private void Start() {
