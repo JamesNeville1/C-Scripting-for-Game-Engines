@@ -1,3 +1,4 @@
+using IzzetUtils.IzzetAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class SCR_master : MonoBehaviour {
 
     [Header("Other")]
     [SerializeField] private bool playerCrafting;
+
+    [SerializeField] [MyReadOnly] private SCR_player_main player;
 
     //
     private static SCR_master instance;
@@ -34,7 +37,7 @@ public class SCR_master : MonoBehaviour {
         SCR_player_crafting.returnInstance().setup();
 
         //Make Player (player contains inventory logic)
-        SCR_player_main player = Instantiate(playerPrefab, mapRef.startPos(), Quaternion.identity).GetComponent<SCR_player_main>();
+        player = Instantiate(playerPrefab, mapRef.startPos(), Quaternion.identity).GetComponent<SCR_player_main>();
     }
 
     public static SCR_master returnInstance() {
@@ -45,5 +48,8 @@ public class SCR_master : MonoBehaviour {
     }
     public void setGatheringLocked(bool setTo) {
         playerCrafting = setTo;
+    }
+    public SCR_player_main returnPlayer() {
+        return player;
     }
 }

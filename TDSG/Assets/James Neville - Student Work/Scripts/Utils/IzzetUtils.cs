@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -44,23 +45,19 @@ namespace IzzetUtils {
         public static Vector2Int castVector2(Vector2 vec) {
             return new Vector2Int(Mathf.RoundToInt(vec.x), Mathf.RoundToInt(vec.y));
         }
-        //public static Sprite mergeSprite(Sprite baseSprite, Sprite pasted) {
-        //    Texture2D toPass = baseSprite.texture;
+        public static int getRandomWeight(int[] weights) {
+            int totalWeight = weights.Sum();
 
-        //    Texture2D toPaste = pasted.texture;
-        //    toPaste.Reinitialize((int)pasted.rect.x, (int)pasted.rect.y);
-            
-        //    toPaste.l
+            int step = 0;
+            int rand = UnityEngine.Random.Range(0, totalWeight);
 
-        //    for (int x = 0; x <toPass.width; x++) {
-        //        for (int y = 0; y < toPass.height; y++) {
-        //            if(toPaste.GetPixel(x, y).a != 0) {
-                        
-        //            }
-        //        }
-        //    }
-
-        //    return Sprite.Create(toPaste, new Rect(0,0, toPass.width, toPass.height), new Vector2(.5f, .5f), 16);
-        //}
+            for (int i = 0; i < weights.Length; i++) {
+                step += weights[i];
+                if (step > rand) { 
+                    return i; //return pos in array
+                }
+            }
+            return -1; //Create deliberate error, something has to very wrong for this to happen.
+        }
     }
 }

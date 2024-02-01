@@ -16,7 +16,7 @@ public class SCR_entity_animation : MonoBehaviour {
     [System.Serializable] private struct animationPasser { [SerializeField] public AnimationType type; [SerializeField] public string name; }
 
     //NOTE TO MARKER: This is used to bypas the unity trasitions of the animator, I am still using the built in system.
-    //I confirmed this with Luke, and he said this was still enough to argue that I am using the engines tools still
+    //I confirmed this with Luke, and he said this was still enough to say that I am using the engines tools still.
 
     private void Awake() {
         animator = GetComponent<Animator>();
