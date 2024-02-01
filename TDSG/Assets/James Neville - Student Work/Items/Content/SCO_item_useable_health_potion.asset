@@ -23,3 +23,4 @@ MonoBehaviour:
   - {x: 1, y: 1}
   attribute: 5
   breakOnUse: 1
+  onUse: 10

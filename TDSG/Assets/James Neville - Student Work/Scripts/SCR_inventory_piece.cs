@@ -17,6 +17,7 @@ public class SCR_inventory_piece : MonoBehaviour {
     #region Won't be Seen in Inspector
     private SCR_player_inventory playerInventory; //Reference to inventory
     private SCR_player_crafting playerCrafting;
+    private SCR_audio_manager audioManager;
     private SCR_master master;
     private List<SpriteRenderer> srs = new List<SpriteRenderer>(); //All sprite renderers of children
     #endregion
@@ -72,6 +73,7 @@ public class SCR_inventory_piece : MonoBehaviour {
     private void Awake() {
         playerInventory = SCR_player_inventory.returnInstance(); //Get reference to inventory
         playerCrafting = SCR_player_crafting.returnInstance(); //Get reference to crafting
+        audioManager = SCR_audio_manager.returnInstance();
         master = SCR_master.returnInstance(); //Get reference to master
     }
     private void Update() {
@@ -97,6 +99,9 @@ public class SCR_inventory_piece : MonoBehaviour {
 
                 SCO_ABS_item_useable_on_entity casted = pieceItem as SCO_ABS_item_useable_on_entity;
                 casted.useOnEntity(SCR_player_main.returnInstance().returnAttributes());
+
+                audioManager.playManyEffect(casted.returnOnUse());
+
                 if (casted.returnBreakOnUse()) destroyPiece();
 
                 break;

@@ -301,3 +301,15 @@ MonoBehaviour:
     - {fileID: 8300000, guid: dfcfd4975ace8594483e2de9185f3449, type: 3}
     - {fileID: 8300000, guid: 57f848bd1ce4c34488bbd8a69388c871, type: 3}
     - {fileID: 8300000, guid: 80f8b2ba418f9b749b45eff684391448, type: 3}
+  - key: 9
+    clip:
+    - {fileID: 8300000, guid: 3917a930885a52c478a095b8083c38ed, type: 3}
+  - key: 8
+    clip:
+    - {fileID: 8300000, guid: ae4e83c921701a94682fde37e09fe270, type: 3}
+  - key: 10
+    clip:
+    - {fileID: 8300000, guid: a8a34ea79b4d36240a8b9cdccbe621fc, type: 3}
+  - key: 1
+    clip:
+    - {fileID: 8300000, guid: 7fcc2df339a90e44f9ebc288d8570365, type: 3}

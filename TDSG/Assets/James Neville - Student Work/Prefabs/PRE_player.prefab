@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health:
-    current: 0
+    current: 10
     max: 0
   hunger:
     current: 0

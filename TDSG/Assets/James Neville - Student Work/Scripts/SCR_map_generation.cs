@@ -171,7 +171,6 @@ public class SCR_map_generation : MonoBehaviour {
         Texture2D tex = new Texture2D(sizeX, sizeY);
 
         int totalWeight = calculateTotalWeight();
-        print("total " + totalWeight);
 
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {

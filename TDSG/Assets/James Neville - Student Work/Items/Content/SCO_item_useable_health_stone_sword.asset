@@ -21,5 +21,6 @@ MonoBehaviour:
   - {x: 0, y: 1}
   - {x: 0, y: 2}
   - {x: 1, y: 0}
-  attribute: 5
+  attribute: -5
   breakOnUse: 0
+  onUse: 1

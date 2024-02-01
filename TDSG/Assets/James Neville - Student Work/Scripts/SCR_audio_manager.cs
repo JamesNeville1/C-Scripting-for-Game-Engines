@@ -39,12 +39,13 @@ public class SCR_audio_manager : MonoBehaviour {
         foreach (PASS_passStruct passing in PASS_sfxPasser) {
             sfxs.Add(passing.key, passing.clip);
         }
+        PASS_sfxPasser = null;
     }
-    public void playOneEffect(sfx toPlay) { //Play single effect
-        source.PlayOneShot(sfxs[toPlay][0]);
+    public void playOneEffect(sfx toPlay, float volume = 1f) { //Play single effect
+        source.PlayOneShot(sfxs[toPlay][0], volume);
     }
-    public void playManyEffect(sfx toPlay) { //Play multiple effect
+    public void playManyEffect(sfx toPlay, float volume = 1f) { //Play multiple effect
         int rand = UnityEngine.Random.Range(0, sfxs[toPlay].Length);
-        source.PlayOneShot(sfxs[toPlay][rand]);
+        source.PlayOneShot(sfxs[toPlay][rand], volume);
     }
 }
