@@ -248,6 +248,7 @@ public class SCR_map_generation : MonoBehaviour {
 
         else return checkIntAgainstColour(randomStart);
     }
+    private Color32 checkIntAgainstColour(Random rand) {
         //Find gatherable in weight
 
         List<int> weights = new List<int>();
