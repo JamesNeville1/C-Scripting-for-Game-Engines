@@ -8,8 +8,9 @@ public class SCR_master : MonoBehaviour {
 
     [Header("Require Dev Input")]
     [SerializeField] private GameObject playerPrefab;
-    [SerializeField] private int inventorySizeX;
-    [SerializeField] private int inventorySizeY;
+    [SerializeField] private Vector2Int inventorySize;
+    [SerializeField] private Vector2Int mapSize;
+    [SerializeField] private Vector2Int combatBoardSize; 
 
     [Header("Other")]
     [SerializeField] private bool playerCrafting;
@@ -25,12 +26,10 @@ public class SCR_master : MonoBehaviour {
 
         SceneManager.LoadScene("SCE_audio_manager", LoadSceneMode.Additive);
         SceneManager.LoadScene("SCE_overworld", LoadSceneMode.Additive);
+        SceneManager.LoadScene("SCE_combat", LoadSceneMode.Additive);
     }
 
     private void Start() {
-        //SCR_tick_system.returnTickSystem().subscribe(1f, () => Debug.Log("Timer Has Been Triggered (1)"));
-        //SCR_tick_system.returnTickSystem().unsubscribe(1f, () => Debug.Log("Timer Has Been Triggered (1)"));
-
         setup();
     }
 
@@ -43,9 +42,10 @@ public class SCR_master : MonoBehaviour {
         //Debug.Log("Map Seed: " + randSeed);
 
         //Setup externals
-        SCR_map_generation.returnInstance().setup(randSeed, "Ground Tilemap", "Water Tilemap");
-        SCR_player_inventory.returnInstance().setup(inventorySizeX, inventorySizeY);
+        SCR_map_generation.returnInstance().setup(randSeed, "Ground Tilemap", "Water Tilemap", mapSize);
+        SCR_player_inventory.returnInstance().setup(inventorySize.x, inventorySize.y);
         SCR_player_crafting.returnInstance().setup();
+        SCR_combat_manager.returnInstance().setup();
 
         //Make Player (player contains inventory logic)
         player = Instantiate(playerPrefab, mapRef.startPos(), Quaternion.identity).GetComponent<SCR_player_main>();

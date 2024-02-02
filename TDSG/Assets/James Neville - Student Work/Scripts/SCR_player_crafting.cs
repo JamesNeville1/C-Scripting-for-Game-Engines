@@ -56,13 +56,13 @@ public class SCR_player_crafting : MonoBehaviour {
     private void createSingleSlot(string name, craftingArrayPosName arrayPos) {
         GameObject slot = invRef.createSlotDisplay(name, slotsParent, slotPos[(int)arrayPos].localPosition);
         craftingSlots[(int)arrayPos] =
-            new slotData(IzzetMain.castVector2((Vector2)slot.transform.localPosition), null);
+            new slotData(IzzetMain.castToVector2Int((Vector2)slot.transform.localPosition), null);
     }
     public bool tryPlace(SCR_inventory_piece toPlace) {
 
         toPlace.transform.parent = slotsParent;
-        bool isSlotOneClose = IzzetMain.castVector2(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT1].vec;
-        bool isSlotTwoClose = IzzetMain.castVector2(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT2].vec;
+        bool isSlotOneClose = IzzetMain.castToVector2Int(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT1].vec;
+        bool isSlotTwoClose = IzzetMain.castToVector2Int(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT2].vec;
 
         if (isSlotOneClose) {
             place(toPlace, craftingArrayPosName.SLOT1);

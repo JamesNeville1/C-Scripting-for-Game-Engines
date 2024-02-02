@@ -33,6 +33,7 @@ public class SCR_tick_system : MonoBehaviour {
     public void unsubscribe(float maxTimer, UnityAction remove) {
         print(timeEvents[maxTimer].hasSubs());
 
+
         timeEvents[maxTimer].unsubscribe(remove);
 
         if (!timeEvents[maxTimer].hasSubs()) {
@@ -58,7 +59,7 @@ public class SCR_tick_system : MonoBehaviour {
         public void pauseTimer() { paused = true; }
         public void unpauseTimer() { paused = false; }
         public void resetTimer() { currentTimer = maxTimer; }
-        public bool hasSubs() { print(myEvent.getListenerCount()); return myEvent.getListenerCount() > 0; }
+        public bool hasSubs() { return myEvent.getListenerCount() > 0; }
 
         public void Update() {
             if(!paused) {

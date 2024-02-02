@@ -1190,8 +1190,6 @@ MonoBehaviour:
   groundTilemap: {fileID: 0}
   waterTilemap: {fileID: 0}
   islandSize: 60
-  sizeX: 300
-  sizeY: 300
   gathables:
   - color: {r: 0.54509807, g: 0.5686275, b: 0.3137255, a: 1}
     dataToPass:
@@ -1235,8 +1233,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5207933277885795846, guid: 8dde42ce927554c4db156dfbb8b2acb0, type: 3}
-  inventorySizeX: 3
-  inventorySizeY: 3
+  inventorySize: {x: 3, y: 3}
+  mapSize: {x: 200, y: 200}
+  combatBoardSize: {x: 14, y: 9}
   playerCrafting: 0
   player: {fileID: 0}
   inBattle: 0

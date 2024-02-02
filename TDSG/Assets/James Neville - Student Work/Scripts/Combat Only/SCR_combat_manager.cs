@@ -1,78 +1,66 @@
+using IzzetUtils.IzzetAttributes;
+using IzzetUtils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using Unity.Burst.CompilerServices;
 
 public class SCR_combat_manager : MonoBehaviour {
 
-    [SerializeField]
-    private GameObject tile;
-
-    [SerializeField]
-    private Vector2 gridPos; //TEMP
-
-    static public Vector2? pressed;
-
-    [SerializeField]
-    private KeyValuePair<SCR_unit, unitType> currentUnit;
-
-    [SerializeField]
-    private GameObject unitPrefab;
-
-    public enum unitType {
-        PLAYER,
-        Enemy
+    private static SCR_combat_manager instance;
+    public static SCR_combat_manager returnInstance() {
+        return instance;
+    }
+    private void Awake() {
+        instance = this;
     }
 
-    private List<KeyValuePair<SCR_unit, unitType>> units = new List<KeyValuePair<SCR_unit, unitType>>();
-    private List<List<GameObject>> grid = new List<List<GameObject>>();
+    [SerializeField] private Vector2Int size;
+    [SerializeField] private RuleTile tile;
+    [SerializeField] private GameObject boardParent;
 
-    private void Start() {
-        setup();
-        currentUnit = units[0];
-        print(currentUnit);
+    [SerializeField] [MyReadOnly] private Tilemap tilemap;
+
+    private Dictionary<Vector2Int, bool> boardData = new Dictionary<Vector2Int, bool>(); //Use unit in future
+
+    public void setup() {
+        tilemap = GetComponentInChildren<Tilemap>();
+        tilemap.ClearAllTiles();
+
+        bool offset = false;
+        for (int x = 0; x < size.x; x++) {
+            for (int y = 0; y < size.y; y++) {
+                Vector3Int currentPos = new Vector3Int(x, y, 0);
+                tilemap.SetTile(currentPos, tile);
+
+                if (offset) tilemap.SetColor(currentPos, Color.black);
+                offset = !offset;
+
+                bool isBound = currentPos.x == 0 || currentPos.y == size.x - 1 || currentPos.y == 0 || currentPos.x == size.x - 1;
+                
+                if(!isBound) {
+                    boardData.Add((Vector2Int)currentPos, true);    
+                }
+            }
+        }
+
+        //boardParent.SetActive(false);
     }
 
     private void Update() {
-        comatMain();
-    }
+        if (Input.GetMouseButtonDown(0)) {
+            RaycastHit2D hit = Physics2D.Raycast(IzzetMain.getMousePos(Camera.main), Vector2.down);
 
-    public void setup() {
-        grid = gridSetup();
-        units = unitSetup();
-    }
-    private void comatMain() {
-        int i = 0;
-        if (units[i].Value == unitType.PLAYER) {
-            if(pressed != null) {
-                units[i].Key.move(null);
-                i++;
+            if (hit.collider != null) {
+                if (boardData.ContainsKey(IzzetMain.castToVector2Int(hit.point))) {
+                    Debug.Log("You can move here");
+                    return;
+                }
             }
+
+            Debug.Log("You can't move here");
         }
-    }
-    private List<List<GameObject>> gridSetup(int boundsX = 16, int boundsY = 9) {
-        GameObject parent = new GameObject("Grid Parent");
-        List<List<GameObject>> grid = new List<List<GameObject>>();
-        for (int x = 0; x < boundsX; x++) {
-            grid.Add(new List<GameObject>());
-            for (int y = 0; y < boundsY; y++) {
-                GameObject currentTile = Instantiate(tile, new Vector2(x, y), Quaternion.identity);
-                grid[grid.Count - 1].Add(currentTile);
-                currentTile.transform.parent = parent.transform;
-                currentTile.name = "Tile: " + transform.position.ToString();
-            }
-        }
-        parent.transform.position = gridPos;
-        return grid;
-    }
-    private List<KeyValuePair<SCR_unit, unitType>> unitSetup() {
-        GameObject parent = new GameObject("Units");
-        List<KeyValuePair<SCR_unit, unitType>> toPass = new List<KeyValuePair<SCR_unit, unitType>>();  //TEMP
-        
-        toPass.Add(new KeyValuePair<SCR_unit, unitType>
-            (Instantiate(unitPrefab, grid[4][5].transform.position, Quaternion.identity, parent.transform).GetComponent<SCR_unit>(), unitType.PLAYER));
-        toPass.Add(new KeyValuePair<SCR_unit, unitType>
-            (Instantiate(unitPrefab, grid[8][5].transform.position, Quaternion.identity, parent.transform).GetComponent<SCR_unit>(), unitType.Enemy));
-        return toPass;
     }
 }

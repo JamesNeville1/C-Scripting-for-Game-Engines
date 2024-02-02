@@ -9,9 +9,7 @@ public class SCR_enemy_spawner : MonoBehaviour {
     private static SCR_enemy_spawner instance;
 
     private void Start() {
-        SCR_tick_system.returnTickSystem().subscribe(.1f, () => spawnEnemy());
-        SCR_tick_system.returnTickSystem().subscribe(.1f, () => print("a"));
-        SCR_tick_system.returnTickSystem().unsubscribe(.1f, () => spawnEnemy());
+        //SCR_tick_system.returnTickSystem().subscribe(15f, () => spawnEnemy());
     }
     private void spawnEnemy() {
         //SCO_enemy enemy = pickEnemy();

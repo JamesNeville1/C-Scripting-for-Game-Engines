@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class IzzetEvent : UnityEvent {
-    private int listenerCount;
+    private int listenerCount = 0;
 
     public int getListenerCount() {
+        Debug.Log($"Listeners: {listenerCount}");
         return listenerCount;
     }
 

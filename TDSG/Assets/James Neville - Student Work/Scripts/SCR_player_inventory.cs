@@ -42,7 +42,7 @@ public class SCR_player_inventory : MonoBehaviour {
     public void removePiece(SCR_inventory_piece toCheck) { //Remove piece from dictionaries
         if (pieceData.ContainsKey(toCheck)) {
             pieceData.Remove(toCheck);
-            Vector2Int roundedPos = IzzetMain.castVector2(toCheck.transform.localPosition);
+            Vector2Int roundedPos = IzzetMain.castToVector2Int(toCheck.transform.localPosition);
             adjustGridState(toCheck.returnChildren(roundedPos), cellState.EMPTY);
         }
     }

@@ -8,6 +8,7 @@ using Color = UnityEngine.Color;
 using Random = System.Random;
 using IzzetUtils.IzzetAttributes;
 using IzzetUtils;
+using System.Drawing;
 
 public class SCR_map_generation : MonoBehaviour {
 
@@ -17,8 +18,6 @@ public class SCR_map_generation : MonoBehaviour {
     [SerializeField] [Tooltip("Where to place tile")] private Tilemap groundTilemap;
     [SerializeField] [Tooltip("Where to place water tile")] private Tilemap waterTilemap;
     [SerializeField] [Tooltip("Magnify how large perlin map is")] private int islandSize = 8;
-    [SerializeField] [Tooltip("Number of tiles (x)")] private int sizeX;
-    [SerializeField] [Tooltip("Number of tiles (y)")] private int sizeY;
     
 
     [Header("Map Gatherables")]
@@ -63,7 +62,7 @@ public class SCR_map_generation : MonoBehaviour {
     }
 
     #region Setup
-    public void setup(string seedString, string groundTilemapName, string waterTilemapName) {
+    public void setup(string seedString, string groundTilemapName, string waterTilemapName, Vector2Int size) {
         foreach (gathableDataToPass item in gathables) {
             colorToType.Add(item.color, item.dataToPass);
         }
@@ -76,7 +75,7 @@ public class SCR_map_generation : MonoBehaviour {
 
         distributionStep = 1;
 
-        generate(seedString);
+        generate(size, seedString);
     }
     #endregion
     #region Seed Generation & Authentication
@@ -124,26 +123,23 @@ public class SCR_map_generation : MonoBehaviour {
     #endregion
     #region Generate From Texture
     //Generate map using tilemap
-    public void generate(string seedString = "") {
+    public void generate(Vector2Int size, string seedString) {
         
         //Clear all tiles just incase
         groundTilemap.ClearAllTiles();
         waterTilemap.ClearAllTiles();
 
-        if (seedString == "") { //If string is empty, create one
-            seedString = randomSeed();
-        }
         Vector2 seed = readSeed(seedString);
 
 
-        Texture2D gatherablesTexture = generatePerlinTexture(seed, islandSize); //Generate distribued gatherables
+        Texture2D gatherablesTexture = generatePerlinTexture(seed, islandSize, size); //Generate distribued gatherables
 
         mapTex = gatherablesTexture;
 
         GameObject gatherableParent = GameObject.Find(gatherablesParentName);
 
-        for (int x = 0; x < sizeX; x++) {
-            for (int y = 0; y < sizeY; y++) {
+        for (int x = 0; x < size.x; x++) {
+            for (int y = 0; y < size.y; y++) {
                 Vector2 pos = new Vector2(x, y);
                 Vector3Int posInt = new Vector3Int((int)pos.x, (int)pos.y);
 
@@ -154,7 +150,7 @@ public class SCR_map_generation : MonoBehaviour {
 
 
                 //Final small check to see if the gatherable is out of bounds
-                bool isBound = pos.x <= 0 || pos.y >= sizeX - 1 || pos.y <= 0 || pos.x >= sizeY - 1;
+                bool isBound = pos.x <= 0 || pos.y >= size.x - 1 || pos.y <= 0 || pos.x >= size.x - 1;
 
                 if (currentColour != Color.black) {
                     groundTilemap.SetTile(posInt, groundTile);
@@ -178,14 +174,14 @@ public class SCR_map_generation : MonoBehaviour {
     #endregion
     #region Generate Texture
     //Generate all textures
-    private Texture2D generatePerlinTexture(Vector2 seed, int islandSize) {
+    private Texture2D generatePerlinTexture(Vector2 seed, int islandSize, Vector2Int mapSize) {
 
-        Texture2D tex = new Texture2D(sizeX, sizeY);
+        Texture2D tex = new Texture2D(mapSize.x, mapSize.y);
 
         int totalWeight = calculateTotalWeight();
 
-        for (int x = 0; x < sizeX; x++) {
-            for (int y = 0; y < sizeY; y++) {
+        for (int x = 0; x < mapSize.x; x++) {
+            for (int y = 0; y < mapSize.y; y++) {
                 Vector2 pos = new Vector2(x, y);
 
                 mapTileState tileState = getSinglePixel(pos, seed, islandSize); //Get single pixel

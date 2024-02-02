@@ -9,6 +9,7 @@ using UnityEngine;
 public class SCR_overworld_enemy : MonoBehaviour {
     private SpriteRenderer sr;
     private SCR_entity_animation enemyAnimator;
+    [SerializeField] private float caughtAtMaxDist = 1f;
     [SerializeField] [MyReadOnly] private SCO_enemy data;
 
     private enum enemyState {
@@ -17,7 +18,7 @@ public class SCR_overworld_enemy : MonoBehaviour {
         PLAYER_CAUGHT
     }
 
-    private enemyState myState;
+    private enemyState currentState;
 
     [System.Serializable] private struct PASS_directionWeighingStruct { public Vector2 key; public int weight; }
     [SerializeField] private PASS_directionWeighingStruct[] PASS_directionWeighing;
@@ -49,7 +50,7 @@ public class SCR_overworld_enemy : MonoBehaviour {
         main();
     }
     private void main() {
-        switch (myState) {
+        switch (currentState) {
             case enemyState.WANDERING:
                 wander();
                 break;
@@ -57,6 +58,7 @@ public class SCR_overworld_enemy : MonoBehaviour {
                 chase();
                 break;
             case enemyState.PLAYER_CAUGHT:
+                caught();
                 break;
         }
 
@@ -88,6 +90,16 @@ public class SCR_overworld_enemy : MonoBehaviour {
         targetPos = target.position;
 
         sr.color = Color.red;
+
+        if(Vector2.Distance((Vector2)transform.position, targetPos) < caughtAtMaxDist){
+            //Trigger other chasers
+
+            //Trigger self
+            currentState = enemyState.PLAYER_CAUGHT;
+        }
+    }
+    private void caught() {
+
     }
     private void getNewTarget() {
         dir = directionWeighing.ElementAt(IzzetMain.getRandomWeight(directionWeighing.Values.ToArray())).Key;
@@ -98,8 +110,8 @@ public class SCR_overworld_enemy : MonoBehaviour {
         getNewTarget();
     }
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.GetComponent<SCR_player_main>() && myState != enemyState.PLAYER_SEEN) {
-            myState = enemyState.PLAYER_SEEN;
+        if (collision.GetComponent<SCR_player_main>() && currentState != enemyState.PLAYER_SEEN) {
+            currentState = enemyState.PLAYER_SEEN;
             SCR_audio_manager.returnInstance().playRandomMusic(SCR_audio_manager.sfx.MUSIC_BATTLE);
         }
     }
@@ -109,7 +121,7 @@ public class SCR_overworld_enemy : MonoBehaviour {
         }
     }
     private void waitBeforeGiveup() {
-        myState = enemyState.WANDERING;
+        currentState = enemyState.WANDERING;
         getNewTarget();
         masterRef.whatMusic();
         SCR_tick_system.returnTickSystem().unsubscribe(beforeGiveup, () => waitBeforeGiveup());
