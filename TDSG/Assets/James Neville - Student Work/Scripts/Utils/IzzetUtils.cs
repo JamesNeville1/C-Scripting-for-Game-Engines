@@ -45,11 +45,12 @@ namespace IzzetUtils {
         public static Vector2Int castVector2(Vector2 vec) {
             return new Vector2Int(Mathf.RoundToInt(vec.x), Mathf.RoundToInt(vec.y));
         }
-        public static int getRandomWeight(int[] weights) {
+        public static int getRandomWeight(int[] weights, System.Random randomStart = null) {
             int totalWeight = weights.Sum();
 
             int step = 0;
-            int rand = UnityEngine.Random.Range(0, totalWeight);
+            if(randomStart == null) randomStart = new System.Random();
+            int rand = randomStart.Next(0, totalWeight);
 
             for (int i = 0; i < weights.Length; i++) {
                 step += weights[i];

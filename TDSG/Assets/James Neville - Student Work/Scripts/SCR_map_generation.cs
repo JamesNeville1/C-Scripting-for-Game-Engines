@@ -7,7 +7,7 @@ using UnityEngine.Tilemaps;
 using Color = UnityEngine.Color;
 using Random = System.Random;
 using IzzetUtils.IzzetAttributes;
-using Unity.VisualScripting;
+using IzzetUtils;
 
 public class SCR_map_generation : MonoBehaviour {
 
@@ -245,20 +245,19 @@ public class SCR_map_generation : MonoBehaviour {
         int rand = randomStart.Next(1, totalRandWeight + reduceGatherablesBy);
 
         if (rand > totalRandWeight) return Color.white; //If the random value is greater than the total, tile is empty
-        else return checkIntAgainstColour(rand);
-    }
-    private Color32 checkIntAgainstColour(int rand) {
-        int step = 0; //Iterate through random weight
 
+        else return checkIntAgainstColour(randomStart);
+    }
         //Find gatherable in weight
-        foreach (var gatherable in colorToType.ToList()) { 
-            step += gatherable.Value.randomWieght;
-            if (step > rand) {
-                step = 0;
-                return gatherable.Key;
-            }
+
+        List<int> weights = new List<int>();
+        foreach (var item in colorToType.Values) {
+            weights.Add(item.randomWieght);
         }
-        return Color.white;
+        int index = IzzetMain.getRandomWeight(weights.ToArray(), rand);
+
+        return colorToType.ElementAt(index).Key;
+
     }
     #endregion
     #region utils
