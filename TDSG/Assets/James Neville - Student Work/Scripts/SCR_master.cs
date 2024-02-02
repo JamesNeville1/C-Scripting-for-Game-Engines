@@ -15,7 +15,7 @@ public class SCR_master : MonoBehaviour {
     [SerializeField] private bool playerCrafting;
 
     [SerializeField] [MyReadOnly] private SCR_player_main player;
-    [SerializeField] [MyReadOnly] private bool ifInBattle;
+    [SerializeField] [MyReadOnly] private bool inBattle;
 
     //
     private static SCR_master instance;
@@ -28,9 +28,8 @@ public class SCR_master : MonoBehaviour {
     }
 
     private void Start() {
-        SCR_tick_system.returnTickSystem().subscribe(10f, () => Debug.Log("Timer Has Been Triggered (10s)"));
-        SCR_tick_system.returnTickSystem().subscribe(1f, () => Debug.Log("Timer Has Been Triggered (1s)"));
-        SCR_tick_system.returnTickSystem().subscribe(5f, () => Debug.Log("Timer Has Been Triggered (5s)"));
+        //SCR_tick_system.returnTickSystem().subscribe(1f, () => Debug.Log("Timer Has Been Triggered (1)"));
+        //SCR_tick_system.returnTickSystem().unsubscribe(1f, () => Debug.Log("Timer Has Been Triggered (1)"));
 
         setup();
     }
@@ -41,11 +40,11 @@ public class SCR_master : MonoBehaviour {
 
         //Make Map
         string randSeed = mapRef.randomSeed();
-        Debug.Log("Map Seed: " + randSeed);
+        //Debug.Log("Map Seed: " + randSeed);
 
         //Setup externals
         SCR_map_generation.returnInstance().setup(randSeed, "Ground Tilemap", "Water Tilemap");
-        SCR_player_inventory.returnInstance().setup(inventorySizeY, inventorySizeY);
+        SCR_player_inventory.returnInstance().setup(inventorySizeX, inventorySizeY);
         SCR_player_crafting.returnInstance().setup();
 
         //Make Player (player contains inventory logic)
@@ -56,7 +55,7 @@ public class SCR_master : MonoBehaviour {
     }
 
     public void whatMusic() {
-        SCR_audio_manager.returnInstance().playRandomMusic(ifInBattle ? SCR_audio_manager.sfx.MUSIC_BATTLE : SCR_audio_manager.sfx.MUSIC_CALM);
+        SCR_audio_manager.returnInstance().playRandomMusic(inBattle ? SCR_audio_manager.sfx.MUSIC_BATTLE : SCR_audio_manager.sfx.MUSIC_CALM);
     }
     public static SCR_master returnInstance() {
         return instance;

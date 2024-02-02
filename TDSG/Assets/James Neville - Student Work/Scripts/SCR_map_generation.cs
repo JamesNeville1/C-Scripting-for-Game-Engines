@@ -26,6 +26,7 @@ public class SCR_map_generation : MonoBehaviour {
     [SerializeField] [MyReadOnly] [Tooltip("Holds pixels to be used for the end map")] private Texture2D mapTex;
     [SerializeField] [MyReadOnly] [Tooltip("Distributes more evenly")] int distributionStep = 1;
     [SerializeField] [Tooltip("Reduce gatherables by amount")] private int reduceGatherablesBy;
+    [SerializeField] [Tooltip("")] private string gatherablesParentName;
 
     [Header("Other")]
     [SerializeField] [MyReadOnly] [Tooltip("Temp start pos of player")] private Vector2 playerStartPos;
@@ -139,7 +140,7 @@ public class SCR_map_generation : MonoBehaviour {
 
         mapTex = gatherablesTexture;
 
-        GameObject gatherableParent = new GameObject("Gatherables Parent");
+        GameObject gatherableParent = GameObject.Find(gatherablesParentName);
 
         for (int x = 0; x < sizeX; x++) {
             for (int y = 0; y < sizeY; y++) {

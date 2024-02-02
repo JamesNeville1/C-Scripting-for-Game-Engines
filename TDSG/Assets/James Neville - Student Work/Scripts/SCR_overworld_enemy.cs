@@ -9,6 +9,7 @@ using UnityEngine;
 public class SCR_overworld_enemy : MonoBehaviour {
     private SpriteRenderer sr;
     private SCR_entity_animation enemyAnimator;
+    [SerializeField] [MyReadOnly] private SCO_enemy data;
 
     private enum enemyState {
         WANDERING,
@@ -111,7 +112,6 @@ public class SCR_overworld_enemy : MonoBehaviour {
         myState = enemyState.WANDERING;
         getNewTarget();
         masterRef.whatMusic();
-        print("I give up");
         SCR_tick_system.returnTickSystem().unsubscribe(beforeGiveup, () => waitBeforeGiveup());
     }
 }

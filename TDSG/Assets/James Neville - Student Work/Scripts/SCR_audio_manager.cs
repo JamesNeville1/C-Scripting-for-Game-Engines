@@ -63,7 +63,7 @@ public class SCR_audio_manager : MonoBehaviour {
 
         int rand = UnityEngine.Random.Range(0, sfxs[toPlay].Length);
         musicSource.PlayOneShot(sfxs[toPlay][rand], volume);
-        Debug.Log($"Now Playing: {sfxs[toPlay][rand].name}");
+        //Debug.Log($"Now Playing: {sfxs[toPlay][rand].name}");
         StartCoroutine(findNewSong());
     }
 
