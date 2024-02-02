@@ -15,6 +15,7 @@ public class SCR_master : MonoBehaviour {
     [SerializeField] private bool playerCrafting;
 
     [SerializeField] [MyReadOnly] private SCR_player_main player;
+    [SerializeField] [MyReadOnly] private bool ifInBattle;
 
     //
     private static SCR_master instance;
@@ -41,8 +42,13 @@ public class SCR_master : MonoBehaviour {
 
         //Make Player (player contains inventory logic)
         player = Instantiate(playerPrefab, mapRef.startPos(), Quaternion.identity).GetComponent<SCR_player_main>();
+
+        SCR_audio_manager.returnInstance().playRandomMusic(SCR_audio_manager.sfx.MUSIC_CALM);
     }
 
+    public void whatMusic() {
+        SCR_audio_manager.returnInstance().playRandomMusic(ifInBattle ? SCR_audio_manager.sfx.MUSIC_BATTLE : SCR_audio_manager.sfx.MUSIC_CALM);
+    }
     public static SCR_master returnInstance() {
         return instance;
     }

@@ -15,11 +15,12 @@ MonoBehaviour:
   id: 7
   itemName: Wooden Sword
   sprite: {fileID: 0}
-  displayBlockColour: {r: 0.6509434, g: 0.45632082, b: 0.26099145, a: 1}
+  displayBlockColour: {r: 0.4245283, g: 0.29001746, b: 0.15819687, a: 1}
   spaces:
   - {x: 0, y: 0}
-  - {x: 0, y: 1}
-  - {x: 0, y: 2}
+  - {x: -1, y: 0}
+  - {x: 1, y: 0}
+  - {x: 0, y: -1}
   attribute: -2
   breakOnUse: 0
   onUse: 1

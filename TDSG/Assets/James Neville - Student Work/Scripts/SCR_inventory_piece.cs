@@ -100,7 +100,7 @@ public class SCR_inventory_piece : MonoBehaviour {
                 SCO_ABS_item_useable_on_entity casted = pieceItem as SCO_ABS_item_useable_on_entity;
                 casted.useOnEntity(SCR_player_main.returnInstance().returnAttributes());
 
-                audioManager.playManyEffect(casted.returnOnUse());
+                audioManager.playRandomEffect(casted.returnOnUse());
 
                 if (casted.returnBreakOnUse()) destroyPiece();
 

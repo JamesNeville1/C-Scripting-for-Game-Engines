@@ -76,6 +76,7 @@ public class SCR_overworld_enemy : MonoBehaviour {
         if (Vector2.Distance((Vector2)transform.position, targetPos) < .1f) {
             getNewTarget();
         }
+
         flip(dir.x, sr);
 
         sr.color = Color.blue;
@@ -84,7 +85,7 @@ public class SCR_overworld_enemy : MonoBehaviour {
         Transform target = masterRef.returnPlayer().transform;
         flip(-target.InverseTransformPoint(transform.position).x, sr);
         targetPos = target.position;
-        
+
         sr.color = Color.red;
     }
     private void getNewTarget() {
@@ -96,9 +97,10 @@ public class SCR_overworld_enemy : MonoBehaviour {
         getNewTarget();
     }
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.GetComponent<SCR_player_main>()) {
+        if (collision.GetComponent<SCR_player_main>() && myState != enemyState.PLAYER_SEEN) {
             myState = enemyState.PLAYER_SEEN;
             StopCoroutine(waitBeforeGiveup());
+            SCR_audio_manager.returnInstance().playRandomMusic(SCR_audio_manager.sfx.MUSIC_BATTLE);
         }
     }
     private void OnTriggerExit2D(Collider2D collision) {
@@ -111,5 +113,6 @@ public class SCR_overworld_enemy : MonoBehaviour {
         yield return new WaitForSeconds(beforeGiveup);
         myState = enemyState.WANDERING;
         getNewTarget();
+        masterRef.whatMusic();
     }
 }

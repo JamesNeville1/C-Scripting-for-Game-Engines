@@ -93,7 +93,7 @@ public class SCR_player_main : MonoBehaviour {
     private IEnumerator Footstepsounds() {
         while (true) {
             courtineRunning = true;
-            audioManager.playManyEffect(SCR_audio_manager.sfx.WALK_STEP, .15f);
+            audioManager.playRandomEffect(SCR_audio_manager.sfx.WALK_STEP, .15f);
             yield return new WaitForSeconds(timeBetweenWalkSFX);
         }
     }
