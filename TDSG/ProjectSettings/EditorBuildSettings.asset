@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/James Neville - Student Work/Scenes/SCE_audio_manager.unity
+    guid: f59e5f916032d224d93587f7e2dbc874
+  - enabled: 1
+    path: Assets/James Neville - Student Work/Scenes/SCE_overworld.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

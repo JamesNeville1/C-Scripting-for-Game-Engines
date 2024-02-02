@@ -49,25 +49,33 @@ public class SCR_map_generation : MonoBehaviour {
         public SCO_gatherable objectData;
         public int randomWieght;
     }
+
+    private static SCR_map_generation instance;
     #endregion
 
     private void Awake() {
-        passToDictionary();
+        instance = this;
+    }
 
-        groundTilemap = GameObject.Find("Ground Tilemap").GetComponent<Tilemap>();
-        waterTilemap = GameObject.Find("Water Tilemap").GetComponent<Tilemap>();
-
-        groundTilemap.transform.position = new Vector3(-0.5f, -0.5f);
-
-        distributionStep = 1;
+    public static SCR_map_generation returnInstance() {
+        return instance;
     }
 
     #region Setup
-    private void passToDictionary() {
+    public void setup(string seedString, string groundTilemapName, string waterTilemapName) {
         foreach (gathableDataToPass item in gathables) {
             colorToType.Add(item.color, item.dataToPass);
         }
         gathables = null;
+
+        groundTilemap = GameObject.Find(groundTilemapName).GetComponent<Tilemap>();
+        waterTilemap = GameObject.Find(waterTilemapName).GetComponent<Tilemap>();
+
+        groundTilemap.transform.position = new Vector3(-0.5f, -0.5f);
+
+        distributionStep = 1;
+
+        generate(seedString);
     }
     #endregion
     #region Seed Generation & Authentication

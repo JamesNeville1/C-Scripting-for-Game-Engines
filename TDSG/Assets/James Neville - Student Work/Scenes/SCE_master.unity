@@ -553,6 +553,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &300277438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 300277439}
+  m_Layer: 0
+  m_Name: Timers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &300277439
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300277438}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1364117801}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,6 +1033,7 @@ GameObject:
   - component: {fileID: 1364117802}
   - component: {fileID: 1364117804}
   - component: {fileID: 1364117805}
+  - component: {fileID: 1364117806}
   m_Layer: 0
   m_Name: Game Master
   m_TagString: Untagged
@@ -1022,6 +1054,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 519420032}
+  - {fileID: 300277439}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1039,7 +1072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundTile: {fileID: 11400000, guid: c04797b4d78886344ac19fa173dfc11a, type: 2}
   waterTile: {fileID: 11400000, guid: 37dde2d5933436b419d0bfb7e6d589e9, type: 2}
-  tilemap: {fileID: 0}
+  groundTilemap: {fileID: 0}
   waterTilemap: {fileID: 0}
   islandSize: 60
   sizeX: 300
@@ -1090,6 +1123,7 @@ MonoBehaviour:
   inventorySizeY: 3
   playerCrafting: 0
   player: {fileID: 0}
+  ifInBattle: 0
 --- !u!114 &1364117804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1135,6 +1169,19 @@ MonoBehaviour:
   - itemA: {fileID: 11400000, guid: ffdc1fcf109ca274caea007d81cb351e, type: 2}
     itemB: {fileID: 11400000, guid: ffdc1fcf109ca274caea007d81cb351e, type: 2}
     outputItem: {fileID: 11400000, guid: 5a10aba773993974bae46e39c1ce187c, type: 2}
+--- !u!114 &1364117806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364117800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d6dd570ad009d8429beda41b14bd790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerParent: {fileID: 300277439}
 --- !u!1 &1573873449
 GameObject:
   m_ObjectHideFlags: 0

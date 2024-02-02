@@ -99,20 +99,19 @@ public class SCR_overworld_enemy : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.GetComponent<SCR_player_main>() && myState != enemyState.PLAYER_SEEN) {
             myState = enemyState.PLAYER_SEEN;
-            StopCoroutine(waitBeforeGiveup());
             SCR_audio_manager.returnInstance().playRandomMusic(SCR_audio_manager.sfx.MUSIC_BATTLE);
         }
     }
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.GetComponent<SCR_player_main>()) {
-            StartCoroutine(waitBeforeGiveup());
-            print("a");
+            SCR_tick_system.returnTickSystem().subscribe(beforeGiveup, () => waitBeforeGiveup());
         }
     }
-    private IEnumerator waitBeforeGiveup() {
-        yield return new WaitForSeconds(beforeGiveup);
+    private void waitBeforeGiveup() {
         myState = enemyState.WANDERING;
         getNewTarget();
         masterRef.whatMusic();
+        print("I give up");
+        SCR_tick_system.returnTickSystem().unsubscribe(beforeGiveup, () => waitBeforeGiveup());
     }
 }
