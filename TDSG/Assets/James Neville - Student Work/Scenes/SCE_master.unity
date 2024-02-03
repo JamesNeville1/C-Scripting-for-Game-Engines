@@ -629,7 +629,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overworldEnemyPrefab: {fileID: 4976644657933928993, guid: df0e6132a86d25f47bfdecfbcbeeed2a, type: 3}
-  enemies: []
+  enemies:
+  - {fileID: 11400000, guid: f48f5b8ee80dcdb45bdb0c80ee75de07, type: 2}
+  animator: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1220,7 @@ MonoBehaviour:
   mapTex: {fileID: 0}
   distributionStep: 0
   reduceGatherablesBy: 2000
-  gatherablesParentName: Overworld Map
+  gatherablesParentName: Gatherables
   playerStartPos: {x: 0, y: 0}
 --- !u!114 &1364117803
 MonoBehaviour:
@@ -1237,8 +1239,16 @@ MonoBehaviour:
   mapSize: {x: 200, y: 200}
   combatBoardSize: {x: 14, y: 9}
   playerCrafting: 0
+  playerParent: Player Parent
+  overworldMasterName: Overworld Master
+  combatMasterName: Combat Master
+  overworldSceneName: SCE_overworld
+  combatSceneName: SCE_combat
+  audioSceneName: SCE_audio_manager
   player: {fileID: 0}
   inBattle: 0
+  overworldMaster: {fileID: 0}
+  combatMaster: {fileID: 0}
 --- !u!114 &1364117804
 MonoBehaviour:
   m_ObjectHideFlags: 0

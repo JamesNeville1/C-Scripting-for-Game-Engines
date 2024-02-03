@@ -169,6 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef59a5db52ee6b745861703bd705b8d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  caughtAtMaxDist: 1
+  data: {fileID: 0}
   PASS_directionWeighing:
   - key: {x: 3, y: 0}
     weight: 5
@@ -189,7 +191,8 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0}
   dir: {x: 0, y: 0}
   beforeGiveup: 5
-  speed: 2
+  speedModif: 3
+  overworldSpeed: 1
 --- !u!114 &4998996068159772726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +222,7 @@ Animator:
   m_GameObject: {fileID: 4976644657933928993}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4471b1f71d473904e855d0ac56f5039d, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

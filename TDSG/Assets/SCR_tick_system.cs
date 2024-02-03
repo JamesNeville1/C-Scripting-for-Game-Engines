@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class SCR_tick_system : MonoBehaviour {
 
@@ -19,7 +22,7 @@ public class SCR_tick_system : MonoBehaviour {
         return instance;
     }
 
-    public void subscribe(float maxTimer, UnityAction onFinish) {
+    public void subscribe(float maxTimer, Action onFinish) {
         if(!timeEvents.ContainsKey(maxTimer)) {
             timer newTimer = new GameObject($"{maxTimer} Timer", typeof(timer)).GetComponent<timer>();
             
@@ -30,10 +33,7 @@ public class SCR_tick_system : MonoBehaviour {
         }
         timeEvents[maxTimer].subscribe(onFinish);
     }
-    public void unsubscribe(float maxTimer, UnityAction remove) {
-        print(timeEvents[maxTimer].hasSubs());
-
-
+    public void unsubscribe(float maxTimer, Action remove) {
         timeEvents[maxTimer].unsubscribe(remove);
 
         if (!timeEvents[maxTimer].hasSubs()) {
@@ -46,7 +46,7 @@ public class SCR_tick_system : MonoBehaviour {
     public class timer : MonoBehaviour {
         float currentTimer;
         float maxTimer;
-        IzzetEvent myEvent = new IzzetEvent();
+        event Action myEvent;
         bool paused = false;
 
         public void setup(float maxTimer) {
@@ -54,18 +54,18 @@ public class SCR_tick_system : MonoBehaviour {
             this.currentTimer = maxTimer;
         }
 
-        public void subscribe(UnityAction onFinish) { myEvent.addMyListener(onFinish); }
-        public void unsubscribe(UnityAction remove) { myEvent.removeMyListener(remove); }
+        public void subscribe(Action onFinish) { myEvent += onFinish; }
+        public void unsubscribe(Action remove) { myEvent -= remove; }
         public void pauseTimer() { paused = true; }
         public void unpauseTimer() { paused = false; }
         public void resetTimer() { currentTimer = maxTimer; }
-        public bool hasSubs() { return myEvent.getListenerCount() > 0; }
+        public bool hasSubs() { return myEvent.GetInvocationList().Length > 0; }
 
         public void Update() {
             if(!paused) {
                 if (currentTimer <= 0) {
-                    myEvent.Invoke();
                     currentTimer = maxTimer;
+                    myEvent.Invoke();
                 }
                 else {
                     currentTimer -= Time.deltaTime;

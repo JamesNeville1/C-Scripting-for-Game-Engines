@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEditor.Animations;
 
 public class SCR_entity_animation : MonoBehaviour {
     [SerializeField] [Tooltip("What unit is this? Ensure you use the correct naming convention")]private string unitPrefix = "";
@@ -36,5 +37,11 @@ public class SCR_entity_animation : MonoBehaviour {
         else {
             Debug.Log("The animation of type: " + type.ToString() + " does not exist in this context");
         }
+    }
+    public void setPrefix(string prefix) {
+        unitPrefix = prefix;
+    }
+    public void setAnimationController(AnimatorController controller) {
+        animator.runtimeAnimatorController = controller;
     }
 }

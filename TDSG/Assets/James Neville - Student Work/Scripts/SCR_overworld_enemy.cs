@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEngine.Animations;
 using UnityEngine;
 
 public class SCR_overworld_enemy : MonoBehaviour {
@@ -18,7 +19,7 @@ public class SCR_overworld_enemy : MonoBehaviour {
         PLAYER_CAUGHT
     }
 
-    private enemyState currentState;
+    private enemyState currentState = enemyState.WANDERING;
 
     [System.Serializable] private struct PASS_directionWeighingStruct { public Vector2 key; public int weight; }
     [SerializeField] private PASS_directionWeighingStruct[] PASS_directionWeighing;
@@ -28,11 +29,16 @@ public class SCR_overworld_enemy : MonoBehaviour {
     [SerializeField] [MyReadOnly] private Vector2 dir = Vector2.zero;
 
     [SerializeField] private float beforeGiveup;
-    [SerializeField] private float speed = 1f;
+    [SerializeField] private float speedModif;
+    [SerializeField] [MyReadOnly] private float overworldSpeed = 1f;
 
     private SCR_master masterRef;
 
-    private void Awake() {
+    private void Update() {
+        main();
+    }
+
+    public void setup(SCO_enemy data) {
         foreach (PASS_directionWeighingStruct toPass in PASS_directionWeighing) {
             directionWeighing.Add(toPass.key, toPass.weight);
         }
@@ -43,12 +49,13 @@ public class SCR_overworld_enemy : MonoBehaviour {
         enemyAnimator = GetComponent<SCR_entity_animation>();
         sr = enemyAnimator.GetComponent<SpriteRenderer>();
         masterRef = SCR_master.returnInstance();
+
+        this.data = data;
+
+        overworldSpeed = data.returnSpeed() * speedModif;
+        print(overworldSpeed);
     }
-    private void Start() {
-    }
-    private void Update() {
-        main();
-    }
+
     private void main() {
         switch (currentState) {
             case enemyState.WANDERING:
@@ -62,7 +69,7 @@ public class SCR_overworld_enemy : MonoBehaviour {
                 break;
         }
 
-        transform.position = (Vector3)Vector2.MoveTowards((Vector2)transform.position, targetPos, speed * Time.deltaTime);
+        transform.position = (Vector3)Vector2.MoveTowards((Vector2)transform.position, targetPos, overworldSpeed * Time.deltaTime);
         enemyAnimator.play(SCR_entity_animation.AnimationType.WALK);
     }
 
@@ -99,7 +106,8 @@ public class SCR_overworld_enemy : MonoBehaviour {
         }
     }
     private void caught() {
-
+        //masterRef.loadCombat();
+        //Destroy(gameObject);
     }
     private void getNewTarget() {
         dir = directionWeighing.ElementAt(IzzetMain.getRandomWeight(directionWeighing.Values.ToArray())).Key;
@@ -116,7 +124,7 @@ public class SCR_overworld_enemy : MonoBehaviour {
         }
     }
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.GetComponent<SCR_player_main>()) {
+        if (collision.GetComponent<SCR_player_main>() && currentState == enemyState.PLAYER_SEEN) {
             SCR_tick_system.returnTickSystem().subscribe(beforeGiveup, () => waitBeforeGiveup());
         }
     }

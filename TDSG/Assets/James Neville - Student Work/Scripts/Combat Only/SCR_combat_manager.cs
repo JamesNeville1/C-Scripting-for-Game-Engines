@@ -55,12 +55,12 @@ public class SCR_combat_manager : MonoBehaviour {
 
             if (hit.collider != null) {
                 if (boardData.ContainsKey(IzzetMain.castToVector2Int(hit.point))) {
-                    Debug.Log("You can move here");
+                    //Debug.Log("You can move here");
                     return;
                 }
             }
 
-            Debug.Log("You can't move here");
+            //Debug.Log("You can't move here");
         }
     }
 }
