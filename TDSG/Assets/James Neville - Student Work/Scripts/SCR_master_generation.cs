@@ -10,7 +10,7 @@ using IzzetUtils.IzzetAttributes;
 using IzzetUtils;
 using System.Drawing;
 
-public class SCR_map_generation : MonoBehaviour {
+public class SCR_master_generation : MonoBehaviour {
 
     [Header("Map Base")]
     [SerializeField] [Tooltip("Main tile for map")] private RuleTile groundTile;
@@ -50,14 +50,14 @@ public class SCR_map_generation : MonoBehaviour {
         public int randomWieght;
     }
 
-    private static SCR_map_generation instance;
+    private static SCR_master_generation instance;
     #endregion
 
     private void Awake() {
         instance = this;
     }
 
-    public static SCR_map_generation returnInstance() {
+    public static SCR_master_generation returnInstance() {
         return instance;
     }
 

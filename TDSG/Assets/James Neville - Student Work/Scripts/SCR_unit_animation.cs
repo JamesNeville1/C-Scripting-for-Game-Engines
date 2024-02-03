@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEditor.Animations;
 
-public class SCR_entity_animation : MonoBehaviour {
+public class SCR_unit_animation : MonoBehaviour {
     [SerializeField] [Tooltip("What unit is this? Ensure you use the correct naming convention")]private string unitPrefix = "";
     [SerializeField] private animationPasser[] passer;
     [SerializeField] [MyReadOnly] private Animator animator;

@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using IzzetUtils;
 
-public class SCR_player_crafting : MonoBehaviour {
+public class SCR_master_crafting : MonoBehaviour {
 
     [SerializeField] private RectTransform slotsParent;
     [SerializeField] private Transform[] slotPos;
 
-    private static SCR_player_crafting instance;
+    private static SCR_master_crafting instance;
 
     private struct slotData {
         public Vector2Int vec;
-        public SCR_inventory_piece piece;
+        public SCR_master_inventory_piece piece;
 
-        public slotData(Vector2Int vec, SCR_inventory_piece item) {
+        public slotData(Vector2Int vec, SCR_master_inventory_piece item) {
             this.vec = vec;
             this.piece = item;
         }
     }
     private slotData[] craftingSlots;
 
-    private SCR_player_inventory invRef;
+    private SCR_master_inventory_main invRef;
 
     [System.Serializable]
     private struct recipeData {
@@ -36,14 +36,14 @@ public class SCR_player_crafting : MonoBehaviour {
         SLOT2,
         OUTPUT
     }
-    public static SCR_player_crafting returnInstance() {
+    public static SCR_master_crafting returnInstance() {
         return instance;
     }
     private void Awake() {
         instance = this;
     }
     public void setup() {
-        invRef = SCR_player_inventory.returnInstance();
+        invRef = SCR_master_inventory_main.returnInstance();
 
         craftingSlots = new slotData[3];
         //Create two slots for input
@@ -58,7 +58,7 @@ public class SCR_player_crafting : MonoBehaviour {
         craftingSlots[(int)arrayPos] =
             new slotData(IzzetMain.castToVector2Int((Vector2)slot.transform.localPosition), null);
     }
-    public bool tryPlace(SCR_inventory_piece toPlace) {
+    public bool tryPlace(SCR_master_inventory_piece toPlace) {
 
         toPlace.transform.parent = slotsParent;
         bool isSlotOneClose = IzzetMain.castToVector2Int(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT1].vec;
@@ -78,11 +78,11 @@ public class SCR_player_crafting : MonoBehaviour {
 
         return true;
     }
-    private void place(SCR_inventory_piece toPlace, craftingArrayPosName name) {
+    private void place(SCR_master_inventory_piece toPlace, craftingArrayPosName name) {
         toPlace.transform.localPosition = (Vector2)craftingSlots[(int)name].vec;
         craftingSlots[(int)name].piece = toPlace;
     }
-    public void remove(SCR_inventory_piece toRemove) {
+    public void remove(SCR_master_inventory_piece toRemove) {
         if (craftingSlots[(int)craftingArrayPosName.SLOT1].piece == toRemove) {
             craftingSlots[(int)craftingArrayPosName.SLOT1].piece = null;
             return;
@@ -96,7 +96,7 @@ public class SCR_player_crafting : MonoBehaviour {
     }
     public void toggle() {
         bool currentState = slotsParent.gameObject.activeInHierarchy;
-        SCR_master.returnInstance().setGatheringLocked(!currentState);
+        SCR_master_main.returnInstance().setGatheringLocked(!currentState);
         slotsParent.gameObject.SetActive(!currentState);
 
         if (craftingSlots[(int)craftingArrayPosName.SLOT1].piece != null) { craftingSlots[(int)craftingArrayPosName.SLOT1].piece.drop(); }
@@ -108,13 +108,13 @@ public class SCR_player_crafting : MonoBehaviour {
         }
     }
 
-    private void craft(SCR_inventory_piece a, SCR_inventory_piece b) {
+    private void craft(SCR_master_inventory_piece a, SCR_master_inventory_piece b) {
         foreach (recipeData recipe in recipes) {
             if (a.returnItem() == recipe.itemA && b.returnItem() == recipe.itemB || b.returnItem() == recipe.itemA && a.returnItem() == recipe.itemB) {
                 remove(a); remove(b);
                 Destroy(a.gameObject); Destroy(b.gameObject);
 
-                SCR_inventory_piece createdItem = SCR_inventory_piece.createInstance(recipe.outputItem, craftingSlots[(int)craftingArrayPosName.OUTPUT].vec, slotsParent, false);
+                SCR_master_inventory_piece createdItem = SCR_master_inventory_piece.createInstance(recipe.outputItem, craftingSlots[(int)craftingArrayPosName.OUTPUT].vec, slotsParent, false);
                 place(createdItem, craftingArrayPosName.OUTPUT);
                 return;
             }

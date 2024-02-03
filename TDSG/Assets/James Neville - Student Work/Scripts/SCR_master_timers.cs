@@ -6,19 +6,19 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class SCR_tick_system : MonoBehaviour {
+public class SCR_master_timers : MonoBehaviour {
 
     [SerializeField] private Transform timerParent;
 
     private Dictionary<float, timer> timeEvents = new Dictionary<float, timer>(); //Holds the current timers
 
-    private static SCR_tick_system instance;
+    private static SCR_master_timers instance;
 
     private void Awake() {
         instance = this;
     }
 
-    public static SCR_tick_system returnTickSystem() {
+    public static SCR_master_timers returnTickSystem() {
         return instance;
     }
 

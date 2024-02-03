@@ -9,7 +9,7 @@ public class SCO_gatherable : ScriptableObject {
     [SerializeField] [Tooltip("Sprite is shown in overworld, ensure pivot is in correct location")] private Sprite sprite;
     [SerializeField] [Tooltip("Size of colider")] private float interactableRadius = .1f;
     [SerializeField] [Tooltip("What item does it give?")] private SCO_item item;
-    [SerializeField] private SCR_audio_manager.sfx onPickUp;
+    [SerializeField] private SCR_audio_master.sfx onPickUp;
     public GameObject gatherableSetup(Vector2 pos, Transform parent) {
         
         GameObject obj = new GameObject(pos.ToString());
@@ -36,8 +36,8 @@ public class SCO_gatherable : ScriptableObject {
         private KeyCode keyToGather = KeyCode.Mouse0;
 
         [SerializeField] [MyReadOnly] private SCO_item item;
-        [SerializeField] [MyReadOnly] private SCR_audio_manager.sfx onPickUp;
-        public void hookConstructor(SCO_item item, SCR_audio_manager.sfx onPickUp) {
+        [SerializeField] [MyReadOnly] private SCR_audio_master.sfx onPickUp;
+        public void hookConstructor(SCO_item item, SCR_audio_master.sfx onPickUp) {
             this.item = item;
             this.onPickUp = onPickUp;
         }
@@ -49,11 +49,11 @@ public class SCO_gatherable : ScriptableObject {
             sr.color = originalColor;
         }
         private void OnMouseOver() {
-            if (!SCR_master.returnInstance().returnPlayerCrafting()) {
+            if (!SCR_master_main.returnInstance().returnPlayerCrafting()) {
                 sr.color = new Color32(originalColor.r, originalColor.g, originalColor.b, 100); //Display that the player is hovering over this object
                 if (Input.GetKeyDown(keyToGather)) { //Create instance of puzzle piece, then destroy
-                    SCR_inventory_piece.createInstance(item, transform.position, SCR_player_inventory.returnInstance().returnCellParent());
-                    SCR_audio_manager.returnInstance().playRandomEffect(onPickUp);
+                    SCR_master_inventory_piece.createInstance(item, transform.position, SCR_master_inventory_main.returnInstance().returnCellParent());
+                    SCR_audio_master.returnInstance().playRandomEffect(onPickUp);
                     Destroy(gameObject);
                 }
             }

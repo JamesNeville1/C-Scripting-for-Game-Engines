@@ -584,54 +584,6 @@ Transform:
   m_Father: {fileID: 1364117801}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &310736379
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 310736380}
-  - component: {fileID: 310736381}
-  m_Layer: 0
-  m_Name: Enemy Spawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &310736380
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 310736379}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1364117801}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &310736381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 310736379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c50d2d92197db0d4daee1afd82cf2d2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  overworldEnemyPrefab: {fileID: 4976644657933928993, guid: df0e6132a86d25f47bfdecfbcbeeed2a, type: 3}
-  enemies:
-  - {fileID: 11400000, guid: f48f5b8ee80dcdb45bdb0c80ee75de07, type: 2}
-  animator: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,7 +1099,7 @@ GameObject:
   - component: {fileID: 1364117801}
   - component: {fileID: 1364117803}
   - component: {fileID: 1364117802}
-  - component: {fileID: 1364117804}
+  - component: {fileID: 1364117807}
   - component: {fileID: 1364117805}
   - component: {fileID: 1364117806}
   m_Layer: 0
@@ -1171,7 +1123,6 @@ Transform:
   m_Children:
   - {fileID: 519420032}
   - {fileID: 300277439}
-  - {fileID: 310736380}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1231,7 +1182,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1364117800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a60416595defe344d82ba3a567f5fe65, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b6d4dd9684642349a41b3c7dd8ddbf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5207933277885795846, guid: 8dde42ce927554c4db156dfbb8b2acb0, type: 3}
@@ -1249,21 +1200,6 @@ MonoBehaviour:
   inBattle: 0
   overworldMaster: {fileID: 0}
   combatMaster: {fileID: 0}
---- !u!114 &1364117804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364117800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25c1a2d5cb07995499df7a6b68bacca0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridCellSprite: {fileID: 21300000, guid: 8eeedd5b06c35c949ba394c4b2c484a7, type: 3}
-  itemBlockSprite: {fileID: 21300000, guid: d8ae8cb60f334584d9efa2f6bcc2fb6a, type: 3}
-  cellParent: {fileID: 554863859}
 --- !u!114 &1364117805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1303,10 +1239,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1364117800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d6dd570ad009d8429beda41b14bd790, type: 3}
+  m_Script: {fileID: 11500000, guid: b86a87a24e8544146978acbe2f6ac3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timerParent: {fileID: 300277439}
+--- !u!114 &1364117807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364117800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 400e658a59cb929419979a8820702b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridCellSprite: {fileID: 21300000, guid: 8eeedd5b06c35c949ba394c4b2c484a7, type: 3}
+  itemBlockSprite: {fileID: 21300000, guid: d8ae8cb60f334584d9efa2f6bcc2fb6a, type: 3}
+  cellParent: {fileID: 554863859}
 --- !u!1 &1573873449
 GameObject:
   m_ObjectHideFlags: 0

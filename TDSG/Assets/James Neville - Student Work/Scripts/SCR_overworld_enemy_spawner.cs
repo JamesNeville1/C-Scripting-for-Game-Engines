@@ -3,19 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SCR_enemy_spawner : MonoBehaviour {
+public class SCR_overworld_enemy_spawner : MonoBehaviour {
     [SerializeField] private GameObject overworldEnemyPrefab;
     [SerializeField] private SCO_enemy[] enemies;
 
-    [SerializeField] [MyReadOnly] SCR_entity_animation entAnimation;
+    [SerializeField][MyReadOnly] SCR_unit_animation entAnimation;
 
-    private static SCR_enemy_spawner instance;
-
-    private void Start() {
-        SCR_tick_system.returnTickSystem().subscribe(20f, delegate { spawnEnemy(); } );
+    public static SCR_overworld_enemy_spawner returnInstance() {
+        return instance;
     }
 
-    private void spawnEnemy() {
+    private static SCR_overworld_enemy_spawner instance;
+
+    private void Awake() {
+        instance = this;
+    }
+    public void spawnEnemy() {
         SCO_enemy data = pickEnemy();
         Vector2 spawnLoc = returnEnemySpawnLocation();
 
@@ -24,7 +27,7 @@ public class SCR_enemy_spawner : MonoBehaviour {
 
         script.setup(data);
 
-        entAnimation = enemyInst.GetComponent<SCR_entity_animation>();
+        entAnimation = enemyInst.GetComponent<SCR_unit_animation>();
         entAnimation.setPrefix(data.returnAnimatioPrefix());
         entAnimation.setAnimationController(data.returnAnimator());
 

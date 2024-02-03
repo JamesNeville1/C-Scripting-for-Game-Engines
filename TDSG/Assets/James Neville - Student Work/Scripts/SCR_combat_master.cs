@@ -7,10 +7,10 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using Unity.Burst.CompilerServices;
 
-public class SCR_combat_manager : MonoBehaviour {
+public class SCR_combat_master : MonoBehaviour {
 
-    private static SCR_combat_manager instance;
-    public static SCR_combat_manager returnInstance() {
+    private static SCR_combat_master instance;
+    public static SCR_combat_master returnInstance() {
         return instance;
     }
     private void Awake() {

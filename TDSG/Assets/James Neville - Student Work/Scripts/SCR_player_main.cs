@@ -18,9 +18,9 @@ public class SCR_player_main : MonoBehaviour {
     [SerializeField] [MyReadOnly] private Rigidbody2D rb;
     [SerializeField] [MyReadOnly] private Animator animator;
     [SerializeField] [MyReadOnly] private SpriteRenderer sr;
-    [SerializeField] [MyReadOnly] private SCR_entity_attributes playerAttributes;
-    [SerializeField] [MyReadOnly] private SCR_entity_animation playerAnimation;
-    [SerializeField][MyReadOnly] private SCR_audio_manager audioManager;
+    [SerializeField] [MyReadOnly] private SCR_unit_attributes playerAttributes;
+    [SerializeField] [MyReadOnly] private SCR_unit_animation playerAnimation;
+    [SerializeField][MyReadOnly] private SCR_audio_master audioManager;
 
     [Header("Will not change once built")]
     [SerializeField] private float timeBetweenWalkSFX;
@@ -84,16 +84,16 @@ public class SCR_player_main : MonoBehaviour {
     }
     private void animate(Vector2Int input) {
         if(input.x != 0 || input.y != 0) {
-            playerAnimation.play(SCR_entity_animation.AnimationType.WALK);
+            playerAnimation.play(SCR_unit_animation.AnimationType.WALK);
         }
         else {
-            playerAnimation.play(SCR_entity_animation.AnimationType.IDLE);
+            playerAnimation.play(SCR_unit_animation.AnimationType.IDLE);
         }
     }
     private IEnumerator Footstepsounds() {
         while (true) {
             courtineRunning = true;
-            audioManager.playRandomEffect(SCR_audio_manager.sfx.WALK_STEP, .15f);
+            audioManager.playRandomEffect(SCR_audio_master.sfx.WALK_STEP, .15f);
             yield return new WaitForSeconds(timeBetweenWalkSFX);
         }
     }
@@ -102,7 +102,7 @@ public class SCR_player_main : MonoBehaviour {
     public static SCR_player_main returnInstance() {
         return instance;
     }
-    public SCR_entity_attributes returnAttributes() {
+    public SCR_unit_attributes returnAttributes() {
         return playerAttributes;
     }
     public void changeOverworldSpeed(int modifBy = 0) {
@@ -118,9 +118,9 @@ public class SCR_player_main : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
-        playerAttributes = GetComponent<SCR_entity_attributes>();
-        playerAnimation = GetComponent<SCR_entity_animation>();
-        audioManager = SCR_audio_manager.returnInstance();
+        playerAttributes = GetComponent<SCR_unit_attributes>();
+        playerAnimation = GetComponent<SCR_unit_animation>();
+        audioManager = SCR_audio_master.returnInstance();
 
         //Adjust Speed
         changeOverworldSpeed();

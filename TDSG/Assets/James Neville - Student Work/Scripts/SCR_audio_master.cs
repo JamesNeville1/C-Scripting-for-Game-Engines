@@ -5,16 +5,16 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SCR_audio_manager : MonoBehaviour {
+public class SCR_audio_master : MonoBehaviour {
     private static AudioSource source; //Audio source, in external scene to reduce strain on game
 
-    public enum sfx{
+    public enum sfx{ //All sound effect and music types
         WALK_STEP,
         HIT_ENEMY,
         HIT_SELF,
-        GATHER_STONE,
-        GATHER_WOOD,
-        GATHER_MUSHROOM,
+        GATHER_HARD,
+        GATHER_MEDIUM,
+        GATHER_SOFT,
         GATHER_OTHER,
         ON_DEATH,
         EAT,
@@ -27,15 +27,12 @@ public class SCR_audio_manager : MonoBehaviour {
     }
 
     [System.Serializable] private struct PASS_passStruct { public sfx key; public AudioClip[] clip; }
-
     private Dictionary<sfx, AudioClip[]> sfxs = new Dictionary<sfx, AudioClip[]>();
     [SerializeField] private PASS_passStruct[] PASS_sfxPasser;
-
-    private static SCR_audio_manager instance;
-
+    private static SCR_audio_master instance;
     private AudioSource musicSource;
 
-    public static SCR_audio_manager returnInstance() {
+    public static SCR_audio_master returnInstance() {
         return instance;
     }
 
@@ -69,7 +66,7 @@ public class SCR_audio_manager : MonoBehaviour {
 
     private IEnumerator findNewSong() {
         UnityEvent ping = new UnityEvent();
-        ping.AddListener(() => SCR_master.returnInstance().whatMusic());
+        ping.AddListener(() => SCR_master_main.returnInstance().whatMusic());
 
         while (musicSource.isPlaying) {
             yield return null;

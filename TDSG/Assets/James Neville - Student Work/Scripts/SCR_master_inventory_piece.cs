@@ -5,7 +5,7 @@ using UnityEngine;
 using IzzetUtils;
 using IzzetUtils.IzzetAttributes;
 
-public class SCR_inventory_piece : MonoBehaviour {
+public class SCR_master_inventory_piece : MonoBehaviour {
     [Header("Input Related")]
     [SerializeField] [Tooltip("Is the piece currently moving?")] [MyReadOnly] private bool active = false;
     [SerializeField] [Tooltip("Is the mouse currently over the piece?")] [MyReadOnly] private bool mouseOver = false;
@@ -15,23 +15,23 @@ public class SCR_inventory_piece : MonoBehaviour {
     [SerializeField] [Tooltip("The Item this piece represents")] [MyReadOnly] private SCO_item pieceItem;
 
     #region Won't be Seen in Inspector
-    private SCR_player_inventory playerInventory; //Reference to inventory
-    private SCR_player_crafting playerCrafting;
-    private SCR_audio_manager audioManager;
-    private SCR_master master;
+    private SCR_master_inventory_main playerInventory; //Reference to inventory
+    private SCR_master_crafting playerCrafting;
+    private SCR_audio_master audioManager;
+    private SCR_master_main master;
     private List<SpriteRenderer> srs = new List<SpriteRenderer>(); //All sprite renderers of children
     #endregion
 
     #region Create Instance
     //Create brand new instance from anywhere with no reference required
-    public static SCR_inventory_piece createInstance(SCO_item item, Vector2 spawnPos, Transform parent, bool startActive = true) {
-        GameObject newPiece = new GameObject(item.name + " Piece", typeof(SCR_inventory_piece));
+    public static SCR_master_inventory_piece createInstance(SCO_item item, Vector2 spawnPos, Transform parent, bool startActive = true) {
+        GameObject newPiece = new GameObject(item.name + " Piece", typeof(SCR_master_inventory_piece));
         newPiece.transform.position = spawnPos;
 
         newPiece.transform.parent = parent;
 
-        SCR_inventory_piece newScript = newPiece.GetComponent<SCR_inventory_piece>();
-        newScript.setup(item, SCR_player_inventory.returnInstance().returnItemSprite(), startActive);
+        SCR_master_inventory_piece newScript = newPiece.GetComponent<SCR_master_inventory_piece>();
+        newScript.setup(item, SCR_master_inventory_main.returnInstance().returnItemSprite(), startActive);
 
         return newScript;
     }
@@ -71,10 +71,10 @@ public class SCR_inventory_piece : MonoBehaviour {
     #endregion
 
     private void Awake() {
-        playerInventory = SCR_player_inventory.returnInstance(); //Get reference to inventory
-        playerCrafting = SCR_player_crafting.returnInstance(); //Get reference to crafting
-        audioManager = SCR_audio_manager.returnInstance();
-        master = SCR_master.returnInstance(); //Get reference to master
+        playerInventory = SCR_master_inventory_main.returnInstance(); //Get reference to inventory
+        playerCrafting = SCR_master_crafting.returnInstance(); //Get reference to crafting
+        audioManager = SCR_audio_master.returnInstance();
+        master = SCR_master_main.returnInstance(); //Get reference to master
     }
     private void Update() {
         playerInput();

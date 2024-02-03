@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class SCR_overworld_enemy : MonoBehaviour {
     private SpriteRenderer sr;
-    private SCR_entity_animation enemyAnimator;
+    private SCR_unit_animation enemyAnimator;
     [SerializeField] private float caughtAtMaxDist = 1f;
     [SerializeField] [MyReadOnly] private SCO_enemy data;
 
@@ -32,7 +32,7 @@ public class SCR_overworld_enemy : MonoBehaviour {
     [SerializeField] private float speedModif;
     [SerializeField] [MyReadOnly] private float overworldSpeed = 1f;
 
-    private SCR_master masterRef;
+    private SCR_master_main masterRef;
 
     private void Update() {
         main();
@@ -46,9 +46,9 @@ public class SCR_overworld_enemy : MonoBehaviour {
 
         targetPos = transform.position;
 
-        enemyAnimator = GetComponent<SCR_entity_animation>();
+        enemyAnimator = GetComponent<SCR_unit_animation>();
         sr = enemyAnimator.GetComponent<SpriteRenderer>();
-        masterRef = SCR_master.returnInstance();
+        masterRef = SCR_master_main.returnInstance();
 
         this.data = data;
 
@@ -70,7 +70,7 @@ public class SCR_overworld_enemy : MonoBehaviour {
         }
 
         transform.position = (Vector3)Vector2.MoveTowards((Vector2)transform.position, targetPos, overworldSpeed * Time.deltaTime);
-        enemyAnimator.play(SCR_entity_animation.AnimationType.WALK);
+        enemyAnimator.play(SCR_unit_animation.AnimationType.WALK);
     }
 
     private void flip(float input, SpriteRenderer sr) {  //Make in TDSG utils
@@ -120,18 +120,18 @@ public class SCR_overworld_enemy : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.GetComponent<SCR_player_main>() && currentState != enemyState.PLAYER_SEEN) {
             currentState = enemyState.PLAYER_SEEN;
-            SCR_audio_manager.returnInstance().playRandomMusic(SCR_audio_manager.sfx.MUSIC_BATTLE);
+            SCR_audio_master.returnInstance().playRandomMusic(SCR_audio_master.sfx.MUSIC_BATTLE);
         }
     }
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.GetComponent<SCR_player_main>() && currentState == enemyState.PLAYER_SEEN) {
-            SCR_tick_system.returnTickSystem().subscribe(beforeGiveup, () => waitBeforeGiveup());
+            SCR_master_timers.returnTickSystem().subscribe(beforeGiveup, () => waitBeforeGiveup());
         }
     }
     private void waitBeforeGiveup() {
         currentState = enemyState.WANDERING;
         getNewTarget();
         masterRef.whatMusic();
-        SCR_tick_system.returnTickSystem().unsubscribe(beforeGiveup, () => waitBeforeGiveup());
+        SCR_master_timers.returnTickSystem().unsubscribe(beforeGiveup, () => waitBeforeGiveup());
     }
 }

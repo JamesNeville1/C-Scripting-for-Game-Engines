@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SCR_entity_attributes : MonoBehaviour {
+public class SCR_unit_attributes : MonoBehaviour {
     [System.Serializable]
     public class attribute {
         [SerializeField][Tooltip("Current Int")] private int current;

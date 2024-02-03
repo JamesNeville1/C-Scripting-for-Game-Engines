@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SCR_master : MonoBehaviour {
+public class SCR_master_main : MonoBehaviour {
 
     [Header("Main")]
     [SerializeField] private GameObject playerPrefab;
@@ -29,7 +29,7 @@ public class SCR_master : MonoBehaviour {
     [SerializeField] [MyReadOnly] private GameObject overworldMaster;
     [SerializeField] [MyReadOnly] private GameObject combatMaster;
 
-    private static SCR_master instance;
+    private static SCR_master_main instance;
 
     private void Awake() {
         instance = this;
@@ -45,23 +45,23 @@ public class SCR_master : MonoBehaviour {
 
     private void setup() { //Controls initial execution order in code and unifies setups
         //Get Required References
-        SCR_map_generation mapRef = GetComponent<SCR_map_generation>();
+        SCR_master_generation mapRef = GetComponent<SCR_master_generation>();
 
         //Make Map
         string randSeed = mapRef.randomSeed();
         //Debug.Log("Map Seed: " + randSeed);
 
         //Setup externals
-        SCR_map_generation.returnInstance().setup(randSeed, "Ground Tilemap", "Water Tilemap", mapSize);
-        SCR_player_inventory.returnInstance().setup(inventorySize.x, inventorySize.y);
-        SCR_player_crafting.returnInstance().setup();
-        SCR_combat_manager.returnInstance().setup();
+        SCR_master_generation.returnInstance().setup(randSeed, "Ground Tilemap", "Water Tilemap", mapSize);
+        SCR_master_inventory_main.returnInstance().setup(inventorySize.x, inventorySize.y);
+        SCR_master_crafting.returnInstance().setup();
+        SCR_combat_master.returnInstance().setup();
 
         //Make Player (player contains inventory logic)
         player = Instantiate(playerPrefab, mapRef.startPos(), Quaternion.identity, GameObject.Find(playerParent).transform).GetComponent<SCR_player_main>();
 
         //Start music loop
-        SCR_audio_manager.returnInstance().playRandomMusic(SCR_audio_manager.sfx.MUSIC_CALM);
+        SCR_audio_master.returnInstance().playRandomMusic(SCR_audio_master.sfx.MUSIC_CALM);
 
         //Get other scene managers
         overworldMaster = GameObject.Find(overworldMasterName); overworldMasterName = "";
@@ -71,7 +71,8 @@ public class SCR_master : MonoBehaviour {
         //DontDestroyOnLoad(overworldMaster);
         //DontDestroyOnLoad(combatMaster);
 
-        //
+        //Start Enemy Spawner
+        //SCR_tick_system.returnTickSystem().subscribe(20f, delegate { SCR_enemy_spawner.returnInstance().spawnEnemy(); });
     }
 
     public void loadOverworld() {
@@ -84,9 +85,9 @@ public class SCR_master : MonoBehaviour {
     }
 
     public void whatMusic() {
-        SCR_audio_manager.returnInstance().playRandomMusic(inBattle ? SCR_audio_manager.sfx.MUSIC_BATTLE : SCR_audio_manager.sfx.MUSIC_CALM);
+        SCR_audio_master.returnInstance().playRandomMusic(inBattle ? SCR_audio_master.sfx.MUSIC_BATTLE : SCR_audio_master.sfx.MUSIC_CALM);
     }
-    public static SCR_master returnInstance() {
+    public static SCR_master_main returnInstance() {
         return instance;
     }
     public bool returnPlayerCrafting() {
