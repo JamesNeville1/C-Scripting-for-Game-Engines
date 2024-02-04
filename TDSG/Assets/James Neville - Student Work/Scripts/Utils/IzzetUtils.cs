@@ -60,5 +60,8 @@ namespace IzzetUtils {
             }
             return -1; //Create deliberate error, something has to very wrong for this to happen.
         }
+        public static Vector2 getMidPoint(Vector2 posOne, Vector2 posTwo) {
+            return (posOne + posTwo) * .5f;
+        }
     }
 }

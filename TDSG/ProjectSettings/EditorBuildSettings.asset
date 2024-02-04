@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/James Neville - Student Work/Scenes/SCE_combat.unity
     guid: 6c8e4bddbd48b0c4b91293a6fa4a04ca
+  - enabled: 1
+    path: Assets/James Neville - Student Work/Scenes/SCE_menu.unity
+    guid: 75e8edb05def51144a4d51eec796ff29
   m_configObjects: {}

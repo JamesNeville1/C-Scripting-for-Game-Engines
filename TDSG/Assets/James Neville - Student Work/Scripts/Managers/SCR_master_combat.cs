@@ -21,7 +21,8 @@ public class SCR_master_combat : MonoBehaviour {
     [Header("Require Dev Input")]
     [SerializeField] private RuleTile tile;
     [SerializeField] private GameObject boardParent;
-
+    [SerializeField] private Vector2 cameraOffset;
+    
     [Header("Read Only")]
     [SerializeField] [MyReadOnly] private Tilemap tilemap;
     [SerializeField] [MyReadOnly] private bool playerTurn = false;
@@ -58,6 +59,10 @@ public class SCR_master_combat : MonoBehaviour {
             }
         }
 
+        Vector2 midPoint = IzzetMain.getMidPoint(Vector2.zero, size);
+        Vector3 cameraPos = new Vector3(midPoint.x, midPoint.y, Camera.main.transform.position.z);
+        Camera.main.transform.position = cameraPos + (Vector3)cameraOffset;
+
         //boardParent.SetActive(false);
     }
     #endregion
@@ -73,7 +78,7 @@ public class SCR_master_combat : MonoBehaviour {
                 }
             }
 
-            //Debug.Log("You can't move here");
+            Debug.Log("You can't move here");
         }
     }
     #endregion

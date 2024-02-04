@@ -36,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1638651887771361930
 SpriteRenderer:
@@ -136,6 +136,10 @@ MonoBehaviour:
     name: idle
   - type: 1
     name: walk
+  - type: 2
+    name: hurt
+  - type: 3
+    name: death
   animator: {fileID: 0}
 --- !u!114 &8160791640738851150
 MonoBehaviour:
@@ -149,27 +153,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2a2af2a7e5d064abe4ecb79803b515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health:
-    current: 5
-    max: 5
-  hunger:
-    current: 0
-    max: 0
-  tiredness:
-    current: 0
-    max: 0
-  speed: 8
   stats:
     athletics: 0
+    survival: 0
     dexterity: 0
     endurance: 0
-    survival: 0
-    luck: 0
-  isPlayer: 1
-  healthModif: 2
-  hungerModif: 2
-  tirednessModif: 2
-  speedModif: 1
+  attributes:
+    speed: 0
 --- !u!50 &3903683744039567537
 Rigidbody2D:
   serializedVersion: 4

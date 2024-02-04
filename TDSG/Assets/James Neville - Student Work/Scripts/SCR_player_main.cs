@@ -88,10 +88,10 @@ public class SCR_player_main : MonoBehaviour {
     }
     private void animate(Vector2Int input) {
         if(input.x != 0 || input.y != 0) {
-            playerAnimation.play(SCR_unit_animation.AnimationType.WALK);
+            //playerAnimation.play(SCR_unit_animation.AnimationType.WALK);
         }
         else {
-            playerAnimation.play(SCR_unit_animation.AnimationType.IDLE);
+            //playerAnimation.play(SCR_unit_animation.AnimationType.IDLE);
         }
     }
     private IEnumerator Footstepsounds() {
@@ -107,7 +107,7 @@ public class SCR_player_main : MonoBehaviour {
         return playerAttributes;
     }
     public void changeOverworldSpeed(int modifBy = 0) {
-        overworldSpeed = (playerAttributes.speed * modifOverworldSpeed) - modifBy;
+        overworldSpeed = (playerAttributes.attributes.speed * modifOverworldSpeed) - modifBy;
     }
     public void die(string reason = "") {
         Debug.Log($"You dead fool, you died to {reason}");

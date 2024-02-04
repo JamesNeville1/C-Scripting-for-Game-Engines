@@ -54,7 +54,6 @@ public class SCR_master_main : MonoBehaviour {
         SceneManager.LoadScene(combatSceneName, LoadSceneMode.Additive);
 
         while (SCR_master_combat.returnInstance() == null || SCR_master_audio.returnInstance() == null) {
-            print("a");
             yield return null;
         }
         setup();
@@ -87,6 +86,9 @@ public class SCR_master_main : MonoBehaviour {
 
         //Start Enemy Spawner
         //SCR_tick_system.returnTickSystem().subscribe(20f, delegate { SCR_enemy_spawner.returnInstance().spawnEnemy(); });
+
+        //
+        //loadCombat();
     }
     #endregion
     #region Load Different Mechanics

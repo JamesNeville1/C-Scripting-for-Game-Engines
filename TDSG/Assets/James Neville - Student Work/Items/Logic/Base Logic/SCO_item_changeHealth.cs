@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SCO_item_useable_health_", menuName = "ScriptableObjects/Items/Useable/DamageOrHeal")]
 public class SCO_item_changeHealth : SCO_ABS_item_useable_on_entity {
     public override void useOnEntity(SCR_unit_attributes ent) {
-        ent.health.adjust(attribute);
+        //ent.attributes.health.adjust(attribute);
     }
 }

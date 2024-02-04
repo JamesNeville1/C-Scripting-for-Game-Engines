@@ -19,7 +19,7 @@ public class SCR_master_timers : MonoBehaviour {
         instance = this;
     }
 
-    public static SCR_master_timers returnTickSystem() {
+    public static SCR_master_timers returnInstance() {
         return instance;
     }
     #endregion
