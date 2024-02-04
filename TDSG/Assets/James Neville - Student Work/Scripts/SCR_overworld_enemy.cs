@@ -120,7 +120,7 @@ public class SCR_overworld_enemy : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.GetComponent<SCR_player_main>() && currentState != enemyState.PLAYER_SEEN) {
             currentState = enemyState.PLAYER_SEEN;
-            SCR_audio_master.returnInstance().playRandomMusic(SCR_audio_master.sfx.MUSIC_BATTLE);
+            SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.sfx.MUSIC_BATTLE);
         }
     }
     private void OnTriggerExit2D(Collider2D collision) {

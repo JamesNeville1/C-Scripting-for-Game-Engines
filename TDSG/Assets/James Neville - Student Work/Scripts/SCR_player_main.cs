@@ -20,7 +20,7 @@ public class SCR_player_main : MonoBehaviour {
     [SerializeField] [MyReadOnly] private SpriteRenderer sr;
     [SerializeField] [MyReadOnly] private SCR_unit_attributes playerAttributes;
     [SerializeField] [MyReadOnly] private SCR_unit_animation playerAnimation;
-    [SerializeField][MyReadOnly] private SCR_audio_master audioManager;
+    [SerializeField][MyReadOnly] private SCR_master_audio audioManager;
 
     [Header("Will not change once built")]
     [SerializeField] private float timeBetweenWalkSFX;
@@ -93,7 +93,7 @@ public class SCR_player_main : MonoBehaviour {
     private IEnumerator Footstepsounds() {
         while (true) {
             courtineRunning = true;
-            audioManager.playRandomEffect(SCR_audio_master.sfx.WALK_STEP, .15f);
+            audioManager.playRandomEffect(SCR_master_audio.sfx.WALK_STEP, .15f);
             yield return new WaitForSeconds(timeBetweenWalkSFX);
         }
     }
@@ -120,7 +120,7 @@ public class SCR_player_main : MonoBehaviour {
         sr = GetComponent<SpriteRenderer>();
         playerAttributes = GetComponent<SCR_unit_attributes>();
         playerAnimation = GetComponent<SCR_unit_animation>();
-        audioManager = SCR_audio_master.returnInstance();
+        audioManager = SCR_master_audio.returnInstance();
 
         //Adjust Speed
         changeOverworldSpeed();

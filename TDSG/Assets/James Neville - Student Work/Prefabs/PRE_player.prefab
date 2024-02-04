@@ -158,7 +158,7 @@ MonoBehaviour:
   tiredness:
     current: 0
     max: 0
-  speed: 5
+  speed: 8
   stats:
     athletics: 0
     dexterity: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   healthModif: 2
   hungerModif: 2
   tirednessModif: 2
-  speedModif: 2
+  speedModif: 1
 --- !u!50 &3903683744039567537
 Rigidbody2D:
   serializedVersion: 4
