@@ -4,20 +4,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SCR_overworld_enemy_spawner : MonoBehaviour {
+
+    [Header("Require Dev Input")]
     [SerializeField] private GameObject overworldEnemyPrefab;
     [SerializeField] private SCO_enemy[] enemies;
 
-    [SerializeField][MyReadOnly] SCR_unit_animation entAnimation;
+    [Header("Read Only")]
+    [SerializeField] [MyReadOnly] SCR_unit_animation entAnimation;
 
+    #region Set Instance
     public static SCR_overworld_enemy_spawner returnInstance() {
         return instance;
     }
 
     private static SCR_overworld_enemy_spawner instance;
-
     private void Awake() {
         instance = this;
     }
+    #endregion
+    #region Main
     public void spawnEnemy() {
         SCO_enemy data = pickEnemy();
         Vector2 spawnLoc = returnEnemySpawnLocation();
@@ -40,5 +45,5 @@ public class SCR_overworld_enemy_spawner : MonoBehaviour {
         //return Random.insideUnitCircle * 5 + (Vector2)SCR_player_main.returnInstance().gameObject.transform.position;
         return (Vector2)SCR_player_main.returnInstance().gameObject.transform.position;
     }
-
+    #endregion
 }

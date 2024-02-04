@@ -16,7 +16,7 @@ public class SCR_master_inventory_main : MonoBehaviour {
         OCCUPIED
     }
     private Dictionary<Vector2Int, cellState> gridData = new Dictionary<Vector2Int, cellState>(); //Holds grid and where it is occupied or not
-    private Dictionary<SCR_master_inventory_piece, Vector2Int[]> pieceData = new Dictionary<SCR_master_inventory_piece, Vector2Int[]>(); //Hold data of pieces
+    private Dictionary<SCR_inventory_piece, Vector2Int[]> pieceData = new Dictionary<SCR_inventory_piece, Vector2Int[]>(); //Hold data of pieces
     #endregion
 
     #region Set Instance
@@ -44,7 +44,7 @@ public class SCR_master_inventory_main : MonoBehaviour {
     }
     #endregion
     #region Piece Placement
-    public void removePiece(SCR_master_inventory_piece toCheck) { //Remove piece from dictionaries
+    public void removePiece(SCR_inventory_piece toCheck) { //Remove piece from dictionaries
         if (pieceData.ContainsKey(toCheck)) {
             pieceData.Remove(toCheck);
             Vector2Int roundedPos = IzzetMain.castToVector2Int(toCheck.transform.localPosition);
@@ -52,7 +52,7 @@ public class SCR_master_inventory_main : MonoBehaviour {
         }
     }
 
-    public bool tryPlaceGrid(SCR_master_inventory_piece toManipulate) { //Try to place in grid
+    public bool tryPlaceGrid(SCR_inventory_piece toManipulate) { //Try to place in grid
         //Check if it can even be placed?
         Vector2Int pos = new Vector2Int(Mathf.RoundToInt(toManipulate.transform.localPosition.x), Mathf.RoundToInt(toManipulate.transform.localPosition.y));
         if(!checkPiece(toManipulate,pos)) {
@@ -67,7 +67,7 @@ public class SCR_master_inventory_main : MonoBehaviour {
     }
     #endregion
     #region Grid Authentication
-    public bool checkPiece(SCR_master_inventory_piece piece, Vector2Int pos) { //Loop through children //LOOK AT THIS, THIS IS BAD ;-;
+    public bool checkPiece(SCR_inventory_piece piece, Vector2Int pos) { //Loop through children //LOOK AT THIS, THIS IS BAD ;-;
         Vector2Int[] children = piece.returnChildren(pos);
         foreach(Vector2Int vec in children) {
             if (!gridData.ContainsKey(vec)) {

@@ -1187,7 +1187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5207933277885795846, guid: 8dde42ce927554c4db156dfbb8b2acb0, type: 3}
   inventorySize: {x: 3, y: 3}
-  mapSize: {x: 200, y: 200}
+  mapSize: {x: 600, y: 600}
   combatBoardSize: {x: 14, y: 9}
   playerCrafting: 0
   playerParent: Player Parent

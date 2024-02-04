@@ -42,6 +42,7 @@ public class SCR_master_audio : MonoBehaviour {
         instance = this;
     }
     #endregion
+
     #region Setup
     public void setup() {
         source = GetComponent<AudioSource>();

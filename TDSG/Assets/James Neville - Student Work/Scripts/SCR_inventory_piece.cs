@@ -5,7 +5,7 @@ using UnityEngine;
 using IzzetUtils;
 using IzzetUtils.IzzetAttributes;
 
-public class SCR_master_inventory_piece : MonoBehaviour {
+public class SCR_inventory_piece : MonoBehaviour {
     [Header("Input Related")]
     [SerializeField] [Tooltip("Is the piece currently moving?")] [MyReadOnly] private bool active = false;
     [SerializeField] [Tooltip("Is the mouse currently over the piece?")] [MyReadOnly] private bool mouseOver = false;
@@ -24,13 +24,13 @@ public class SCR_master_inventory_piece : MonoBehaviour {
 
     #region Create Instance
     //Create brand new instance from anywhere with no reference required
-    public static SCR_master_inventory_piece createInstance(SCO_item item, Vector2 spawnPos, Transform parent, bool startActive = true) {
-        GameObject newPiece = new GameObject(item.name + " Piece", typeof(SCR_master_inventory_piece));
+    public static SCR_inventory_piece createInstance(SCO_item item, Vector2 spawnPos, Transform parent, bool startActive = true) {
+        GameObject newPiece = new GameObject(item.name + " Piece", typeof(SCR_inventory_piece));
         newPiece.transform.position = spawnPos;
 
         newPiece.transform.parent = parent;
 
-        SCR_master_inventory_piece newScript = newPiece.GetComponent<SCR_master_inventory_piece>();
+        SCR_inventory_piece newScript = newPiece.GetComponent<SCR_inventory_piece>();
         newScript.setup(item, SCR_master_inventory_main.returnInstance().returnItemSprite(), startActive);
 
         return newScript;
@@ -70,6 +70,7 @@ public class SCR_master_inventory_piece : MonoBehaviour {
     }
     #endregion
 
+    #region Unity
     private void Awake() {
         playerInventory = SCR_master_inventory_main.returnInstance(); //Get reference to inventory
         playerCrafting = SCR_master_crafting.returnInstance(); //Get reference to crafting
@@ -90,7 +91,7 @@ public class SCR_master_inventory_piece : MonoBehaviour {
     private void OnMouseExit() {
         mouseOver = false;
     }
-
+    #endregion
     #region Item Logic
     private void useItemLogic() {
         switch (pieceItem) {
@@ -180,7 +181,9 @@ public class SCR_master_inventory_piece : MonoBehaviour {
         transform.localScale = new Vector2(i,i);
     }
     #endregion
+    #region Returns
     public SCO_item returnItem() {
         return pieceItem;
     }
+    #endregion
 }

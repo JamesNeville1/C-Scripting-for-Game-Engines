@@ -28,17 +28,21 @@ public class SCR_player_main : MonoBehaviour {
     [Header("Other")]
     [SerializeField] [MyReadOnly] private bool courtineRunning = false;
 
-    //Can't / Won't be serialised
+    #region Set Instance
     private static SCR_player_main instance;
-
+    public static SCR_player_main returnInstance() {
+        return instance;
+    }
     private void Awake() {
-        setup();
         instance = this;
     }
+    #endregion
+    #region Unity
     private void Update() {
         playerMovementMain();
     }
-
+    #endregion
+    #region Main
     //All movement related stuff here
     private void playerMovementMain() {
         Vector2Int input = returnMovementInput(); //Get Input
@@ -47,7 +51,7 @@ public class SCR_player_main : MonoBehaviour {
         animate(input); //Do idle if still, and walk if moving
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10); //Move Camera to follow player
     }
-
+    #endregion
     #region playerMovementMainFuncs
     private Vector2Int returnMovementInput() {
         Vector2Int movement = new Vector2Int((int)Input.GetAxisRaw("Horizontal"), (int)Input.GetAxisRaw("Vertical"));
@@ -99,9 +103,6 @@ public class SCR_player_main : MonoBehaviour {
     }
     #endregion
     #region Returns & Publics
-    public static SCR_player_main returnInstance() {
-        return instance;
-    }
     public SCR_unit_attributes returnAttributes() {
         return playerAttributes;
     }
@@ -112,8 +113,8 @@ public class SCR_player_main : MonoBehaviour {
         Debug.Log($"You dead fool, you died to {reason}");
     }
     #endregion
-    #region Other
-    private void setup() {
+    #region Setup
+    public void setup() {
         //Get Components
         rb = GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();

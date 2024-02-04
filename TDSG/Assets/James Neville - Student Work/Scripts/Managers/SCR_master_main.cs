@@ -25,7 +25,6 @@ public class SCR_master_main : MonoBehaviour {
     [SerializeField] private string combatSceneName;
     [SerializeField] private string audioSceneName;
     [Header("")]
-    [SerializeField] [MyReadOnly] private SCR_player_main player;
     [SerializeField] [MyReadOnly] private bool inBattle;
     [SerializeField] [MyReadOnly] private GameObject overworldMaster;
     [SerializeField] [MyReadOnly] private GameObject combatMaster;
@@ -76,7 +75,8 @@ public class SCR_master_main : MonoBehaviour {
         SCR_master_audio.returnInstance().setup();
 
         //Make Player (player contains inventory logic)
-        player = Instantiate(playerPrefab, mapRef.startPos(), Quaternion.identity, GameObject.Find(playerParent).transform).GetComponent<SCR_player_main>();
+        Instantiate(playerPrefab, mapRef.startPos(), Quaternion.identity, GameObject.Find(playerParent).transform);
+        SCR_player_main.returnInstance().setup();
 
         //Start music loop
         SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.sfx.MUSIC_CALM);
@@ -84,10 +84,6 @@ public class SCR_master_main : MonoBehaviour {
         //Get other scene managers
         overworldMaster = GameObject.Find(overworldMasterName); overworldMasterName = "";
         combatMaster = GameObject.Find(combatMasterName); combatMasterName = "";
-
-        //Mark Don't Destroy - I don't think this is necessary, check?
-        //DontDestroyOnLoad(overworldMaster);
-        //DontDestroyOnLoad(combatMaster);
 
         //Start Enemy Spawner
         //SCR_tick_system.returnTickSystem().subscribe(20f, delegate { SCR_enemy_spawner.returnInstance().spawnEnemy(); });
@@ -112,9 +108,6 @@ public class SCR_master_main : MonoBehaviour {
     }
     public void setGatheringLocked(bool setTo) {
         playerCrafting = setTo;
-    }
-    public SCR_player_main returnPlayer() {
-        return player;
     }
     #endregion
 }

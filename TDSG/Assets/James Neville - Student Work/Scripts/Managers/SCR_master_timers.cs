@@ -12,6 +12,7 @@ public class SCR_master_timers : MonoBehaviour {
 
     private Dictionary<string, timer> timeEvents = new Dictionary<string, timer>(); //Holds the current timers
 
+    #region Set Instance
     private static SCR_master_timers instance;
 
     private void Awake() {
@@ -21,7 +22,8 @@ public class SCR_master_timers : MonoBehaviour {
     public static SCR_master_timers returnTickSystem() {
         return instance;
     }
-
+    #endregion
+    #region Public
     public void subscribe(string id, Action onFinish, float maxTimer = 0) {
         if(!timeEvents.ContainsKey(id)) {
             timer newTimer = new GameObject($"{id} Timer", typeof(timer)).GetComponent<timer>();
@@ -37,7 +39,8 @@ public class SCR_master_timers : MonoBehaviour {
         Destroy(timeEvents[id].gameObject);
         timeEvents.Remove(id);
     }
-
+    #endregion
+    #region Timer Class
     public class timer : MonoBehaviour {
         float currentTimer;
         float maxTimer;
@@ -68,5 +71,5 @@ public class SCR_master_timers : MonoBehaviour {
             }
         }
     }
-
+    #endregion
 }
