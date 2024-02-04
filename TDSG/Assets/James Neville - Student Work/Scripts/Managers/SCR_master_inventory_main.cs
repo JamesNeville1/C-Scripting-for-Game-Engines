@@ -17,9 +17,10 @@ public class SCR_master_inventory_main : MonoBehaviour {
     }
     private Dictionary<Vector2Int, cellState> gridData = new Dictionary<Vector2Int, cellState>(); //Holds grid and where it is occupied or not
     private Dictionary<SCR_master_inventory_piece, Vector2Int[]> pieceData = new Dictionary<SCR_master_inventory_piece, Vector2Int[]>(); //Hold data of pieces
-    private static SCR_master_inventory_main inventoryInstance; //To be returned to others
     #endregion
 
+    #region Set Instance
+    private static SCR_master_inventory_main inventoryInstance; //To be returned to others
     public static SCR_master_inventory_main returnInstance() {
         return inventoryInstance;
     }
@@ -28,6 +29,9 @@ public class SCR_master_inventory_main : MonoBehaviour {
         inventoryInstance = this;
 
     }
+    #endregion
+
+    #region Setup
     public void setup(int sizeX, int sizeY) { //Base setup of grid
         for (int y = 0; y <= sizeY - 1; y++) {
             for (int x = 0; x <= sizeX - 1; x++) {
@@ -38,6 +42,7 @@ public class SCR_master_inventory_main : MonoBehaviour {
             }
         }
     }
+    #endregion
     #region Piece Placement
     public void removePiece(SCR_master_inventory_piece toCheck) { //Remove piece from dictionaries
         if (pieceData.ContainsKey(toCheck)) {

@@ -10,7 +10,7 @@ public class SCR_master_timers : MonoBehaviour {
 
     [SerializeField] private Transform timerParent;
 
-    private Dictionary<float, timer> timeEvents = new Dictionary<float, timer>(); //Holds the current timers
+    private Dictionary<string, timer> timeEvents = new Dictionary<string, timer>(); //Holds the current timers
 
     private static SCR_master_timers instance;
 
@@ -22,25 +22,20 @@ public class SCR_master_timers : MonoBehaviour {
         return instance;
     }
 
-    public void subscribe(float maxTimer, Action onFinish) {
-        if(!timeEvents.ContainsKey(maxTimer)) {
-            timer newTimer = new GameObject($"{maxTimer} Timer", typeof(timer)).GetComponent<timer>();
+    public void subscribe(string id, Action onFinish, float maxTimer = 0) {
+        if(!timeEvents.ContainsKey(id)) {
+            timer newTimer = new GameObject($"{id} Timer", typeof(timer)).GetComponent<timer>();
             
             newTimer.gameObject.transform.parent = timerParent;
             newTimer.setup(maxTimer);
             
-            timeEvents.Add(maxTimer, newTimer);
+            timeEvents.Add(id, newTimer);
         }
-        timeEvents[maxTimer].subscribe(onFinish);
+        timeEvents[id].subscribe(onFinish);
     }
-    public void unsubscribe(float maxTimer, Action remove) {
-        timeEvents[maxTimer].unsubscribe(remove);
-
-        if (!timeEvents[maxTimer].hasSubs()) {
-            Destroy(timeEvents[maxTimer].gameObject);
-            timeEvents.Remove(maxTimer);
-            return;
-        }
+    public void removeAll(string id) {
+        Destroy(timeEvents[id].gameObject);
+        timeEvents.Remove(id);
     }
 
     public class timer : MonoBehaviour {

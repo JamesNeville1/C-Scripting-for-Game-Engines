@@ -6,9 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class SCR_master_audio : MonoBehaviour {
-    private static AudioSource source; //Audio source, in external scene to reduce strain on game
-
-    public enum sfx{ //All sound effect and music types
+    public enum sfx { //All sound effect and music types
         WALK_STEP,
         HIT_ENEMY,
         HIT_PLAYER,
@@ -27,26 +25,36 @@ public class SCR_master_audio : MonoBehaviour {
     }
 
     [System.Serializable] private struct PASS_passStruct { public sfx key; public AudioClip[] clip; }
-    private Dictionary<sfx, AudioClip[]> sfxs = new Dictionary<sfx, AudioClip[]>();
-    [SerializeField] private PASS_passStruct[] PASS_sfxPasser;
-    private static SCR_master_audio instance;
-    private AudioSource musicSource;
+    [SerializeField] private PASS_passStruct[] PASS_sfxPasser; //Pass to sfxs
 
+    private Dictionary<sfx, AudioClip[]> sfxs = new Dictionary<sfx, AudioClip[]>(); //Hold audio clips, called via enum
+
+    private static AudioSource source; //Audio source, in external scene to reduce strain on game
+    private AudioSource musicSource; //Play music in seperate source
+    
+    #region Set Instance
+    private static SCR_master_audio instance;
     public static SCR_master_audio returnInstance() {
         return instance;
     }
 
     private void Awake() {
         instance = this;
-
+    }
+    #endregion
+    #region Setup
+    public void setup() {
         source = GetComponent<AudioSource>();
         musicSource = GetComponent<AudioSource>();
 
-        foreach (PASS_passStruct passing in PASS_sfxPasser) {
+        foreach (PASS_passStruct passing in PASS_sfxPasser)
+        {
             sfxs.Add(passing.key, passing.clip);
         }
         PASS_sfxPasser = null;
     }
+    #endregion
+    #region Play
     public void playOneEffect(sfx toPlay, float volume = 1f) { //Play single effect
         source.PlayOneShot(sfxs[toPlay][0], volume);
     }
@@ -63,7 +71,8 @@ public class SCR_master_audio : MonoBehaviour {
         //Debug.Log($"Now Playing: {sfxs[toPlay][rand].name}");
         StartCoroutine(findNewSong());
     }
-
+    #endregion
+    #region Find New Song
     private IEnumerator findNewSong() {
         UnityEvent ping = new UnityEvent();
         ping.AddListener(() => SCR_master_main.returnInstance().whatMusic());
@@ -74,4 +83,5 @@ public class SCR_master_audio : MonoBehaviour {
 
         ping.Invoke();
     }
+    #endregion
 }

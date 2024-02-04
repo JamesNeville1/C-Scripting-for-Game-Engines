@@ -437,10 +437,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1239860499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d093d119b86f8fa41820ddbce061385e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b3d0fe9a83502b4a957ecc157ce14c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 14, y: 7}
+  size: {x: 14, y: 9}
   tile: {fileID: 11400000, guid: c04797b4d78886344ac19fa173dfc11a, type: 2}
   boardParent: {fileID: 786197570}
   tilemap: {fileID: 0}

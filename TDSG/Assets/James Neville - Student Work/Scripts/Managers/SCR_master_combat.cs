@@ -5,27 +5,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using Unity.Burst.CompilerServices;
 
-public class SCR_combat_master : MonoBehaviour {
+public class SCR_master_combat : MonoBehaviour {
 
-    private static SCR_combat_master instance;
-    public static SCR_combat_master returnInstance() {
+    #region Set Instance
+    private static SCR_master_combat instance;
+    public static SCR_master_combat returnInstance() {
         return instance;
     }
     private void Awake() {
         instance = this;
     }
+    #endregion
 
-    [SerializeField] private Vector2Int size;
+    [Header("Require Dev Input")]
     [SerializeField] private RuleTile tile;
     [SerializeField] private GameObject boardParent;
 
+    [Header("Read Only")]
     [SerializeField] [MyReadOnly] private Tilemap tilemap;
+    [SerializeField] [MyReadOnly] private bool playerTurn = false;
 
-    private Dictionary<Vector2Int, bool> boardData = new Dictionary<Vector2Int, bool>(); //Use unit in future
+    //
+    private Dictionary<Vector2Int, SCR_combat_unit> boardData = new Dictionary<Vector2Int, SCR_combat_unit>(); //Use unit in future
 
-    public void setup() {
+    #region Unity
+    private void Update() {
+        if (playerTurn) {
+            takeInput();
+        }
+    }
+    #endregion
+    #region Setup
+    public void setup(Vector2Int size) {
         tilemap = GetComponentInChildren<Tilemap>();
         tilemap.ClearAllTiles();
 
@@ -41,21 +53,22 @@ public class SCR_combat_master : MonoBehaviour {
                 bool isBound = currentPos.x == 0 || currentPos.y == size.x - 1 || currentPos.y == 0 || currentPos.x == size.x - 1;
                 
                 if(!isBound) {
-                    boardData.Add((Vector2Int)currentPos, true);    
+                    boardData.Add((Vector2Int)currentPos, null);    
                 }
             }
         }
 
         //boardParent.SetActive(false);
     }
-
-    private void Update() {
+    #endregion
+    #region Take Player Input
+    private void takeInput() {
         if (Input.GetMouseButtonDown(0)) {
             RaycastHit2D hit = Physics2D.Raycast(IzzetMain.getMousePos(Camera.main), Vector2.down);
 
             if (hit.collider != null) {
                 if (boardData.ContainsKey(IzzetMain.castToVector2Int(hit.point))) {
-                    //Debug.Log("You can move here");
+                    Debug.Log("You can move here");
                     return;
                 }
             }
@@ -63,4 +76,5 @@ public class SCR_combat_master : MonoBehaviour {
             //Debug.Log("You can't move here");
         }
     }
+    #endregion
 }

@@ -125,13 +125,13 @@ public class SCR_overworld_enemy : MonoBehaviour {
     }
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.GetComponent<SCR_player_main>() && currentState == enemyState.PLAYER_SEEN) {
-            SCR_master_timers.returnTickSystem().subscribe(beforeGiveup, () => waitBeforeGiveup());
+            SCR_master_timers.returnTickSystem().subscribe("Enemy", () => waitBeforeGiveup(), beforeGiveup);
         }
     }
     private void waitBeforeGiveup() {
         currentState = enemyState.WANDERING;
         getNewTarget();
         masterRef.whatMusic();
-        SCR_master_timers.returnTickSystem().unsubscribe(beforeGiveup, () => waitBeforeGiveup());
+        SCR_master_timers.returnTickSystem().removeAll("Enemy");
     }
 }
