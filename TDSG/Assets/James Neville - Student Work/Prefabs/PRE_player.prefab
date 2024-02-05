@@ -110,7 +110,8 @@ MonoBehaviour:
   playerAnimation: {fileID: 0}
   timeBetweenWalkSFX: 0.45
   courtineRunning: 0
-  timeBetweenHungerTicks: 1
+  timeBetweenHungerTicks: 180
+  timeBetweenHungerDamageTicks: 6
 --- !u!114 &637631082962288691
 MonoBehaviour:
   m_ObjectHideFlags: 0

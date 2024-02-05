@@ -62,7 +62,11 @@ public class SCR_unit_attributes : MonoBehaviour {
         SCR_player_main.returnInstance().changeOverworldSpeed();
 
         attributes.health = new SCR_attribute(stats.athletics, delegate { onHealthEqualZeroOverworldPlayer(); });
-        attributes.hunger = new SCR_attribute(stats.survival, delegate { onHungerEqualZeroOverworldPlayer(); }, delegate { stopBeingHungeryOverworldPlayer(); });
+        attributes.hunger = new SCR_attribute(
+            stats.survival, 
+            delegate { onHungerEqualZeroOverworldPlayer(); }, 
+            delegate { stopBeingHungeryOverworldPlayer(); }
+        );
 
         attributes.health.addUI(SCR_master_stats_display.returnInstance().returnHealthUI());
         attributes.hunger.addUI(SCR_master_stats_display.returnInstance().returnHungerUI());
@@ -96,8 +100,8 @@ public class SCR_unit_attributes : MonoBehaviour {
             delegate { 
                 attributes.health.adjust(-1);
                 if (attributes.health.returnCurrent() <= 0) SCR_master_timers.returnInstance().removeAll("End_Hunger"); }, //Reload menu, and remove timer once done
-            2
-        );
+            SCR_player_main.returnInstance().returnTimeBetweenHungerDamageTicks()
+        );;
         attributes.speed = Mathf.RoundToInt(attributes.speed / 2); 
         SCR_player_main.returnInstance().changeOverworldSpeed();
         Debug.Log("Player: Too Hungry");
