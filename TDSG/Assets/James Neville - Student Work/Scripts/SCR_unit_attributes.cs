@@ -57,7 +57,7 @@ public class SCR_unit_attributes : MonoBehaviour {
             attributes.hunger = new SCR_attribute(stats.survival, delegate { onHungerEqualZero(); });
         }
 
-        SCR_master_timers.returnInstance().subscribe("Just_A_Test", delegate { attributes.hunger.trigger(); SCR_master_timers.returnInstance().removeAll("Just_A_Test"); }, 12);
+        SCR_master_timers.returnInstance().subscribe("Just_A_Test", delegate { attributes.hunger.zeroTrigger(); SCR_master_timers.returnInstance().removeAll("Just_A_Test"); }, 12);
     }
 
     private void onHeathEqualZero() {
