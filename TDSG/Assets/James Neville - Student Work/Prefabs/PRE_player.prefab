@@ -102,16 +102,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039649df72968544ba91b1c8ee229416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modifOverworldSpeed: 0.6
-  walkClips:
-  - {fileID: 8300000, guid: 4681e3a2aa3036f4b974842775edffd3, type: 3}
-  - {fileID: 8300000, guid: 17955426c4d4f074480be5893a5ed8c6, type: 3}
-  - {fileID: 8300000, guid: af43c4c96adc2f04bb15712c060faa4c, type: 3}
-  - {fileID: 8300000, guid: af2de5cf891d91d43a9ee1d9271d31b1, type: 3}
-  - {fileID: 8300000, guid: f04822db727e9d94396dc7b2ff4c8029, type: 3}
+  modifOverworldSpeed: 1
   overworldSpeed: 0
   rb: {fileID: 0}
-  animator: {fileID: 0}
   sr: {fileID: 0}
   playerAttributes: {fileID: 0}
   playerAnimation: {fileID: 0}
@@ -130,17 +123,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa5e13c1a8d861498f23a416429b5a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitPrefix: player
-  passer:
+  PASS_animation:
   - type: 0
-    name: idle
+    animationData:
+      name: idle
+      priority: 1
   - type: 1
-    name: walk
+    animationData:
+      name: walk
+      priority: 1
   - type: 2
-    name: hurt
+    animationData:
+      name: hurt
+      priority: 2
   - type: 3
-    name: death
+    animationData:
+      name: death
+      priority: 3
+  unitPrefix: player
   animator: {fileID: 0}
+  current: 0
 --- !u!114 &8160791640738851150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +161,24 @@ MonoBehaviour:
     dexterity: 0
     endurance: 0
   attributes:
+    health:
+      current: 0
+      max: 0
+      onZero:
+        m_PersistentCalls:
+          m_Calls: []
+    hunger:
+      current: 0
+      max: 0
+      onZero:
+        m_PersistentCalls:
+          m_Calls: []
+    tiredness:
+      current: 0
+      max: 0
+      onZero:
+        m_PersistentCalls:
+          m_Calls: []
     speed: 0
 --- !u!50 &3903683744039567537
 Rigidbody2D:

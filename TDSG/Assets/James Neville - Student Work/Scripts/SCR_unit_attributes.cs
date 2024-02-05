@@ -1,5 +1,6 @@
 using IzzetUtils.IzzetAttributes;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,53 +37,59 @@ public class SCR_unit_attributes : MonoBehaviour {
     [Header("Attributes")]
     public entAttributes attributes;
 
-    private void Awake() {
-        stats = new entStats(5, 5, 5, 5);
+    [Header("Read Only")]
+    SCR_unit_animation myAnimatior; 
 
+    //Allow player to health and eat, and allow reduce hard coding
+    private void Start() {
+        stats = new entStats(5, 5, 5, 5); //Temp
         setup();
-
-        SCR_master_timers.returnInstance().subscribe(
-            "Test", 
-            delegate { 
-                attributes.hunger.reduce(5); 
-                Debug.Log("Timer Triggered");
-                SCR_master_timers.returnInstance().removeAll("Test"); 
-            }, 
-            2);
     }
 
     private void setup() {
-        attributes.health = new SCR_attribute(
-            stats.athletics,
+        myAnimatior = GetComponent<SCR_unit_animation>();
+
+        attributes.health = new SCR_attribute( stats.athletics, delegate { onHeathEqualZero(); });
+        attributes.speed = stats.dexterity;
+
+        if (isPlayer()) {
+            SCR_player_main.returnInstance().changeOverworldSpeed();
+            attributes.hunger = new SCR_attribute(stats.survival, delegate { onHungerEqualZero(); });
+        }
+
+        SCR_master_timers.returnInstance().subscribe("Just_A_Test", delegate { attributes.hunger.trigger(); SCR_master_timers.returnInstance().removeAll("Just_A_Test"); }, 12);
+    }
+
+    private void onHeathEqualZero() {
+        myAnimatior.play(SCR_unit_animation.AnimationType.DEATH);
+        
+        if(isPlayer()) {
+            SCR_player_main.returnInstance().readyToDie();
+        }
+
+        SCR_master_timers.returnInstance().subscribe(
+            "Before_End",
+            delegate { SCR_master_timers.returnInstance().removeAll("Before_End"); SceneManager.LoadScene("SCE_menu"); }, //Reload menu, and remove timer once done
+            2
+        );
+
+        Debug.Log("Player Died");
+    }
+
+    private void onHungerEqualZero() {
+        SCR_master_timers.returnInstance().subscribe(
+            "Before_End",
             delegate { 
-                GetComponent<SCR_player_main>().enabled = false;
-                GetComponent<SCR_unit_animation>().play(SCR_unit_animation.AnimationType.DEATH);
-                SCR_master_timers.returnInstance().subscribe(
-                    "Before_End",
-                    delegate {
-                        SceneManager.LoadScene("SCE_menu");
-                    },
-                    1
-                );
-                Debug.Log("ded"); 
-            }
+                attributes.health.reduce(1); Debug.Log($"Health now {attributes.health.returnCurrent()}");
+                if (attributes.health.returnCurrent() < 1) SCR_master_timers.returnInstance().removeAll("Before_End"); }, //Reload menu, and remove timer once done
+            2
         );
+        attributes.speed = Mathf.RoundToInt(attributes.speed / 2); 
+        if(isPlayer()) SCR_player_main.returnInstance().changeOverworldSpeed();
+        Debug.Log("Player Too Hungry");
+    }
 
-        attributes.hunger = new SCR_attribute(
-            stats.survival,
-            delegate {
-                SCR_master_timers.returnInstance().subscribe(
-                    "Hunger Ticks",
-                    delegate {
-                        GetComponent<SCR_unit_animation>().play(SCR_unit_animation.AnimationType.HURT);
-                        attributes.health.reduce(1);
-                        print(attributes.health.returnCurrent());
-                    },
-                    1
-                );
-
-                Debug.Log("hrt"); 
-            }
-        );
+    private bool isPlayer() {
+        return SCR_player_main.returnInstance().gameObject == this.gameObject;
     }
 }

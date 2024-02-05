@@ -9,14 +9,12 @@ public class SCR_player_main : MonoBehaviour {
 
     [Header("Require Dev Input")]
     [SerializeField] [Tooltip("Multiply this by the speed attribute")] private float modifOverworldSpeed;
-    [SerializeField] private AudioClip[] walkClips;
 
     [Header("Main")]
     [SerializeField] [MyReadOnly] private float overworldSpeed;
 
     [Header("Components")]
     [SerializeField] [MyReadOnly] private Rigidbody2D rb;
-    [SerializeField] [MyReadOnly] private Animator animator;
     [SerializeField] [MyReadOnly] private SpriteRenderer sr;
     [SerializeField] [MyReadOnly] private SCR_unit_attributes playerAttributes;
     [SerializeField] [MyReadOnly] private SCR_unit_animation playerAnimation;
@@ -87,11 +85,13 @@ public class SCR_player_main : MonoBehaviour {
         }
     }
     private void animate(Vector2Int input) {
-        if(input.x != 0 || input.y != 0) {
-            //playerAnimation.play(SCR_unit_animation.AnimationType.WALK);
-        }
-        else {
-            //playerAnimation.play(SCR_unit_animation.AnimationType.IDLE);
+        if (playerAnimation.enabled) {
+            if(input.x != 0 || input.y != 0) {
+                playerAnimation.play(SCR_unit_animation.AnimationType.WALK);
+            }
+            else {
+                playerAnimation.play(SCR_unit_animation.AnimationType.IDLE);
+            }
         }
     }
     private IEnumerator Footstepsounds() {
@@ -107,17 +107,18 @@ public class SCR_player_main : MonoBehaviour {
         return playerAttributes;
     }
     public void changeOverworldSpeed(int modifBy = 0) {
-        overworldSpeed = (playerAttributes.attributes.speed * modifOverworldSpeed) - modifBy;
+        overworldSpeed = playerAttributes.attributes.speed * modifOverworldSpeed;
     }
-    public void die(string reason = "") {
-        Debug.Log($"You dead fool, you died to {reason}");
+    public void readyToDie() {
+        overworldSpeed = 0;
+        rb.velocity = Vector2.zero;
+        this.enabled = false;
     }
     #endregion
     #region Setup
     public void setup() {
         //Get Components
         rb = GetComponent<Rigidbody2D>();
-        animator = gameObject.GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
         playerAttributes = GetComponent<SCR_unit_attributes>();
         playerAnimation = GetComponent<SCR_unit_animation>();
