@@ -41,28 +41,39 @@ public class SCR_unit_attributes : MonoBehaviour {
     SCR_unit_animation myAnimatior;
 
     public void setup() {
-        stats = new entStats(5, 5, 5, 5);
-
+        //Component
         myAnimatior = GetComponent<SCR_unit_animation>();
 
-        attributes.health = new SCR_attribute(stats.athletics, delegate { onHeathEqualZero(); });
+        //Temp Stats
+        stats = new entStats(5, 5, 5, 5);
+
         attributes.speed = stats.dexterity;
 
-        if (isPlayer()) {
-            SCR_player_main.returnInstance().changeOverworldSpeed();
-            attributes.hunger = new SCR_attribute(stats.survival, delegate { onHungerEqualZeroPlayer(); });
-
-            attributes.health.addUI(SCR_master_stats_display.returnInstance().returnHealthUI());
-            attributes.hunger.addUI(SCR_master_stats_display.returnInstance().returnHungerUI());
+        if (isOverworldPlayer()) {
+            overworldPlayerSetup();
+            hungerTicksSetup();
+        }
+        else {
+            unitSetup();
         }
     }
 
-    private void onHeathEqualZero() {
+    private void overworldPlayerSetup() {
+        SCR_player_main.returnInstance().changeOverworldSpeed();
+
+        attributes.health = new SCR_attribute(stats.athletics, delegate { onHealthEqualZeroOverworldPlayer(); });
+        attributes.hunger = new SCR_attribute(stats.survival, delegate { onHungerEqualZeroOverworldPlayer(); }, delegate { stopBeingHungeryOverworldPlayer(); });
+
+        attributes.health.addUI(SCR_master_stats_display.returnInstance().returnHealthUI());
+        attributes.hunger.addUI(SCR_master_stats_display.returnInstance().returnHungerUI());
+    }
+    private void unitSetup() {
+        attributes.health = new SCR_attribute(stats.athletics, delegate { onHealthEqualZero(); });
+    }
+
+    #region When Health is Zero
+    private void onHealthEqualZero() {
         myAnimatior.play(SCR_unit_animation.AnimationType.DEATH);
-        
-        if(isPlayer()) {
-            SCR_player_main.returnInstance().readyToDie();
-        }
 
         SCR_master_timers.returnInstance().subscribe(
             "End_Health",
@@ -73,22 +84,41 @@ public class SCR_unit_attributes : MonoBehaviour {
         Debug.Log("Player Died");
     }
 
-    private void onHungerEqualZeroPlayer() {
+    private void onHealthEqualZeroOverworldPlayer() {
+        SCR_player_main.returnInstance().readyToDie();
+        onHealthEqualZero();
+    }
+    #endregion
+    #region When Hunger is Zero
+    private void onHungerEqualZeroOverworldPlayer() {
         SCR_master_timers.returnInstance().subscribe(
             "End_Hunger",
             delegate { 
-                attributes.health.adjust(-1); Debug.Log($"Health now {attributes.health.returnCurrent()}");
+                attributes.health.adjust(-1);
                 if (attributes.health.returnCurrent() <= 0) SCR_master_timers.returnInstance().removeAll("End_Hunger"); }, //Reload menu, and remove timer once done
             2
         );
         attributes.speed = Mathf.RoundToInt(attributes.speed / 2); 
         SCR_player_main.returnInstance().changeOverworldSpeed();
-        Debug.Log("Player Too Hungry");
+        Debug.Log("Player: Too Hungry");
     }
+    #endregion
+    #region When hunger is greater than zero, after being zero
+    private void stopBeingHungeryOverworldPlayer() {
+        SCR_master_timers.returnInstance().removeAll("End_Hunger");
+        attributes.speed = stats.dexterity;
+        SCR_player_main.returnInstance().changeOverworldSpeed();
+        Debug.Log("Player: No Longer Hungry");
+    }
+    #endregion
+    #region Hunger Ticks
+    private void hungerTicksSetup() {
+        float timeBetweenHungerTicks = SCR_player_main.returnInstance().returnTimeBetweenHungerTicks();
 
-    private bool isPlayer() {
+        SCR_master_timers.returnInstance().subscribe("Normal_Hungry", delegate { attributes.hunger.adjust(-1); }, timeBetweenHungerTicks);
+    }
+    #endregion
+    private bool isOverworldPlayer() {
         return SCR_player_main.returnInstance().gameObject == this.gameObject;
     }
-
-    //Function onHungerEqualZeroPlayer & onHealthEqualZeroPlayer
 }

@@ -25,6 +25,9 @@ public class SCR_player_main : MonoBehaviour {
     [Header("Other")]
     [SerializeField] [MyReadOnly] private bool courtineRunning = false;
 
+    [Header("")]
+    [SerializeField] private float timeBetweenHungerTicks;
+
     #region Set Instance
     private static SCR_player_main instance;
     public static SCR_player_main returnInstance() {
@@ -112,6 +115,9 @@ public class SCR_player_main : MonoBehaviour {
         overworldSpeed = 0;
         rb.velocity = Vector2.zero;
         this.enabled = false;
+    }
+    public float returnTimeBetweenHungerTicks() {
+        return timeBetweenHungerTicks;
     }
     #endregion
     #region Setup

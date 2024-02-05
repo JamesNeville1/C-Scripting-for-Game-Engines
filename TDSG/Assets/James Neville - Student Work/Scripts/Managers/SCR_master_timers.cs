@@ -1,3 +1,4 @@
+using IzzetUtils.IzzetAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -42,10 +43,10 @@ public class SCR_master_timers : MonoBehaviour {
     #endregion
     #region Timer Class
     public class timer : MonoBehaviour {
-        float currentTimer;
-        float maxTimer;
-        event Action myEvent;
-        bool paused = false;
+        [SerializeField] [MyReadOnly] private float currentTimer;
+        [SerializeField] [MyReadOnly] private float maxTimer;
+        private event Action myEvent;
+        [SerializeField] [MyReadOnly] private bool paused = false;
 
         public void setup(float maxTimer) {
             this.maxTimer = maxTimer;

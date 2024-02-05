@@ -102,15 +102,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039649df72968544ba91b1c8ee229416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modifOverworldSpeed: 1
+  modifOverworldSpeed: 0.9
   overworldSpeed: 0
   rb: {fileID: 0}
   sr: {fileID: 0}
   playerAttributes: {fileID: 0}
   playerAnimation: {fileID: 0}
-  audioManager: {fileID: 0}
   timeBetweenWalkSFX: 0.45
   courtineRunning: 0
+  timeBetweenHungerTicks: 1
 --- !u!114 &637631082962288691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,18 +167,30 @@ MonoBehaviour:
       onZero:
         m_PersistentCalls:
           m_Calls: []
+      onEndZero:
+        m_PersistentCalls:
+          m_Calls: []
+      display: {fileID: 0}
     hunger:
       current: 0
       max: 0
       onZero:
         m_PersistentCalls:
           m_Calls: []
+      onEndZero:
+        m_PersistentCalls:
+          m_Calls: []
+      display: {fileID: 0}
     tiredness:
       current: 0
       max: 0
       onZero:
         m_PersistentCalls:
           m_Calls: []
+      onEndZero:
+        m_PersistentCalls:
+          m_Calls: []
+      display: {fileID: 0}
     speed: 0
 --- !u!50 &3903683744039567537
 Rigidbody2D:
