@@ -16,7 +16,7 @@ public class SCR_player_main : MonoBehaviour {
     [Header("Components")]
     [SerializeField] [MyReadOnly] private Rigidbody2D rb;
     [SerializeField] [MyReadOnly] private SpriteRenderer sr;
-    [SerializeField] [MyReadOnly] private SCR_unit_attributes playerAttributes;
+    [SerializeField] [MyReadOnly] private SCR_ABS_attributes playerAttributes;
     [SerializeField] [MyReadOnly] private SCR_unit_animation playerAnimation;
 
     [Header("Will not change once built")]
@@ -24,10 +24,6 @@ public class SCR_player_main : MonoBehaviour {
 
     [Header("Other")]
     [SerializeField] [MyReadOnly] private bool courtineRunning = false;
-
-    [Header("Attribute Vars")]
-    [SerializeField] private float timeBetweenHungerTicks;
-    [SerializeField] private float timeBetweenHungerDamageTicks;
 
     #region Set Instance
     private static SCR_player_main instance;
@@ -106,22 +102,17 @@ public class SCR_player_main : MonoBehaviour {
     }
     #endregion
     #region Returns & Publics
-    public SCR_unit_attributes returnAttributes() {
+    public SCR_ABS_attributes returnAttributes() {
         return playerAttributes;
     }
     public void changeOverworldSpeed(int modifBy = 0) {
-        overworldSpeed = playerAttributes.attributes.speed * modifOverworldSpeed;
+        overworldSpeed = playerAttributes.returnSpeed() * modifOverworldSpeed;
     }
     public void readyToDie() {
         overworldSpeed = 0;
         rb.velocity = Vector2.zero;
+        SCR_master_main.returnInstance().setGatheringLocked(true);
         this.enabled = false;
-    }
-    public float returnTimeBetweenHungerTicks() {
-        return timeBetweenHungerTicks;
-    }
-    public float returnTimeBetweenHungerDamageTicks() {
-        return timeBetweenHungerDamageTicks;
     }
     #endregion
     #region Setup
@@ -129,12 +120,12 @@ public class SCR_player_main : MonoBehaviour {
         //Get Components
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        playerAttributes = GetComponent<SCR_unit_attributes>();
+        playerAttributes = GetComponent<SCR_ABS_attributes>();
         playerAnimation = GetComponent<SCR_unit_animation>();
 
         //
         playerAnimation.setup();
-        playerAttributes.setup();
+        playerAttributes.setupUniversal(5,5,5,5);
 
         //Adjust Speed
         changeOverworldSpeed();

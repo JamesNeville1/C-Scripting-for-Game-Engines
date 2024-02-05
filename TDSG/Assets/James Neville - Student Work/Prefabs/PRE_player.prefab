@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1638651887771361930}
   - component: {fileID: 84076130210256538}
   - component: {fileID: 637631082962288691}
-  - component: {fileID: 8160791640738851150}
+  - component: {fileID: -8650499641567052811}
   - component: {fileID: 3903683744039567537}
   - component: {fileID: 9043039355727994593}
   - component: {fileID: 7303173091059305810}
@@ -110,8 +110,6 @@ MonoBehaviour:
   playerAnimation: {fileID: 0}
   timeBetweenWalkSFX: 0.45
   courtineRunning: 0
-  timeBetweenHungerTicks: 180
-  timeBetweenHungerDamageTicks: 6
 --- !u!114 &637631082962288691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +142,7 @@ MonoBehaviour:
   unitPrefix: player
   animator: {fileID: 0}
   current: 0
---- !u!114 &8160791640738851150
+--- !u!114 &-8650499641567052811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +151,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5207933277885795846}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f2a2af2a7e5d064abe4ecb79803b515, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b5fbfe724822eb4ea3a482a4e5ce223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
@@ -161,38 +159,33 @@ MonoBehaviour:
     survival: 0
     dexterity: 0
     endurance: 0
-  attributes:
-    health:
-      current: 0
-      max: 0
-      onZero:
-        m_PersistentCalls:
-          m_Calls: []
-      onEndZero:
-        m_PersistentCalls:
-          m_Calls: []
-      display: {fileID: 0}
-    hunger:
-      current: 0
-      max: 0
-      onZero:
-        m_PersistentCalls:
-          m_Calls: []
-      onEndZero:
-        m_PersistentCalls:
-          m_Calls: []
-      display: {fileID: 0}
-    tiredness:
-      current: 0
-      max: 0
-      onZero:
-        m_PersistentCalls:
-          m_Calls: []
-      onEndZero:
-        m_PersistentCalls:
-          m_Calls: []
-      display: {fileID: 0}
-    speed: 0
+  health:
+    current: 0
+    max: 0
+    onZero:
+      m_PersistentCalls:
+        m_Calls: []
+    onEndZero:
+      m_PersistentCalls:
+        m_Calls: []
+    display: {fileID: 0}
+  speed: 0
+  hunger:
+    current: 0
+    max: 0
+    onZero:
+      m_PersistentCalls:
+        m_Calls: []
+    onEndZero:
+      m_PersistentCalls:
+        m_Calls: []
+    display: {fileID: 0}
+  deathWaitTimerKey: Death_Wait_Before_Load
+  waitBeforeReloadSceneOnDeath: 2.5
+  hungerDamageTimerKey: Hunger_Damage_Tick
+  hungerDamageTimer: 3.5
+  hungerTimerKey: Hunger_Tick
+  hungerTimer: 180
 --- !u!50 &3903683744039567537
 Rigidbody2D:
   serializedVersion: 4

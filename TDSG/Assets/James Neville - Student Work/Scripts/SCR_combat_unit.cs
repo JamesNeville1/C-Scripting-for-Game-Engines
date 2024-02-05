@@ -8,10 +8,10 @@ public class SCR_combat_unit : MonoBehaviour {
     [SerializeField]
     private List<SCO_item> additionalItems;
 
-    SCR_unit_attributes characterAttributes;
+    SCR_ABS_attributes characterAttributes;
 
     private void Awake() {
-        characterAttributes = GetComponent<SCR_unit_attributes>();
+        characterAttributes = GetComponent<SCR_ABS_attributes>();
     }
 
     public void move(List<Vector2> steps = null) {
