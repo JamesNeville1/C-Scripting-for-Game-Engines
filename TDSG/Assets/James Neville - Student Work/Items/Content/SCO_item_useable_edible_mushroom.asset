@@ -21,4 +21,5 @@ MonoBehaviour:
   - {x: 0, y: 1}
   attribute: 5
   breakOnUse: 1
-  onUse: 8
+  onUseSFX: 8
+  shouldSFX: 1

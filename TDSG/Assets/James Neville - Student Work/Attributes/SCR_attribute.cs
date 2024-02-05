@@ -2,6 +2,7 @@ using IzzetUtils.IzzetAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +12,7 @@ public class SCR_attribute {
     [SerializeField] [MyReadOnly] private int max;
     [SerializeField] [MyReadOnly] private UnityEvent onZero = new UnityEvent();
     [SerializeField] [MyReadOnly] private UnityEvent onEndZero = new UnityEvent();
+    [SerializeField] [MyReadOnly] private TextMeshProUGUI display;
 
     public SCR_attribute(int max, UnityAction onZeroDelegate, UnityAction onEndZeroDelegate = null) {
         this.current = max;
@@ -18,6 +20,12 @@ public class SCR_attribute {
         
         onZero.AddListener(onZeroDelegate);
         onEndZero.AddListener(onEndZeroDelegate);
+    }
+
+    public void addUI(TextMeshProUGUI display) {
+        this.display = display;
+
+        updateDisplay();
     }
 
     public void zeroTrigger() { 
@@ -28,21 +36,23 @@ public class SCR_attribute {
         onEndZero.Invoke();
     }
 
-    public void reduce(int value) { 
-        if(current == 1 && value > 0) {
-            Debug.Log("Trigger");
-            zeroTrigger();
+    public void adjust(int value) {
+        if(value < 0) {
+            if(current == 1) {
+                zeroTrigger();
+            }
         }
-
-        current -= value;
+        else if(value > 0) { 
+            if(current == 0) {
+                endZeroTrigger();
+            }
+        }
+        current = Mathf.Clamp(current + value, 0, max);
+        updateDisplay();
     }
 
-    public void increase(int value) {
-        if(current == 0 && value > 0) {
-            endZeroTrigger();
-        }
-
-        current += value;
+    private void updateDisplay() {
+        display.text = current.ToString();
     }
 
     public int returnCurrent() {

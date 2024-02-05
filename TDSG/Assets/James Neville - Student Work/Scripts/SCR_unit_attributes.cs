@@ -55,9 +55,12 @@ public class SCR_unit_attributes : MonoBehaviour {
         if (isPlayer()) {
             SCR_player_main.returnInstance().changeOverworldSpeed();
             attributes.hunger = new SCR_attribute(stats.survival, delegate { onHungerEqualZero(); });
+
+            attributes.health.addUI(SCR_master_stats_display.returnInstance().returnHealthUI());
+            attributes.hunger.addUI(SCR_master_stats_display.returnInstance().returnHealthUI());
         }
 
-        SCR_master_timers.returnInstance().subscribe("Just_A_Test", delegate { attributes.hunger.zeroTrigger(); SCR_master_timers.returnInstance().removeAll("Just_A_Test"); }, 12);
+        SCR_master_timers.returnInstance().subscribe("Just_A_Test", delegate { attributes.hunger.zeroTrigger(); SCR_master_timers.returnInstance().removeAll("Just_A_Test"); }, 2);
     }
 
     private void onHeathEqualZero() {
@@ -68,8 +71,8 @@ public class SCR_unit_attributes : MonoBehaviour {
         }
 
         SCR_master_timers.returnInstance().subscribe(
-            "Before_End",
-            delegate { SCR_master_timers.returnInstance().removeAll("Before_End"); SceneManager.LoadScene("SCE_menu"); }, //Reload menu, and remove timer once done
+            "End_Health",
+            delegate { SceneManager.LoadScene("SCE_menu"); SCR_master_timers.returnInstance().removeAll("End_Health"); }, //Reload menu, and remove timer once done
             2
         );
 
@@ -78,10 +81,10 @@ public class SCR_unit_attributes : MonoBehaviour {
 
     private void onHungerEqualZero() {
         SCR_master_timers.returnInstance().subscribe(
-            "Before_End",
+            "End_Hunger",
             delegate { 
-                attributes.health.reduce(1); Debug.Log($"Health now {attributes.health.returnCurrent()}");
-                if (attributes.health.returnCurrent() < 1) SCR_master_timers.returnInstance().removeAll("Before_End"); }, //Reload menu, and remove timer once done
+                attributes.health.adjust(-1); Debug.Log($"Health now {attributes.health.returnCurrent()}");
+                if (attributes.health.returnCurrent() <= 0) SCR_master_timers.returnInstance().removeAll("End_Hunger"); }, //Reload menu, and remove timer once done
             2
         );
         attributes.speed = Mathf.RoundToInt(attributes.speed / 2); 
@@ -92,4 +95,6 @@ public class SCR_unit_attributes : MonoBehaviour {
     private bool isPlayer() {
         return SCR_player_main.returnInstance().gameObject == this.gameObject;
     }
+
+    //Function onHungerEqualZeroPlayer & onHealthEqualZeroPlayer
 }
