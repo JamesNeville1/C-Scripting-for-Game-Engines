@@ -33,11 +33,6 @@ public class SCR_unit_animation : MonoBehaviour {
     //
     private Dictionary<AnimationType, animationDataStruct> animations = new Dictionary<AnimationType, animationDataStruct>();
 
-    #region Unity
-    private void Awake() {
-        setup();
-    }
-    #endregion
     #region Publics
     public void play(AnimationType type) {
         bool isAlreadyPlaying = current == type;
@@ -56,7 +51,7 @@ public class SCR_unit_animation : MonoBehaviour {
     }
     #endregion
     #region Setup
-    private void setup() {
+    public void setup() {
         animator = GetComponent<Animator>();
 
         foreach (PASS_animationStruct toPass in PASS_animation) {

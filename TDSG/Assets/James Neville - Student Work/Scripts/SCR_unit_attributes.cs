@@ -38,29 +38,23 @@ public class SCR_unit_attributes : MonoBehaviour {
     public entAttributes attributes;
 
     [Header("Read Only")]
-    SCR_unit_animation myAnimatior; 
+    SCR_unit_animation myAnimatior;
 
-    //Allow player to health and eat, and allow reduce hard coding
-    private void Start() {
-        stats = new entStats(5, 5, 5, 5); //Temp
-        setup();
-    }
+    public void setup() {
+        stats = new entStats(5, 5, 5, 5);
 
-    private void setup() {
         myAnimatior = GetComponent<SCR_unit_animation>();
 
-        attributes.health = new SCR_attribute( stats.athletics, delegate { onHeathEqualZero(); });
+        attributes.health = new SCR_attribute(stats.athletics, delegate { onHeathEqualZero(); });
         attributes.speed = stats.dexterity;
 
         if (isPlayer()) {
             SCR_player_main.returnInstance().changeOverworldSpeed();
-            attributes.hunger = new SCR_attribute(stats.survival, delegate { onHungerEqualZero(); });
+            attributes.hunger = new SCR_attribute(stats.survival, delegate { onHungerEqualZeroPlayer(); });
 
             attributes.health.addUI(SCR_master_stats_display.returnInstance().returnHealthUI());
-            attributes.hunger.addUI(SCR_master_stats_display.returnInstance().returnHealthUI());
+            attributes.hunger.addUI(SCR_master_stats_display.returnInstance().returnHungerUI());
         }
-
-        SCR_master_timers.returnInstance().subscribe("Just_A_Test", delegate { attributes.hunger.zeroTrigger(); SCR_master_timers.returnInstance().removeAll("Just_A_Test"); }, 2);
     }
 
     private void onHeathEqualZero() {
@@ -79,7 +73,7 @@ public class SCR_unit_attributes : MonoBehaviour {
         Debug.Log("Player Died");
     }
 
-    private void onHungerEqualZero() {
+    private void onHungerEqualZeroPlayer() {
         SCR_master_timers.returnInstance().subscribe(
             "End_Hunger",
             delegate { 
@@ -88,7 +82,7 @@ public class SCR_unit_attributes : MonoBehaviour {
             2
         );
         attributes.speed = Mathf.RoundToInt(attributes.speed / 2); 
-        if(isPlayer()) SCR_player_main.returnInstance().changeOverworldSpeed();
+        SCR_player_main.returnInstance().changeOverworldSpeed();
         Debug.Log("Player Too Hungry");
     }
 
