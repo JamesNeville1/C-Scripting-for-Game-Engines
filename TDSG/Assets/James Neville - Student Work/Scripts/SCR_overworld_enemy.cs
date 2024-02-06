@@ -49,7 +49,7 @@ public class SCR_overworld_enemy : MonoBehaviour {
     }
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.GetComponent<SCR_player_main>() && currentState == enemyState.PLAYER_SEEN) {
-            SCR_master_timers.returnInstance().subscribe("Enemy", () => waitBeforeGiveup(), beforeGiveup);
+            SCR_master_timers.returnInstance().subscribe(SCR_master_timers.timerID.ENEMY_GIVEUP, () => waitBeforeGiveup(), beforeGiveup);
         }
     }
     #endregion
@@ -126,7 +126,7 @@ public class SCR_overworld_enemy : MonoBehaviour {
         currentState = enemyState.WANDERING;
         getNewTarget();
         masterRef.whatMusic();
-        SCR_master_timers.returnInstance().removeAll("Enemy");
+        SCR_master_timers.returnInstance().removeAll(SCR_master_timers.timerID.ENEMY_GIVEUP);
     }
     #endregion
     #region Display

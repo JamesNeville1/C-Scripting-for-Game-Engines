@@ -11,7 +11,14 @@ public class SCR_master_timers : MonoBehaviour {
 
     [SerializeField] private Transform timerParent;
 
-    private Dictionary<string, timer> timeEvents = new Dictionary<string, timer>(); //Holds the current timers
+    [System.Serializable] public enum timerID {
+        HUNGER_TICK,
+        HUNGER_DAMAGE_TICK,
+        WAIT_AFTER_DEATH,
+        ENEMY_GIVEUP
+    }
+
+    private Dictionary<timerID, timer> timeEvents = new Dictionary<timerID, timer>(); //Holds the current timers
 
     #region Set Instance
     private static SCR_master_timers instance;
@@ -25,7 +32,7 @@ public class SCR_master_timers : MonoBehaviour {
     }
     #endregion
     #region Public
-    public void subscribe(string id, Action onFinish, float maxTimer = 0) {
+    public void subscribe(timerID id, Action onFinish, float maxTimer = 0) {
         if(!timeEvents.ContainsKey(id)) {
             timer newTimer = new GameObject($"{id} Timer", typeof(timer)).GetComponent<timer>();
             
@@ -36,14 +43,14 @@ public class SCR_master_timers : MonoBehaviour {
         }
         timeEvents[id].subscribe(onFinish);
     }
-    public void removeAll(string id) {
+    public void removeAll(timerID id) {
         Destroy(timeEvents[id].gameObject);
         timeEvents.Remove(id);
     }
-    public void pause(string id) {
+    public void pause(timerID id) {
         timeEvents[id].pauseTimer();
     }
-    public void unpause(string id) {
+    public void unpause(timerID id) {
         timeEvents[id].unpauseTimer();
     }
     #endregion

@@ -95,13 +95,13 @@ public class SCR_master_main : MonoBehaviour {
         overworldMasterObj.SetActive(true);
         combatMasterObj.SetActive(false);
 
-        SCR_player_main.returnInstance().returnAttributes().unpauseHunger();
+        SCR_master_timers.returnInstance().unpause(SCR_master_timers.timerID.HUNGER_TICK);
     }
     public void loadCombat() {
         combatMasterObj.SetActive(true);
         overworldMasterObj.SetActive(false);
 
-        SCR_player_main.returnInstance().returnAttributes().pauseHunger();
+        SCR_master_timers.returnInstance().pause(SCR_master_timers.timerID.HUNGER_TICK);
 
         SCR_master_combat.setupEncounterEnemy[] temp = {
             new SCR_master_combat.setupEncounterEnemy(tempPassEnemy, new Vector2Int(5,5)),
