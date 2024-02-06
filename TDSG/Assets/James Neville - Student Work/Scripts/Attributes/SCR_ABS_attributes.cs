@@ -25,11 +25,11 @@ public abstract class SCR_ABS_attributes : MonoBehaviour {
         }
     }
 
-    protected delegate void onHealthEqualZero();
+    protected delegate void voidDelegate();
     #endregion
 
     //Delegates
-    private onHealthEqualZero onHealthEqualZeroHandler;
+    private voidDelegate onHealthEqualZeroHandler;
 
     [Header("Stats")]
     public entStats stats;

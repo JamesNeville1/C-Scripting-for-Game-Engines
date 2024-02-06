@@ -8,23 +8,13 @@ using UnityEngine.SceneManagement;
 
 public class SCR_overworld_player_attributes : SCR_ABS_attributes {
 
-    #region Delegate Seup
-    private delegate void startHunger();
-    private delegate void stopHunger();
-    private delegate void hungerRemove();
-
-    private delegate void onDeathTimerLogic();
-    private delegate void onNoHungerTimerLogic();
-
-    #endregion
-
     //Delegates
-    private startHunger startHungerHandler;
-    private stopHunger stopHungerHandler;
-    private hungerRemove hungerRemoveHandler;
+    private voidDelegate startHungerHandler;
+    private voidDelegate stopHungerHandler;
+    private voidDelegate hungerRemoveHandler;
 
-    private onDeathTimerLogic onDeathTimerLogicHandler;
-    private onNoHungerTimerLogic onNoHungerTimerLogicHandler;
+    private voidDelegate onDeathTimerLogicHandler;
+    private voidDelegate onNoHungerTimerLogicHandler;
 
     [Header("Player - Attributes")]
     [SerializeField] [Tooltip("")] [MyReadOnly] private SCR_attribute hunger;
