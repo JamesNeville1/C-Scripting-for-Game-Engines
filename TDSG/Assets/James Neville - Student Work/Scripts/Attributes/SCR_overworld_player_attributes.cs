@@ -25,8 +25,7 @@ public class SCR_overworld_player_attributes : SCR_ABS_attributes {
         hunger.addUI(SCR_master_stats_display.returnInstance().returnHungerUI());
         health.addUI(SCR_master_stats_display.returnInstance().returnHealthUI());
 
-        float timeBetweenHungerTicks = hungerTimer;
-        SCR_master_timers.returnInstance().subscribe(hungerTimerKey, delegate { hunger.adjust(-1); }, timeBetweenHungerTicks);
+        SCR_master_timers.returnInstance().subscribe(hungerTimerKey, delegate { hunger.adjust(-1); }, hungerTimer);
     }
     #region Health
     protected override void onHealthEqualZero() {
@@ -61,6 +60,12 @@ public class SCR_overworld_player_attributes : SCR_ABS_attributes {
 
         speed = stats.dexterity;
         SCR_player_main.returnInstance().changeOverworldSpeed();
+    }
+    public void pauseHunger() {
+        SCR_master_timers.returnInstance().pause(hungerTimerKey);
+    }
+    public void unpauseHunger() {
+        SCR_master_timers.returnInstance().pause(hungerTimerKey);
     }
     #endregion
     #region Stamina

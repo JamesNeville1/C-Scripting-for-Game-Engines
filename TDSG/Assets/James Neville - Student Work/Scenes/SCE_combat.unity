@@ -440,7 +440,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3d0fe9a83502b4a957ecc157ce14c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 14, y: 9}
   tile: {fileID: 11400000, guid: c04797b4d78886344ac19fa173dfc11a, type: 2}
   boardParent: {fileID: 786197570}
+  cameraOffset: {x: -0.5, y: -0.5}
+  hoverColour: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+  clickColour: {r: 0.33962265, g: 0.39289677, b: 0.4528302, a: 1}
   tilemap: {fileID: 0}
+  playerTurn: 0
+  oldHoverTilePos: {x: 0, y: 0}
+  midPoint: {x: 0, y: 0}

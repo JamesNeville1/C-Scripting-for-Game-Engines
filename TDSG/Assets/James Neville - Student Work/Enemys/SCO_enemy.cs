@@ -10,14 +10,11 @@ public class SCO_enemy : ScriptableObject {
     [SerializeField] private string animationUnitPrefix;
     [SerializeField] private SCO_item[] items;
 
-    [SerializeField] private int maxHealth;
-    [SerializeField] private int speed;
+    [SerializeField] private int athletics;
+    [SerializeField] private int dexterity;
+    [SerializeField] private int endurance;
 
-    private enum fightStyle {
-        STUPID,
-        SMART
-    }
-
+    private enum fightStyle { STUPID, SMART }
     [SerializeField] private fightStyle enemyFightStyle;
 
     public string returnName() {
@@ -32,10 +29,13 @@ public class SCO_enemy : ScriptableObject {
     public SCO_item[] returnItems() {
         return items;
     }
-    public int returnMaxHealth() {
-        return maxHealth;
+    public int returnAthletics() {
+        return athletics;
     }
-    public int returnSpeed() {
-        return speed;
+    public int returnEndurance() {
+        return endurance;
+    }
+    public int returnDexterity() {
+        return dexterity;
     }
 }

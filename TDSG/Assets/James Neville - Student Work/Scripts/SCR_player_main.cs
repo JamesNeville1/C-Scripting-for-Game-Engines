@@ -16,7 +16,7 @@ public class SCR_player_main : MonoBehaviour {
     [Header("Components")]
     [SerializeField] [MyReadOnly] private Rigidbody2D rb;
     [SerializeField] [MyReadOnly] private SpriteRenderer sr;
-    [SerializeField] [MyReadOnly] private SCR_ABS_attributes playerAttributes;
+    [SerializeField] [MyReadOnly] private SCR_overworld_player_attributes playerAttributes;
     [SerializeField] [MyReadOnly] private SCR_unit_animation playerAnimation;
 
     [Header("Will not change once built")]
@@ -37,6 +37,10 @@ public class SCR_player_main : MonoBehaviour {
     #region Unity
     private void Update() {
         playerMovementMain();
+
+        if (Input.GetKeyDown(KeyCode.O)) {
+            SCR_master_main.returnInstance().loadCombat();
+        }
     }
     #endregion
     #region Main
@@ -102,7 +106,7 @@ public class SCR_player_main : MonoBehaviour {
     }
     #endregion
     #region Returns & Publics
-    public SCR_ABS_attributes returnAttributes() {
+    public SCR_overworld_player_attributes returnAttributes() {
         return playerAttributes;
     }
     public void changeOverworldSpeed(int modifBy = 0) {
@@ -120,7 +124,7 @@ public class SCR_player_main : MonoBehaviour {
         //Get Components
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        playerAttributes = GetComponent<SCR_ABS_attributes>();
+        playerAttributes = GetComponent<SCR_overworld_player_attributes>();
         playerAnimation = GetComponent<SCR_unit_animation>();
 
         //

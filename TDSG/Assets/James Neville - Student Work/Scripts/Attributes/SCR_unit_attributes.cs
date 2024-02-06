@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SCR_unit_attributes : SCR_ABS_attributes {
     protected override void onHealthEqualZero() {
-        throw new System.NotImplementedException();
+        //Ping combat to remove me
+        
     }
 
     protected override void setupSpecific() {
-        throw new System.NotImplementedException();
+        
     }
 }

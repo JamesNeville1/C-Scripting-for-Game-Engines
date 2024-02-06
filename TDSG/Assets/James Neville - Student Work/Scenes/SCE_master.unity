@@ -1312,6 +1312,7 @@ Transform:
   m_Children:
   - {fileID: 519420032}
   - {fileID: 300277439}
+  - {fileID: 1454773397}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1375,9 +1376,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5207933277885795846, guid: 8dde42ce927554c4db156dfbb8b2acb0, type: 3}
-  inventorySize: {x: 3, y: 3}
+  inventorySize: {x: 3, y: 5}
   mapSize: {x: 100, y: 100}
   combatBoardSize: {x: 14, y: 9}
+  tempPassEnemy: {fileID: 11400000, guid: f48f5b8ee80dcdb45bdb0c80ee75de07, type: 2}
   playerCrafting: 0
   playerParent: Player Parent
   overworldMasterName: Overworld Master
@@ -1386,8 +1388,8 @@ MonoBehaviour:
   combatSceneName: SCE_combat
   audioSceneName: SCE_audio_manager
   inBattle: 0
-  overworldMaster: {fileID: 0}
-  combatMaster: {fileID: 0}
+  overworldMasterObj: {fileID: 0}
+  combatMasterObj: {fileID: 0}
 --- !u!114 &1364117805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1446,6 +1448,70 @@ MonoBehaviour:
   gridCellSprite: {fileID: 21300000, guid: 8eeedd5b06c35c949ba394c4b2c484a7, type: 3}
   itemBlockSprite: {fileID: 21300000, guid: d8ae8cb60f334584d9efa2f6bcc2fb6a, type: 3}
   cellParent: {fileID: 554863859}
+--- !u!1 &1454773396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1454773397}
+  - component: {fileID: 1454773398}
+  m_Layer: 0
+  m_Name: SCR_unit_animation_instance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1454773397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454773396}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1364117801}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1454773398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454773396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efa5e13c1a8d861498f23a416429b5a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PASS_animation:
+  - type: 0
+    animationData:
+      name: idle
+      priority: 1
+  - type: 1
+    animationData:
+      name: walk
+      priority: 1
+  - type: 2
+    animationData:
+      name: hurt
+      priority: 2
+  - type: 3
+    animationData:
+      name: death
+      priority: 3
+  unitPrefix: 
+  animator: {fileID: 0}
+  current: 0
 --- !u!1 &1486258443
 GameObject:
   m_ObjectHideFlags: 0

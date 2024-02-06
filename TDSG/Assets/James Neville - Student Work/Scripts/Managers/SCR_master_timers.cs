@@ -40,6 +40,12 @@ public class SCR_master_timers : MonoBehaviour {
         Destroy(timeEvents[id].gameObject);
         timeEvents.Remove(id);
     }
+    public void pause(string id) {
+        timeEvents[id].pauseTimer();
+    }
+    public void unpause(string id) {
+        timeEvents[id].unpauseTimer();
+    }
     #endregion
     #region Timer Class
     public class timer : MonoBehaviour {

@@ -185,7 +185,7 @@ MonoBehaviour:
   hungerDamageTimerKey: Hunger_Damage_Tick
   hungerDamageTimer: 3.5
   hungerTimerKey: Hunger_Tick
-  hungerTimer: 180
+  hungerTimer: 1
 --- !u!50 &3903683744039567537
 Rigidbody2D:
   serializedVersion: 4

@@ -12,7 +12,9 @@ public class SCR_master_main : MonoBehaviour {
     [Header("")]
     [SerializeField] private Vector2Int inventorySize;
     [SerializeField] private Vector2Int mapSize;
-    [SerializeField] private Vector2Int combatBoardSize; 
+    [SerializeField] private Vector2Int combatBoardSize;
+    [Header("")]
+    [SerializeField] private SCO_enemy tempPassEnemy;
 
     [Header("Other")]
     [SerializeField] private bool playerCrafting;
@@ -26,9 +28,9 @@ public class SCR_master_main : MonoBehaviour {
     [SerializeField] private string audioSceneName;
     [Header("")]
     [SerializeField] [MyReadOnly] private bool inBattle;
-    [SerializeField] [MyReadOnly] private GameObject overworldMaster;
-    [SerializeField] [MyReadOnly] private GameObject combatMaster;
-
+    [SerializeField] [MyReadOnly] private GameObject overworldMasterObj;
+    [SerializeField] [MyReadOnly] private GameObject combatMasterObj;
+    [Header("")]
     #region Set Instance
     private static SCR_master_main instance;
 
@@ -81,24 +83,30 @@ public class SCR_master_main : MonoBehaviour {
         SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.sfx.MUSIC_CALM);
 
         //Get other scene managers
-        overworldMaster = GameObject.Find(overworldMasterName); overworldMasterName = "";
-        combatMaster = GameObject.Find(combatMasterName); combatMasterName = "";
+        overworldMasterObj = GameObject.Find(overworldMasterName); overworldMasterName = "";
+        combatMasterObj = GameObject.Find(combatMasterName); combatMasterName = "";
 
         //Start Enemy Spawner
         //SCR_tick_system.returnTickSystem().subscribe(20f, delegate { SCR_enemy_spawner.returnInstance().spawnEnemy(); });
-
-        //
-        //loadCombat();
     }
     #endregion
     #region Load Different Mechanics
     public void loadOverworld() {
-        overworldMaster.SetActive(true);
-        combatMaster.SetActive(false);
+        overworldMasterObj.SetActive(true);
+        combatMasterObj.SetActive(false);
+
+        SCR_player_main.returnInstance().returnAttributes().unpauseHunger();
     }
     public void loadCombat() {
-        combatMaster.SetActive(true);
-        overworldMaster.SetActive(false);
+        combatMasterObj.SetActive(true);
+        overworldMasterObj.SetActive(false);
+
+        SCR_player_main.returnInstance().returnAttributes().pauseHunger();
+
+        SCR_master_combat.setupEncounterEnemy[] temp = {
+            new SCR_master_combat.setupEncounterEnemy(tempPassEnemy, new Vector2Int(5,5)),
+        };
+        SCR_master_combat.returnInstance().setupEncounter(temp);
     }
     #endregion
     #region Publics

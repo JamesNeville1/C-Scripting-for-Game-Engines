@@ -103,7 +103,6 @@ public class SCR_inventory_piece : MonoBehaviour {
 
                 if (casted.returnShouldSFX()) {
                     audioManager.playRandomEffect(casted.returnOnUse());
-                    Debug.Log("Did SFX");
                 }
 
                 if (casted.returnBreakOnUse()) destroyPiece();

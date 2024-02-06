@@ -68,7 +68,7 @@ public class SCR_overworld_enemy : MonoBehaviour {
 
         this.data = data;
 
-        overworldSpeed = data.returnSpeed() * speedModif;
+        overworldSpeed = data.returnDexterity() * speedModif;
         print(overworldSpeed);
     }
     #endregion
