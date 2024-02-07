@@ -47,7 +47,7 @@ public class SCR_master_combat : MonoBehaviour {
     //
     private Dictionary<Vector2Int, SCR_combat_unit> boardData = new Dictionary<Vector2Int, SCR_combat_unit>(); //Use unit in future
 
-    #region Unity
+    #region Unity / My Update
     public IEnumerator toggleableUpdate() { //Note: I made this to stop update from running when it shouldn't
         while (true) {
             yield return null;
@@ -94,7 +94,7 @@ public class SCR_master_combat : MonoBehaviour {
     #region Logic
     private void addEnemy(setupEncounterEnemy enemyData) {
         SCR_combat_unit newEnemy = 
-            SCR_combat_unit.createInstance("Temp", enemyData.enemy.returnAthletics(), enemyData.enemy.returnDexterity(), enemyData.enemy.returnEndurance());
+            SCR_combat_unit.createInstance(enemyData.enemy);
         
         newEnemy.gameObject.transform.position = (Vector2)enemyData.position;
         changeData(enemyData.position, newEnemy);

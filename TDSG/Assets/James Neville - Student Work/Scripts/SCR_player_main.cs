@@ -4,11 +4,16 @@ using UnityEngine;
 using IzzetUtils;
 using IzzetUtils.IzzetAttributes;
 using UnityEngine.Rendering;
+using UnityEditor.Animations;
 
 public class SCR_player_main : MonoBehaviour {
 
     [Header("Require Dev Input")]
     [SerializeField] [Tooltip("Multiply this by the speed attribute")] private float modifOverworldSpeed;
+
+    [Header("Animation - Require Dev Input")]
+    [SerializeField] private string unitPrefix;
+    [SerializeField] private AnimatorController controller;
 
     [Header("Main")]
     [SerializeField] [MyReadOnly] private float overworldSpeed;
@@ -128,7 +133,7 @@ public class SCR_player_main : MonoBehaviour {
         playerAnimation = GetComponent<SCR_unit_animation>();
 
         //
-        playerAnimation.setup();
+        playerAnimation.setup(unitPrefix, controller);
         playerAttributes.setupUniversal(5,5,5,5);
 
         //Adjust Speed

@@ -14,9 +14,6 @@ public class SCO_enemy : ScriptableObject {
     [SerializeField] private int dexterity;
     [SerializeField] private int endurance;
 
-    private enum fightStyle { STUPID, SMART }
-    [SerializeField] private fightStyle enemyFightStyle;
-
     public string returnName() {
         return enemyName;
     }

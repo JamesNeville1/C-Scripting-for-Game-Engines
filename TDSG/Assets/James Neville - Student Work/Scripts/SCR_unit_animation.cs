@@ -10,9 +10,9 @@ using UnityEditor.Animations;
 //I confirmed this with Luke, and he said this was still enough to say that I am using the engines tools still.
 public class SCR_unit_animation : MonoBehaviour {
     #region Structs & Enums
-    [System.Serializable] public enum AnimationType { IDLE, WALK, HURT, DEATH }
-    [System.Serializable] private struct PASS_animationStruct { [SerializeField] public AnimationType type; [SerializeField] public animationDataStruct animationData; }
-    [System.Serializable] private struct animationDataStruct { [SerializeField] public string name; [SerializeField] public int priority; 
+    [System.Serializable] public enum AnimationType { IDLE, WALK, DEATH }
+    [System.Serializable] public struct PASS_animationStruct { public AnimationType type; public animationDataStruct animationData; }
+    [System.Serializable] public struct animationDataStruct { public string name; public int priority; 
         public animationDataStruct(string name, int priority) {
             this.name = name;
             this.priority = priority;
@@ -21,9 +21,11 @@ public class SCR_unit_animation : MonoBehaviour {
     #endregion
 
     private const string globalPrefix = "ANI_"; //Starting naming convention
+    private const string idle = "_idle";
+    private const string walk = "_walk";
+    private const string death = "_death";
 
     [Header("Main")]
-    [SerializeField] private PASS_animationStruct[] PASS_animation; //Passed to dictionairy on awake
     [SerializeField] [Tooltip("What unit is this? Ensure you use the correct naming convention")] private string unitPrefix = "";
 
     [Header("Read Only")]
@@ -51,13 +53,16 @@ public class SCR_unit_animation : MonoBehaviour {
     }
     #endregion
     #region Setup
-    public void setup() {
+    public void setup(string unitPrefix, AnimatorController animController) {
         animator = GetComponent<Animator>();
+        animator.runtimeAnimatorController = animController;
 
-        foreach (PASS_animationStruct toPass in PASS_animation) {
-            animations.Add(toPass.type, new animationDataStruct (globalPrefix + unitPrefix + "_" + toPass.animationData.name, toPass.animationData.priority));
-        }
-        PASS_animation = null; //(The inspector doesn't update but it is null) print(passer);
+        this.unitPrefix = unitPrefix;
+
+        //Check if ok?
+        animations.Add(AnimationType.IDLE, new animationDataStruct (globalPrefix + unitPrefix + idle, 0));
+        animations.Add(AnimationType.WALK, new animationDataStruct (globalPrefix + unitPrefix + walk, 0));
+        animations.Add(AnimationType.DEATH, new animationDataStruct (globalPrefix + unitPrefix + death, 0));
     }
     #endregion
 }

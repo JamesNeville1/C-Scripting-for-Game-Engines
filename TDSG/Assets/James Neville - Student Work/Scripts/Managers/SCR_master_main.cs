@@ -6,6 +6,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SCR_master_main : MonoBehaviour {
+    #region Structs & Enums
+    public enum sceneKey { SCE_MASTER, SCE_OVERWORLD, SCE_COMBAT, SCE_AUDIO_MANAGER, SCE_MENU }
+    #endregion
 
     [Header("Main")]
     [SerializeField] private GameObject playerPrefab;
@@ -26,11 +29,16 @@ public class SCR_master_main : MonoBehaviour {
     [SerializeField] private string overworldSceneName;
     [SerializeField] private string combatSceneName;
     [SerializeField] private string audioSceneName;
+    [SerializeField] private string masterSceneName;
+    [SerializeField] private string menuSceneName;
     [Header("")]
     [SerializeField] [MyReadOnly] private bool inBattle;
     [SerializeField] [MyReadOnly] private GameObject overworldMasterObj;
     [SerializeField] [MyReadOnly] private GameObject combatMasterObj;
-    [Header("")]
+
+    //
+    Dictionary <sceneKey, string> formattedScenes = new Dictionary<sceneKey, string>();
+
     #region Set Instance
     private static SCR_master_main instance;
 
@@ -50,10 +58,16 @@ public class SCR_master_main : MonoBehaviour {
     #endregion
     #region Setup
     private IEnumerator setupAfterExternals() {
+        formattedScenes.Add(sceneKey.SCE_MASTER, masterSceneName);
+        formattedScenes.Add(sceneKey.SCE_OVERWORLD, overworldSceneName);
+        formattedScenes.Add(sceneKey.SCE_COMBAT, combatSceneName);
+        formattedScenes.Add(sceneKey.SCE_AUDIO_MANAGER, audioSceneName);
+        formattedScenes.Add(sceneKey.SCE_MENU, menuSceneName);
+
         //Load Additives
-        SceneManager.LoadScene(audioSceneName, LoadSceneMode.Additive);
-        SceneManager.LoadScene(overworldSceneName, LoadSceneMode.Additive);
-        SceneManager.LoadScene(combatSceneName, LoadSceneMode.Additive);
+        loadScene(sceneKey.SCE_AUDIO_MANAGER, LoadSceneMode.Additive);
+        loadScene(sceneKey.SCE_OVERWORLD, LoadSceneMode.Additive);
+        loadScene(sceneKey.SCE_COMBAT, LoadSceneMode.Additive);
 
         while (SCR_master_combat.returnInstance() == null || SCR_master_audio.returnInstance() == null) {
             yield return null;
@@ -122,6 +136,15 @@ public class SCR_master_main : MonoBehaviour {
     }
     public void setGatheringLocked(bool setTo) {
         playerCrafting = setTo;
+    }
+    public string getSceneClean(sceneKey input) {
+        return formattedScenes[input];
+    }
+    public void moveToScene(GameObject obj,sceneKey input) {
+        SceneManager.MoveGameObjectToScene(obj, SceneManager.GetSceneByName(formattedScenes[input]));
+    }
+    public void loadScene(sceneKey input, LoadSceneMode mode) {
+        SceneManager.LoadScene(formattedScenes[input], mode);
     }
     #endregion
 }

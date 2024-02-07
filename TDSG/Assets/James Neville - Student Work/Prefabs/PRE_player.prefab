@@ -103,6 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modifOverworldSpeed: 0.9
+  unitPrefix: player
+  controller: {fileID: 9100000, guid: 7cc8fcb6b38f3444c89784a096f08b20, type: 2}
   overworldSpeed: 0
   rb: {fileID: 0}
   sr: {fileID: 0}
@@ -122,23 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa5e13c1a8d861498f23a416429b5a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PASS_animation:
-  - type: 0
-    animationData:
-      name: idle
-      priority: 1
-  - type: 1
-    animationData:
-      name: walk
-      priority: 1
-  - type: 2
-    animationData:
-      name: hurt
-      priority: 2
-  - type: 3
-    animationData:
-      name: death
-      priority: 3
   unitPrefix: player
   animator: {fileID: 0}
   current: 0
@@ -182,7 +167,7 @@ MonoBehaviour:
     display: {fileID: 0}
   waitBeforeReloadSceneOnDeath: 2.5
   hungerDamageTimer: 1
-  hungerTimer: 1
+  hungerTimer: 100
 --- !u!50 &3903683744039567537
 Rigidbody2D:
   serializedVersion: 4
@@ -265,7 +250,7 @@ Animator:
   m_GameObject: {fileID: 5207933277885795846}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7cc8fcb6b38f3444c89784a096f08b20, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
