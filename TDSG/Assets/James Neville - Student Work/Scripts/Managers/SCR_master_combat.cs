@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.Rendering;
+using Unity.Properties;
 
 public class SCR_master_combat : MonoBehaviour {
 
@@ -34,7 +35,7 @@ public class SCR_master_combat : MonoBehaviour {
     [SerializeField] private GameObject boardParent;
     [SerializeField] private Vector2 cameraOffset;
     [SerializeField] private Color hoverColour;
-    [SerializeField] private Color clickColour;
+    [SerializeField] private Color selectedColour;
 
     [Header("Read Only")]
     [SerializeField] [MyReadOnly] private Tilemap tilemap;
@@ -47,8 +48,11 @@ public class SCR_master_combat : MonoBehaviour {
     private Dictionary<Vector2Int, SCR_combat_unit> boardData = new Dictionary<Vector2Int, SCR_combat_unit>(); //Use unit in future
 
     #region Unity
-    private void LateUpdate() {
-        takeInput();
+    public IEnumerator toggleableUpdate() { //Note: I made this to stop update from running when it shouldn't
+        while (true) {
+            yield return null;
+            takeInput();
+        } 
     }
     #endregion
     #region Setup
@@ -85,15 +89,14 @@ public class SCR_master_combat : MonoBehaviour {
             addEnemy(enemyData);
         }
     }
-    public void unload() {
-
-    }
+    public void unload() { }
     #endregion
     #region Logic
     private void addEnemy(setupEncounterEnemy enemyData) {
-        SCR_combat_unit newEnemy = SCR_combat_unit.createInstance("Temp", enemyData.enemy.returnAthletics(), enemyData.enemy.returnDexterity(), enemyData.enemy.returnEndurance());
+        SCR_combat_unit newEnemy = 
+            SCR_combat_unit.createInstance("Temp", enemyData.enemy.returnAthletics(), enemyData.enemy.returnDexterity(), enemyData.enemy.returnEndurance());
+        
         newEnemy.gameObject.transform.position = (Vector2)enemyData.position;
-
         changeData(enemyData.position, newEnemy);
     }
     private void changeData(Vector2Int pos, SCR_combat_unit unit) {
@@ -111,23 +114,38 @@ public class SCR_master_combat : MonoBehaviour {
 
         RaycastHit2D hit = Physics2D.Raycast(IzzetMain.getMousePos(Camera.main), Vector2.down);
 
+        if (Input.GetMouseButtonDown(1)) removeSelected(); //Right click removes selected
+
         if (hit.collider != null) {
-            Vector2Int clickPos = IzzetMain.castToVector2Int(hit.point);
+            Vector2Int currentPos = IzzetMain.castToVector2Int(hit.point); //Format mouse pos to vec2Int
 
-            if (clickPos == oldClickPos || !boardData.ContainsKey(clickPos)) return;
+            if(Input.GetMouseButtonDown(0)) { setSelected(currentPos); return; } //If mouse down set as new selected
 
-            Debug.Log("Board Updating");
-            updateBoard(clickPos, oldClickPos);
-            oldClickPos = clickPos;
-        }
 
-        if (Input.GetMouseButtonDown(1)) {
-            selected = null;
+
+            if (currentPos == oldClickPos || !boardData.ContainsKey(currentPos)) return; //The stuff below just shows hover colour on board for useability
+
+            updateBoard(currentPos, oldClickPos);
+
+            oldClickPos = currentPos;
         }
     }
     private void updateBoard(Vector2Int isPos, Vector2Int wasPos) {
-        tilemap.SetColor((Vector3Int)isPos, hoverColour);
-        tilemap.SetColor((Vector3Int)wasPos, Color.white);
+        if (!isSelected(isPos)) tilemap.SetColor((Vector3Int)isPos, hoverColour);
+        if (!isSelected(wasPos)) tilemap.SetColor((Vector3Int)wasPos, Color.white);
+    }
+    private bool isSelected(Vector2Int toCheck) {
+        return toCheck == selected;
+    }
+    private void setSelected(Vector2Int toSet) {
+        if (selected != null) tilemap.SetColor((Vector3Int)selected, Color.white);
+        selected = toSet;
+        tilemap.SetColor((Vector3Int)selected, selectedColour);
+    }
+    private void removeSelected() {
+        tilemap.SetColor((Vector3Int)selected, Color.white);
+        selected = null;
+
     }
     #endregion
 }

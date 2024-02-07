@@ -96,6 +96,8 @@ public class SCR_master_main : MonoBehaviour {
         combatMasterObj.SetActive(false);
 
         SCR_master_timers.returnInstance().unpause(SCR_master_timers.timerID.HUNGER_TICK);
+
+        StopCoroutine(SCR_master_combat.returnInstance().toggleableUpdate());
     }
     public void loadCombat() {
         combatMasterObj.SetActive(true);
@@ -107,6 +109,8 @@ public class SCR_master_main : MonoBehaviour {
             new SCR_master_combat.setupEncounterEnemy(tempPassEnemy, new Vector2Int(5,5)),
         };
         SCR_master_combat.returnInstance().setupEncounter(temp);
+
+        StartCoroutine(SCR_master_combat.returnInstance().toggleableUpdate());
     }
     #endregion
     #region Publics
