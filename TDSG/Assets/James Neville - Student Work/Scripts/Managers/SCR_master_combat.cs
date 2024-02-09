@@ -5,8 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.Rendering;
-using Unity.Properties;
+using UnityEditor.Search;
 
 public class SCR_master_combat : MonoBehaviour {
 
@@ -46,6 +45,7 @@ public class SCR_master_combat : MonoBehaviour {
 
     //
     private Dictionary<Vector2Int, SCR_combat_unit> boardData = new Dictionary<Vector2Int, SCR_combat_unit>(); //Use unit in future
+    private List<Vector2Int> unitKeys = new List<Vector2Int>();
 
     #region Unity / My Update
     public IEnumerator toggleableUpdate() { //Note: I made this to stop update from running when it shouldn't
@@ -110,10 +110,6 @@ public class SCR_master_combat : MonoBehaviour {
     private void remove(Vector2Int pos) {
         changeData(pos, null);
     }
-    private void moveUnit(Vector2Int oldPos, Vector2Int newPos) {
-        changeData(newPos, boardData[oldPos]);
-        remove(oldPos);
-    }
     private void takeInput() {
 
         RaycastHit2D hit = Physics2D.Raycast(IzzetMain.getMousePos(Camera.main), Vector2.down);
@@ -141,14 +137,25 @@ public class SCR_master_combat : MonoBehaviour {
         return toCheck == selected;
     }
     private void setSelected(Vector2Int toSet) {
-        if (selected != null) tilemap.SetColor((Vector3Int)selected, Color.white);
-        selected = toSet;
-        tilemap.SetColor((Vector3Int)selected, selectedColour);
+        print("To Set:" + toSet);
+        print("Selected:" + selected);
+
+        if(boardData.ContainsKey(toSet)) {
+            if (selected != null && boardData[(Vector2Int)selected] != null) {
+                tilemap.SetColor((Vector3Int)selected, Color.white);
+                boardData[(Vector2Int)selected].move(new List<Vector2Int> { toSet });
+                selected = null;
+            }
+            else {
+                if (selected != null) tilemap.SetColor((Vector3Int)selected, Color.white);
+                selected = toSet;
+                tilemap.SetColor((Vector3Int)selected, selectedColour);
+            }
+        }
     }
     private void removeSelected() {
         tilemap.SetColor((Vector3Int)selected, Color.white);
         selected = null;
-
     }
     #endregion
 }

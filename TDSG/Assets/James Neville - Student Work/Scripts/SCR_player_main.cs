@@ -3,8 +3,6 @@ using System.Collections;
 using UnityEngine;
 using IzzetUtils;
 using IzzetUtils.IzzetAttributes;
-using UnityEngine.Rendering;
-using UnityEditor.Animations;
 
 public class SCR_player_main : MonoBehaviour {
 
@@ -13,7 +11,7 @@ public class SCR_player_main : MonoBehaviour {
 
     [Header("Animation - Require Dev Input")]
     [SerializeField] private string unitPrefix;
-    [SerializeField] private AnimatorController controller;
+    [SerializeField] private RuntimeAnimatorController controller;
 
     [Header("Main")]
     [SerializeField] [MyReadOnly] private float overworldSpeed;

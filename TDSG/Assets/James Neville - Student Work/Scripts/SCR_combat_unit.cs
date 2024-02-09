@@ -38,7 +38,7 @@ public class SCR_combat_unit : MonoBehaviour {
     private void Update() {
         myAnimator.play(SCR_unit_animation.AnimationType.IDLE);
     }
-    public void move(List<Vector2> steps = null) {
-        transform.position = Vector2.zero;
+    public void move(List<Vector2Int> steps) {
+        transform.position = (Vector2)steps[0];
     }
 }

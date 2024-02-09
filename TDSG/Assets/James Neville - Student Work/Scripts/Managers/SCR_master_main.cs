@@ -1,7 +1,6 @@
 using IzzetUtils.IzzetAttributes;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -120,7 +119,7 @@ public class SCR_master_main : MonoBehaviour {
         SCR_master_timers.returnInstance().pause(SCR_master_timers.timerID.HUNGER_TICK);
 
         SCR_master_combat.setupEncounterEnemy[] temp = {
-            new SCR_master_combat.setupEncounterEnemy(tempPassEnemy, new Vector2Int(5,5)),
+            new SCR_master_combat.setupEncounterEnemy(tempPassEnemy, new Vector2Int(1,5)),
         };
         SCR_master_combat.returnInstance().setupEncounter(temp);
     }

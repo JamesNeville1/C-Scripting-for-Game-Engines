@@ -1,10 +1,7 @@
 using IzzetUtils.IzzetAttributes;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEditor.Animations;
-
 
 //NOTE TO MARKER: This is used to bypas the unity trasitions of the animator, I am still using the built in system.
 //I confirmed this with Luke, and he said this was still enough to say that I am using the engines tools still.
@@ -48,12 +45,12 @@ public class SCR_unit_animation : MonoBehaviour {
     public void setPrefix(string prefix) {
         unitPrefix = prefix;
     }
-    public void setAnimationController(AnimatorController controller) {
+    public void setAnimationController(RuntimeAnimatorController controller) {
         animator.runtimeAnimatorController = controller;
     }
     #endregion
     #region Setup
-    public void setup(string unitPrefix, AnimatorController animController) {
+    public void setup(string unitPrefix, RuntimeAnimatorController animController) {
         animator = GetComponent<Animator>();
         animator.runtimeAnimatorController = animController;
 

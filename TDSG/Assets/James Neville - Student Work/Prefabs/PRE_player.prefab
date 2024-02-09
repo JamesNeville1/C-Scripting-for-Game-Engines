@@ -167,7 +167,7 @@ MonoBehaviour:
     display: {fileID: 0}
   waitBeforeReloadSceneOnDeath: 2.5
   hungerDamageTimer: 1
-  hungerTimer: 100
+  hungerTimer: 35
 --- !u!50 &3903683744039567537
 Rigidbody2D:
   serializedVersion: 4

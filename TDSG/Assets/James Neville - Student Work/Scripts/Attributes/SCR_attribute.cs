@@ -37,17 +37,16 @@ public class SCR_attribute {
     }
 
     public void adjust(int value) {
-        if(value < 0) {
-            if(current == 1) {
-                zeroTrigger();
-            }
-        }
-        else if(value > 0) { 
+        if(value > 0) { 
             if(current == 0) {
                 endZeroTrigger();
             }
         }
         current = Mathf.Clamp(current + value, 0, max);
+
+        if(current <= 0) {
+            zeroTrigger();
+        }
         updateDisplay();
     }
 

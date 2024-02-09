@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SCO_enemy_", menuName = "ScriptableObjects/Enemy")]
 public class SCO_enemy : ScriptableObject {
     [SerializeField] private string enemyName;
-    [SerializeField] private AnimatorController animations;
+    [SerializeField] private RuntimeAnimatorController animations;
     [SerializeField] private string animationUnitPrefix;
     [SerializeField] private SCO_item[] items;
 
@@ -17,7 +16,7 @@ public class SCO_enemy : ScriptableObject {
     public string returnName() {
         return enemyName;
     }
-    public AnimatorController returnAnimator() {
+    public RuntimeAnimatorController returnAnimator() {
         return animations;
     }
     public string returnAnimatioPrefix() {
