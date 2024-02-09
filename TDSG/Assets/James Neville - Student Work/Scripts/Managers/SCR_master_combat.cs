@@ -88,8 +88,12 @@ public class SCR_master_combat : MonoBehaviour {
         foreach (var enemyData in enemies) {
             addEnemy(enemyData);
         }
+
+        StartCoroutine(toggleableUpdate());
     }
-    public void unload() { }
+    public void unload() { 
+        StopCoroutine(toggleableUpdate());
+    }
     #endregion
     #region Logic
     private void addEnemy(setupEncounterEnemy enemyData) {
@@ -120,7 +124,6 @@ public class SCR_master_combat : MonoBehaviour {
             Vector2Int currentPos = IzzetMain.castToVector2Int(hit.point); //Format mouse pos to vec2Int
 
             if(Input.GetMouseButtonDown(0)) { setSelected(currentPos); return; } //If mouse down set as new selected
-
 
 
             if (currentPos == oldClickPos || !boardData.ContainsKey(currentPos)) return; //The stuff below just shows hover colour on board for useability
