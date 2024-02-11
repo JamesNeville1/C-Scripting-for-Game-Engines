@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 724a000c1088f5c4dbdace70137dcebb, type: 3}
-  m_Name: SCO_enemy_goblin
+  m_Name: SCO_enemy_player
   m_EditorClassIdentifier: 
   enemyName: Goblin
-  animations: {fileID: 9100000, guid: 4471b1f71d473904e855d0ac56f5039d, type: 2}
-  animationUnitPrefix: goblin
+  animator: {fileID: 9100000, guid: 7cc8fcb6b38f3444c89784a096f08b20, type: 2}
+  animationUnitPrefix: player
   items:
   - {fileID: 11400000, guid: 5adefe3459e94874393bec5c74076749, type: 2}
-  maxHealth: 2
-  speed: 2
-  enemyFightStyle: 0
+  athletics: 4
+  dexterity: 4
+  endurance: 4

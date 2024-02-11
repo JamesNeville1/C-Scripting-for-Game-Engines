@@ -1,11 +1,9 @@
-using IzzetUtils.IzzetAttributes;
 using IzzetUtils;
-using System;
+using IzzetUtils.IzzetAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEditor.Search;
 
 public class SCR_master_combat : MonoBehaviour {
 
@@ -19,7 +17,7 @@ public class SCR_master_combat : MonoBehaviour {
     }
     #endregion
     #region Structs & Enums
-    public struct setupEncounterEnemy { 
+    public struct setupEncounterEnemy {
         public SCO_enemy enemy; public Vector2Int position;
 
         public setupEncounterEnemy(SCO_enemy enemy, Vector2Int position) {
@@ -37,11 +35,11 @@ public class SCR_master_combat : MonoBehaviour {
     [SerializeField] private Color selectedColour;
 
     [Header("Read Only")]
-    [SerializeField] [MyReadOnly] private Tilemap tilemap;
-    [SerializeField] [MyReadOnly] private bool playerTurn = false;
-    [SerializeField] [MyReadOnly] private Vector2 midPoint;
-    [SerializeField] [MyReadOnly] private Vector2Int oldClickPos;
-    [SerializeField] [MyReadOnly] private Vector2Int? selected = null;
+    [SerializeField][MyReadOnly] private Tilemap tilemap;
+    [SerializeField][MyReadOnly] private bool playerTurn = false;
+    [SerializeField][MyReadOnly] private Vector2 midPoint;
+    [SerializeField][MyReadOnly] private Vector2Int oldClickPos;
+    [SerializeField][MyReadOnly] private Vector2Int? selected = null;
 
     //
     private Dictionary<Vector2Int, SCR_combat_unit> boardData = new Dictionary<Vector2Int, SCR_combat_unit>(); //Use unit in future
@@ -52,7 +50,7 @@ public class SCR_master_combat : MonoBehaviour {
         while (true) {
             yield return null;
             takeInput();
-        } 
+        }
     }
     #endregion
     #region Setup
@@ -68,9 +66,9 @@ public class SCR_master_combat : MonoBehaviour {
                 //Debug.Log($"Is in boardData: {currentPos}");
 
                 bool isBound = currentPos.x == 0 || currentPos.x == size.x - 1 || currentPos.y == 0 || currentPos.y == size.y - 1;
-                
-                if(!isBound) {
-                    boardData.Add(currentPos, null);    
+
+                if (!isBound) {
+                    boardData.Add(currentPos, null);
                 }
             }
         }
@@ -91,19 +89,19 @@ public class SCR_master_combat : MonoBehaviour {
 
         StartCoroutine(toggleableUpdate());
     }
-    public void unload() { 
+    public void unload() {
         StopCoroutine(toggleableUpdate());
     }
     #endregion
     #region Logic
     private void addEnemy(setupEncounterEnemy enemyData) {
-        SCR_combat_unit newEnemy = 
+        SCR_combat_unit newEnemy =
             SCR_combat_unit.createInstance(enemyData.enemy);
-        
+
         newEnemy.gameObject.transform.position = (Vector2)enemyData.position;
         changeData(enemyData.position, newEnemy);
     }
-    private void changeData(Vector2Int pos, SCR_combat_unit unit) {
+    public void changeData(Vector2Int pos, SCR_combat_unit unit) {
         boardData.Remove(pos);
         boardData.Add(pos, unit);
     }
@@ -119,7 +117,7 @@ public class SCR_master_combat : MonoBehaviour {
         if (hit.collider != null) {
             Vector2Int currentPos = IzzetMain.castToVector2Int(hit.point); //Format mouse pos to vec2Int
 
-            if(Input.GetMouseButtonDown(0)) { setSelected(currentPos); return; } //If mouse down set as new selected
+            if (Input.GetMouseButtonDown(0)) { setSelected(currentPos); return; } //If mouse down set as new selected
 
 
             if (currentPos == oldClickPos || !boardData.ContainsKey(currentPos)) return; //The stuff below just shows hover colour on board for useability
@@ -136,15 +134,19 @@ public class SCR_master_combat : MonoBehaviour {
     private bool isSelected(Vector2Int toCheck) {
         return toCheck == selected;
     }
+    private float returnDist(Vector2Int current, Vector2Int target) {
+        return Vector2.Distance(current, target);
+    }
     private void setSelected(Vector2Int toSet) {
-        print("To Set:" + toSet);
-        print("Selected:" + selected);
-
         if(boardData.ContainsKey(toSet)) {
             if (selected != null && boardData[(Vector2Int)selected] != null) {
-                tilemap.SetColor((Vector3Int)selected, Color.white);
-                boardData[(Vector2Int)selected].move(new List<Vector2Int> { toSet });
-                selected = null;
+                float dist = returnDist((Vector2Int)selected, toSet);
+                print(boardData[(Vector2Int)selected].returnAttributes().returnSpeed());
+                if(dist <= boardData[(Vector2Int)selected].returnAttributes().returnSpeed()) {
+                    tilemap.SetColor((Vector3Int)selected, Color.white);
+                    boardData[(Vector2Int)selected].move(toSet);
+                    selected = null;
+                }
             }
             else {
                 if (selected != null) tilemap.SetColor((Vector3Int)selected, Color.white);
@@ -154,8 +156,10 @@ public class SCR_master_combat : MonoBehaviour {
         }
     }
     private void removeSelected() {
-        tilemap.SetColor((Vector3Int)selected, Color.white);
-        selected = null;
+        if (selected != null) {
+            tilemap.SetColor((Vector3Int)selected, Color.white);
+            selected = null;
+        }
     }
     #endregion
 }

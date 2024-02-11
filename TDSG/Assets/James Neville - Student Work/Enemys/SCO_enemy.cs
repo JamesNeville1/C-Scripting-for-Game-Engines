@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SCO_enemy_", menuName = "ScriptableObjects/Enemy")]
 public class SCO_enemy : ScriptableObject {
     [SerializeField] private string enemyName;
-    [SerializeField] private RuntimeAnimatorController animations;
+    [SerializeField] private RuntimeAnimatorController animator;
     [SerializeField] private string animationUnitPrefix;
     [SerializeField] private SCO_item[] items;
 
@@ -17,7 +17,7 @@ public class SCO_enemy : ScriptableObject {
         return enemyName;
     }
     public RuntimeAnimatorController returnAnimator() {
-        return animations;
+        return animator;
     }
     public string returnAnimatioPrefix() {
         return animationUnitPrefix;
