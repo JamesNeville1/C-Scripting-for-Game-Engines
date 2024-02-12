@@ -15,4 +15,4 @@ MonoBehaviour:
   sprite: {fileID: 1174752705, guid: 2c8169dee42d3f847934b43d6fe3ce10, type: 3}
   interactableRadius: 1
   item: {fileID: 11400000, guid: ffdc1fcf109ca274caea007d81cb351e, type: 2}
-  onPickUp: 5
+  onPickUp: 4

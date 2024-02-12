@@ -23,7 +23,6 @@ public class SCR_unit_animation : MonoBehaviour {
     private const string death = "_death";
 
     [Header("Main")]
-    [SerializeField] [Tooltip("What unit is this? Ensure you use the correct naming convention")] private string unitPrefix = "";
 
     [Header("Read Only")]
     [SerializeField] [MyReadOnly] private Animator animator;
@@ -42,9 +41,6 @@ public class SCR_unit_animation : MonoBehaviour {
         animator.Play(animations[type].name);
         current = type;
     }
-    public void setPrefix(string prefix) {
-        unitPrefix = prefix;
-    }
     public void setAnimationController(RuntimeAnimatorController controller) {
         animator.runtimeAnimatorController = controller;
     }
@@ -53,8 +49,6 @@ public class SCR_unit_animation : MonoBehaviour {
     public void setup(string unitPrefix, RuntimeAnimatorController animController) {
         animator = GetComponent<Animator>();
         animator.runtimeAnimatorController = animController;
-
-        this.unitPrefix = unitPrefix;
 
         //Check if ok?
         animations.Add(AnimationType.IDLE, new animationDataStruct (globalPrefix + unitPrefix + idle, 0));

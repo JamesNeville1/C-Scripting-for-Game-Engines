@@ -31,7 +31,7 @@ public class SCR_combat_unit : MonoBehaviour {
 
         combatUnit.attributes.setupUniversal(data.returnAthletics(), data.returnDexterity(), data.returnEndurance(), 0);
 
-        SCR_master_main.returnInstance().moveToScene(unit, SCR_master_main.sceneKey.SCE_COMBAT);
+        //SCR_master_main.returnInstance().moveToScene(unit, SCR_master_main.sceneKey.SCE_COMBAT);
 
         return combatUnit;
     }

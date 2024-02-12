@@ -48,10 +48,10 @@ public class SCR_master_generation : MonoBehaviour {
     [Header("Other")]
     [SerializeField] [MyReadOnly] [Tooltip("Temp start pos of player")] private Vector2 playerStartPos;
 
-    #region Won't be Serialised
+    //
     private Dictionary<Color32, gatherableData> colorToType = new Dictionary<Color32, gatherableData>(); //Maps colour to gatherable scriptable object
     //private Dictionary<Vector2, Color32> posToColour = new Dictionary<Vector2, Color32>();
-    #endregion
+
     #region Set Instance
     private static SCR_master_generation instance;
 

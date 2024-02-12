@@ -8,8 +8,7 @@ using UnityEngine.Events;
 public class SCR_master_audio : MonoBehaviour {
     public enum sfx { //All sound effect and music types
         WALK_STEP,
-        HIT_ENEMY,
-        HIT_PLAYER,
+        HURT_PLAYER,
         GATHER_HARD,
         GATHER_MEDIUM,
         GATHER_SOFT,
@@ -18,9 +17,6 @@ public class SCR_master_audio : MonoBehaviour {
         EAT,
         CRAFT,
         DRINK,
-        MUSIC_BATTLE,
-        MUSIC_BATTLE_WON,
-        MUSIC_BATTLE_LOST,
         MUSIC_CALM
     }
 

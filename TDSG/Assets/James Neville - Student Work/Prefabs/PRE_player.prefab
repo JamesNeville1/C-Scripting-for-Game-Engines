@@ -105,13 +105,15 @@ MonoBehaviour:
   modifOverworldSpeed: 0.9
   unitPrefix: player
   controller: {fileID: 9100000, guid: 7cc8fcb6b38f3444c89784a096f08b20, type: 2}
-  overworldSpeed: 0
+  speed: 0
   rb: {fileID: 0}
   sr: {fileID: 0}
   playerAttributes: {fileID: 0}
   playerAnimation: {fileID: 0}
   timeBetweenWalkSFX: 0.45
-  courtineRunning: 0
+  swimSpeedModif: 0.25
+  footstepCoroutineRunning: 0
+  speedOrigin: 0
 --- !u!114 &637631082962288691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,7 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa5e13c1a8d861498f23a416429b5a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitPrefix: player
   animator: {fileID: 0}
   current: 0
 --- !u!114 &-8650499641567052811

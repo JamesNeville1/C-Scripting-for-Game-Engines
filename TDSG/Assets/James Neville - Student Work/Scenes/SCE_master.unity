@@ -1332,7 +1332,7 @@ MonoBehaviour:
   waterTile: {fileID: 11400000, guid: 37dde2d5933436b419d0bfb7e6d589e9, type: 2}
   groundTilemap: {fileID: 0}
   waterTilemap: {fileID: 0}
-  islandSize: 100
+  islandSize: 25
   gathables:
   - color: {r: 0.54509807, g: 0.5686275, b: 0.3137255, a: 1}
     dataToPass:
@@ -1378,18 +1378,12 @@ MonoBehaviour:
   playerPrefab: {fileID: 5207933277885795846, guid: 8dde42ce927554c4db156dfbb8b2acb0, type: 3}
   inventorySize: {x: 3, y: 5}
   mapSize: {x: 100, y: 100}
-  combatBoardSize: {x: 14, y: 9}
-  tempPassEnemy: {fileID: 11400000, guid: f48f5b8ee80dcdb45bdb0c80ee75de07, type: 2}
-  playerCrafting: 0
-  playerParent: Player Parent
-  overworldMasterName: Overworld Master
-  combatMasterName: Combat Master
   overworldSceneName: SCE_overworld
-  combatSceneName: SCE_combat
   audioSceneName: SCE_audio_manager
-  inBattle: 0
-  overworldMasterObj: {fileID: 0}
-  combatMasterObj: {fileID: 0}
+  masterSceneName: SCE_master
+  menuSceneName: SCE_menu
+  playerCraftingActive: 0
+  playerParent: Player Parent
 --- !u!114 &1364117805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,24 +1486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa5e13c1a8d861498f23a416429b5a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PASS_animation:
-  - type: 0
-    animationData:
-      name: idle
-      priority: 1
-  - type: 1
-    animationData:
-      name: walk
-      priority: 1
-  - type: 2
-    animationData:
-      name: hurt
-      priority: 2
-  - type: 3
-    animationData:
-      name: death
-      priority: 3
-  unitPrefix: 
   animator: {fileID: 0}
   current: 0
 --- !u!1 &1486258443

@@ -36,7 +36,6 @@ public class SCR_master_combat : MonoBehaviour {
 
     [Header("Read Only")]
     [SerializeField][MyReadOnly] private Tilemap tilemap;
-    [SerializeField][MyReadOnly] private bool playerTurn = false;
     [SerializeField][MyReadOnly] private Vector2 midPoint;
     [SerializeField][MyReadOnly] private Vector2Int oldClickPos;
     [SerializeField][MyReadOnly] private Vector2Int? selected = null;

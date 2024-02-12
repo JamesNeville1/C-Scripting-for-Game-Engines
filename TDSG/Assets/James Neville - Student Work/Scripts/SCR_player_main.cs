@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using IzzetUtils;
 using IzzetUtils.IzzetAttributes;
+using UnityEngine.Tilemaps;
 
 public class SCR_player_main : MonoBehaviour {
 
@@ -14,7 +15,7 @@ public class SCR_player_main : MonoBehaviour {
     [SerializeField] private RuntimeAnimatorController controller;
 
     [Header("Main")]
-    [SerializeField] [MyReadOnly] private float overworldSpeed;
+    [SerializeField] [MyReadOnly] private float speed;
 
     [Header("Components")]
     [SerializeField] [MyReadOnly] private Rigidbody2D rb;
@@ -24,9 +25,12 @@ public class SCR_player_main : MonoBehaviour {
 
     [Header("Will not change once built")]
     [SerializeField] private float timeBetweenWalkSFX;
+    [SerializeField] private float swimSpeedModif;
 
     [Header("Other")]
-    [SerializeField] [MyReadOnly] private bool courtineRunning = false;
+    [SerializeField] [MyReadOnly] private bool footstepCoroutineRunning = false;
+    [SerializeField] [MyReadOnly] private float speedOrigin;
+    [SerializeField] [MyReadOnly] private bool isSwimming = false;
 
     #region Set Instance
     private static SCR_player_main instance;
@@ -39,12 +43,20 @@ public class SCR_player_main : MonoBehaviour {
     #endregion
     #region Unity
     private void Update() {
+        startWalking();
         playerMovementMain();
-
-        if (Input.GetKeyDown(KeyCode.O)) {
-            SCR_master_main.returnInstance().loadCombat();
-        }
     }
+    //private void OnTriggerEnter2D(Collider2D collision) {
+    //    if (collision.GetComponent<TilemapCollider2D>()) {  //(We know the player is entering water)     
+    //        isSwimming = !isSwimming;
+    //        if (isSwimming) {
+    //            startSwimming();
+    //        }
+    //        else {
+    //            startWalking();
+    //        }
+    //    }
+    //}
     #endregion
     #region Main
     //All movement related stuff here
@@ -54,6 +66,12 @@ public class SCR_player_main : MonoBehaviour {
         flipSprite(input); //Check If Should Flip Sprite
         animate(input); //Do idle if still, and walk if moving
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10); //Move Camera to follow player
+    }
+    private void startSwimming() {
+        speed = speedOrigin * swimSpeedModif;
+    }
+    private void startWalking() {
+        speed = speedOrigin;
     }
     #endregion
     #region playerMovementMainFuncs
@@ -71,38 +89,36 @@ public class SCR_player_main : MonoBehaviour {
     }
     private void movePlayer(Vector2 input) {
         if (input.x == 0 && input.y == 0) { //If we aren't moving
-            if (courtineRunning == true) {
+            if (footstepCoroutineRunning == true) {
                 rb.velocity = Vector2.zero;
                 StopAllCoroutines();
-                courtineRunning = false;
+                footstepCoroutineRunning = false;
             }
         }
         else { //If we are moving
-            if(courtineRunning == false) {
+            if(footstepCoroutineRunning == false) {
                 StartCoroutine(Footstepsounds());
             }
             
             if (input.x == 0 || input.y == 0) {
-                rb.velocity = input * overworldSpeed;
+                rb.velocity = input * speed;
             }
             else {
-                rb.velocity = (input * overworldSpeed) * 0.71f;
+                rb.velocity = (input * speed) * 0.71f;
             }
         }
     }
     private void animate(Vector2Int input) {
-        if (playerAnimation.enabled) {
-            if(input.x != 0 || input.y != 0) {
-                playerAnimation.play(SCR_unit_animation.AnimationType.WALK);
-            }
-            else {
-                playerAnimation.play(SCR_unit_animation.AnimationType.IDLE);
-            }
+        if (input.x != 0 || input.y != 0) {
+            playerAnimation.play(isSwimming ? SCR_unit_animation.AnimationType.DEATH : SCR_unit_animation.AnimationType.WALK);
+        }
+        else {
+            playerAnimation.play(SCR_unit_animation.AnimationType.IDLE);
         }
     }
     private IEnumerator Footstepsounds() {
+        footstepCoroutineRunning = true;
         while (true) {
-            courtineRunning = true;
             SCR_master_audio.returnInstance().playRandomEffect(SCR_master_audio.sfx.WALK_STEP, .15f);
             yield return new WaitForSeconds(timeBetweenWalkSFX);
         }
@@ -113,10 +129,10 @@ public class SCR_player_main : MonoBehaviour {
         return playerAttributes;
     }
     public void changeOverworldSpeed(int modifBy = 0) {
-        overworldSpeed = playerAttributes.returnSpeed() * modifOverworldSpeed;
+        speedOrigin = playerAttributes.returnSpeed() * modifOverworldSpeed;
     }
     public void readyToDie() {
-        overworldSpeed = 0;
+        speed = 0;
         rb.velocity = Vector2.zero;
         SCR_master_main.returnInstance().setGatheringLocked(true);
         this.enabled = false;
