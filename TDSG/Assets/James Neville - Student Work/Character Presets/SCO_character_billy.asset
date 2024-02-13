@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aabd086dd68b352489e619cecfc46e25, type: 3}
   m_Name: SCO_character_billy
   m_EditorClassIdentifier: 
-  characterName: Billy
+  characterName: BILLY
   animations: {fileID: 9100000, guid: dde7d259426cdab48b498bcfa8ae3ae7, type: 2}
   animationPrefix: troll
   startingStats:
@@ -21,3 +21,6 @@ MonoBehaviour:
     dexterity: 4
     endurance: 2
   characterSelectionSprite: {fileID: -1992358163, guid: c6f33cd98dbb671408086878757430a2, type: 3}
+  flavourText: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Commodo ullamcorper a lacus
+    vestibulum sed. Rhoncus mattis rhoncus urna neque viverra justo nec.

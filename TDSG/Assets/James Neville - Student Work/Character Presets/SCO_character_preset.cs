@@ -9,6 +9,7 @@ public class SCO_character_preset : ScriptableObject {
     [SerializeField] private string animationPrefix;
     [SerializeField] private SCR_ABS_attributes.entStats startingStats;
     [SerializeField] private Sprite characterSelectionSprite;
+    [SerializeField] [TextArea(20, 20)] private string flavourText;
 
     public Sprite returnCharacterSelectionSprite() {
         return characterSelectionSprite;
@@ -24,5 +25,8 @@ public class SCO_character_preset : ScriptableObject {
     }
     public string returnName() {
         return characterName;
+    }
+    public string returnFlavourText() {
+        return flavourText;
     }
 }

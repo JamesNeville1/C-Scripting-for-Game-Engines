@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aabd086dd68b352489e619cecfc46e25, type: 3}
   m_Name: SCO_character_shrok
   m_EditorClassIdentifier: 
-  characterName: Shrok
+  characterName: SHROK
   animations: {fileID: 9100000, guid: 1e06bac51e46caf42b4e56b169074f2c, type: 2}
   animationPrefix: ogre
   startingStats:
     athletics: 5
-    survival: 2
+    survival: 3
     dexterity: 1
     endurance: 5
   characterSelectionSprite: {fileID: 232619038, guid: 0bfd15b7bec44264c94fa00ac719bcee, type: 3}
+  flavourText: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Amet risus nullam eget felis
+    eget nunc lobortis. Consectetur adipiscing elit duis tristique.

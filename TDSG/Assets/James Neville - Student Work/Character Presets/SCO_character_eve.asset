@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aabd086dd68b352489e619cecfc46e25, type: 3}
   m_Name: SCO_character_eve
   m_EditorClassIdentifier: 
-  characterName: Eve
+  characterName: EVE
   animations: {fileID: 9100000, guid: e3bae1dd37d29bb4ea6105c8e17bbced, type: 2}
   animationPrefix: woman
   startingStats:
     athletics: 2
-    survival: 3
-    dexterity: 3
-    endurance: 3
+    survival: 5
+    dexterity: 5
+    endurance: 2
   characterSelectionSprite: {fileID: -1371696633, guid: 8870bbfbf88cb4e4693c5f0c41a58370, type: 3}
+  flavourText: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Nisi est sit amet facilisis
+    magna etiam tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat.

@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aabd086dd68b352489e619cecfc46e25, type: 3}
   m_Name: SCO_character_greg
   m_EditorClassIdentifier: 
-  characterName: Greg
+  characterName: GREG
   animations: {fileID: 9100000, guid: 722975015ea9c5b4cbba20de479349d5, type: 2}
   animationPrefix: gnome
   startingStats:
     athletics: 2
-    survival: 5
-    dexterity: 4
+    survival: 3
+    dexterity: 5
     endurance: 2
   characterSelectionSprite: {fileID: -1179758971, guid: 076cdfff38f9fcc44b532649fee3419e, type: 3}
+  flavourText: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. In massa tempor nec feugiat
+    nisl pretium. Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt
+    ornare.

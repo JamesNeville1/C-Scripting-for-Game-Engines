@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aabd086dd68b352489e619cecfc46e25, type: 3}
   m_Name: SCO_character_zeke
   m_EditorClassIdentifier: 
-  characterName: Zeke
+  characterName: ZEKE
   animations: {fileID: 9100000, guid: 4471b1f71d473904e855d0ac56f5039d, type: 2}
   animationPrefix: goblin
   startingStats:
     athletics: 3
-    survival: 2
+    survival: 4
     dexterity: 4
-    endurance: 4
+    endurance: 1
   characterSelectionSprite: {fileID: 1583947385, guid: a444559b8e57c2f4fb91eccc39443d28, type: 3}
+  flavourText: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Dictum varius duis at consectetur
+    lorem donec massa. Ultrices in iaculis nunc sed augue lacus viverra vitae congue.

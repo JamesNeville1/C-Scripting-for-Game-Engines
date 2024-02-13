@@ -128,8 +128,8 @@ public class SCR_player_main : MonoBehaviour {
     public SCR_overworld_player_attributes returnAttributes() {
         return playerAttributes;
     }
-    public void changeOverworldSpeed(int modifBy = 0) {
-        speedOrigin = playerAttributes.returnSpeed() * modifOverworldSpeed;
+    public void changeOverworldSpeed(int modifBy = 1) {
+        speedOrigin = (playerAttributes.returnSpeed() * modifOverworldSpeed) * modifBy;
     }
     public void readyToDie() {
         speed = 0;

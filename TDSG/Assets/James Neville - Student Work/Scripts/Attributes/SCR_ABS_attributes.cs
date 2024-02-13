@@ -58,12 +58,11 @@ public abstract class SCR_ABS_attributes : MonoBehaviour {
         myAnimatior = GetComponent<SCR_unit_animation>();
 
         //
-        stats = new entStats(stats);
+        this.stats = stats;
 
         //
-        health = new SCR_attribute(stats.endurance, () => onHealthEqualZeroHandler());
-
-        speed = stats.dexterity;
+        health = new SCR_attribute(calculateHealth(this.stats), () => onHealthEqualZeroHandler());
+        speed = calculateSpeed(this.stats);
 
         //
         setupSpecific();
@@ -74,5 +73,12 @@ public abstract class SCR_ABS_attributes : MonoBehaviour {
     }
     public SCR_attribute returnHealth() {
         return health;
+    }
+
+    protected int calculateHealth(entStats stats) {
+        return stats.endurance + stats.athletics;
+    }
+    protected int calculateSpeed(entStats stats) {
+        return stats.dexterity + stats.athletics;
     }
 }
