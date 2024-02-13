@@ -139,7 +139,7 @@ public class SCR_player_main : MonoBehaviour {
     }
     #endregion
     #region Setup
-    public void setup() {
+    public void setup(SCO_character_preset preset) {
         //Get Components
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
@@ -147,8 +147,8 @@ public class SCR_player_main : MonoBehaviour {
         playerAnimation = GetComponent<SCR_unit_animation>();
 
         //
-        playerAnimation.setup(unitPrefix, controller);
-        playerAttributes.setupUniversal(5,5,5,5);
+        playerAnimation.setup(preset.returnAnimationPrefix(), preset.returnAnimations());
+        playerAttributes.setupUniversal(preset.returnStartingStats());
 
         //Adjust Speed
         changeOverworldSpeed();

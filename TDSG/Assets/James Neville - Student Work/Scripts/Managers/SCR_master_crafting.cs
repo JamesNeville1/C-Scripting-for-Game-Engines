@@ -58,7 +58,6 @@ public class SCR_master_crafting : MonoBehaviour {
     #endregion
     #region Authentication & Input
     public bool tryPlace(SCR_inventory_piece toPlace) {
-
         toPlace.transform.parent = slotsParent;
         bool isSlotOneClose = IzzetMain.castToVector2Int(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT1].vec;
         bool isSlotTwoClose = IzzetMain.castToVector2Int(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT2].vec;

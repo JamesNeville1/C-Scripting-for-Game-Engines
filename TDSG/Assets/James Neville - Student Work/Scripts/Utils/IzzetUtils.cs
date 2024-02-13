@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace IzzetUtils {
     namespace IzzetAttributes {
-        public class MyReadOnlyAttribute : PropertyAttribute { }
+        public class MyReadOnlyAttribute : PropertyAttribute { } //Made using a tutorial
     }
     public class IzzetMain : MonoBehaviour {
         //Note to marker: I use this to trim the input of the string input by the user for the seed

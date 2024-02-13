@@ -38,6 +38,7 @@ public class SCR_overworld_player_attributes : SCR_ABS_attributes {
             if (health.returnCurrent() <= 0) SCR_master_timers.returnInstance().removeAll(SCR_master_timers.timerID.HUNGER_DAMAGE_TICK);
         };
 
+        print(stats.survival);
         hunger = new SCR_attribute(stats.survival, () => startHungerHandler(), () => stopHungerHandler() );
 
         hunger.addUI(SCR_master_stats_display.returnInstance().returnHungerUI());

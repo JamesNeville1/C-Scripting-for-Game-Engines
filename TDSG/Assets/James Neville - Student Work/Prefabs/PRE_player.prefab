@@ -114,6 +114,7 @@ MonoBehaviour:
   swimSpeedModif: 0.25
   footstepCoroutineRunning: 0
   speedOrigin: 0
+  isSwimming: 0
 --- !u!114 &637631082962288691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +169,7 @@ MonoBehaviour:
     display: {fileID: 0}
   waitBeforeReloadSceneOnDeath: 2.5
   hungerDamageTimer: 1
-  hungerTimer: 35
+  hungerTimer: 17.5
 --- !u!50 &3903683744039567537
 Rigidbody2D:
   serializedVersion: 4

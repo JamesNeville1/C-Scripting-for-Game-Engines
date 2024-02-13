@@ -12,16 +12,22 @@ public abstract class SCR_ABS_attributes : MonoBehaviour {
     #region Structs & Delegates 
     [System.Serializable]
     public struct entStats {
-        [MyReadOnly] public int athletics;
-        [MyReadOnly] public int survival;
-        [MyReadOnly] public int dexterity;
-        [MyReadOnly] public int endurance;
+        public int athletics;
+        public int survival;
+        public int dexterity;
+        public int endurance;
 
         public entStats(int athletics, int dexterity, int endurance, int survival) {
             this.athletics = athletics;
             this.survival = survival;
             this.endurance = endurance;
             this.dexterity = dexterity;
+        }
+        public entStats(entStats toPass) {
+            this.dexterity = toPass.dexterity;
+            this.endurance = toPass.endurance;
+            this.survival = toPass.survival;
+            this.athletics = toPass.athletics;
         }
     }
 
@@ -45,14 +51,14 @@ public abstract class SCR_ABS_attributes : MonoBehaviour {
     protected abstract void setupSpecific();
     protected abstract void onHealthEqualZeroFunc();
 
-    public void setupUniversal(int athletics, int dexterity, int endurance, int survival) {
+    public void setupUniversal(entStats stats) {
         onHealthEqualZeroHandler = onHealthEqualZeroFunc;
 
         //Component
         myAnimatior = GetComponent<SCR_unit_animation>();
 
         //
-        stats = new entStats(athletics, dexterity, endurance, survival);
+        stats = new entStats(stats);
 
         //
         health = new SCR_attribute(stats.endurance, () => onHealthEqualZeroHandler());

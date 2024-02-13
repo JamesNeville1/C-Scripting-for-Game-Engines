@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/James Neville - Student Work/Scenes/SCE_master.unity
+    guid: 282db764cd88a7e4ab9642484d9be144
+  - enabled: 1
+    path: Assets/James Neville - Student Work/Scenes/SCE_character_selection.unity
+    guid: 229b65323294b214f84968c06138bcdc
   - enabled: 1
     path: Assets/James Neville - Student Work/Scenes/SCE_audio_manager.unity
     guid: f59e5f916032d224d93587f7e2dbc874
@@ -15,12 +18,6 @@ EditorBuildSettings:
     path: Assets/James Neville - Student Work/Scenes/SCE_overworld.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/James Neville - Student Work/Scenes/SCE_combat.unity
-    guid: 6c8e4bddbd48b0c4b91293a6fa4a04ca
-  - enabled: 1
     path: Assets/James Neville - Student Work/Scenes/SCE_menu.unity
     guid: 75e8edb05def51144a4d51eec796ff29
-  - enabled: 1
-    path: Assets/James Neville - Student Work/Scenes/SCE_master.unity
-    guid: 282db764cd88a7e4ab9642484d9be144
   m_configObjects: {}
