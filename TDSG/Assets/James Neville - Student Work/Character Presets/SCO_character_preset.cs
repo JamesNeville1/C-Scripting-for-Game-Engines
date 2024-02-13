@@ -22,4 +22,7 @@ public class SCO_character_preset : ScriptableObject {
     public SCR_ABS_attributes.entStats returnStartingStats() {
         return startingStats;
     }
+    public string returnName() {
+        return characterName;
+    }
 }

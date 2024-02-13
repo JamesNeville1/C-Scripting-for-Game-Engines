@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SCO_character_greg
   m_EditorClassIdentifier: 
   characterName: Greg
-  animations: {fileID: 9100000, guid: 7cc8fcb6b38f3444c89784a096f08b20, type: 2}
-  animationPrefix: player
+  animations: {fileID: 9100000, guid: 722975015ea9c5b4cbba20de479349d5, type: 2}
+  animationPrefix: gnome
   startingStats:
     athletics: 2
     survival: 5

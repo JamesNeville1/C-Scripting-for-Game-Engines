@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aabd086dd68b352489e619cecfc46e25, type: 3}
-  m_Name: SCO_character_grog
+  m_Name: SCO_character_shrok
   m_EditorClassIdentifier: 
-  characterName: Grog
-  animations: {fileID: 9100000, guid: 7cc8fcb6b38f3444c89784a096f08b20, type: 2}
-  animationPrefix: player
+  characterName: Shrok
+  animations: {fileID: 9100000, guid: 1e06bac51e46caf42b4e56b169074f2c, type: 2}
+  animationPrefix: ogre
   startingStats:
     athletics: 5
     survival: 2

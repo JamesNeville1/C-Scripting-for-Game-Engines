@@ -63,6 +63,7 @@ public class SCR_master_main : MonoBehaviour {
         loadScene(sceneKey.SCE_AUDIO_MANAGER, LoadSceneMode.Additive);
         masterCameraRef.SetActive(false);
         while (!audioIsReady()) yield return null;
+        SCR_master_audio.returnInstance().setup();
 
         loadScene(sceneKey.SCE_CHARACTER_SELECTION, LoadSceneMode.Additive);
         while (!isCharacterMade()) yield return null;
@@ -94,7 +95,6 @@ public class SCR_master_main : MonoBehaviour {
         SCR_master_generation.returnInstance().setup("12", "Ground Tilemap", "Water Tilemap", mapSize);
         SCR_master_inventory_main.returnInstance().setup(inventorySize.x, inventorySize.y);
         SCR_master_crafting.returnInstance().setup();
-        SCR_master_audio.returnInstance().setup();
 
         //Make Player
         Instantiate(playerPrefab, mapRef.startPos(), Quaternion.identity, GameObject.Find(playerParent).transform);

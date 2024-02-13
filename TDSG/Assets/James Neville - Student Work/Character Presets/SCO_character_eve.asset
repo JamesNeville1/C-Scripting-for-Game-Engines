@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SCO_character_eve
   m_EditorClassIdentifier: 
   characterName: Eve
-  animations: {fileID: 9100000, guid: 4471b1f71d473904e855d0ac56f5039d, type: 2}
-  animationPrefix: goblin
+  animations: {fileID: 9100000, guid: e3bae1dd37d29bb4ea6105c8e17bbced, type: 2}
+  animationPrefix: woman
   startingStats:
     athletics: 2
     survival: 3

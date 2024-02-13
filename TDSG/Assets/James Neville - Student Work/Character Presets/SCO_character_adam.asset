@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Adam
   animations: {fileID: 9100000, guid: 7cc8fcb6b38f3444c89784a096f08b20, type: 2}
-  animationPrefix: player
+  animationPrefix: man
   startingStats:
     athletics: 3
     survival: 3
