@@ -26,11 +26,11 @@ public class SCR_player_main : MonoBehaviour {
     [Header("Will not change once built")]
     [SerializeField] private float timeBetweenWalkSFX;
     [SerializeField] private float swimSpeedModif;
+    [SerializeField] private GameObject waterResponsibleRef;
 
     [Header("Other")]
     [SerializeField] [MyReadOnly] private bool footstepCoroutineRunning = false;
     [SerializeField] [MyReadOnly] private float speedOrigin;
-    [SerializeField] [MyReadOnly] private bool isSwimming = false;
 
     #region Set Instance
     private static SCR_player_main instance;
@@ -43,20 +43,18 @@ public class SCR_player_main : MonoBehaviour {
     #endregion
     #region Unity
     private void Update() {
-        startWalking();
         playerMovementMain();
     }
-    //private void OnTriggerEnter2D(Collider2D collision) {
-    //    if (collision.GetComponent<TilemapCollider2D>()) {  //(We know the player is entering water)     
-    //        isSwimming = !isSwimming;
-    //        if (isSwimming) {
-    //            startSwimming();
-    //        }
-    //        else {
-    //            startWalking();
-    //        }
-    //    }
-    //}
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.gameObject == SCR_master_generation.returnInstance().returnGroundTilemap().gameObject) {
+            startWalking();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.gameObject == SCR_master_generation.returnInstance().returnGroundTilemap().gameObject) {
+            startSwimming();
+        }
+    }
     #endregion
     #region Main
     //All movement related stuff here
@@ -65,13 +63,15 @@ public class SCR_player_main : MonoBehaviour {
         movePlayer(input); //Move Player
         flipSprite(input); //Check If Should Flip Sprite
         animate(input); //Do idle if still, and walk if moving
-        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10); //Move Camera to follow player
+        Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10); //Move Camera to follow players
     }
     private void startSwimming() {
         speed = speedOrigin * swimSpeedModif;
+        waterResponsibleRef.SetActive(true);
     }
     private void startWalking() {
         speed = speedOrigin;
+        waterResponsibleRef.SetActive(false);
     }
     #endregion
     #region playerMovementMainFuncs
@@ -110,7 +110,7 @@ public class SCR_player_main : MonoBehaviour {
     }
     private void animate(Vector2Int input) {
         if (input.x != 0 || input.y != 0) {
-            playerAnimation.play(isSwimming ? SCR_unit_animation.AnimationType.DEATH : SCR_unit_animation.AnimationType.WALK);
+            playerAnimation.play(SCR_unit_animation.AnimationType.WALK);
         }
         else {
             playerAnimation.play(SCR_unit_animation.AnimationType.IDLE);
@@ -152,6 +152,8 @@ public class SCR_player_main : MonoBehaviour {
 
         //Adjust Speed
         changeOverworldSpeed();
+
+        speed = speedOrigin;
     }
     #endregion
 }

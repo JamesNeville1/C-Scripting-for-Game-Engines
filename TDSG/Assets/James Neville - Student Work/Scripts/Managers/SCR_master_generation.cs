@@ -270,7 +270,7 @@ public class SCR_master_generation : MonoBehaviour {
     }
     #endregion
     #region utils
-    public void removeTile(Vector2 pos) {
+    private void removeTile(Vector2 pos) {
         groundTilemap.SetTile(new Vector3Int((int)pos.x,(int)pos.y), null);
     }
     public Vector2 startPos() {
@@ -282,6 +282,12 @@ public class SCR_master_generation : MonoBehaviour {
             totalWeight += weight.randomWieght;
         }
         return totalWeight;
+    }
+    public Tilemap returnGroundTilemap() {
+        return groundTilemap;
+    }
+    public Tilemap returnWaterTilemap() {
+        return waterTilemap;
     }
     #endregion
 }
