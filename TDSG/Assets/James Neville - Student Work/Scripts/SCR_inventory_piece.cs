@@ -106,7 +106,7 @@ public class SCR_inventory_piece : MonoBehaviour {
                 }
 
                 if (casted.returnBreakOnUse()) destroyPiece();
-
+                
                 break;
 
             default:

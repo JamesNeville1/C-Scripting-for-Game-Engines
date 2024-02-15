@@ -132,6 +132,7 @@ public class SCR_player_main : MonoBehaviour {
         speedOrigin = (playerAttributes.returnSpeed() * modifOverworldSpeed) * modifBy;
     }
     public void readyToDie() {
+        SCR_master_inventory_main.returnInstance().destroyAll();
         speed = 0;
         rb.velocity = Vector2.zero;
         SCR_master_main.returnInstance().setGatheringLocked(true);

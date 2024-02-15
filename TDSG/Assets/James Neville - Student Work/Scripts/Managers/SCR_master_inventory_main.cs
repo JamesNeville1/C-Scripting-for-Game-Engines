@@ -109,5 +109,10 @@ public class SCR_master_inventory_main : MonoBehaviour {
 
         return obj;
     }
+    public void destroyAll() {
+        foreach (var piece in pieceData.Keys) {
+            Destroy(piece.gameObject);
+        }
+    }
     #endregion
 }
