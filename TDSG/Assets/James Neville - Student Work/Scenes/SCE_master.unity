@@ -1537,40 +1537,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 1364117800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5ee3565d331f7049ba50e6430ca2feb, type: 3}
+  m_Script: {fileID: 11500000, guid: e18679ee188bf2e45b7bd4a1e03fb823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   groundTile: {fileID: 11400000, guid: c04797b4d78886344ac19fa173dfc11a, type: 2}
-  waterTile: {fileID: 11400000, guid: 37dde2d5933436b419d0bfb7e6d589e9, type: 2}
   groundTilemap: {fileID: 0}
-  waterTilemap: {fileID: 0}
   islandSize: 25
+  constantTiles:
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
+  - {x: -1, y: 0}
+  - {x: 0, y: 1}
+  - {x: 0, y: -1}
+  - {x: 1, y: 1}
+  - {x: -1, y: -1}
+  - {x: 1, y: -1}
+  - {x: -1, y: 1}
   gathables:
-  - color: {r: 0.54509807, g: 0.5686275, b: 0.3137255, a: 1}
+  - id: 0
     dataToPass:
       objectData: {fileID: 11400000, guid: 7e4eedfa6dc139a4aaa38141cf62f4ad, type: 2}
       randomWieght: 100
-  - color: {r: 0.89019614, g: 0.5764706, b: 0.2784314, a: 1}
+  - id: 1
     dataToPass:
       objectData: {fileID: 11400000, guid: 7e536eceaafeda44aa5a9036a2c0c27a, type: 2}
       randomWieght: 100
-  - color: {r: 0.85098046, g: 0.6509804, b: 0.6509804, a: 1}
+  - id: 2
     dataToPass:
       objectData: {fileID: 11400000, guid: b75a30167a2ba2b449e56ed0996527df, type: 2}
       randomWieght: 100
-  - color: {r: 0.7490196, g: 0.72156864, b: 0.7058824, a: 1}
+  - id: 3
     dataToPass:
       objectData: {fileID: 11400000, guid: 47174683fa2bc4d47a4d1e5b4d228ffd, type: 2}
       randomWieght: 25
-  - color: {r: 0.8980393, g: 0.43529415, b: 0.29411766, a: 1}
+  - id: 4
     dataToPass:
       objectData: {fileID: 11400000, guid: 496a2512360fd8c438f49284bb043f65, type: 2}
       randomWieght: 4
-  - color: {r: 0.37647063, g: 0.29411766, b: 0.2392157, a: 1}
+  - id: 5
     dataToPass:
       objectData: {fileID: 11400000, guid: 16c434f526f22a44bb61221f950a6fcb, type: 2}
       randomWieght: 10
-  mapTex: {fileID: 0}
   distributionStep: 0
   reduceGatherablesBy: 2000
   gatherablesParentName: Gatherables
@@ -1589,7 +1596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5207933277885795846, guid: 8dde42ce927554c4db156dfbb8b2acb0, type: 3}
   inventorySize: {x: 3, y: 5}
-  mapSize: {x: 200, y: 200}
+  mapSize: {x: 100, y: 100}
   playerPreset: {fileID: 0}
   seed: 
   overworldSceneName: SCE_overworld
@@ -1599,6 +1606,7 @@ MonoBehaviour:
   characterSelectionSceneName: SCE_character_selection
   overworldParentName: Overworld Parent
   playerParent: Player Parent
+  groundTilemapName: Ground Tilemap
   playerCraftingActive: 0
   masterCameraRef: {fileID: 519420028}
   startPressed: 0

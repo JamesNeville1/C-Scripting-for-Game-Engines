@@ -29,6 +29,7 @@ public class SCR_master_main : MonoBehaviour {
     [Header("Object Names")]
     [SerializeField] private string overworldParentName;
     [SerializeField] private string playerParent;
+    [SerializeField] private string groundTilemapName;
 
     [Header("Other")]
     [SerializeField][MyReadOnly] private bool playerCraftingActive;
@@ -108,7 +109,7 @@ public class SCR_master_main : MonoBehaviour {
 
     private void setupMain() { //Controls initial execution order in code and unifies setups
         //Get Required References
-        SCR_master_generation mapRef = GetComponent<SCR_master_generation>();
+        SCR_master_map mapRef = GetComponent<SCR_master_map>();
 
         //Make Map
         if(seed == "") {
@@ -117,7 +118,7 @@ public class SCR_master_main : MonoBehaviour {
         //Debug.Log("Map Seed: " + randSeed);
 
         //Setup externals
-        SCR_master_generation.returnInstance().setup(seed, "Ground Tilemap", "Water Tilemap", mapSize);
+        SCR_master_map.returnInstance().setup(seed, groundTilemapName, mapSize);
         SCR_master_inventory_main.returnInstance().setup(inventorySize.x, inventorySize.y);
         SCR_master_crafting.returnInstance().setup();
 

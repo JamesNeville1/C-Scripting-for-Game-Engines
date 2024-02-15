@@ -8,16 +8,15 @@ using UnityEngine.UIElements;
 [CreateAssetMenu(fileName = "SCO_gatherable_", menuName = "ScriptableObjects/Gatherables")]
 public class SCO_gatherable : ScriptableObject {
     [SerializeField] [Tooltip("Sprite is shown in overworld, ensure pivot is in correct location")] private Sprite sprite;
-    [SerializeField] [Tooltip("Size of colider")] private float interactableRadius = .1f;
     [SerializeField] [Tooltip("What item does it give?")] private SCO_item item;
     [SerializeField] private SCR_master_audio.sfx onPickUp;
-    public GameObject gatherableSetup(Vector2 pos, Transform parent) {
+    public GameObject gatherableSetup(Vector2Int pos, Transform parent) {
         
         GameObject obj = new GameObject(pos.ToString());
 
         obj.AddComponent<gatherableHook>().hookConstructor(item, onPickUp);
 
-        obj.transform.position = pos;
+        obj.transform.position = (Vector2)pos;
         obj.transform.parent = parent;
 
         SpriteRenderer sr = obj.AddComponent<SpriteRenderer>();

@@ -46,12 +46,12 @@ public class SCR_player_main : MonoBehaviour {
         playerMovementMain();
     }
     private void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.gameObject == SCR_master_generation.returnInstance().returnGroundTilemap().gameObject) {
+        if(collision.gameObject == SCR_master_map.returnInstance().returnGroundTilemap().gameObject) {
             startWalking();
         }
     }
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject == SCR_master_generation.returnInstance().returnGroundTilemap().gameObject) {
+        if (collision.gameObject == SCR_master_map.returnInstance().returnGroundTilemap().gameObject) {
             startSwimming();
         }
     }
