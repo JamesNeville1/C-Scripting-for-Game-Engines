@@ -99,13 +99,15 @@ public class SCR_master_inventory_main : MonoBehaviour {
     }
     public GameObject createSlotDisplay(string prefix, Transform parent, Vector3 localPos) {
         SpriteRenderer sr;
-        GameObject obj = new GameObject(prefix + localPos.x.ToString() + ", " + localPos.y.ToString(), typeof(SpriteRenderer));
+        GameObject obj = new GameObject($"{prefix} {localPos.x} , {localPos.y}", typeof(SpriteRenderer));
         obj.transform.parent = parent.transform;
         obj.transform.localPosition = localPos;
 
         sr = obj.GetComponent<SpriteRenderer>();
         sr.sprite = gridCellSprite;
         sr.sortingLayerName = "Inventory";
+
+        obj.AddComponent<BoxCollider2D>().isTrigger = true;
 
         return obj;
     }

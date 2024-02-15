@@ -2,9 +2,10 @@ using IzzetUtils.IzzetAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-[CreateAssetMenu(fileName = "SCO_", menuName = "ScriptableObjects/Gatherables")]
+[CreateAssetMenu(fileName = "SCO_gatherable_", menuName = "ScriptableObjects/Gatherables")]
 public class SCO_gatherable : ScriptableObject {
     [SerializeField] [Tooltip("Sprite is shown in overworld, ensure pivot is in correct location")] private Sprite sprite;
     [SerializeField] [Tooltip("Size of colider")] private float interactableRadius = .1f;
@@ -23,9 +24,9 @@ public class SCO_gatherable : ScriptableObject {
         sr.sprite = sprite;
         sr.sortingOrder = 10000 - (int)obj.transform.position.y;
 
-        CircleCollider2D col = obj.AddComponent<CircleCollider2D>();
+        PolygonCollider2D col = obj.AddComponent<PolygonCollider2D>();
         col.isTrigger = true;
-        col.radius = interactableRadius;
+        //col.radius = interactableRadius;
 
         return obj;
     }
@@ -49,7 +50,7 @@ public class SCO_gatherable : ScriptableObject {
             sr.color = originalColor;
         }
         private void OnMouseOver() {
-            if (!SCR_master_main.returnInstance().returnPlayerCrafting()) {
+            if (!SCR_master_main.returnInstance().returnPlayerCrafting() && !EventSystem.current.IsPointerOverGameObject()) {
                 sr.color = new Color32(originalColor.r, originalColor.g, originalColor.b, 100); //Display that the player is hovering over this object
                 if (Input.GetKeyDown(keyToGather)) { //Create instance of puzzle piece, then destroy
                     SCR_inventory_piece.createInstance(item, transform.position, SCR_master_inventory_main.returnInstance().returnCellParent());

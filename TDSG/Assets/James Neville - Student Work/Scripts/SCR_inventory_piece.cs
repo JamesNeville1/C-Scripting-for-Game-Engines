@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using IzzetUtils;
 using IzzetUtils.IzzetAttributes;
+using UnityEngine.EventSystems;
 
 public class SCR_inventory_piece : MonoBehaviour {
     [Header("Input Related")]
@@ -84,7 +85,7 @@ public class SCR_inventory_piece : MonoBehaviour {
     private void OnMouseOver() {
         mouseOver = true;
 
-        if(Input.GetMouseButtonDown(1)) {
+        if(Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject()) {
             useItemLogic();
         }
     }
@@ -138,7 +139,7 @@ public class SCR_inventory_piece : MonoBehaviour {
             }
         }
         else {
-            if(Input.GetMouseButtonDown(0) && mouseOver) {
+            if(Input.GetMouseButtonDown(0) && mouseOver && !EventSystem.current.IsPointerOverGameObject()) {
                 active=true;
                 pickUp();
             }
@@ -171,7 +172,7 @@ public class SCR_inventory_piece : MonoBehaviour {
         Destroy(gameObject);
     }
     #endregion
-    #region Adjust Sprite Renderers
+    #region Adjust Display
     private void adjustSortingOrder(int i, string sortingLayer = "Inventory Piece") {
         foreach (SpriteRenderer sr in srs) {
             sr.sortingOrder = i;

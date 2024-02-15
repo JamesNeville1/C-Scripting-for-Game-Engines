@@ -44,8 +44,10 @@ public class SCR_master_timers : MonoBehaviour {
         timeEvents[id].subscribe(onFinish);
     }
     public void removeAll(timerID id) {
-        Destroy(timeEvents[id].gameObject);
-        timeEvents.Remove(id);
+        if(timeEvents.ContainsKey(id)) {
+            Destroy(timeEvents[id].gameObject);
+            timeEvents.Remove(id);
+        }
     }
     public void pause(timerID id) {
         timeEvents[id].pauseTimer();
