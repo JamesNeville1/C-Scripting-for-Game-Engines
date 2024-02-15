@@ -5056,7 +5056,7 @@ MonoBehaviour:
   playerAttributes: {fileID: 0}
   playerAnimation: {fileID: 0}
   timeBetweenWalkSFX: 0.45
-  swimSpeedModif: 0.8
+  swimSpeedModif: 0.65
   waterResponsibleRef: {fileID: 5018528797435852022}
   footstepCoroutineRunning: 0
   speedOrigin: 0
@@ -5114,7 +5114,7 @@ MonoBehaviour:
     display: {fileID: 0}
   waitBeforeReloadSceneOnDeath: 2.5
   hungerDamageTimer: 1
-  hungerTimer: 400
+  hungerTimer: 10
 --- !u!50 &3903683744039567537
 Rigidbody2D:
   serializedVersion: 4

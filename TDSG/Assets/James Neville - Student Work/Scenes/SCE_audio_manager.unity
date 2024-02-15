@@ -177,7 +177,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.05
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -313,11 +313,12 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 8a891747eaa809b45a5263ba47d0c0dd, type: 3}
   - key: 10
     clip:
-    - {fileID: 8300000, guid: fdc24e5a48eb50e4983a7507159f1b34, type: 3}
-    - {fileID: 8300000, guid: 5e8ad916a26468e4bbe994adb9603bba, type: 3}
-    - {fileID: 8300000, guid: 015cec1db86c7fb469e6e8182b14cf6e, type: 3}
-    - {fileID: 8300000, guid: 3df87c147a09e5d488770db344cc7415, type: 3}
-    - {fileID: 8300000, guid: c26ef526ea6f90244a70e859a5c68dc6, type: 3}
+    - {fileID: 8300000, guid: eac211c9b08b75b4eb27b1e98baaa764, type: 3}
+    - {fileID: 8300000, guid: fa97f0c616a32f146a4f4934cd53cd19, type: 3}
+    - {fileID: 8300000, guid: 827475d5af70a2e429025df9b18ac848, type: 3}
+    - {fileID: 8300000, guid: 7f832d1153acdd6428d4c9e25b6a8aed, type: 3}
+  sfxSource: {fileID: 1047379337}
+  musicSource: {fileID: 1800733880}
 --- !u!1 &1800733878
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +330,7 @@ GameObject:
   - component: {fileID: 1800733879}
   - component: {fileID: 1800733880}
   m_Layer: 0
-  m_Name: Music
+  m_Name: Music Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -362,13 +363,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 120
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

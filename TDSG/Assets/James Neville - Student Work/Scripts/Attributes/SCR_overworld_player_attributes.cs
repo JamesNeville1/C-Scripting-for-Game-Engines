@@ -32,17 +32,23 @@ public class SCR_overworld_player_attributes : SCR_ABS_attributes {
         hungerRemoveHandler = delegate { hunger.adjust(-1); };
         
         //Timers
-        onDeathTimerLogicHandler = delegate { SceneManager.LoadScene("SCE_menu"); SCR_master_timers.returnInstance().removeAll(SCR_master_timers.timerID.WAIT_AFTER_DEATH); };
+        onDeathTimerLogicHandler = delegate {
+            SCR_master_timers.returnInstance().removeAll(SCR_master_timers.timerID.WAIT_AFTER_DEATH);
+            SCR_master_main.returnInstance().loadScene(SCR_master_main.sceneKey.SCE_MASTER, LoadSceneMode.Single);
+        };
         onNoHungerTimerLogicHandler = delegate {
             health.adjust(-1);
             if (health.returnCurrent() <= 0) SCR_master_timers.returnInstance().removeAll(SCR_master_timers.timerID.HUNGER_DAMAGE_TICK);
         };
 
+        //
         hunger = new SCR_attribute(stats.survival, () => startHungerHandler(), () => stopHungerHandler() );
 
+        //
         hunger.addUI(SCR_master_stats_display.returnInstance().returnHungerUI());
         health.addUI(SCR_master_stats_display.returnInstance().returnHealthUI());
 
+        //
         SCR_master_timers.returnInstance().subscribe(SCR_master_timers.timerID.HUNGER_TICK, () => hungerRemoveHandler(), hungerTimer);
     }
     #region Health

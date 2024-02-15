@@ -25,8 +25,8 @@ public class SCR_master_audio : MonoBehaviour {
 
     private Dictionary<sfx, AudioClip[]> sfxs = new Dictionary<sfx, AudioClip[]>(); //Hold audio clips, called via enum
 
-    private static AudioSource source; //Audio source, in external scene to reduce strain on game
-    private AudioSource musicSource; //Play music in seperate source
+    [SerializeField] private AudioSource sfxSource; //Audio source, in external scene to reduce strain on game
+    [SerializeField] private AudioSource musicSource; //Play music in seperate source
     
     #region Set Instance
     private static SCR_master_audio instance;
@@ -41,9 +41,6 @@ public class SCR_master_audio : MonoBehaviour {
 
     #region Setup
     public void setup() {
-        source = GetComponent<AudioSource>();
-        musicSource = GetComponent<AudioSource>();
-
         foreach (PASS_passStruct passing in PASS_sfxPasser)
         {
             sfxs.Add(passing.key, passing.clip);
@@ -53,11 +50,11 @@ public class SCR_master_audio : MonoBehaviour {
     #endregion
     #region Play
     public void playOneEffect(sfx toPlay, float volume = 1f) { //Play single effect
-        source.PlayOneShot(sfxs[toPlay][0], volume);
+        sfxSource.PlayOneShot(sfxs[toPlay][0], volume);
     }
     public void playRandomEffect(sfx toPlay, float volume = 1f) { //Play multiple effect
         int rand = UnityEngine.Random.Range(0, sfxs[toPlay].Length);
-        source.PlayOneShot(sfxs[toPlay][rand], volume);
+        sfxSource.PlayOneShot(sfxs[toPlay][rand], volume);
     }
     public void playRandomMusic(sfx toPlay, float volume = 1f) {
         StopCoroutine(findNewSong());
@@ -79,6 +76,14 @@ public class SCR_master_audio : MonoBehaviour {
         }
 
         ping.Invoke();
+    }
+    #endregion
+    #region Change Volume
+    public void changeSFXVolume(float value) {
+        sfxSource.volume = value;
+    }
+    public void changeMusicVolume(float value) {
+        musicSource.volume = value;
     }
     #endregion
 }

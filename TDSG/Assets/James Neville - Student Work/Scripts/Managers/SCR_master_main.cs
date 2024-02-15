@@ -15,6 +15,7 @@ public class SCR_master_main : MonoBehaviour {
     [SerializeField] private Vector2Int mapSize;
     [Header("")]
     [SerializeField] [MyReadOnly] private SCO_character_preset playerPreset;
+    [SerializeField] [MyReadOnly] private string seed;
 
     [Header("Scene Names")]
     [SerializeField] private string overworldSceneName;
@@ -28,11 +29,12 @@ public class SCR_master_main : MonoBehaviour {
     [SerializeField] private string playerParent;
 
     [Header("Other")]
-    [SerializeField] [MyReadOnly] private bool playerCraftingActive;
+    [SerializeField][MyReadOnly] private bool playerCraftingActive;
     [SerializeField] private GameObject masterCameraRef;
+    [SerializeField][MyReadOnly] private bool startPressed;
 
     //
-    Dictionary <sceneKey, string> formattedScenes = new Dictionary<sceneKey, string>();
+    Dictionary<sceneKey, string> formattedScenes = new Dictionary<sceneKey, string>();
 
     #region Set Instance
     private static SCR_master_main instance;
@@ -64,6 +66,11 @@ public class SCR_master_main : MonoBehaviour {
         masterCameraRef.SetActive(false);
         while (!audioIsReady()) yield return null;
         SCR_master_audio.returnInstance().setup();
+        SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.sfx.MUSIC_CALM);
+
+        loadScene(sceneKey.SCE_MENU, LoadSceneMode.Additive);
+        while (!pressedStart()) yield return null;
+        unloadScene(sceneKey.SCE_MENU);
 
         loadScene(sceneKey.SCE_CHARACTER_SELECTION, LoadSceneMode.Additive);
         while (!isCharacterMade()) yield return null;
@@ -79,6 +86,9 @@ public class SCR_master_main : MonoBehaviour {
         bool ready = SCR_master_audio.returnInstance() != null;
         return ready;
     }
+    private bool pressedStart() {
+        return startPressed;
+    }
     private bool isCharacterMade() {
         return playerPreset != null;
     }
@@ -88,25 +98,24 @@ public class SCR_master_main : MonoBehaviour {
         SCR_master_generation mapRef = GetComponent<SCR_master_generation>();
 
         //Make Map
-        string randSeed = mapRef.randomSeed();
+        if(seed == "") {
+            seed = mapRef.randomSeed();
+        }
         //Debug.Log("Map Seed: " + randSeed);
 
         //Setup externals
-        SCR_master_generation.returnInstance().setup("12", "Ground Tilemap", "Water Tilemap", mapSize);
+        SCR_master_generation.returnInstance().setup(seed, "Ground Tilemap", "Water Tilemap", mapSize);
         SCR_master_inventory_main.returnInstance().setup(inventorySize.x, inventorySize.y);
         SCR_master_crafting.returnInstance().setup();
 
         //Make Player
         Instantiate(playerPrefab, mapRef.startPos(), Quaternion.identity, GameObject.Find(playerParent).transform);
         SCR_player_main.returnInstance().setup(playerPreset);
-
-        //Start music loop
-        SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.sfx.MUSIC_CALM);
     }
     #endregion
     #region Publics
     public void whatMusic() {
-        SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.sfx.MUSIC_CALM);
+        SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.sfx.MUSIC_CALM); //Could use this to get different music depending on the situation
     }
     public bool returnPlayerCrafting() {
         return playerCraftingActive;
@@ -114,8 +123,14 @@ public class SCR_master_main : MonoBehaviour {
     public void setGatheringLocked(bool setTo) {
         playerCraftingActive = setTo;
     }
-    public void setPlayerPreset(SCO_character_preset preset) { 
+    public void setPlayerPreset(SCO_character_preset preset) {
         playerPreset = preset;
+    }
+    public void startPlay() {
+        startPressed = true;
+    }
+    public void changeSeed(string value) {
+        seed = value;
     }
     #endregion
     #region Clean Scenes
@@ -125,10 +140,10 @@ public class SCR_master_main : MonoBehaviour {
     private void moveToScene(GameObject obj, sceneKey input) {
         SceneManager.MoveGameObjectToScene(obj, SceneManager.GetSceneByName(formattedScenes[input]));
     }
-    private void loadScene(sceneKey input, LoadSceneMode mode) {
+    public void loadScene(sceneKey input, LoadSceneMode mode) {
         SceneManager.LoadScene(formattedScenes[input], mode);
     }
-    private void unloadScene(sceneKey input) {
+    public void unloadScene(sceneKey input) {
         SceneManager.UnloadSceneAsync(formattedScenes[input]);
     }
     #endregion

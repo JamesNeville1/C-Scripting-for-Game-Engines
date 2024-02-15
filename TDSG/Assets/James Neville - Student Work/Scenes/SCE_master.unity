@@ -1377,7 +1377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5207933277885795846, guid: 8dde42ce927554c4db156dfbb8b2acb0, type: 3}
   inventorySize: {x: 3, y: 5}
-  mapSize: {x: 100, y: 100}
+  mapSize: {x: 200, y: 200}
   playerPreset: {fileID: 0}
   overworldSceneName: SCE_overworld
   audioSceneName: SCE_audio_manager
