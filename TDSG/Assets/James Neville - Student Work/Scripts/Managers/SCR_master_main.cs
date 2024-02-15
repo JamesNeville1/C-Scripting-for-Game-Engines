@@ -1,8 +1,10 @@
 using IzzetUtils.IzzetAttributes;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SCR_master_main : MonoBehaviour {
     #region Structs & Enums
@@ -32,6 +34,9 @@ public class SCR_master_main : MonoBehaviour {
     [SerializeField][MyReadOnly] private bool playerCraftingActive;
     [SerializeField] private GameObject masterCameraRef;
     [SerializeField][MyReadOnly] private bool startPressed;
+
+    [Header("Loading Related")]
+    [SerializeField] private GameObject loadingScreenRef;
 
     //
     Dictionary<sceneKey, string> formattedScenes = new Dictionary<sceneKey, string>();
@@ -76,10 +81,18 @@ public class SCR_master_main : MonoBehaviour {
         while (!isCharacterMade()) yield return null;
 
         masterCameraRef.SetActive(true);
-        unloadScene(sceneKey.SCE_CHARACTER_SELECTION); //Why no work?
-        loadScene(sceneKey.SCE_OVERWORLD, LoadSceneMode.Additive);
-        while (GameObject.Find(overworldParentName) == null) yield return null;
+        unloadScene(sceneKey.SCE_CHARACTER_SELECTION);
+        
+        AsyncOperation overworldScene = loadScene(sceneKey.SCE_OVERWORLD, LoadSceneMode.Additive);
+        
+        loadingScreenRef.SetActive(true);
+        do {
+            yield return null;
+        } 
+        while (overworldScene.progress < .9f || GameObject.Find(overworldParentName) == null);
+        loadingScreenRef.SetActive(false);
 
+        //Rest of setup in normal void
         setupMain();
     }
     private bool audioIsReady() {
@@ -140,8 +153,9 @@ public class SCR_master_main : MonoBehaviour {
     private void moveToScene(GameObject obj, sceneKey input) {
         SceneManager.MoveGameObjectToScene(obj, SceneManager.GetSceneByName(formattedScenes[input]));
     }
-    public void loadScene(sceneKey input, LoadSceneMode mode) {
-        SceneManager.LoadScene(formattedScenes[input], mode);
+    public AsyncOperation loadScene(sceneKey input, LoadSceneMode mode) {
+        var scene = SceneManager.LoadSceneAsync(formattedScenes[input], mode);
+        return scene;
     }
     public void unloadScene(sceneKey input) {
         SceneManager.UnloadSceneAsync(formattedScenes[input]);
