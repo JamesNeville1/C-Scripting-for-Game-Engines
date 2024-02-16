@@ -11,7 +11,7 @@ public class SCR_master_main : MonoBehaviour {
     public enum sceneKey { SCE_MASTER, SCE_OVERWORLD, SCE_AUDIO_MANAGER, SCE_MENU, SCE_CHARACTER_SELECTION }
     #endregion
 
-    [Header("Main")]
+    [Header("Main - Game Heavily Realize On These")]
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private Vector2Int inventorySize;
     [SerializeField] private Vector2Int mapSize;
@@ -32,9 +32,9 @@ public class SCR_master_main : MonoBehaviour {
     [SerializeField] private string groundTilemapName;
 
     [Header("Other")]
-    [SerializeField][MyReadOnly] private bool playerCraftingActive;
+    [SerializeField] [MyReadOnly] private bool playerCraftingActive;
     [SerializeField] private GameObject masterCameraRef;
-    [SerializeField][MyReadOnly] private bool startPressed;
+    [SerializeField] [MyReadOnly] private bool startPressed;
 
     [Header("Loading Related")]
     [SerializeField] private GameObject loadingScreenRef;
@@ -56,48 +56,56 @@ public class SCR_master_main : MonoBehaviour {
 
     #region Unity
     private void Start() {
-        StartCoroutine(preSetup());
+        StartCoroutine(setup());
     }
     #endregion
     #region Setup
-    private IEnumerator preSetup() {
-        formattedScenes.Add(sceneKey.SCE_MASTER, masterSceneName);
-        formattedScenes.Add(sceneKey.SCE_OVERWORLD, overworldSceneName);
-        formattedScenes.Add(sceneKey.SCE_AUDIO_MANAGER, audioSceneName);
-        formattedScenes.Add(sceneKey.SCE_MENU, menuSceneName);
-        formattedScenes.Add(sceneKey.SCE_CHARACTER_SELECTION, characterSelectionSceneName);
+    private IEnumerator setup() {
+        formatScenes();
 
-        //Load Additives
+        //Load Timer and Audio, wait till finished, setup after
         loadScene(sceneKey.SCE_AUDIO_MANAGER, LoadSceneMode.Additive);
         masterCameraRef.SetActive(false);
-        while (!audioIsReady()) yield return null;
+        while (!audioAndTimerAreReady()) yield return null;
         SCR_master_audio.returnInstance().setup();
         SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.sfx.MUSIC_CALM);
+        SCR_master_timers.returnInstance().setup();
 
+        //Load Menu, wait until start is pressed
         loadScene(sceneKey.SCE_MENU, LoadSceneMode.Additive);
         while (!pressedStart()) yield return null;
         unloadScene(sceneKey.SCE_MENU);
 
+        //Load Character Selection, wait until selected
         loadScene(sceneKey.SCE_CHARACTER_SELECTION, LoadSceneMode.Additive);
+        while (SCR_master_character_selection.returnInstance() == null) yield return null;
+        SCR_master_character_selection.returnInstance().setup();
         while (!isCharacterMade()) yield return null;
-
-        masterCameraRef.SetActive(true);
         unloadScene(sceneKey.SCE_CHARACTER_SELECTION);
+
+        //Ready main camera
+        masterCameraRef.SetActive(true);
         
+        //Load overworld scene, Show loading screen until ready
         AsyncOperation overworldScene = loadScene(sceneKey.SCE_OVERWORLD, LoadSceneMode.Additive);
-        
         loadingScreenRef.SetActive(true);
-        do {
-            yield return null;
-        } 
-        while (overworldScene.progress < .9f || GameObject.Find(overworldParentName) == null);
+        do yield return null;
+        while (overworldScene.progress < .9f || GameObject.Find(overworldParentName) == null); //Note: progress max is .9f not 1f, this is NOT an error
+        SCR_master_map.returnInstance().setup(seed, groundTilemapName, mapSize);
         loadingScreenRef.SetActive(false);
 
-        //Rest of setup in normal void
-        setupMain();
+        //Setup Inventory & Crafting
+        SCR_master_inventory_main.returnInstance().setup(inventorySize.x, inventorySize.y);
+        SCR_master_crafting.returnInstance().setup();
+
+        //Make Player
+        Instantiate(playerPrefab, SCR_master_map.returnInstance().startPos(), Quaternion.identity, GameObject.Find(playerParent).transform);
+        SCR_player_main.returnInstance().setup(playerPreset);
     }
-    private bool audioIsReady() {
-        bool ready = SCR_master_audio.returnInstance() != null;
+
+    #region Setup Yield Checks
+    private bool audioAndTimerAreReady() {
+        bool ready = SCR_master_audio.returnInstance() != null && SCR_master_timers.returnInstance() != null;
         return ready;
     }
     private bool pressedStart() {
@@ -106,32 +114,22 @@ public class SCR_master_main : MonoBehaviour {
     private bool isCharacterMade() {
         return playerPreset != null;
     }
-
-    private void setupMain() { //Controls initial execution order in code and unifies setups
-        //Get Required References
-        SCR_master_map mapRef = GetComponent<SCR_master_map>();
-
-        //Make Map
-        if(seed == "") {
-            seed = mapRef.randomSeed();
-        }
-        //Debug.Log("Map Seed: " + randSeed);
-
-        //Setup externals
-        SCR_master_map.returnInstance().setup(seed, groundTilemapName, mapSize);
-        SCR_master_inventory_main.returnInstance().setup(inventorySize.x, inventorySize.y);
-        SCR_master_crafting.returnInstance().setup();
-
-        //Make Player
-        Instantiate(playerPrefab, mapRef.startPos(), Quaternion.identity, GameObject.Find(playerParent).transform);
-        SCR_player_main.returnInstance().setup(playerPreset);
+    #endregion
+    #region Other Utils
+    private void formatScenes() {
+        formattedScenes.Add(sceneKey.SCE_MASTER, masterSceneName);
+        formattedScenes.Add(sceneKey.SCE_OVERWORLD, overworldSceneName);
+        formattedScenes.Add(sceneKey.SCE_AUDIO_MANAGER, audioSceneName);
+        formattedScenes.Add(sceneKey.SCE_MENU, menuSceneName);
+        formattedScenes.Add(sceneKey.SCE_CHARACTER_SELECTION, characterSelectionSceneName);
     }
+    #endregion
     #endregion
     #region Publics
     public void whatMusic() {
         SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.sfx.MUSIC_CALM); //Could use this to get different music depending on the situation
     }
-    public bool returnPlayerCrafting() {
+    public bool isPlayerCraftingActive() {
         return playerCraftingActive;
     }
     public void setGatheringLocked(bool setTo) {
@@ -148,9 +146,6 @@ public class SCR_master_main : MonoBehaviour {
     }
     #endregion
     #region Clean Scenes
-    private string getSceneClean(sceneKey input) {
-        return formattedScenes[input];
-    }
     private void moveToScene(GameObject obj, sceneKey input) {
         SceneManager.MoveGameObjectToScene(obj, SceneManager.GetSceneByName(formattedScenes[input]));
     }

@@ -17,14 +17,16 @@ public class SCR_master_audio : MonoBehaviour {
         EAT,
         CRAFT,
         DRINK,
+
         MUSIC_CALM
     }
 
     [System.Serializable] private struct PASS_passStruct { public sfx key; public AudioClip[] clip; }
-    [SerializeField] private PASS_passStruct[] PASS_sfxPasser; //Pass to sfxs
+    [SerializeField] private PASS_passStruct[] PASS_sfxPasser; //Pass to sfxs dictionary
 
     private Dictionary<sfx, AudioClip[]> sfxs = new Dictionary<sfx, AudioClip[]>(); //Hold audio clips, called via enum
 
+    //Having these seperate allows me to control their individual volume
     [SerializeField] private AudioSource sfxSource; //Audio source, in external scene to reduce strain on game
     [SerializeField] private AudioSource musicSource; //Play music in seperate source
     
@@ -41,18 +43,17 @@ public class SCR_master_audio : MonoBehaviour {
 
     #region Setup
     public void setup() {
-        foreach (PASS_passStruct passing in PASS_sfxPasser)
-        {
+        foreach (PASS_passStruct passing in PASS_sfxPasser) { //Pass to dictionary
             sfxs.Add(passing.key, passing.clip);
         }
-        PASS_sfxPasser = null;
+        PASS_sfxPasser = null; //Set to null to ensure I don't accidentally use it
     }
     #endregion
     #region Play
     public void playOneEffect(sfx toPlay, float volume = 1f) { //Play single effect
         sfxSource.PlayOneShot(sfxs[toPlay][0], volume);
     }
-    public void playRandomEffect(sfx toPlay, float volume = 1f) { //Play multiple effect
+    public void playRandomEffect(sfx toPlay, float volume = 1f) { //Play single effect in array, randomly selected
         int rand = UnityEngine.Random.Range(0, sfxs[toPlay].Length);
         sfxSource.PlayOneShot(sfxs[toPlay][rand], volume);
     }
@@ -63,11 +64,11 @@ public class SCR_master_audio : MonoBehaviour {
         int rand = UnityEngine.Random.Range(0, sfxs[toPlay].Length);
         musicSource.PlayOneShot(sfxs[toPlay][rand], volume);
         //Debug.Log($"Now Playing: {sfxs[toPlay][rand].name}");
-        StartCoroutine(findNewSong());
+        StartCoroutine(findNewSong()); //Find new songe from master, would allow me to have additional complexity, for example if it were winter, a more appropriate song would play
     }
     #endregion
     #region Find New Song
-    private IEnumerator findNewSong() {
+    private IEnumerator findNewSong() { //Wait untill finished, ping when done
         UnityEvent ping = new UnityEvent();
         ping.AddListener(() => SCR_master_main.returnInstance().whatMusic());
 
@@ -79,6 +80,7 @@ public class SCR_master_audio : MonoBehaviour {
     }
     #endregion
     #region Change Volume
+    //Change volume - Used in menu
     public void changeSFXVolume(float value) {
         sfxSource.volume = value;
     }

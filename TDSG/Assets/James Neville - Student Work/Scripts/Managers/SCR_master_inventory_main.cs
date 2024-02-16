@@ -10,14 +10,13 @@ public class SCR_master_inventory_main : MonoBehaviour {
     [SerializeField] [Tooltip("What sprite should the item use")] private Sprite itemBlockSprite;
     [SerializeField] private RectTransform cellParent;
 
-    #region Can't / Won't be Serialised
+    //
     public enum cellState {
         EMPTY,
         OCCUPIED
     }
-    private Dictionary<Vector2Int, cellState> gridData = new Dictionary<Vector2Int, cellState>(); //Holds grid and where it is occupied or not
+    private Dictionary<Vector2Int, cellState> gridData = new Dictionary<Vector2Int, cellState>(); //Holds grid and if it is occupied or not
     private Dictionary<SCR_inventory_piece, Vector2Int[]> pieceData = new Dictionary<SCR_inventory_piece, Vector2Int[]>(); //Hold data of pieces
-    #endregion
 
     #region Set Instance
     private static SCR_master_inventory_main inventoryInstance; //To be returned to others
@@ -37,7 +36,7 @@ public class SCR_master_inventory_main : MonoBehaviour {
             for (int x = 0; x <= sizeX - 1; x++) {
                 Vector2Int pos = new Vector2Int(x, y);
 
-                createSlotDisplay("Inventory Grid Cell: ", cellParent, new Vector3(pos.x, pos.y, 0));
+                createSlotDisplay("Inventory Grid Cell: ", cellParent, new Vector3(pos.x, pos.y, 1)); //Made Z = 1, this was because the pieces and cells were intersecting, causing errors
                 inventoryInstance.gridData.Add(pos, cellState.EMPTY);
             }
         }
@@ -46,19 +45,26 @@ public class SCR_master_inventory_main : MonoBehaviour {
     #region Piece Placement
     public void removePiece(SCR_inventory_piece toCheck) { //Remove piece from dictionaries
         if (pieceData.ContainsKey(toCheck)) {
+            
+            //Remove from pieceData
             pieceData.Remove(toCheck);
+
+            //Remove from gridData
             Vector2Int roundedPos = IzzetMain.castToVector2Int(toCheck.transform.localPosition);
             adjustGridState(toCheck.returnChildren(roundedPos), cellState.EMPTY);
         }
     }
 
-    public bool tryPlaceGrid(SCR_inventory_piece toManipulate) { //Try to place in grid
+    public bool tryPlaceGrid(SCR_inventory_piece toManipulate) { //Try to place in grid, return false if fail
+        toManipulate.transform.parent = cellParent;
+
         //Check if it can even be placed?
         Vector2Int pos = new Vector2Int(Mathf.RoundToInt(toManipulate.transform.localPosition.x), Mathf.RoundToInt(toManipulate.transform.localPosition.y));
         if(!checkPiece(toManipulate,pos)) {
             return false;
         }
 
+        //If True
         toManipulate.transform.localPosition = (Vector2)pos;
 
         pieceData.Add(toManipulate, toManipulate.returnChildren(pos));
@@ -67,18 +73,16 @@ public class SCR_master_inventory_main : MonoBehaviour {
     }
     #endregion
     #region Grid Authentication
-    public bool checkPiece(SCR_inventory_piece piece, Vector2Int pos) { //Loop through children //LOOK AT THIS, THIS IS BAD ;-;
+    private bool checkPiece(SCR_inventory_piece piece, Vector2Int pos) { 
+        
+        //Loop through children, check all slots are free and valid
         Vector2Int[] children = piece.returnChildren(pos);
         foreach(Vector2Int vec in children) {
-            if (!gridData.ContainsKey(vec)) {
-                //Debug.Log("Grid Data Doesnt Contain: " + vec);
-                return false;
-            }
-            else if (gridData[vec] == cellState.OCCUPIED) {
-                //Debug.Log("Grid Data: " + vec + " is ocupied");
-                return false;
-            }
+            bool invalid = !gridData.ContainsKey(vec) || gridData[vec] == cellState.OCCUPIED;
+            if (invalid) return false;
         }
+
+        //If passes the validation, set ass occupied
         adjustGridState(children, cellState.OCCUPIED);
         return true;
     }
@@ -97,7 +101,7 @@ public class SCR_master_inventory_main : MonoBehaviour {
     public Transform returnCellParent() {
         return cellParent;
     }
-    public GameObject createSlotDisplay(string prefix, Transform parent, Vector3 localPos) {
+    public GameObject createSlotDisplay(string prefix, Transform parent, Vector3 localPos) { //Used by Inventory and Crafting
         SpriteRenderer sr;
         GameObject obj = new GameObject($"{prefix} {localPos.x} , {localPos.y}", typeof(SpriteRenderer));
         obj.transform.parent = parent.transform;
@@ -115,6 +119,12 @@ public class SCR_master_inventory_main : MonoBehaviour {
         foreach (var piece in pieceData.Keys) {
             Destroy(piece.gameObject);
         }
+    }
+    public bool contains(SCR_inventory_piece toCheck) {
+        return pieceData.ContainsKey(toCheck);
+    }
+    public float returnZOfParent() {
+        return cellParent.transform.position.z;
     }
     #endregion
 }

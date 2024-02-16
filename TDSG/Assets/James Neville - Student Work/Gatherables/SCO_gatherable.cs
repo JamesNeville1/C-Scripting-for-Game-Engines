@@ -49,7 +49,7 @@ public class SCO_gatherable : ScriptableObject {
             sr.color = originalColor;
         }
         private void OnMouseOver() {
-            if (!SCR_master_main.returnInstance().returnPlayerCrafting() && !EventSystem.current.IsPointerOverGameObject()) {
+            if (!SCR_master_main.returnInstance().isPlayerCraftingActive() && !EventSystem.current.IsPointerOverGameObject()) {
                 sr.color = new Color32(originalColor.r, originalColor.g, originalColor.b, 100); //Display that the player is hovering over this object
                 if (Input.GetKeyDown(keyToGather)) { //Create instance of puzzle piece, then destroy
                     SCR_inventory_piece.createInstance(item, transform.position, SCR_master_inventory_main.returnInstance().returnCellParent());

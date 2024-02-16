@@ -3,23 +3,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
 
 public class SCR_master_timers : MonoBehaviour {
 
     [SerializeField] private Transform timerParent;
+    [SerializeField] private PASS_timerLengthsStruct[] PASS_timerLengths; 
 
     [System.Serializable] public enum timerID {
         HUNGER_TICK,
         HUNGER_DAMAGE_TICK,
         WAIT_AFTER_DEATH,
-        ENEMY_GIVEUP
     }
 
+    [System.Serializable]private struct PASS_timerLengthsStruct { public timerID key; public float maxTimer; }
+    
+    private Dictionary<timerID, float> timerLengths = new Dictionary<timerID, float>();
     private Dictionary<timerID, timer> timeEvents = new Dictionary<timerID, timer>(); //Holds the current timers
 
+    public void setup() {
+        foreach (PASS_timerLengthsStruct toPass in PASS_timerLengths) {
+            timerLengths.Add(toPass.key, toPass.maxTimer);
+        }
+        PASS_timerLengths = null;
+    }
     #region Set Instance
     private static SCR_master_timers instance;
 
@@ -32,12 +38,12 @@ public class SCR_master_timers : MonoBehaviour {
     }
     #endregion
     #region Public
-    public void subscribe(timerID id, Action onFinish, float maxTimer = 0) {
+    public void subscribe(timerID id, Action onFinish) {
         if(!timeEvents.ContainsKey(id)) {
             timer newTimer = new GameObject($"{id} Timer", typeof(timer)).GetComponent<timer>();
             
             newTimer.gameObject.transform.parent = timerParent;
-            newTimer.setup(maxTimer);
+            newTimer.setup(timerLengths[id]);
             
             timeEvents.Add(id, newTimer);
         }

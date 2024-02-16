@@ -15,13 +15,13 @@ public class SCR_inventory_piece : MonoBehaviour {
     [SerializeField] [Tooltip("Slots the piece takes up")] [MyReadOnly] private Vector2Int[] slots;
     [SerializeField] [Tooltip("The Item this piece represents")] [MyReadOnly] private SCO_item pieceItem;
 
-    #region Won't be Seen in Inspector
-    private SCR_master_inventory_main playerInventory; //Reference to inventory
+    //References
+    private SCR_master_inventory_main playerInventory;
     private SCR_master_crafting playerCrafting;
     private SCR_master_audio audioManager;
     private SCR_master_main master;
+
     private List<SpriteRenderer> srs = new List<SpriteRenderer>(); //All sprite renderers of children
-    #endregion
 
     #region Create Instance
     //Create brand new instance from anywhere with no reference required
@@ -75,7 +75,7 @@ public class SCR_inventory_piece : MonoBehaviour {
     private void Awake() {
         playerInventory = SCR_master_inventory_main.returnInstance(); //Get reference to inventory
         playerCrafting = SCR_master_crafting.returnInstance(); //Get reference to crafting
-        audioManager = SCR_master_audio.returnInstance();
+        audioManager = SCR_master_audio.returnInstance(); //Get reference to audio
         master = SCR_master_main.returnInstance(); //Get reference to master
     }
     private void Update() {
@@ -85,8 +85,9 @@ public class SCR_inventory_piece : MonoBehaviour {
     private void OnMouseOver() {
         mouseOver = true;
 
-        if(Input.GetMouseButtonDown(1) && !EventSystem.current.IsPointerOverGameObject()) {
-            useItemLogic();
+        bool canUse = SCR_master_inventory_main.returnInstance().contains(this) || active;
+        if (Input.GetMouseButtonDown(1) && canUse) {
+            useItemLogic(); //Use item if useable
         }
     }
     private void OnMouseExit() {
@@ -96,7 +97,7 @@ public class SCR_inventory_piece : MonoBehaviour {
     #region Item Logic
     private void useItemLogic() {
         switch (pieceItem) {
-            case SCO_ABS_item_useable_on_entity:
+            case SCO_ABS_item_useable_on_entity: //Use on player if can be used
                 Debug.Log("Using " + pieceItem.name);
 
                 SCO_ABS_item_useable_on_entity casted = pieceItem as SCO_ABS_item_useable_on_entity;
@@ -121,45 +122,58 @@ public class SCR_inventory_piece : MonoBehaviour {
     #region Input
     private void playerInput() { //Move piece via mouse input
         if (active) {
-            transform.position = IzzetMain.getMousePos(Camera.main);
-            if (!Input.GetMouseButton(0)) {
+            Vector2 mousePos = IzzetMain.getMousePos(Camera.main);
+            transform.position = new Vector3(mousePos.x, mousePos.y, playerInventory.returnZOfParent() - 1); //Set Z to this to make sure mouse over is still triggered
+            
+            if (Input.GetMouseButtonUp(0)) { //If let go of left mouse button
                 active = false;
-                if (playerInventory.tryPlaceGrid(this)) {
-                    //Debug.Log("I've fallen, and I can't get up");
+
+                if (playerInventory.tryPlaceGrid(this)) { //Try to place in inventory
                     adjustSortingOrder(1);
                     playerCrafting.remove(this);
                 }
-                else if (master.returnPlayerCrafting() && playerCrafting.tryPlace(this)) {
+                else if (master.isPlayerCraftingActive() && playerCrafting.tryPlace(this)) { //Try to place in crafting slots
                     playerInventory.removePiece(this);
                     adjustSortingOrder(1);
                 }
-                else {
+                else { //If all fails, drop the item
                     drop();
+                
                 }
             }
         }
         else {
-            if(Input.GetMouseButtonDown(0) && mouseOver && !EventSystem.current.IsPointerOverGameObject()) {
-                active=true;
+            if(Input.GetMouseButtonDown(0) && mouseOver && !EventSystem.current.IsPointerOverGameObject()) { //If pressed while mouse isn't over UI, pickup
                 pickUp();
             }
         }
     }
     public void drop() {
-        playerInventory.removePiece(this);
-        playerCrafting.remove(this);
+
+        //Remove from crafting and inventory incase, and remove parent
+        removeFromAll();
         transform.parent = null;
+
+        //Purely Design
         adjustSize(.55f);
-        adjustSortingOrder(0, "Default"); //In future 0 should be replaced with an oppropriate order, relative to the world.
+        adjustSortingOrder(0, "Default");
     }
     private void pickUp() {
+
+        //Make active, Remove from crafting and inventory incase
+        active = true;
+        removeFromAll();
+
+        //Purely Design
         adjustSize(1);
         adjustSortingOrder(2);
-        transform.parent = playerInventory.returnCellParent();
+    }
+    private void removeFromAll() {
         playerInventory.removePiece(this);
+        playerCrafting.remove(this);
     }
     #endregion
-    #region Grid Authentication
+    #region Authentication
     public Vector2Int[] returnChildren(Vector2Int parentPos) { //Return all positions the piece takes up
         List<Vector2Int> vecs = new List<Vector2Int>();
         foreach (Vector2Int item in slots) {

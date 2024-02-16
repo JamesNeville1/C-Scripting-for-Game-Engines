@@ -36,7 +36,7 @@ public class SCR_unit_animation : MonoBehaviour {
         bool isAlreadyPlaying = current == type;
         bool isPriorityLessThanCurrent = animations[type].priority < animations[current].priority;
 
-        if (isAlreadyPlaying || isPriorityLessThanCurrent) return;
+        if (isAlreadyPlaying || isPriorityLessThanCurrent) return; //If running, don't play again
 
         animator.Play(animations[type].name);
         current = type;
@@ -47,10 +47,11 @@ public class SCR_unit_animation : MonoBehaviour {
     #endregion
     #region Setup
     public void setup(string unitPrefix, RuntimeAnimatorController animController) {
+        //Setup unity's animator
         animator = GetComponent<Animator>();
         animator.runtimeAnimatorController = animController;
 
-        //Check if ok?
+        //Add all animations with strings to dictionairy
         animations.Add(AnimationType.IDLE, new animationDataStruct (globalPrefix + unitPrefix + idle, 0));
         animations.Add(AnimationType.WALK, new animationDataStruct (globalPrefix + unitPrefix + walk, 0));
         animations.Add(AnimationType.DEATH, new animationDataStruct (globalPrefix + unitPrefix + death, 0));

@@ -20,11 +20,7 @@ public class SCR_overworld_player_attributes : SCR_ABS_attributes {
     [SerializeField] [Tooltip("")] [MyReadOnly] private SCR_attribute hunger;
     //[SerializeField] [Tooltip("")] [MyReadOnly] private SCR_attribute stamina;
 
-    [Header("Player - Keys & Timers")]
-    [SerializeField][Tooltip("")] private float waitBeforeReloadSceneOnDeath;
-    [SerializeField] [Tooltip("")] private float hungerDamageTimer;
-    [SerializeField] [Tooltip("")] private float hungerTimer;
-
+    #region Setup-Specific
     protected override void setupSpecific() {
         //Base
         startHungerHandler = startHungerFunc;
@@ -41,16 +37,17 @@ public class SCR_overworld_player_attributes : SCR_ABS_attributes {
             if (health.returnCurrent() <= 0) SCR_master_timers.returnInstance().removeAll(SCR_master_timers.timerID.HUNGER_DAMAGE_TICK);
         };
 
-        //
-        hunger = new SCR_attribute(stats.survival, () => startHungerHandler(), () => stopHungerHandler() );
+        //Setup hunger
+        hunger = new SCR_attribute(calculateHunger(), () => startHungerHandler(), () => stopHungerHandler() );
 
-        //
+        //Setup UI
         hunger.addUI(SCR_master_stats_display.returnInstance().returnHungerUI());
         health.addUI(SCR_master_stats_display.returnInstance().returnHealthUI());
 
-        //
-        SCR_master_timers.returnInstance().subscribe(SCR_master_timers.timerID.HUNGER_TICK, () => hungerRemoveHandler(), hungerTimer);
+        //Start Hunger Ticks
+        SCR_master_timers.returnInstance().subscribe(SCR_master_timers.timerID.HUNGER_TICK, () => hungerRemoveHandler());
     }
+    #endregion
     #region Health
     protected override void onHealthEqualZeroFunc() {
         myAnimatior.play(SCR_unit_animation.AnimationType.DEATH); //Check if this should be in parent?
@@ -58,8 +55,7 @@ public class SCR_overworld_player_attributes : SCR_ABS_attributes {
 
         SCR_master_timers.returnInstance().subscribe(
             SCR_master_timers.timerID.WAIT_AFTER_DEATH,
-           () => onDeathTimerLogicHandler(), //Reload menu, and remove timer once done
-            waitBeforeReloadSceneOnDeath
+           () => onDeathTimerLogicHandler() //Reload menu, and remove timer once done
         );
 
         Debug.Log("Player Died");
@@ -69,8 +65,7 @@ public class SCR_overworld_player_attributes : SCR_ABS_attributes {
     public void startHungerFunc() {
         SCR_master_timers.returnInstance().subscribe(
             SCR_master_timers.timerID.HUNGER_DAMAGE_TICK,
-            () => onNoHungerTimerLogicHandler(), //Reload menu, and remove timer once done
-            hungerDamageTimer
+            () => onNoHungerTimerLogicHandler() //Reload menu, and remove timer once done
         );
 
         speed = Mathf.RoundToInt(speed / 2);
@@ -82,17 +77,13 @@ public class SCR_overworld_player_attributes : SCR_ABS_attributes {
         speed = calculateSpeed(stats);
         SCR_player_main.returnInstance().changeOverworldSpeed();
     }
-    #endregion
-    #region Stamina
-    private void onStaminaEqualZero() { }
-    private void onStaminaNoZero() { }
+    private int calculateHunger() {
+        return stats.survival;
+    }
     #endregion
     #region Returns
     public SCR_attribute returnHunger() {
         return hunger;
     }
-    //public SCR_attribute returnStamina() { 
-    //return stamina;
-    //}
     #endregion
 }

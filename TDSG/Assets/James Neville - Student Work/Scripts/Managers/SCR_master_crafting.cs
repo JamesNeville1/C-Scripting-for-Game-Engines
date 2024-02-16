@@ -2,24 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using IzzetUtils;
+using IzzetUtils.IzzetAttributes;
 
 public class SCR_master_crafting : MonoBehaviour {
 
     [SerializeField] private RectTransform slotsParent;
     [SerializeField] private Transform[] slotPos;
     [SerializeField] private recipeData[] recipes;
-    private slotData[] craftingSlots;
-    private SCR_master_inventory_main invRef;
+    [SerializeField] [MyReadOnly] private slotData[] craftingSlots;
 
     #region Structures & Enums
     private enum craftingArrayPosName { SLOT1, SLOT2, OUTPUT } //Cast to int to cleanly access array, saw no use to justify using a dictionairy
-    private struct slotData {
+    [System.Serializable] private struct slotData {
         public Vector2Int vec;
         public SCR_inventory_piece piece;
 
-        public slotData(Vector2Int vec, SCR_inventory_piece item) {
+        public slotData(Vector2Int vec, SCR_inventory_piece piece) {
             this.vec = vec;
-            this.piece = item;
+            this.piece = piece;
         }
     }
     [System.Serializable] private struct recipeData {
@@ -40,33 +40,35 @@ public class SCR_master_crafting : MonoBehaviour {
 
     #region Setup
     public void setup() {
-        invRef = SCR_master_inventory_main.returnInstance();
 
-        craftingSlots = new slotData[3];
+        craftingSlots = new slotData[3]; //Set array to fit all slots
+
         //Create two slots for input
         createSingleSlot("Crafting Slot 1: ", craftingArrayPosName.SLOT1);
         createSingleSlot("Crafting Slot 2: ", craftingArrayPosName.SLOT2);
         createSingleSlot("Output Slot: ", craftingArrayPosName.OUTPUT);
 
-        slotsParent.gameObject.SetActive(false);
+        slotsParent.gameObject.SetActive(false); //Hide since we don't want it open at beginning
     }
     private void createSingleSlot(string name, craftingArrayPosName arrayPos) {
-        GameObject slot = invRef.createSlotDisplay(name, slotsParent, slotPos[(int)arrayPos].localPosition);
+        GameObject slot = SCR_master_inventory_main.returnInstance().createSlotDisplay(name, slotsParent, slotPos[(int)arrayPos].localPosition);
         craftingSlots[(int)arrayPos] =
             new slotData(IzzetMain.castToVector2Int((Vector2)slot.transform.localPosition), null);
     }
     #endregion
     #region Authentication & Input
-    public bool tryPlace(SCR_inventory_piece toPlace) {
+    public bool tryPlace(SCR_inventory_piece toPlace) { //If 
         toPlace.transform.parent = slotsParent;
-        bool isSlotOneClose = IzzetMain.castToVector2Int(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT1].vec;
-        bool isSlotTwoClose = IzzetMain.castToVector2Int(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT2].vec;
 
-        if (isSlotOneClose) {
+        //
+        bool isSlotOneValid = IzzetMain.castToVector2Int(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT1].vec && checkIfEmpty(craftingArrayPosName.SLOT1);
+        bool isSlotTwoValid = IzzetMain.castToVector2Int(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT2].vec && checkIfEmpty(craftingArrayPosName.SLOT2);
+
+        if (isSlotOneValid) {
             place(toPlace, craftingArrayPosName.SLOT1);
 
         }
-        else if (isSlotTwoClose) {
+        else if (isSlotTwoValid) {
             place(toPlace, craftingArrayPosName.SLOT2);
         }
         else {
@@ -91,6 +93,11 @@ public class SCR_master_crafting : MonoBehaviour {
             return;
         }
 
+    }
+    private bool checkIfEmpty(craftingArrayPosName slot) {
+        bool isEmpty = craftingSlots[(int)slot].piece == null;
+
+        return isEmpty;
     }
     #endregion
     #region Buttons

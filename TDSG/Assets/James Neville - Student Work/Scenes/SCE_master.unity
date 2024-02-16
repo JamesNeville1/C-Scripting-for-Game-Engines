@@ -1573,7 +1573,7 @@ MonoBehaviour:
   - id: 4
     dataToPass:
       objectData: {fileID: 11400000, guid: 496a2512360fd8c438f49284bb043f65, type: 2}
-      randomWieght: 4
+      randomWieght: 100
   - id: 5
     dataToPass:
       objectData: {fileID: 11400000, guid: 16c434f526f22a44bb61221f950a6fcb, type: 2}
@@ -1596,7 +1596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 5207933277885795846, guid: 8dde42ce927554c4db156dfbb8b2acb0, type: 3}
   inventorySize: {x: 3, y: 5}
-  mapSize: {x: 100, y: 100}
+  mapSize: {x: 300, y: 300}
   playerPreset: {fileID: 0}
   seed: 
   overworldSceneName: SCE_overworld
@@ -1641,6 +1641,7 @@ MonoBehaviour:
   - itemA: {fileID: 11400000, guid: ffdc1fcf109ca274caea007d81cb351e, type: 2}
     itemB: {fileID: 11400000, guid: ffdc1fcf109ca274caea007d81cb351e, type: 2}
     outputItem: {fileID: 11400000, guid: 5a10aba773993974bae46e39c1ce187c, type: 2}
+  craftingSlots: []
 --- !u!114 &1364117806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1654,6 +1655,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerParent: {fileID: 300277439}
+  PASS_timerLengths:
+  - key: 0
+    maxTimer: 15
+  - key: 1
+    maxTimer: 1
+  - key: 2
+    maxTimer: 5
 --- !u!114 &1364117807
 MonoBehaviour:
   m_ObjectHideFlags: 0

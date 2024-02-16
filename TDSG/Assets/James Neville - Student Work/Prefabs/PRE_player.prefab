@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3356698048944465321}
   - component: {fileID: 3975282290764021008}
   - component: {fileID: 7210265709306818410}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4838,7 +4838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4029703291935567241}
   - component: {fileID: 2995059963050829745}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4920,7 +4920,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5830338494788954410}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: When In Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4960,7 +4960,7 @@ GameObject:
   - component: {fileID: 3903683744039567537}
   - component: {fileID: 9043039355727994593}
   - component: {fileID: 7303173091059305810}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: PRE_player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5112,9 +5112,6 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     display: {fileID: 0}
-  waitBeforeReloadSceneOnDeath: 2.5
-  hungerDamageTimer: 1
-  hungerTimer: 10
 --- !u!50 &3903683744039567537
 Rigidbody2D:
   serializedVersion: 4

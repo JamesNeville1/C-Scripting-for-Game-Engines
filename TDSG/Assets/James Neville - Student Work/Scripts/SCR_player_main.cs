@@ -43,8 +43,9 @@ public class SCR_player_main : MonoBehaviour {
     #endregion
     #region Unity
     private void Update() {
-        playerMovementMain();
+        playerMain();
     }
+    #region Swimming / Walking Checks
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject == SCR_master_map.returnInstance().returnGroundTilemap().gameObject) {
             startWalking();
@@ -56,9 +57,10 @@ public class SCR_player_main : MonoBehaviour {
         }
     }
     #endregion
+    #endregion
     #region Main
     //All movement related stuff here
-    private void playerMovementMain() {
+    private void playerMain() {
         Vector2Int input = returnMovementInput(); //Get Input
         movePlayer(input); //Move Player
         flipSprite(input); //Check If Should Flip Sprite
@@ -74,12 +76,12 @@ public class SCR_player_main : MonoBehaviour {
         waterResponsibleRef.SetActive(false);
     }
     #endregion
-    #region playerMovementMainFuncs
-    private Vector2Int returnMovementInput() {
+    #region playerMainFuncs
+    private Vector2Int returnMovementInput() { //Get input with Input.GetAxisRaw
         Vector2Int movement = new Vector2Int((int)Input.GetAxisRaw("Horizontal"), (int)Input.GetAxisRaw("Vertical"));
         return movement;
     }
-    private void flipSprite(Vector2Int input) {
+    private void flipSprite(Vector2Int input) { 
         if (input.x == -1) {
             sr.flipX = true;
         }
@@ -88,14 +90,18 @@ public class SCR_player_main : MonoBehaviour {
         }
     }
     private void movePlayer(Vector2 input) {
-        if (input.x == 0 && input.y == 0) { //If we aren't moving
+        
+        //If we aren't moving
+        if (input.x == 0 && input.y == 0) {
             if (footstepCoroutineRunning == true) {
                 rb.velocity = Vector2.zero;
                 StopAllCoroutines();
                 footstepCoroutineRunning = false;
             }
         }
-        else { //If we are moving
+
+        //If we are moving
+        else {
             if(footstepCoroutineRunning == false) {
                 StartCoroutine(Footstepsounds());
             }
@@ -103,13 +109,13 @@ public class SCR_player_main : MonoBehaviour {
             if (input.x == 0 || input.y == 0) {
                 rb.velocity = input * speed;
             }
-            else {
-                rb.velocity = (input * speed) * 0.71f;
+            else { //If both input keys are down, modify speed
+                rb.velocity = (input * speed) * 0.75f;
             }
         }
     }
     private void animate(Vector2Int input) {
-        if (input.x != 0 || input.y != 0) {
+        if (input.x != 0 || input.y != 0) { //If moving, show walk animation, if not do idle
             playerAnimation.play(SCR_unit_animation.AnimationType.WALK);
         }
         else {

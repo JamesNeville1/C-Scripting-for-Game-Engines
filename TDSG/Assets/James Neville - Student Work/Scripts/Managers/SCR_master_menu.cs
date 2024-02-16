@@ -28,9 +28,6 @@ public class SCR_master_menu : MonoBehaviour {
         onAnyButtonPress();
         Application.Quit();
     }
-    public void onAnyButtonPress() {
-        SCR_master_audio.returnInstance().playOneEffect(SCR_master_audio.sfx.GATHER_SOFT);
-    }
     public void onEnterSeedTextField(TMP_InputField field) {
         SCR_master_main.returnInstance().changeSeed(field.text);
     }
@@ -39,5 +36,9 @@ public class SCR_master_menu : MonoBehaviour {
     }
     public void onChangeSFXVolumeSlider(Slider refer) {
         SCR_master_audio.returnInstance().changeSFXVolume(refer.value);
+    }
+
+    private void onAnyButtonPress() {
+        SCR_master_audio.returnInstance().playOneEffect(SCR_master_audio.sfx.GATHER_SOFT);
     }
 }
