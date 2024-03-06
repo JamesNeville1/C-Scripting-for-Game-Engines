@@ -3,11 +3,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AYellowpaper.SerializedCollections;
 
 public class SCR_master_timers : MonoBehaviour {
 
     [SerializeField] private Transform timerParent;
-    [SerializeField] private PASS_timerLengthsStruct[] PASS_timerLengths; 
 
     [System.Serializable] public enum timerID {
         HUNGER_TICK,
@@ -15,17 +15,10 @@ public class SCR_master_timers : MonoBehaviour {
         WAIT_AFTER_DEATH,
     }
 
-    [System.Serializable]private struct PASS_timerLengthsStruct { public timerID key; public float maxTimer; }
-    
-    private Dictionary<timerID, float> timerLengths = new Dictionary<timerID, float>();
+    [SerializedDictionary("ID", "Length")] [SerializeField]
+    private SerializedDictionary<timerID, float> timerLengths = new SerializedDictionary<timerID, float>();
     private Dictionary<timerID, timer> timeEvents = new Dictionary<timerID, timer>(); //Holds the current timers
 
-    public void setup() {
-        foreach (PASS_timerLengthsStruct toPass in PASS_timerLengths) {
-            timerLengths.Add(toPass.key, toPass.maxTimer);
-        }
-        PASS_timerLengths = null;
-    }
     #region Set Instance
     private static SCR_master_timers instance;
 

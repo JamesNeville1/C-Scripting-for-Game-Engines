@@ -1553,35 +1553,36 @@ MonoBehaviour:
   - {x: -1, y: -1}
   - {x: 1, y: -1}
   - {x: -1, y: 1}
-  gathables:
-  - id: 0
-    dataToPass:
-      objectData: {fileID: 11400000, guid: 7e4eedfa6dc139a4aaa38141cf62f4ad, type: 2}
-      randomWieght: 100
-  - id: 1
-    dataToPass:
-      objectData: {fileID: 11400000, guid: 7e536eceaafeda44aa5a9036a2c0c27a, type: 2}
-      randomWieght: 100
-  - id: 2
-    dataToPass:
-      objectData: {fileID: 11400000, guid: b75a30167a2ba2b449e56ed0996527df, type: 2}
-      randomWieght: 100
-  - id: 3
-    dataToPass:
-      objectData: {fileID: 11400000, guid: 47174683fa2bc4d47a4d1e5b4d228ffd, type: 2}
-      randomWieght: 25
-  - id: 4
-    dataToPass:
-      objectData: {fileID: 11400000, guid: 496a2512360fd8c438f49284bb043f65, type: 2}
-      randomWieght: 100
-  - id: 5
-    dataToPass:
-      objectData: {fileID: 11400000, guid: 16c434f526f22a44bb61221f950a6fcb, type: 2}
-      randomWieght: 10
   distributionStep: 0
   reduceGatherablesBy: 2000
   gatherablesParentName: Gatherables
   playerStartPos: {x: 0, y: 0}
+  idToGatherable:
+    _serializedList:
+    - Key: 0
+      Value:
+        objectData: {fileID: 11400000, guid: 7e4eedfa6dc139a4aaa38141cf62f4ad, type: 2}
+        randomWieght: 100
+    - Key: 1
+      Value:
+        objectData: {fileID: 11400000, guid: 7e536eceaafeda44aa5a9036a2c0c27a, type: 2}
+        randomWieght: 100
+    - Key: 2
+      Value:
+        objectData: {fileID: 11400000, guid: b75a30167a2ba2b449e56ed0996527df, type: 2}
+        randomWieght: 100
+    - Key: 3
+      Value:
+        objectData: {fileID: 11400000, guid: 47174683fa2bc4d47a4d1e5b4d228ffd, type: 2}
+        randomWieght: 25
+    - Key: 4
+      Value:
+        objectData: {fileID: 11400000, guid: 496a2512360fd8c438f49284bb043f65, type: 2}
+        randomWieght: 100
+    - Key: 5
+      Value:
+        objectData: {fileID: 11400000, guid: 16c434f526f22a44bb61221f950a6fcb, type: 2}
+        randomWieght: 10
 --- !u!114 &1364117803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1599,11 +1600,6 @@ MonoBehaviour:
   mapSize: {x: 300, y: 300}
   playerPreset: {fileID: 0}
   seed: 
-  overworldSceneName: SCE_overworld
-  audioSceneName: SCE_audio_manager
-  masterSceneName: SCE_master
-  menuSceneName: SCE_menu
-  characterSelectionSceneName: SCE_character_selection
   overworldParentName: Overworld Parent
   playerParent: Player Parent
   groundTilemapName: Ground Tilemap
@@ -1611,6 +1607,18 @@ MonoBehaviour:
   masterCameraRef: {fileID: 519420028}
   startPressed: 0
   loadingScreenRef: {fileID: 1675991567}
+  formattedScenes:
+    _serializedList:
+    - Key: 0
+      Value: SCE_master
+    - Key: 1
+      Value: SCE_overworld
+    - Key: 2
+      Value: SCE_audio_manager
+    - Key: 3
+      Value: SCE_menu
+    - Key: 4
+      Value: SCE_character_selection
 --- !u!114 &1364117805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1655,13 +1663,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerParent: {fileID: 300277439}
-  PASS_timerLengths:
-  - key: 0
-    maxTimer: 15
-  - key: 1
-    maxTimer: 1
-  - key: 2
-    maxTimer: 5
+  timerLengths:
+    _serializedList:
+    - Key: 0
+      Value: 15
+    - Key: 1
+      Value: 1
+    - Key: 2
+      Value: 5
 --- !u!114 &1364117807
 MonoBehaviour:
   m_ObjectHideFlags: 0

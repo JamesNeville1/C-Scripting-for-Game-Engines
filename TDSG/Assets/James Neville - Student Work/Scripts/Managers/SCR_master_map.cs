@@ -7,15 +7,10 @@ using UnityEngine.Tilemaps;
 using Random = System.Random;
 using IzzetUtils.IzzetAttributes;
 using IzzetUtils;
+using AYellowpaper.SerializedCollections;
 
 public class SCR_master_map : MonoBehaviour {
-
-    [System.Serializable]
-    public struct PASS_gathableDataToPass {
-        [Range(0, 1000)]
-        public int id;
-        public gatherableData dataToPass;
-    }
+    
     [System.Serializable]
     public struct gatherableData {
         public SCO_gatherable objectData;
@@ -29,17 +24,18 @@ public class SCR_master_map : MonoBehaviour {
     [SerializeField] [Tooltip("")] private List<Vector2Int> constantTiles;
 
     [Header("Map Gatherables")]
-    [SerializeField] [Tooltip("Inspector friendly, passed to 'colorToType' dictionary on awake")] private PASS_gathableDataToPass[] gathables;
     [SerializeField] [MyReadOnly] [Tooltip("Distributes more evenly")] int distributionStep = 1;
     [SerializeField] [Tooltip("Reduce gatherables by amount")] private int reduceGatherablesBy;
     [SerializeField] [Tooltip("")] private string gatherablesParentName;
+    [SerializedDictionary("ID", "Gatherable Data")] [SerializeField]
+    private SerializedDictionary<int, gatherableData> idToGatherable = new SerializedDictionary<int, gatherableData>(); //Maps colour to gatherable scriptable object
 
     [Header("Other")]
     [SerializeField] [MyReadOnly] [Tooltip("Temp start pos of player")] private Vector2 playerStartPos;
-
-    //
-    private Dictionary<int, gatherableData> idToGatherable = new Dictionary<int, gatherableData>(); //Maps colour to gatherable scriptable object
-    private Dictionary<Vector2Int, int> mapData = new Dictionary<Vector2Int, int>();
+    
+    
+    
+    //private Dictionary<Vector2Int, int> mapData = new Dictionary<Vector2Int, int>(); //Use this to remove 
 
     #region Set Instance
     private static SCR_master_map instance;
@@ -55,11 +51,6 @@ public class SCR_master_map : MonoBehaviour {
 
     #region Setup
     public void setup(string seedString, string groundTilemapName, Vector2Int size) { //Set up map in external scene
-        foreach (PASS_gathableDataToPass item in gathables) { //Pass gatherables to dictionairy
-            idToGatherable.Add(item.id, item.dataToPass);
-        }
-        gathables = null; //Set to null to avoid accidentally using it
-
         groundTilemap = GameObject.Find(groundTilemapName).GetComponent<Tilemap>(); //Get the tilemap because it is in another scene
 
         distributionStep = 1; //Set distributionStep to 1 to stop an error

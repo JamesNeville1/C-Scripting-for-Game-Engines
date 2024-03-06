@@ -1,3 +1,4 @@
+using AYellowpaper.SerializedCollections;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,10 +22,7 @@ public class SCR_master_audio : MonoBehaviour {
         MUSIC_CALM
     }
 
-    [System.Serializable] private struct PASS_passStruct { public sfx key; public AudioClip[] clip; }
-    [SerializeField] private PASS_passStruct[] PASS_sfxPasser; //Pass to sfxs dictionary
-
-    private Dictionary<sfx, AudioClip[]> sfxs = new Dictionary<sfx, AudioClip[]>(); //Hold audio clips, called via enum
+    [SerializedDictionary("ID", "Clips")] [SerializeField] private SerializedDictionary<sfx, AudioClip[]> sfxs = new SerializedDictionary<sfx, AudioClip[]>(); //Hold audio clips, called via enum
 
     //Having these seperate allows me to control their individual volume
     [SerializeField] private AudioSource sfxSource; //Audio source, in external scene to reduce strain on game
@@ -38,15 +36,6 @@ public class SCR_master_audio : MonoBehaviour {
 
     private void Awake() {
         instance = this;
-    }
-    #endregion
-
-    #region Setup
-    public void setup() {
-        foreach (PASS_passStruct passing in PASS_sfxPasser) { //Pass to dictionary
-            sfxs.Add(passing.key, passing.clip);
-        }
-        PASS_sfxPasser = null; //Set to null to ensure I don't accidentally use it
     }
     #endregion
     #region Play

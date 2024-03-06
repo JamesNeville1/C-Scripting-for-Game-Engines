@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using AYellowpaper.SerializedCollections;
+using IzzetUtils.IzzetAttributes;
 
 public class SCR_master_inventory_main : MonoBehaviour {
     [Header("Require Dev Input")]
@@ -15,6 +17,7 @@ public class SCR_master_inventory_main : MonoBehaviour {
         EMPTY,
         OCCUPIED
     }
+    
     private Dictionary<Vector2Int, cellState> gridData = new Dictionary<Vector2Int, cellState>(); //Holds grid and if it is occupied or not
     private Dictionary<SCR_inventory_piece, Vector2Int[]> pieceData = new Dictionary<SCR_inventory_piece, Vector2Int[]>(); //Hold data of pieces
 

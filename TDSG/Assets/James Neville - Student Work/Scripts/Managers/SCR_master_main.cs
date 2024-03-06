@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using AYellowpaper.SerializedCollections;
 
 public class SCR_master_main : MonoBehaviour {
     #region Structs & Enums
@@ -19,13 +20,6 @@ public class SCR_master_main : MonoBehaviour {
     [SerializeField] [MyReadOnly] private SCO_character_preset playerPreset;
     [SerializeField] [MyReadOnly] private string seed;
 
-    [Header("Scene Names")]
-    [SerializeField] private string overworldSceneName;
-    [SerializeField] private string audioSceneName;
-    [SerializeField] private string masterSceneName;
-    [SerializeField] private string menuSceneName;
-    [SerializeField] private string characterSelectionSceneName;
-
     [Header("Object Names")]
     [SerializeField] private string overworldParentName;
     [SerializeField] private string playerParent;
@@ -39,8 +33,8 @@ public class SCR_master_main : MonoBehaviour {
     [Header("Loading Related")]
     [SerializeField] private GameObject loadingScreenRef;
 
-    //
-    Dictionary<sceneKey, string> formattedScenes = new Dictionary<sceneKey, string>();
+    [SerializedDictionary("ID", "Name")] [SerializeField]
+    private SerializedDictionary<sceneKey, string> formattedScenes = new SerializedDictionary<sceneKey, string>();
 
     #region Set Instance
     private static SCR_master_main instance;
@@ -61,15 +55,11 @@ public class SCR_master_main : MonoBehaviour {
     #endregion
     #region Setup
     private IEnumerator setup() {
-        formatScenes();
-
         //Load Timer and Audio, wait till finished, setup after
         loadScene(sceneKey.SCE_AUDIO_MANAGER, LoadSceneMode.Additive);
         masterCameraRef.SetActive(false);
         while (!audioAndTimerAreReady()) yield return null;
-        SCR_master_audio.returnInstance().setup();
         SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.sfx.MUSIC_CALM);
-        SCR_master_timers.returnInstance().setup();
 
         //Load Menu, wait until start is pressed
         loadScene(sceneKey.SCE_MENU, LoadSceneMode.Additive);
@@ -116,13 +106,13 @@ public class SCR_master_main : MonoBehaviour {
     }
     #endregion
     #region Other Utils
-    private void formatScenes() {
-        formattedScenes.Add(sceneKey.SCE_MASTER, masterSceneName);
-        formattedScenes.Add(sceneKey.SCE_OVERWORLD, overworldSceneName);
-        formattedScenes.Add(sceneKey.SCE_AUDIO_MANAGER, audioSceneName);
-        formattedScenes.Add(sceneKey.SCE_MENU, menuSceneName);
-        formattedScenes.Add(sceneKey.SCE_CHARACTER_SELECTION, characterSelectionSceneName);
-    }
+    //private void formatScenes() {
+    //    formattedScenes.Add(sceneKey.SCE_MASTER, masterSceneName);
+    //    formattedScenes.Add(sceneKey.SCE_OVERWORLD, overworldSceneName);
+    //    formattedScenes.Add(sceneKey.SCE_AUDIO_MANAGER, audioSceneName);
+    //    formattedScenes.Add(sceneKey.SCE_MENU, menuSceneName);
+    //    formattedScenes.Add(sceneKey.SCE_CHARACTER_SELECTION, characterSelectionSceneName);
+    //}
     #endregion
     #endregion
     #region Publics

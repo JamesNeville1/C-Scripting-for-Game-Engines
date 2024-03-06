@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace IzzetUtils {
     namespace IzzetAttributes {
-        public class MyReadOnlyAttribute : PropertyAttribute { } //Made using a tutorial
+        public class MyReadOnlyAttribute : PropertyAttribute { } 
     }
     public class IzzetMain : MonoBehaviour {
         //Note to marker: I use this to trim the input of the string input by the user for the seed
@@ -30,11 +30,6 @@ namespace IzzetUtils {
             else valid = 0;
 
             return valid;
-        }
-        //Simple animation hookup
-        public static void animate(Animator animator, string prefix = "", bool moving = false) {
-            if (moving) animator.Play(prefix + "move");
-            else animator.Play(prefix + "idle");
         }
         //Get mouse position in world
         public static Vector2 getMousePos(Camera cam) {
