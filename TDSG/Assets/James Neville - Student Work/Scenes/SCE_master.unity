@@ -1503,6 +1503,7 @@ GameObject:
   - component: {fileID: 1364117807}
   - component: {fileID: 1364117805}
   - component: {fileID: 1364117806}
+  - component: {fileID: 1364117808}
   m_Layer: 0
   m_Name: Game Master
   m_TagString: Untagged
@@ -1556,7 +1557,6 @@ MonoBehaviour:
   distributionStep: 0
   reduceGatherablesBy: 2000
   gatherablesParentName: Gatherables
-  playerStartPos: {x: 0, y: 0}
   idToGatherable:
     _serializedList:
     - Key: 0
@@ -1583,6 +1583,7 @@ MonoBehaviour:
       Value:
         objectData: {fileID: 11400000, guid: 16c434f526f22a44bb61221f950a6fcb, type: 2}
         randomWieght: 10
+  playerStartPos: {x: 0, y: 0}
 --- !u!114 &1364117803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1686,6 +1687,18 @@ MonoBehaviour:
   gridCellSprite: {fileID: 21300000, guid: 8eeedd5b06c35c949ba394c4b2c484a7, type: 3}
   itemBlockSprite: {fileID: 21300000, guid: d8ae8cb60f334584d9efa2f6bcc2fb6a, type: 3}
   cellParent: {fileID: 554863859}
+--- !u!114 &1364117808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364117800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb9961f923eda4489abcd823c4332c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1454773396
 GameObject:
   m_ObjectHideFlags: 0
