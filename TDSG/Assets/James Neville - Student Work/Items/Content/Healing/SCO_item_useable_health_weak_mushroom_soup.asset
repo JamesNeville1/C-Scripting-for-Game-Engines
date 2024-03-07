@@ -9,18 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3c5808aeec4614468fe8acca35c1b80, type: 3}
-  m_Name: SCO_item_useable_edible_mushroom_soup
+  m_Script: {fileID: 11500000, guid: 36a2606aa381ebe4d90288c6e560d660, type: 3}
+  m_Name: SCO_item_useable_health_weak_mushroom_soup
   m_EditorClassIdentifier: 
-  id: 3
-  itemName: Mama's Mushroom Soup
-  sprite: {fileID: -673511445, guid: 832763b985e04084ba8d081f2ead2db1, type: 3}
-  displayBlockColour: {r: 0.48235294, g: 0.25490198, b: 0.2594986, a: 1}
+  displayBlockColour: {r: 1, g: 0.25, b: 0.25, a: 1}
   spaces:
   - {x: 0, y: 0}
+  - {x: 1, y: 0}
   - {x: 0, y: 1}
-  - {x: 0, y: 2}
-  attribute: 3
+  - {x: 1, y: 1}
+  attribute: 2
   breakOnUse: 1
   onUseSFX: 9
   shouldSFX: 1

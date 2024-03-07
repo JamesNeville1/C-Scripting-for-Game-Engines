@@ -61,8 +61,10 @@ public class SCR_master_crafting : MonoBehaviour {
         toPlace.transform.parent = slotsParent;
 
         //
-        bool isSlotOneValid = IzzetMain.castToVector2Int(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT1].vec && checkIfEmpty(craftingArrayPosName.SLOT1);
-        bool isSlotTwoValid = IzzetMain.castToVector2Int(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT2].vec && checkIfEmpty(craftingArrayPosName.SLOT2);
+        bool isSlotOneValid 
+            = IzzetMain.castToVector2Int(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT1].vec && checkIfEmpty(craftingArrayPosName.SLOT1);
+        bool isSlotTwoValid
+            = IzzetMain.castToVector2Int(toPlace.transform.localPosition) == craftingSlots[(int)craftingArrayPosName.SLOT2].vec && checkIfEmpty(craftingArrayPosName.SLOT2);
 
         if (isSlotOneValid) {
             place(toPlace, craftingArrayPosName.SLOT1);

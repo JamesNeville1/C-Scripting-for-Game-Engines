@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36a2606aa381ebe4d90288c6e560d660, type: 3}
-  m_Name: SCO_item_useable_health_potion
+  m_Name: SCO_item_useable_health_great_mushroom_soup
   m_EditorClassIdentifier: 
-  id: 5
-  itemName: Magic Mushroom Potion
-  sprite: {fileID: 0}
-  displayBlockColour: {r: 0.9811321, g: 0.1064436, b: 0.1064436, a: 1}
+  displayBlockColour: {r: 1, g: 0.19339621, b: 0.19339621, a: 1}
   spaces:
   - {x: 0, y: 0}
   - {x: 1, y: 0}
-  - {x: 0, y: 1}
   - {x: 1, y: 1}
-  attribute: 2
+  - {x: -1, y: 0}
+  - {x: -1, y: 1}
+  - {x: 0, y: 1}
+  attribute: 4
   breakOnUse: 1
   onUseSFX: 9
   shouldSFX: 1

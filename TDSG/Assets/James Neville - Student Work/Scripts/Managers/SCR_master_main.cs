@@ -106,7 +106,7 @@ public class SCR_master_main : MonoBehaviour {
     }
     #endregion
     #region Other Utils
-    //private void formatScenes() {
+    //private void formatScenes() { 
     //    formattedScenes.Add(sceneKey.SCE_MASTER, masterSceneName);
     //    formattedScenes.Add(sceneKey.SCE_OVERWORLD, overworldSceneName);
     //    formattedScenes.Add(sceneKey.SCE_AUDIO_MANAGER, audioSceneName);
