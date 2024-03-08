@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using AYellowpaper.SerializedCollections;
+using IzzetUtils;
+using TMPro;
 
 public class SCR_master_main : MonoBehaviour {
     #region Structs & Enums
@@ -29,6 +31,7 @@ public class SCR_master_main : MonoBehaviour {
     [SerializeField] [MyReadOnly] private bool playerCraftingActive;
     [SerializeField] private GameObject masterCameraRef;
     [SerializeField] [MyReadOnly] private bool startPressed;
+    [SerializeField] private TextMeshProUGUI infoText;
 
     [Header("Loading Related")]
     [SerializeField] private GameObject loadingScreenRef;
@@ -52,6 +55,15 @@ public class SCR_master_main : MonoBehaviour {
     private void Start() {
         StartCoroutine(setup());
     }
+    private IEnumerator toggleUpdate() {
+        Transform infoTextParent = infoText.transform.parent.transform;
+
+        while(true) {
+            infoTextParent.transform.position = IzzetMain.getMousePos(Camera.main);
+
+            yield return null;
+        }
+    }
     #endregion
     #region Setup
     private IEnumerator setup() {
@@ -59,7 +71,7 @@ public class SCR_master_main : MonoBehaviour {
         loadScene(sceneKey.SCE_AUDIO_MANAGER, LoadSceneMode.Additive);
         masterCameraRef.SetActive(false);
         while (!audioAndTimerAreReady()) yield return null;
-        SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.music.CALM);
+        SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.music.MENU);
 
         //Load Menu, wait until start is pressed
         loadScene(sceneKey.SCE_MENU, LoadSceneMode.Additive);
@@ -91,6 +103,13 @@ public class SCR_master_main : MonoBehaviour {
         //Make Player
         Instantiate(playerPrefab, SCR_master_map.returnInstance().startPos(), Quaternion.identity, GameObject.Find(playerParent).transform);
         SCR_player_main.returnInstance().setup(playerPreset);
+
+        //Play Correct Music
+        SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.music.CALM);
+
+        //Start Update
+        StartCoroutine(toggleUpdate());
+        infoText.raycastTarget = false;
     }
 
     #region Setup Yield Checks
@@ -117,7 +136,12 @@ public class SCR_master_main : MonoBehaviour {
     #endregion
     #region Publics
     public void whatMusic() {
-        SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.music.CALM); //Could use this to get different music depending on the situation
+        if (isCharacterMade()) {
+            SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.music.MENU);
+        }
+        else {
+            SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.music.CALM);
+        }
     }
     public bool isPlayerCraftingActive() {
         return playerCraftingActive;
@@ -133,6 +157,10 @@ public class SCR_master_main : MonoBehaviour {
     }
     public void changeSeed(string value) {
         seed = value;
+    }
+    public void setInfoText(string value, Color color) {
+        infoText.text = value;
+        infoText.color = color;
     }
     #endregion
     #region Clean Scenes

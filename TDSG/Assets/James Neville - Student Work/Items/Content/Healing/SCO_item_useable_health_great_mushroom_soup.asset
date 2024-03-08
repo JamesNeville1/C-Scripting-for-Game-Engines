@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a2606aa381ebe4d90288c6e560d660, type: 3}
   m_Name: SCO_item_useable_health_great_mushroom_soup
   m_EditorClassIdentifier: 
-  displayBlockColour: {r: 1, g: 0.19339621, b: 0.19339621, a: 1}
+  itemName: Greater Magic Soup
+  itemSprite: {fileID: -487211509, guid: 832763b985e04084ba8d081f2ead2db1, type: 3}
   spaces:
   - {x: 0, y: 0}
   - {x: 1, y: 0}

@@ -15,6 +15,9 @@ public class SCR_inventory_piece : MonoBehaviour {
     [SerializeField] [Tooltip("Slots the piece takes up")] [MyReadOnly] private Vector2Int[] slots;
     [SerializeField] [Tooltip("The Item this piece represents")] [MyReadOnly] private SCO_item pieceItem;
 
+    [Header("Other")]
+    [SerializeField] [MyReadOnly] private string myName;
+
     //References
     private SCR_master_inventory_main playerInventory;
     private SCR_master_crafting playerCrafting;
@@ -32,16 +35,16 @@ public class SCR_inventory_piece : MonoBehaviour {
         newPiece.transform.parent = parent;
 
         SCR_inventory_piece newScript = newPiece.GetComponent<SCR_inventory_piece>();
-        newScript.setup(item, SCR_master_inventory_main.returnInstance().returnItemSprite(), startActive);
+        newScript.setup(item, startActive);
 
         return newScript;
     }
-    private void setup(SCO_item source, Sprite blockSprite, bool startActive) { //Called from create instance. It creates children acording to the source (item)
+    private void setup(SCO_item source, bool startActive) { //Called from create instance. It creates children acording to the source (item)
         active = startActive; mouseOver = startActive;
         
         Vector2Int[] blocks = source.returnSpaces();
 
-        Color blockColour = source.returnColor();
+        Sprite itemSprite = source.returnItemSprite();
 
         foreach (Vector2 blockPos in blocks) {
             GameObject newBlock = new GameObject("Block:" + blockPos.x + ", " + blockPos.y, typeof(SpriteRenderer));
@@ -51,8 +54,9 @@ public class SCR_inventory_piece : MonoBehaviour {
             srs.Add(newBlock.GetComponent<SpriteRenderer>());
             int arrayPos = srs.Count - 1;
 
-            srs[arrayPos].sprite = blockSprite;
-            srs[arrayPos].color = blockColour;
+            myName = source.returnName();
+
+            srs[arrayPos].sprite = itemSprite;
             srs[arrayPos].sortingOrder = 2;
             srs[arrayPos].sortingLayerName = "Inventory Piece";
 
@@ -84,14 +88,20 @@ public class SCR_inventory_piece : MonoBehaviour {
 
     private void OnMouseEnter() {
         mouseOver = true;
-        print("Inv Piece");
+    }
+    private void OnMouseExit() {
+        mouseOver = false;
+        master.setInfoText("", Color.clear);
+    }
+    private void OnMouseOver() {
+        if(!active) {
+            master.setInfoText(myName, Color.yellow);
+        }
+
         bool canUse = SCR_master_inventory_main.returnInstance().contains(this) || active;
         if (Input.GetMouseButtonDown(1) && canUse) {
             useItemLogic(); //Use item if useable
         }
-    }
-    private void OnMouseExit() {
-        mouseOver = false;
     }
     #endregion
     #region Item Logic
@@ -138,12 +148,13 @@ public class SCR_inventory_piece : MonoBehaviour {
                 }
                 else { //If all fails, drop the item
                     drop();
-                
+
                 }
             }
         }
         else {
             if(Input.GetMouseButtonDown(0) && mouseOver && !EventSystem.current.IsPointerOverGameObject()) { //If pressed while mouse isn't over UI, pickup
+                master.setInfoText("", Color.clear);
                 pickUp();
             }
         }

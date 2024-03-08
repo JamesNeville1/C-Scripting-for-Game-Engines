@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa4aea8b64656d42a218fb99b2462a7, type: 3}
   m_Name: SCO_item_resource_bowl_and_spoon
   m_EditorClassIdentifier: 
-  displayBlockColour: {r: 0.6981132, g: 0.40892652, b: 0.14818443, a: 1}
+  itemName: Bowl & Spoon
+  itemSprite: {fileID: -1040514096, guid: 832763b985e04084ba8d081f2ead2db1, type: 3}
   spaces:
   - {x: 0, y: 0}
   - {x: 1, y: 0}
