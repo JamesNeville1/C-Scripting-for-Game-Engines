@@ -57,6 +57,7 @@ public class SCO_gatherable : ScriptableObject {
                     Destroy(gameObject);
                 }
             }
+            print("Gatherable");
         }
     }
 }

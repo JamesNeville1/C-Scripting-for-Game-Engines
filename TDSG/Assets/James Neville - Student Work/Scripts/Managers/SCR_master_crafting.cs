@@ -38,6 +38,7 @@ public class SCR_master_crafting : MonoBehaviour {
     }
     #endregion
 
+
     #region Setup
     public void setup() {
 
@@ -54,6 +55,9 @@ public class SCR_master_crafting : MonoBehaviour {
         GameObject slot = SCR_master_inventory_main.returnInstance().createSlotDisplay(name, slotsParent, slotPos[(int)arrayPos].localPosition);
         craftingSlots[(int)arrayPos] =
             new slotData(IzzetMain.castToVector2Int((Vector2)slot.transform.localPosition), null);
+
+        //slot.transform.position = new Vector3(slot.transform.position.x, slot.transform.position.y, 10);
+        //slot.layer = LayerMask.NameToLayer("Ignore Raycast");
     }
     #endregion
     #region Authentication & Input

@@ -82,9 +82,9 @@ public class SCR_inventory_piece : MonoBehaviour {
         playerInput();
     }
 
-    private void OnMouseOver() {
+    private void OnMouseEnter() {
         mouseOver = true;
-
+        print("Inv Piece");
         bool canUse = SCR_master_inventory_main.returnInstance().contains(this) || active;
         if (Input.GetMouseButtonDown(1) && canUse) {
             useItemLogic(); //Use item if useable
