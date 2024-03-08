@@ -59,7 +59,7 @@ public class SCR_master_main : MonoBehaviour {
         loadScene(sceneKey.SCE_AUDIO_MANAGER, LoadSceneMode.Additive);
         masterCameraRef.SetActive(false);
         while (!audioAndTimerAreReady()) yield return null;
-        SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.sfx.MUSIC_CALM);
+        SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.music.CALM);
 
         //Load Menu, wait until start is pressed
         loadScene(sceneKey.SCE_MENU, LoadSceneMode.Additive);
@@ -117,7 +117,7 @@ public class SCR_master_main : MonoBehaviour {
     #endregion
     #region Publics
     public void whatMusic() {
-        SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.sfx.MUSIC_CALM); //Could use this to get different music depending on the situation
+        SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.music.CALM); //Could use this to get different music depending on the situation
     }
     public bool isPlayerCraftingActive() {
         return playerCraftingActive;

@@ -152,6 +152,10 @@ public class SCR_master_map : MonoBehaviour {
         //Mark Player Spawn
         playerStartPos = constantTiles[0] + centre;
     }
+
+    private void finalCleanup() {
+
+    }
     #endregion
     #region Logic
     private int getBasePerlinID(Vector2Int v, Vector2 offset, int islandSize, int count = 1) { //Get Perlin

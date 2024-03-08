@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -18,11 +19,19 @@ public class SCR_master_audio : MonoBehaviour {
         EAT,
         CRAFT,
         DRINK,
-
-        MUSIC_CALM
     }
 
-    [SerializedDictionary("ID", "Clips")] [SerializeField] private SerializedDictionary<sfx, AudioClip[]> sfxs = new SerializedDictionary<sfx, AudioClip[]>(); //Hold audio clips, called via enum
+    public enum music {
+        CALM,
+        BATTLE,
+        MENU
+    }
+
+    [SerializedDictionary("ID", "Clips")] [SerializeField]
+    private SerializedDictionary<sfx, AudioClip[]> sfxs = new SerializedDictionary<sfx, AudioClip[]>(); //Hold audio clips, called via enum
+
+    [SerializedDictionary("ID", "Clips")] [SerializeField]
+    private SerializedDictionary<music, AudioClip[]> musicDict = new SerializedDictionary<music, AudioClip[]>(); //Hold audio clips, called via enum
 
     //Having these seperate allows me to control their individual volume
     [SerializeField] private AudioSource sfxSource; //Audio source, in external scene to reduce strain on game
@@ -46,12 +55,12 @@ public class SCR_master_audio : MonoBehaviour {
         int rand = UnityEngine.Random.Range(0, sfxs[toPlay].Length);
         sfxSource.PlayOneShot(sfxs[toPlay][rand], volume);
     }
-    public void playRandomMusic(sfx toPlay, float volume = 1f) {
+    public void playRandomMusic(music toPlay, float volume = 1f) {
         StopCoroutine(findNewSong());
         musicSource.Stop();
 
-        int rand = UnityEngine.Random.Range(0, sfxs[toPlay].Length);
-        musicSource.PlayOneShot(sfxs[toPlay][rand], volume);
+        int rand = UnityEngine.Random.Range(0, musicDict[toPlay].Length);
+        musicSource.PlayOneShot(musicDict[toPlay][rand], volume);
         //Debug.Log($"Now Playing: {sfxs[toPlay][rand].name}");
         StartCoroutine(findNewSong()); //Find new songe from master, would allow me to have additional complexity, for example if it were winter, a more appropriate song would play
     }
