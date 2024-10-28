@@ -5,8 +5,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using static SCR_ABS_attributes;
 
-public class SCR_overworld_player_attributes : SCR_ABS_attributes {
+public class SCR_overworld_player_attributes : MonoBehaviour {
+
+    #region Structs & Delegates 
+    [System.Serializable]
+    public struct entStats
+    {
+        public int athletics;
+        public int survival;
+        public int dexterity;
+        public int endurance;
+
+        public entStats(int athletics, int dexterity, int endurance, int survival)
+        {
+            this.athletics = athletics;
+            this.survival = survival;
+            this.endurance = endurance;
+            this.dexterity = dexterity;
+        }
+        public entStats(entStats toPass)
+        {
+            this.dexterity = toPass.dexterity;
+            this.endurance = toPass.endurance;
+            this.survival = toPass.survival;
+            this.athletics = toPass.athletics;
+        }
+    }
+
+    protected delegate void voidDelegate();
+    #endregion
+
+    //Delegates
+    private voidDelegate onHealthEqualZeroHandler;
+
+    [Header("Stats")]
+    public entStats stats;
+
+    [Header("Attributes")]
+    [SerializeField][Tooltip("")][MyReadOnly] protected SCR_attribute health;
+    [SerializeField][Tooltip("")][MyReadOnly] protected int speed;
+    [SerializeField][Tooltip("")][MyReadOnly] private SCR_attribute hunger;
+
+    [Header("Read Only")]
+    protected SCR_unit_animation myAnimatior;
 
     //Delegates
     private voidDelegate startHungerHandler;
@@ -16,17 +59,25 @@ public class SCR_overworld_player_attributes : SCR_ABS_attributes {
     private voidDelegate onDeathTimerLogicHandler;
     private voidDelegate onNoHungerTimerLogicHandler;
 
-    [Header("Player - Attributes")]
-    [SerializeField] [Tooltip("")] [MyReadOnly] private SCR_attribute hunger;
-    //[SerializeField] [Tooltip("")] [MyReadOnly] private SCR_attribute stamina;
+    public void setupUniversal(entStats stats)
+    {
+        onHealthEqualZeroHandler = onHealthEqualZeroFunc;
 
-    #region Setup-Specific
-    protected override void setupSpecific() {
-        //Base
+        //Component
+        myAnimatior = GetComponent<SCR_unit_animation>();
+
+        //
+        this.stats = stats;
+
+        //
+        health = new SCR_attribute(calculateHealth(this.stats), () => onHealthEqualZeroHandler());
+        speed = calculateSpeed(this.stats);
+
+        //
         startHungerHandler = startHungerFunc;
         stopHungerHandler = stopHungerFunc;
         hungerRemoveHandler = delegate { hunger.adjust(-1); };
-        
+
         //Timers
         onDeathTimerLogicHandler = delegate {
             SCR_master_timers.returnInstance().removeAll(SCR_master_timers.timerID.WAIT_AFTER_DEATH);
@@ -38,7 +89,7 @@ public class SCR_overworld_player_attributes : SCR_ABS_attributes {
         };
 
         //Setup hunger
-        hunger = new SCR_attribute(calculateHunger(), () => startHungerHandler(), () => stopHungerHandler() );
+        hunger = new SCR_attribute(calculateHunger(), () => startHungerHandler(), () => stopHungerHandler());
 
         //Setup UI
         hunger.addUI(SCR_master_stats_display.returnInstance().returnHungerUI());
@@ -47,9 +98,27 @@ public class SCR_overworld_player_attributes : SCR_ABS_attributes {
         //Start Hunger Ticks
         SCR_master_timers.returnInstance().subscribe(SCR_master_timers.timerID.HUNGER_TICK, () => hungerRemoveHandler());
     }
-    #endregion
+
+    public int returnSpeed()
+    {
+        return speed;
+    }
+    public SCR_attribute returnHealth()
+    {
+        return health;
+    }
+
+    protected int calculateHealth(entStats stats)
+    {
+        return stats.endurance + stats.athletics;
+    }
+    protected int calculateSpeed(entStats stats)
+    {
+        return stats.dexterity + stats.athletics;
+    }
+
     #region Health
-    protected override void onHealthEqualZeroFunc() {
+    private void onHealthEqualZeroFunc() {
         myAnimatior.play(SCR_unit_animation.AnimationType.DEATH); //Check if this should be in parent?
         SCR_player_main.returnInstance().readyToDie();
 

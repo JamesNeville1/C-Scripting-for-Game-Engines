@@ -7,7 +7,7 @@ public class SCO_character_preset : ScriptableObject {
     [SerializeField] string characterName;
     [SerializeField] RuntimeAnimatorController animations;
     [SerializeField] private string animationPrefix;
-    [SerializeField] private SCR_ABS_attributes.entStats startingStats;
+    [SerializeField] private SCR_overworld_player_attributes.entStats startingStats;
     [SerializeField] private Sprite characterSelectionSprite;
     [SerializeField] [TextArea(20, 20)] private string flavourText;
 
@@ -20,7 +20,7 @@ public class SCO_character_preset : ScriptableObject {
     public RuntimeAnimatorController returnAnimations() {
         return animations;
     }
-    public SCR_ABS_attributes.entStats returnStartingStats() {
+    public SCR_overworld_player_attributes.entStats returnStartingStats() {
         return startingStats;
     }
     public string returnName() {

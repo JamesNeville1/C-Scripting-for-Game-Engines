@@ -57,7 +57,7 @@ public class SCR_master_character_selection : MonoBehaviour {
         presetInfoText.text = makePresetDescription(preset.returnStartingStats(), preset.returnFlavourText());
     }
 
-    private string makePresetDescription(SCR_ABS_attributes.entStats stats, string flavourText) { //Here is the description shown
+    private string makePresetDescription(SCR_overworld_player_attributes.entStats stats, string flavourText) { //Here is the description shown
         string info = @$"
 Endurance: {stats.endurance}
 
