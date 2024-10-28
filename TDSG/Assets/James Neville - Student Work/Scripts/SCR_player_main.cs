@@ -94,7 +94,7 @@ public class SCR_player_main : MonoBehaviour {
         //If we aren't moving
         if (input.x == 0 && input.y == 0) {
             if (footstepCoroutineRunning == true) {
-                rb.velocity = Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
                 StopAllCoroutines();
                 footstepCoroutineRunning = false;
             }
@@ -107,10 +107,10 @@ public class SCR_player_main : MonoBehaviour {
             }
             
             if (input.x == 0 || input.y == 0) {
-                rb.velocity = input * speed;
+                rb.linearVelocity = input * speed;
             }
             else { //If both input keys are down, modify speed
-                rb.velocity = (input * speed) * 0.75f;
+                rb.linearVelocity = (input * speed) * 0.75f;
             }
         }
     }
@@ -140,7 +140,7 @@ public class SCR_player_main : MonoBehaviour {
     public void readyToDie() {
         SCR_master_inventory_main.returnInstance().destroyAll();
         speed = 0;
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         SCR_master_main.returnInstance().setGatheringLocked(true);
         this.enabled = false;
     }
