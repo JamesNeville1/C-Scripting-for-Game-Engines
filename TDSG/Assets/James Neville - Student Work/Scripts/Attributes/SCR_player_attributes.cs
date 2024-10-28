@@ -5,9 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using static SCR_ABS_attributes;
 
-public class SCR_overworld_player_attributes : MonoBehaviour {
+public class SCR_player_attributes : MonoBehaviour {
 
     #region Structs & Delegates 
     [System.Serializable]
@@ -98,26 +97,23 @@ public class SCR_overworld_player_attributes : MonoBehaviour {
         //Start Hunger Ticks
         SCR_master_timers.returnInstance().subscribe(SCR_master_timers.timerID.HUNGER_TICK, () => hungerRemoveHandler());
     }
-
+    #region Speed
     public int returnSpeed()
     {
         return speed;
-    }
-    public SCR_attribute returnHealth()
-    {
-        return health;
-    }
-
-    protected int calculateHealth(entStats stats)
-    {
-        return stats.endurance + stats.athletics;
     }
     protected int calculateSpeed(entStats stats)
     {
         return stats.dexterity + stats.athletics;
     }
-
+    #endregion
     #region Health
+    public SCR_attribute returnHealth() {
+        return health;
+    }
+    protected int calculateHealth(entStats stats) {
+        return stats.endurance + stats.athletics;
+    }
     private void onHealthEqualZeroFunc() {
         myAnimatior.play(SCR_unit_animation.AnimationType.DEATH); //Check if this should be in parent?
         SCR_player_main.returnInstance().readyToDie();

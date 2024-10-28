@@ -12,7 +12,7 @@ public abstract class SCO_ABS_item_useable_on_entity : SCO_item {
 
     [SerializeField] private UnityAction onUseLogic;
 
-    public abstract void useOnEntity(SCR_overworld_player_attributes ent);
+    public abstract void useOnEntity(SCR_player_attributes ent);
 
     public bool returnBreakOnUse() {
         return breakOnUse;
