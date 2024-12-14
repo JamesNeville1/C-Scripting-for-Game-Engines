@@ -37,7 +37,7 @@ namespace IzzetUtils {
             return worldPosition;
         }
         //Cast Vector2 to Vector2Int
-        public static Vector2Int castToVector2Int(Vector2 vec) {
+        public static Vector2Int CastToVector2Int(Vector2 vec) {
             return new Vector2Int(Mathf.RoundToInt(vec.x), Mathf.RoundToInt(vec.y));
         }
         public static int getRandomWeight(int[] weights, System.Random randomStart = null) {

@@ -77,10 +77,10 @@ public class SCR_inventory_piece : MonoBehaviour {
 
     #region Unity
     private void Awake() {
-        playerInventory = SCR_master_inventory_main.returnInstance(); //Get reference to inventory
-        playerCrafting = SCR_master_crafting.returnInstance(); //Get reference to crafting
-        audioManager = SCR_master_audio.returnInstance(); //Get reference to audio
-        master = SCR_master_main.returnInstance(); //Get reference to master
+        playerInventory = SCR_master_inventory_main.instance; //Get reference to inventory
+        playerCrafting = SCR_master_crafting.instance; //Get reference to crafting
+        audioManager = SCR_master_audio.instance; //Get reference to audio
+        master = SCR_master_main.instance; //Get reference to master
     }
     private void Update() {
         playerInput();
@@ -91,14 +91,14 @@ public class SCR_inventory_piece : MonoBehaviour {
     }
     private void OnMouseExit() {
         mouseOver = false;
-        master.setInfoText("", Color.clear);
+        master.SetInfoText("", Color.clear);
     }
     private void OnMouseOver() {
         if(!active) {
-            master.setInfoText(myName, Color.yellow);
+            master.SetInfoText(myName, Color.yellow);
         }
 
-        bool canUse = SCR_master_inventory_main.returnInstance().contains(this) || active;
+        bool canUse = SCR_master_inventory_main.instance.Contains(this) || active;
         if (Input.GetMouseButtonDown(1) && canUse) {
             useItemLogic(); //Use item if useable
         }
@@ -114,7 +114,7 @@ public class SCR_inventory_piece : MonoBehaviour {
                 casted.useOnEntity(SCR_player_main.returnInstance().returnAttributes());
 
                 if (casted.returnShouldSFX()) {
-                    audioManager.playRandomEffect(casted.returnOnUse());
+                    audioManager.PlayRandomEffect(casted.returnOnUse());
                 }
 
                 if (casted.returnBreakOnUse()) destroyPiece();
@@ -133,17 +133,17 @@ public class SCR_inventory_piece : MonoBehaviour {
     private void playerInput() { //Move piece via mouse input
         if (active) {
             Vector2 mousePos = IzzetMain.getMousePos(Camera.main);
-            transform.position = new Vector3(mousePos.x, mousePos.y, playerInventory.returnZOfParent() - 1); //Set Z to this to make sure mouse over is still triggered
+            transform.position = new Vector3(mousePos.x, mousePos.y, playerInventory.ReturnZOfParent() - 1); //Set Z to this to make sure mouse over is still triggered
             
             if (Input.GetMouseButtonUp(0)) { //If let go of left mouse button
                 active = false;
 
-                if (playerInventory.tryPlaceGrid(this)) { //Try to place in inventory
+                if (playerInventory.TryPlaceGrid(this)) { //Try to place in inventory
                     adjustSortingOrder(1);
-                    playerCrafting.remove(this);
+                    playerCrafting.Remove(this);
                 }
-                else if (master.isPlayerCraftingActive() && playerCrafting.tryPlace(this)) { //Try to place in crafting slots
-                    playerInventory.removePiece(this);
+                else if (master.IsPlayerCraftingActive() && playerCrafting.TryPlace(this)) { //Try to place in crafting slots
+                    playerInventory.RemovePiece(this);
                     adjustSortingOrder(1);
                 }
                 else { //If all fails, drop the item
@@ -154,7 +154,7 @@ public class SCR_inventory_piece : MonoBehaviour {
         }
         else {
             if(Input.GetMouseButtonDown(0) && mouseOver && !EventSystem.current.IsPointerOverGameObject()) { //If pressed while mouse isn't over UI, pickup
-                master.setInfoText("", Color.clear);
+                master.SetInfoText("", Color.clear);
                 pickUp();
             }
         }
@@ -180,8 +180,8 @@ public class SCR_inventory_piece : MonoBehaviour {
         adjustSortingOrder(2);
     }
     private void removeFromAll() {
-        playerInventory.removePiece(this);
-        playerCrafting.remove(this);
+        playerInventory.RemovePiece(this);
+        playerCrafting.Remove(this);
     }
     #endregion
     #region Authentication
@@ -193,7 +193,7 @@ public class SCR_inventory_piece : MonoBehaviour {
         return vecs.ToArray();
     }
     private void destroyPiece() {
-        playerInventory.removePiece(this);
+        playerInventory.RemovePiece(this);
         Destroy(gameObject);
     }
     #endregion

@@ -203,7 +203,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1638618852}
         m_TargetAssemblyTypeName: SCR_master_crafting, Assembly-CSharp
-        m_MethodName: craftButton
+        m_MethodName: Handle_OnCraft
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2096,7 +2096,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1638618852}
         m_TargetAssemblyTypeName: SCR_master_crafting, Assembly-CSharp
-        m_MethodName: toggle
+        m_MethodName: Handle_OnToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2210,21 +2210,11 @@ MonoBehaviour:
   - {fileID: 1722373567}
   - {fileID: 1060685959}
   recipes:
-  - itemA: {fileID: 11400000, guid: bf55feaef992c4743a98867e694a231e, type: 2}
-    itemB: {fileID: 11400000, guid: a48a7de10d2a4654e8af58c9e59168a4, type: 2}
-    outputItem: {fileID: 11400000, guid: 8ad9c3f3d1d08f44f8d065581de2ac62, type: 2}
-  - itemA: {fileID: 11400000, guid: 58eab1bb06f85f64a95b0707468caefb, type: 2}
-    itemB: {fileID: 11400000, guid: 8ad9c3f3d1d08f44f8d065581de2ac62, type: 2}
-    outputItem: {fileID: 11400000, guid: 8b69a75697ee06a40945c3f2ba24a1b9, type: 2}
-  - itemA: {fileID: 11400000, guid: 8b69a75697ee06a40945c3f2ba24a1b9, type: 2}
-    itemB: {fileID: 11400000, guid: 58eab1bb06f85f64a95b0707468caefb, type: 2}
-    outputItem: {fileID: 11400000, guid: ceffe51b33e27414a89479bf7aa7a720, type: 2}
-  - itemA: {fileID: 11400000, guid: ffdc1fcf109ca274caea007d81cb351e, type: 2}
-    itemB: {fileID: 11400000, guid: 8ad9c3f3d1d08f44f8d065581de2ac62, type: 2}
-    outputItem: {fileID: 11400000, guid: 5a10aba773993974bae46e39c1ce187c, type: 2}
-  - itemA: {fileID: 11400000, guid: ffdc1fcf109ca274caea007d81cb351e, type: 2}
-    itemB: {fileID: 11400000, guid: 5a10aba773993974bae46e39c1ce187c, type: 2}
-    outputItem: {fileID: 11400000, guid: 3f788efcae83f3340acd1477897adf32, type: 2}
+    _serializedList:
+    - Key:
+        itemA: {fileID: 11400000, guid: a48a7de10d2a4654e8af58c9e59168a4, type: 2}
+        itemB: {fileID: 11400000, guid: bf55feaef992c4743a98867e694a231e, type: 2}
+      Value: {fileID: 11400000, guid: 8ad9c3f3d1d08f44f8d065581de2ac62, type: 2}
   craftingSlots: []
 --- !u!1 &1647042273
 GameObject:

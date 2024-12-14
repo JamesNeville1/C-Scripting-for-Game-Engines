@@ -1,3 +1,4 @@
+
 using AYellowpaper.SerializedCollections;
 using System;
 using System.Collections;
@@ -37,37 +38,36 @@ public class SCR_master_audio : MonoBehaviour {
     [SerializeField] private AudioSource musicSource; //Play music in seperate source
     
     #region Set Instance
-    private static SCR_master_audio instance;
-    public static SCR_master_audio returnInstance() {
-        return instance;
-    }
+    public static SCR_master_audio instance { get; private set; }
 
     private void Awake() {
         instance = this;
     }
     #endregion
+
     #region Play
-    public void playOneEffect(sfx toPlay, float volume = 1f) { //Play single effect
+    public void PlayOneEffect(sfx toPlay, float volume = 1f) { //Play single effect
         sfxSource.PlayOneShot(sfxs[toPlay][0], volume);
     }
-    public void playRandomEffect(sfx toPlay, float volume = 1f) { //Play single effect in array, randomly selected
+    public void PlayRandomEffect(sfx toPlay, float volume = 1f) { //Play single effect in array, randomly selected
         int rand = UnityEngine.Random.Range(0, sfxs[toPlay].Length);
         sfxSource.PlayOneShot(sfxs[toPlay][rand], volume);
     }
-    public void playRandomMusic(music toPlay, float volume = 1f) {
-        StopCoroutine(findNewSong());
+    public void PlayRandomMusic(music toPlay, float volume = 1f) {
+        StopCoroutine(FindNewSong());
         musicSource.Stop();
 
         int rand = UnityEngine.Random.Range(0, musicDict[toPlay].Length);
         musicSource.PlayOneShot(musicDict[toPlay][rand], volume);
         //Debug.Log($"Now Playing: {sfxs[toPlay][rand].name}");
-        StartCoroutine(findNewSong()); //Find new songe from master, would allow me to have additional complexity, for example if it were winter, a more appropriate song would play
+        StartCoroutine(FindNewSong()); //Find new songe from master, would allow me to have additional complexity, for example if it were winter, a more appropriate song would play
     }
     #endregion
+
     #region Find New Song
-    private IEnumerator findNewSong() { //Wait untill finished, ping when done
+    private IEnumerator FindNewSong() { //Wait untill finished, ping when done
         UnityEvent ping = new UnityEvent();
-        ping.AddListener(() => SCR_master_main.returnInstance().whatMusic());
+        ping.AddListener(() => SCR_master_main.instance.WhatMusic());
 
         while (musicSource.isPlaying) {
             yield return null;
@@ -76,12 +76,13 @@ public class SCR_master_audio : MonoBehaviour {
         ping.Invoke();
     }
     #endregion
+
     #region Change Volume
     //Change volume - Used in menu
-    public void changeSFXVolume(float value) {
+    public void ChangeSFXVolume(float value) {
         sfxSource.volume = value;
     }
-    public void changeMusicVolume(float value) {
+    public void ChangeMusicVolume(float value) {
         musicSource.volume = value;
     }
     #endregion

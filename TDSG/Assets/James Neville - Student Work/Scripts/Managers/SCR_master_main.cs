@@ -40,11 +40,7 @@ public class SCR_master_main : MonoBehaviour {
     private SerializedDictionary<sceneKey, string> formattedScenes = new SerializedDictionary<sceneKey, string>();
 
     #region Set Instance
-    private static SCR_master_main instance;
-
-    public static SCR_master_main returnInstance() {
-        return instance;
-    }
+    public static SCR_master_main instance {get; private set;}
 
     private void Awake() {
         instance = this;
@@ -53,9 +49,9 @@ public class SCR_master_main : MonoBehaviour {
 
     #region Unity
     private void Start() {
-        StartCoroutine(setup());
+        StartCoroutine(Setup());
     }
-    private IEnumerator toggleUpdate() {
+    private IEnumerator ToggleUpdate() {
         Transform infoTextParent = infoText.transform.parent.transform;
 
         while(true) {
@@ -65,114 +61,110 @@ public class SCR_master_main : MonoBehaviour {
         }
     }
     #endregion
+
     #region Setup
-    private IEnumerator setup() {
+    private IEnumerator Setup() { //Setup Execution Order
         //Load Timer and Audio, wait till finished, setup after
-        loadScene(sceneKey.SCE_AUDIO_MANAGER, LoadSceneMode.Additive);
+        LoadScene(sceneKey.SCE_AUDIO_MANAGER, LoadSceneMode.Additive);
         masterCameraRef.SetActive(false);
-        while (!audioAndTimerAreReady()) yield return null;
-        SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.music.MENU);
+        while (!AudioAndTimerAreReady()) yield return null;
+        SCR_master_audio.instance.PlayRandomMusic(SCR_master_audio.music.MENU);
 
         //Load Menu, wait until start is pressed
-        loadScene(sceneKey.SCE_MENU, LoadSceneMode.Additive);
-        while (!pressedStart()) yield return null;
-        unloadScene(sceneKey.SCE_MENU);
+        LoadScene(sceneKey.SCE_MENU, LoadSceneMode.Additive);
+        while (!PressedStart()) yield return null;
+        UnloadScene(sceneKey.SCE_MENU);
 
         //Load Character Selection, wait until selected
-        loadScene(sceneKey.SCE_CHARACTER_SELECTION, LoadSceneMode.Additive);
-        while (SCR_master_character_selection.returnInstance() == null) yield return null;
-        SCR_master_character_selection.returnInstance().setup();
-        while (!isCharacterMade()) yield return null;
-        unloadScene(sceneKey.SCE_CHARACTER_SELECTION);
+        LoadScene(sceneKey.SCE_CHARACTER_SELECTION, LoadSceneMode.Additive);
+        while (SCR_master_character_selection.instance == null) yield return null;
+        SCR_master_character_selection.instance.Setup();
+        while (!IsCharacterMade()) yield return null;
+        UnloadScene(sceneKey.SCE_CHARACTER_SELECTION);
 
         //Ready main camera
         masterCameraRef.SetActive(true);
         
         //Load overworld scene, Show loading screen until ready
-        AsyncOperation overworldScene = loadScene(sceneKey.SCE_OVERWORLD, LoadSceneMode.Additive);
+        AsyncOperation overworldScene = LoadScene(sceneKey.SCE_OVERWORLD, LoadSceneMode.Additive);
         loadingScreenRef.SetActive(true);
         do yield return null;
         while (overworldScene.progress < .9f || GameObject.Find(overworldParentName) == null); //Note: progress max is .9f not 1f, this is NOT an error
-        SCR_master_map.returnInstance().setup(seed, groundTilemapName, mapSize);
+        SCR_master_map.instance.setup(seed, groundTilemapName, mapSize);
         loadingScreenRef.SetActive(false);
 
         //Setup Inventory & Crafting
-        SCR_master_inventory_main.returnInstance().setup(inventorySize.x, inventorySize.y);
-        SCR_master_crafting.returnInstance().setup();
+        SCR_master_inventory_main.instance.Setup(inventorySize.x, inventorySize.y);
+        SCR_master_crafting.instance.setup();
 
         //Make Player
-        Instantiate(playerPrefab, SCR_master_map.returnInstance().startPos(), Quaternion.identity, GameObject.Find(playerParent).transform);
+        Instantiate(playerPrefab, SCR_master_map.instance.StartPos(), Quaternion.identity, GameObject.Find(playerParent).transform);
         SCR_player_main.returnInstance().setup(playerPreset);
 
         //Play Correct Music
-        SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.music.CALM);
+        SCR_master_audio.instance.PlayRandomMusic(SCR_master_audio.music.CALM);
 
         //Start Update
-        StartCoroutine(toggleUpdate());
+        StartCoroutine(ToggleUpdate());
         infoText.raycastTarget = false;
     }
 
     #region Setup Yield Checks
-    private bool audioAndTimerAreReady() {
-        bool ready = SCR_master_audio.returnInstance() != null && SCR_master_timers.returnInstance() != null;
+    private bool AudioAndTimerAreReady() {
+        bool ready = SCR_master_audio.instance != null && SCR_master_timers.instance != null;
         return ready;
     }
-    private bool pressedStart() {
+    private bool PressedStart() {
         return startPressed;
     }
-    private bool isCharacterMade() {
+    private bool IsCharacterMade() {
         return playerPreset != null;
     }
     #endregion
-    #region Other Utils
-    //private void formatScenes() { 
-    //    formattedScenes.Add(sceneKey.SCE_MASTER, masterSceneName);
-    //    formattedScenes.Add(sceneKey.SCE_OVERWORLD, overworldSceneName);
-    //    formattedScenes.Add(sceneKey.SCE_AUDIO_MANAGER, audioSceneName);
-    //    formattedScenes.Add(sceneKey.SCE_MENU, menuSceneName);
-    //    formattedScenes.Add(sceneKey.SCE_CHARACTER_SELECTION, characterSelectionSceneName);
-    //}
+
     #endregion
-    #endregion
+
     #region Publics
-    public void whatMusic() {
-        if (isCharacterMade()) {
-            SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.music.MENU);
+    public void WhatMusic() {
+        if (IsCharacterMade()) {
+            SCR_master_audio.instance.PlayRandomMusic(SCR_master_audio.music.MENU);
         }
         else {
-            SCR_master_audio.returnInstance().playRandomMusic(SCR_master_audio.music.CALM);
+            SCR_master_audio.instance.PlayRandomMusic(SCR_master_audio.music.CALM);
         }
     }
-    public bool isPlayerCraftingActive() {
+    public bool IsPlayerCraftingActive() {
         return playerCraftingActive;
     }
-    public void setGatheringLocked(bool setTo) {
+    public void SetGatheringLocked(bool setTo) {
         playerCraftingActive = setTo;
     }
-    public void setPlayerPreset(SCO_character_preset preset) {
+    public void SetPlayerPreset(SCO_character_preset preset) {
         playerPreset = preset;
     }
-    public void startPlay() {
+    public void StartPlay() {
         startPressed = true;
     }
-    public void changeSeed(string value) {
+    public void ChangeSeed(string value) {
         seed = value;
     }
-    public void setInfoText(string value, Color color) {
+    public void SetInfoText(string value, Color color) {
         infoText.text = value;
         infoText.color = color;
     }
     #endregion
+
     #region Clean Scenes
-    private void moveToScene(GameObject obj, sceneKey input) {
+    private void MoveToScene(GameObject obj, sceneKey input) {
         SceneManager.MoveGameObjectToScene(obj, SceneManager.GetSceneByName(formattedScenes[input]));
     }
-    public AsyncOperation loadScene(sceneKey input, LoadSceneMode mode) {
+    public AsyncOperation LoadScene(sceneKey input, LoadSceneMode mode) {
         var scene = SceneManager.LoadSceneAsync(formattedScenes[input], mode);
         return scene;
     }
-    public void unloadScene(sceneKey input) {
+    public void UnloadScene(sceneKey input) {
         SceneManager.UnloadSceneAsync(formattedScenes[input]);
     }
+
     #endregion
 }

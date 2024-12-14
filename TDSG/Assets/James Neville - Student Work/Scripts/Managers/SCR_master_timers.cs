@@ -20,41 +20,40 @@ public class SCR_master_timers : MonoBehaviour {
     private Dictionary<timerID, timer> timeEvents = new Dictionary<timerID, timer>(); //Holds the current timers
 
     #region Set Instance
-    private static SCR_master_timers instance;
+    public static SCR_master_timers instance { get; private set; }
 
     private void Awake() {
         instance = this;
     }
-
-    public static SCR_master_timers returnInstance() {
-        return instance;
-    }
     #endregion
+
     #region Public
-    public void subscribe(timerID id, Action onFinish) {
+    public void Subscribe(timerID id, Action onFinish) {
         if(!timeEvents.ContainsKey(id)) {
             timer newTimer = new GameObject($"{id} Timer", typeof(timer)).GetComponent<timer>();
             
             newTimer.gameObject.transform.parent = timerParent;
-            newTimer.setup(timerLengths[id]);
+            newTimer.Setup(timerLengths[id]);
             
             timeEvents.Add(id, newTimer);
         }
-        timeEvents[id].subscribe(onFinish);
+
+        timeEvents[id].Subscribe(onFinish);
     }
-    public void removeAll(timerID id) {
+    public void RemoveAll(timerID id) {
         if(timeEvents.ContainsKey(id)) {
             Destroy(timeEvents[id].gameObject);
             timeEvents.Remove(id);
         }
     }
-    public void pause(timerID id) {
-        timeEvents[id].pauseTimer();
+    public void Pause(timerID id) {
+        timeEvents[id].PauseTimer();
     }
-    public void unpause(timerID id) {
-        timeEvents[id].unpauseTimer();
+    public void Unpause(timerID id) {
+        timeEvents[id].UnpauseTimer();
     }
     #endregion
+
     #region Timer Class
     public class timer : MonoBehaviour {
         [SerializeField] [MyReadOnly] private float currentTimer;
@@ -62,17 +61,17 @@ public class SCR_master_timers : MonoBehaviour {
         private event Action myEvent;
         [SerializeField] [MyReadOnly] private bool paused = false;
 
-        public void setup(float maxTimer) {
+        public void Setup(float maxTimer) {
             this.maxTimer = maxTimer;
             this.currentTimer = maxTimer;
         }
 
-        public void subscribe(Action onFinish) { myEvent += onFinish; }
-        public void unsubscribe(Action remove) { myEvent -= remove; }
-        public void pauseTimer() { paused = true; }
-        public void unpauseTimer() { paused = false; }
-        public void resetTimer() { currentTimer = maxTimer; }
-        public bool hasSubs() { return myEvent.GetInvocationList().Length > 0; }
+        public void Subscribe(Action onFinish) { myEvent += onFinish; }
+        public void Unsubscribe(Action remove) { myEvent -= remove; }
+        public void PauseTimer() { paused = true; }
+        public void UnpauseTimer() { paused = false; }
+        public void ResetTimer() { currentTimer = maxTimer; }
+        public bool HasSubs() { return myEvent.GetInvocationList().Length > 0; }
 
         public void Update() {
             if(!paused) {

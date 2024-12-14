@@ -47,12 +47,12 @@ public class SCR_player_main : MonoBehaviour {
     }
     #region Swimming / Walking Checks
     private void OnTriggerEnter2D(Collider2D collision) {
-        if(collision.gameObject == SCR_master_map.returnInstance().returnGroundTilemap().gameObject) {
+        if(collision.gameObject == SCR_master_map.instance.ReturnGroundTilemap().gameObject) {
             startWalking();
         }
     }
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject == SCR_master_map.returnInstance().returnGroundTilemap().gameObject) {
+        if (collision.gameObject == SCR_master_map.instance.ReturnGroundTilemap().gameObject) {
             startSwimming();
         }
     }
@@ -125,7 +125,7 @@ public class SCR_player_main : MonoBehaviour {
     private IEnumerator Footstepsounds() {
         footstepCoroutineRunning = true;
         while (true) {
-            SCR_master_audio.returnInstance().playRandomEffect(SCR_master_audio.sfx.WALK_STEP, .15f);
+            SCR_master_audio.instance.PlayRandomEffect(SCR_master_audio.sfx.WALK_STEP, .15f);
             yield return new WaitForSeconds(timeBetweenWalkSFX);
         }
     }
@@ -138,10 +138,10 @@ public class SCR_player_main : MonoBehaviour {
         speedOrigin = (playerAttributes.returnSpeed() * modifOverworldSpeed) * modifBy;
     }
     public void readyToDie() {
-        SCR_master_inventory_main.returnInstance().destroyAll();
+        SCR_master_inventory_main.instance.DestroyAll();
         speed = 0;
         rb.linearVelocity = Vector2.zero;
-        SCR_master_main.returnInstance().setGatheringLocked(true);
+        SCR_master_main.instance.SetGatheringLocked(true);
         this.enabled = false;
     }
     #endregion

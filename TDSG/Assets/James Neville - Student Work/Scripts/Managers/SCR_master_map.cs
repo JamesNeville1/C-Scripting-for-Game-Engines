@@ -21,7 +21,7 @@ public class SCR_master_map : MonoBehaviour {
     [SerializeField] [Tooltip("Main tile for map")] private RuleTile groundTile;
     [SerializeField] [Tooltip("Where to place tile")] private Tilemap groundTilemap;
     [SerializeField] [Tooltip("Magnify how large perlin map is")] private int islandSize = 8;
-    [SerializeField] [Tooltip("")] private List<Vector2Int> constantTiles;
+    [SerializeField] [Tooltip("Where on the map should ground ALWAYS be")] private List<Vector2Int> constantTiles;
 
     [Header("Map Gatherables")]
     [SerializeField] [MyReadOnly] [Tooltip("Distributes more evenly")] int distributionStep = 1;
@@ -31,21 +31,13 @@ public class SCR_master_map : MonoBehaviour {
     private SerializedDictionary<int, gatherableData> idToGatherable = new SerializedDictionary<int, gatherableData>(); //Maps colour to gatherable scriptable object
 
     [Header("Other")]
-    [SerializeField] [MyReadOnly] [Tooltip("Temp start pos of player")] private Vector2 playerStartPos;
-    
-    
-    
-    //private Dictionary<Vector2Int, int> mapData = new Dictionary<Vector2Int, int>(); //Use this to remove 
+    [SerializeField] [MyReadOnly] [Tooltip("Start pos of player")] private Vector2 playerStartPos;
 
     #region Set Instance
-    private static SCR_master_map instance;
+    public static SCR_master_map instance { get; private set; }
 
     private void Awake(){
         instance = this;
-    }
-
-    public static SCR_master_map returnInstance() {
-        return instance;
     }
     #endregion
 
@@ -57,19 +49,20 @@ public class SCR_master_map : MonoBehaviour {
 
         //If seed is empty, make random seed
         if(seedString == "") {
-            seedString = randomSeed();
+            seedString = RandomSeed();
         }
 
-        Vector2Int seed = readSeed(seedString); //Read seed, convert to vector2Int
+        Vector2Int seed = ReadSeed(seedString); //Read seed
 
         groundTilemap.ClearAllTiles(); //Clear to be sure
 
-        optimisedGeneration(size, seed); //Main map gen (Optimised version, old is in Legacy region)
+        OptimisedGeneration(size, seed); //Main map gen (Optimised version, old is in Legacy region)
     }
     #endregion
+
     #region Seed Generation & Authentication
     //Randomly generates 10 digit seed
-    public string randomSeed() {
+    public string RandomSeed() {
         string newSeed = "";
         for (int i = 0; i < 10; i++) {
             int currentNum = UnityEngine.Random.Range(0, 10);
@@ -81,8 +74,8 @@ public class SCR_master_map : MonoBehaviour {
         return newSeed;
     }
 
-    //Read, authenticate seed, output Vector2
-    public Vector2Int readSeed(string seed = "") {
+    //Read, authenticate seed, output as Vector
+    public Vector2Int ReadSeed(string seed = "") {
 
         if(seed.Length > 10) { //Constain to 10
             seed = seed.Substring(1, 10);
@@ -115,8 +108,9 @@ public class SCR_master_map : MonoBehaviour {
         return offset;
     }
     #endregion
+
     #region Generate
-    private void optimisedGeneration(Vector2Int size, Vector2Int seedValid) {
+    private void OptimisedGeneration(Vector2Int size, Vector2Int seedValid) {
         GameObject gatherableParent = GameObject.Find(gatherablesParentName); //Get ref to gatherable parent, keep neat
 
         //Main
@@ -124,16 +118,16 @@ public class SCR_master_map : MonoBehaviour {
             for (int y = 0; y < size.y; y++) { //Loop through y
                 Vector2Int pos = new Vector2Int(x, y);
 
-                int perlin = getBasePerlinID(pos, seedValid, islandSize); //Get perlin
+                int perlin = GetBasePerlinID(pos, seedValid, islandSize); //Get perlin
                 if (perlin == 1) { //If perlin is 1, it's ground
                     
                     groundTilemap.SetTile((Vector3Int)pos,groundTile); //Set tile to ground
 
                     bool isBound = pos.x <= 0 || pos.y >= size.x - 1 || pos.y <= 0 || pos.x >= size.x - 1; //Dont put gatherable on bounds of map
-                    int idToCheck = getGatherableID(pos, seedValid, calculateTotalWeight()); //Get gatherable ID
+                    int idToCheck = GetGatherableID(pos, seedValid, CalculateTotalWeight()); //Get gatherable ID
 
                     //If in bound and id is valid spawn gatherable
-                    if (!isBound && !isBoundOfIsland(pos, seedValid, islandSize) && idToGatherable.ContainsKey(idToCheck)) {
+                    if (!isBound && !IsBoundOfIsland(pos, seedValid, islandSize) && idToGatherable.ContainsKey(idToCheck)) {
                         idToGatherable[idToCheck].objectData.gatherableSetup(pos, gatherableParent.transform);
                     }
                 }
@@ -141,7 +135,7 @@ public class SCR_master_map : MonoBehaviour {
         }
 
         //Make Constant Tiles
-        Vector2Int centre = returnCentre(size);
+        Vector2Int centre = ReturnCentre(size);
         foreach (Vector2Int pos in constantTiles) {
             Vector3Int centreAdjusted = (Vector3Int)pos + (Vector3Int)centre;
             if (groundTilemap.GetTile(centreAdjusted) == null) { //If tile is null, make it groundTile
@@ -150,15 +144,12 @@ public class SCR_master_map : MonoBehaviour {
         }
 
         //Mark Player Spawn
-        playerStartPos = constantTiles[0] + centre;
-    }
-
-    private void finalCleanup() {
-
+        playerStartPos = centre + constantTiles[0];
     }
     #endregion
+
     #region Logic
-    private int getBasePerlinID(Vector2Int v, Vector2 offset, int islandSize, int count = 1) { //Get Perlin
+    private int GetBasePerlinID(Vector2Int v, Vector2 offset, int islandSize, int count = 1) { //Get Perlin
         float rawPerlin = Mathf.PerlinNoise( //Raw perlin position + seed, dividing it makes island size bigger
             (v.x + offset.x) / islandSize,
             (v.y + offset.y) / islandSize
@@ -170,16 +161,16 @@ public class SCR_master_map : MonoBehaviour {
         return Mathf.FloorToInt(scaledPerlin);
     }
     
-    private bool isBoundOfIsland(Vector2Int v, Vector2 offset, int islandSize) { //Check if neighbors are water, if yes, return true
+    private bool IsBoundOfIsland(Vector2Int v, Vector2 offset, int islandSize) { //Check if neighbors are water, if yes, return true
         int[] soundroundings = { //All surounding pixels
-            getBasePerlinID(v, offset+Vector2.left, islandSize, 1),
-            getBasePerlinID(v, offset+Vector2.right, islandSize, 1),
-            getBasePerlinID(v, offset+Vector2.up, islandSize, 1),
-            getBasePerlinID(v, offset+Vector2.down, islandSize, 1),
-            getBasePerlinID(v, offset+Vector2.left+Vector2.up, islandSize, 1),
-            getBasePerlinID(v, offset+Vector2.left+Vector2.down, islandSize, 1),
-            getBasePerlinID(v, offset+Vector2.right+Vector2.up, islandSize, 1),
-            getBasePerlinID(v, offset+Vector2.right+Vector2.down, islandSize, 1),
+            GetBasePerlinID(v, offset+Vector2.left, islandSize, 1),
+            GetBasePerlinID(v, offset+Vector2.right, islandSize, 1),
+            GetBasePerlinID(v, offset+Vector2.up, islandSize, 1),
+            GetBasePerlinID(v, offset+Vector2.down, islandSize, 1),
+            GetBasePerlinID(v, offset+Vector2.left+Vector2.up, islandSize, 1),
+            GetBasePerlinID(v, offset+Vector2.left+Vector2.down, islandSize, 1),
+            GetBasePerlinID(v, offset+Vector2.right+Vector2.up, islandSize, 1),
+            GetBasePerlinID(v, offset+Vector2.right+Vector2.down, islandSize, 1),
         };
 
         if (soundroundings.Contains<int>(0)) { //Return ground if water is near
@@ -187,7 +178,7 @@ public class SCR_master_map : MonoBehaviour {
         }
         else return false; //Return valid for gatherable areas
     }
-    private int getGatherableID(Vector2 v, Vector2 offset, int totalRandWeight) { //Get ID, return -1 on fail
+    private int GetGatherableID(Vector2 v, Vector2 offset, int totalRandWeight) { //Get ID, return -1 on fail
         Random randomStart = new Random((int)(offset.magnitude + v.magnitude * Mathf.Pow(distributionStep, 4)));
 
         //Further "randomise" the gatherables as C#'s random class isn't perfect and does have patterns
@@ -198,9 +189,9 @@ public class SCR_master_map : MonoBehaviour {
 
         if (rand > totalRandWeight) return -1;
 
-        else return checkRandomAgainstID(randomStart);
+        else return CheckRandomAgainstID(randomStart);
     }
-    private int checkRandomAgainstID(Random rand) { //Using random weight, get ID
+    private int CheckRandomAgainstID(Random rand) { //Using random weight, get ID
         //Find gatherable in weight
 
         List<int> weights = new List<int>();
@@ -213,27 +204,30 @@ public class SCR_master_map : MonoBehaviour {
 
     }
     #endregion
+
     #region utils
-    private Vector2Int returnCentre(Vector2Int size) {
-        return IzzetMain.castToVector2Int(new Vector2(size.x / 2, size.y / 2));
+    private Vector2Int ReturnCentre(Vector2Int size) {
+        return IzzetMain.CastToVector2Int(new Vector2(size.x / 2, size.y / 2));
     }
-    private void removeTile(Vector2 pos) {
+    private void RemoveTile(Vector2 pos) {
         groundTilemap.SetTile(new Vector3Int((int)pos.x,(int)pos.y), null);
     }
-    public Vector2 startPos() {
+    public Vector2 StartPos() {
         return playerStartPos;
     }
-    private int calculateTotalWeight() {
+    private int CalculateTotalWeight() {
         int totalWeight = 0;
         foreach (var weight in idToGatherable.Values) {
             totalWeight += weight.randomWieght;
         }
         return totalWeight;
     }
-    public Tilemap returnGroundTilemap() {
+    public Tilemap ReturnGroundTilemap() {
         return groundTilemap;
     }
     #endregion
+
+    //Originally sent to a texture, and then reloaded, ensentially doubling 'for loop' iteration
     #region Legacy (Map Gen System that used texture, very slow)
     //Generate map using tilemap
     //public void generate(Vector2Int size, Vector2Int seed) {
