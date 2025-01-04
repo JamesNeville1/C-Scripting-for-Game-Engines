@@ -28,23 +28,23 @@ public class SCR_inventory_piece : MonoBehaviour {
 
     #region Create Instance
     //Create brand new instance from anywhere with no reference required
-    public static SCR_inventory_piece createInstance(SCO_item item, Vector2 spawnPos, Transform parent, bool startActive = true) {
+    public static SCR_inventory_piece CreateInstance(SCO_item item, Vector2 spawnPos, Transform parent, bool startActive = true) {
         GameObject newPiece = new GameObject(item.name + " Piece", typeof(SCR_inventory_piece));
         newPiece.transform.position = spawnPos;
 
         newPiece.transform.parent = parent;
 
         SCR_inventory_piece newScript = newPiece.GetComponent<SCR_inventory_piece>();
-        newScript.setup(item, startActive);
+        newScript.Setup(item, startActive);
 
         return newScript;
     }
-    private void setup(SCO_item source, bool startActive) { //Called from create instance. It creates children acording to the source (item)
+    private void Setup(SCO_item source, bool startActive) { //Called from create instance. It creates children acording to the source (item)
         active = startActive; mouseOver = startActive;
         
-        Vector2Int[] blocks = source.returnSpaces();
+        Vector2Int[] blocks = source.ReturnSpaces();
 
-        Sprite itemSprite = source.returnItemSprite();
+        Sprite itemSprite = source.ReturnItemSprite();
 
         foreach (Vector2 blockPos in blocks) {
             GameObject newBlock = new GameObject("Block:" + blockPos.x + ", " + blockPos.y, typeof(SpriteRenderer));
@@ -54,13 +54,14 @@ public class SCR_inventory_piece : MonoBehaviour {
             srs.Add(newBlock.GetComponent<SpriteRenderer>());
             int arrayPos = srs.Count - 1;
 
-            myName = source.returnName();
+            myName = source.ReturnName();
 
             srs[arrayPos].sprite = itemSprite;
             srs[arrayPos].sortingOrder = 2;
             srs[arrayPos].sortingLayerName = "Inventory Piece";
 
-            newBlock.AddComponent<BoxCollider2D>().usedByComposite = true;
+            //newBlock.AddComponent<BoxCollider2D>().usedByComposite = true;
+            newBlock.AddComponent<BoxCollider2D>().compositeOperation = Collider2D.CompositeOperation.Merge;
         }
 
         
@@ -69,7 +70,7 @@ public class SCR_inventory_piece : MonoBehaviour {
         compCol.geometryType = CompositeCollider2D.GeometryType.Polygons;
         compCol.isTrigger = true;
 
-        slots = source.returnSpaces();
+        slots = source.ReturnSpaces();
 
         pieceItem = source;
     }
@@ -83,7 +84,7 @@ public class SCR_inventory_piece : MonoBehaviour {
         master = SCR_master_main.instance; //Get reference to master
     }
     private void Update() {
-        playerInput();
+        PlayerInput();
     }
 
     private void OnMouseEnter() {
@@ -100,24 +101,24 @@ public class SCR_inventory_piece : MonoBehaviour {
 
         bool canUse = SCR_master_inventory_main.instance.Contains(this) || active;
         if (Input.GetMouseButtonDown(1) && canUse) {
-            useItemLogic(); //Use item if useable
+            UseItemLogic(); //Use item if useable
         }
     }
     #endregion
     #region Item Logic
-    private void useItemLogic() {
+    private void UseItemLogic() {
         switch (pieceItem) {
             case SCO_ABS_item_useable_on_entity: //Use on player if can be used
                 Debug.Log("Using " + pieceItem.name);
 
                 SCO_ABS_item_useable_on_entity casted = pieceItem as SCO_ABS_item_useable_on_entity;
-                casted.useOnEntity(SCR_player_main.returnInstance().returnAttributes());
+                casted.UseOnEntity(SCR_player_main.returnInstance().returnAttributes());
 
-                if (casted.returnShouldSFX()) {
-                    audioManager.PlayRandomEffect(casted.returnOnUse());
+                if (casted.ReturnShouldSFX()) {
+                    audioManager.PlayRandomEffect(casted.ReturnOnUse());
                 }
 
-                if (casted.returnBreakOnUse()) destroyPiece();
+                if (casted.ReturnBreakOnUse()) DestroyPiece();
                 
                 break;
 
@@ -130,24 +131,24 @@ public class SCR_inventory_piece : MonoBehaviour {
     }
     #endregion
     #region Input
-    private void playerInput() { //Move piece via mouse input
+    private void PlayerInput() { //Move piece via mouse input
         if (active) {
-            Vector2 mousePos = IzzetMain.getMousePos(Camera.main);
+            Vector2 mousePos = IzzetMain.GetMousePos(Camera.main);
             transform.position = new Vector3(mousePos.x, mousePos.y, playerInventory.ReturnZOfParent() - 1); //Set Z to this to make sure mouse over is still triggered
             
             if (Input.GetMouseButtonUp(0)) { //If let go of left mouse button
                 active = false;
 
                 if (playerInventory.TryPlaceGrid(this)) { //Try to place in inventory
-                    adjustSortingOrder(1);
+                    AdjustSortingOrder(1);
                     playerCrafting.Remove(this);
                 }
                 else if (master.IsPlayerCraftingActive() && playerCrafting.TryPlace(this)) { //Try to place in crafting slots
                     playerInventory.RemovePiece(this);
-                    adjustSortingOrder(1);
+                    AdjustSortingOrder(1);
                 }
                 else { //If all fails, drop the item
-                    drop();
+                    Drop();
 
                 }
             }
@@ -155,62 +156,62 @@ public class SCR_inventory_piece : MonoBehaviour {
         else {
             if(Input.GetMouseButtonDown(0) && mouseOver && !EventSystem.current.IsPointerOverGameObject()) { //If pressed while mouse isn't over UI, pickup
                 master.SetInfoText("", Color.clear);
-                pickUp();
+                PickUp();
             }
         }
     }
-    public void drop() {
+    public void Drop() {
 
         //Remove from crafting and inventory incase, and remove parent
-        removeFromAll();
+        RemoveFromAll();
         transform.parent = null;
 
         //Purely Design
-        adjustSize(.55f);
-        adjustSortingOrder(0, "Default");
+        AdjustSize(.55f);
+        AdjustSortingOrder(0, "Default");
     }
-    private void pickUp() {
+    private void PickUp() {
 
         //Make active, Remove from crafting and inventory incase
         active = true;
-        removeFromAll();
+        RemoveFromAll();
 
         //Purely Design
-        adjustSize(1);
-        adjustSortingOrder(2);
+        AdjustSize(1);
+        AdjustSortingOrder(2);
     }
-    private void removeFromAll() {
+    private void RemoveFromAll() {
         playerInventory.RemovePiece(this);
         playerCrafting.Remove(this);
     }
     #endregion
     #region Authentication
-    public Vector2Int[] returnChildren(Vector2Int parentPos) { //Return all positions the piece takes up
+    public Vector2Int[] ReturnChildren(Vector2Int parentPos) { //Return all positions the piece takes up
         List<Vector2Int> vecs = new List<Vector2Int>();
         foreach (Vector2Int item in slots) {
             vecs.Add(item + parentPos);
         }
         return vecs.ToArray();
     }
-    private void destroyPiece() {
+    private void DestroyPiece() {
         playerInventory.RemovePiece(this);
         Destroy(gameObject);
     }
     #endregion
     #region Adjust Display
-    private void adjustSortingOrder(int i, string sortingLayer = "Inventory Piece") {
+    private void AdjustSortingOrder(int i, string sortingLayer = "Inventory Piece") {
         foreach (SpriteRenderer sr in srs) {
             sr.sortingOrder = i;
             sr.sortingLayerName = sortingLayer;
         }
     }
     
-    private void adjustSize(float i) {
+    private void AdjustSize(float i) {
         transform.localScale = new Vector2(i,i);
     }
     #endregion
     #region Returns
-    public SCO_item returnItem() {
+    public SCO_item ReturnItem() {
         return pieceItem;
     }
     #endregion

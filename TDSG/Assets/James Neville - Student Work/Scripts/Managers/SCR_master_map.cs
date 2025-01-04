@@ -198,7 +198,7 @@ public class SCR_master_map : MonoBehaviour {
         foreach (var item in idToGatherable.Values) {
             weights.Add(item.randomWieght);
         }
-        int index = IzzetMain.getRandomWeight(weights.ToArray(), rand);
+        int index = IzzetMain.GetRandomWeight(weights.ToArray(), rand);
 
         return index;
 

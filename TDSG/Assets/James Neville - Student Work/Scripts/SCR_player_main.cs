@@ -135,7 +135,7 @@ public class SCR_player_main : MonoBehaviour {
         return playerAttributes;
     }
     public void changeOverworldSpeed(int modifBy = 1) {
-        speedOrigin = (playerAttributes.returnSpeed() * modifOverworldSpeed) * modifBy;
+        speedOrigin = (playerAttributes.ReturnSpeed() * modifOverworldSpeed) * modifBy;
     }
     public void readyToDie() {
         SCR_master_inventory_main.instance.DestroyAll();
@@ -155,7 +155,7 @@ public class SCR_player_main : MonoBehaviour {
 
         //
         playerAnimation.setup(preset.returnAnimationPrefix(), preset.returnAnimations());
-        playerAttributes.setupUniversal(preset.returnStartingStats());
+        playerAttributes.SetupUniversal(preset.returnStartingStats());
 
         //Adjust Speed
         changeOverworldSpeed();

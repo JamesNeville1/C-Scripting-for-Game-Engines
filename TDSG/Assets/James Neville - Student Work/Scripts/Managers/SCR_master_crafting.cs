@@ -9,7 +9,7 @@ public class SCR_master_crafting : MonoBehaviour {
 
     [SerializeField] private RectTransform slotsParent;
     [SerializeField] private Transform[] slotPos;
-    [SerializedDictionary] [SerializeField] private SerializedDictionary<recipeData, SCO_item> recipes;
+    [SerializedDictionary("Input", "Output")] [SerializeField] private SerializedDictionary<recipeData, SCO_item> recipes;
     [SerializeField] [MyReadOnly] private slotData[] craftingSlots;
 
     #region Structures & Enums
@@ -26,6 +26,17 @@ public class SCR_master_crafting : MonoBehaviour {
     [System.Serializable] private struct recipeData {
         public SCO_item itemA;
         public SCO_item itemB;
+
+        public recipeData(SCO_item itemA, SCO_item itemB) {
+            this.itemA = itemA;
+            this.itemB = itemB;
+        }
+
+        public recipeData flip()
+        {
+            (itemA, itemB) = (itemB, itemA);
+            return this;
+        }
     }
     #endregion
 
@@ -74,7 +85,7 @@ public class SCR_master_crafting : MonoBehaviour {
             Place(toPlace, craftingArrayPosName.SLOT2);
         }
         else {
-            toPlace.drop();
+            toPlace.Drop();
             return false;
         }
 
@@ -109,8 +120,8 @@ public class SCR_master_crafting : MonoBehaviour {
         SCR_master_main.instance.SetGatheringLocked(!currentState);
         slotsParent.gameObject.SetActive(!currentState);
 
-        if (craftingSlots[(int)craftingArrayPosName.SLOT1].piece != null) { craftingSlots[(int)craftingArrayPosName.SLOT1].piece.drop(); }
-        if (craftingSlots[(int)craftingArrayPosName.SLOT2].piece != null) { craftingSlots[(int)craftingArrayPosName.SLOT2].piece.drop(); }
+        if (craftingSlots[(int)craftingArrayPosName.SLOT1].piece != null) { craftingSlots[(int)craftingArrayPosName.SLOT1].piece.Drop(); }
+        if (craftingSlots[(int)craftingArrayPosName.SLOT2].piece != null) { craftingSlots[(int)craftingArrayPosName.SLOT2].piece.Drop(); }
     }
     public void Handle_OnCraft() {
         if (craftingSlots[(int)craftingArrayPosName.SLOT1].piece != null && craftingSlots[(int)craftingArrayPosName.SLOT2].piece != null) {
@@ -120,29 +131,31 @@ public class SCR_master_crafting : MonoBehaviour {
     #endregion
 
     #region Craft
+    //Note: I would likely use a JSON file when expanding, this is just an example of a small scale system
+
     private void Craft(SCR_inventory_piece a, SCR_inventory_piece b) {
-        //foreach (recipeData recipe in recipes) {
-        //    if (a.returnItem() == recipe.itemA && b.returnItem() == recipe.itemB || b.returnItem() == recipe.itemA && a.returnItem() == recipe.itemB) {
-        //        Remove(a); Remove(b);
-        //        Destroy(a.gameObject); Destroy(b.gameObject);
-
-        //        SCR_inventory_piece createdItem = SCR_inventory_piece.createInstance(recipe.outputItem, craftingSlots[(int)craftingArrayPosName.OUTPUT].vec, slotsParent, false);
-        //        Place(createdItem, craftingArrayPosName.OUTPUT);
-        //        return;
-        //    }
-        //}
-
         recipeData data = new recipeData();
-        data.itemA = a.returnItem();
-        data.itemB = b.returnItem();
-        recipeData data1 = new recipeData();
-        data.itemA = b.returnItem();
-        data.itemB = a.returnItem();
+        data.itemA = a.ReturnItem();
+        data.itemB = b.ReturnItem();
 
-        if (recipes.ContainsKey(data) || recipes.ContainsKey(data1))
-        {
-            print("a");
+        if (recipes.ContainsKey(data)) {
+            CraftExecute(a, b, data);
+            return;
         }
+        if (recipes.ContainsKey(data.flip())) {
+            CraftExecute(b, a, data);
+            return;
+        }
+    }
+
+    private void CraftExecute(SCR_inventory_piece a, SCR_inventory_piece b, recipeData key) {
+        Destroy(a.gameObject);
+        Destroy(b.gameObject);
+
+        SCR_inventory_piece createdItem = SCR_inventory_piece.CreateInstance(recipes[key], craftingSlots[(int)craftingArrayPosName.OUTPUT].vec, slotsParent, false);
+        Place(createdItem, craftingArrayPosName.OUTPUT);
+
+        return;
     }
     #endregion
 }

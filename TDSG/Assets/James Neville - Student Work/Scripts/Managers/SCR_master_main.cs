@@ -55,7 +55,7 @@ public class SCR_master_main : MonoBehaviour {
         Transform infoTextParent = infoText.transform.parent.transform;
 
         while(true) {
-            infoTextParent.transform.position = IzzetMain.getMousePos(Camera.main);
+            infoTextParent.transform.position = IzzetMain.GetMousePos(Camera.main);
 
             yield return null;
         }

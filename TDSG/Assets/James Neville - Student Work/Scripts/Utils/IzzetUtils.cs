@@ -12,7 +12,7 @@ namespace IzzetUtils {
     }
     public class IzzetMain : MonoBehaviour {
         //Note to marker: I use this to trim the input of the string input by the user for the seed
-        public static int validateIntFromString(string invalid, int max = 10000) {
+        public static int ValidateIntFromString(string invalid, int max = 10000) {
             int valid = 0;
             string validString = "";
 
@@ -32,7 +32,7 @@ namespace IzzetUtils {
             return valid;
         }
         //Get mouse position in world
-        public static Vector2 getMousePos(Camera cam) {
+        public static Vector2 GetMousePos(Camera cam) {
             Vector3 worldPosition = cam.ScreenToWorldPoint(Input.mousePosition);
             return worldPosition;
         }
@@ -40,7 +40,7 @@ namespace IzzetUtils {
         public static Vector2Int CastToVector2Int(Vector2 vec) {
             return new Vector2Int(Mathf.RoundToInt(vec.x), Mathf.RoundToInt(vec.y));
         }
-        public static int getRandomWeight(int[] weights, System.Random randomStart = null) {
+        public static int GetRandomWeight(int[] weights, System.Random randomStart = null) {
             int totalWeight = weights.Sum();
 
             int step = 0;
@@ -55,7 +55,7 @@ namespace IzzetUtils {
             }
             return -1; //Create deliberate error, something has to very wrong for this to happen.
         }
-        public static Vector2 getMidPoint(Vector2 posOne, Vector2 posTwo) {
+        public static Vector2 GetMidPoint(Vector2 posOne, Vector2 posTwo) {
             return (posOne + posTwo) * .5f;
         }
     }

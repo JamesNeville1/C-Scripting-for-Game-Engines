@@ -22,39 +22,39 @@ public class SCR_attribute {
         onEndZero.AddListener(onEndZeroDelegate);
     }
 
-    public void addUI(TextMeshProUGUI display) {
+    public void AddUI(TextMeshProUGUI display) {
         this.display = display;
 
-        updateDisplay();
+        UpdateDisplay();
     }
 
-    public void zeroTrigger() { 
+    public void ZeroTrigger() { 
         onZero.Invoke();
     }
 
-    public void endZeroTrigger() {
+    public void EndZeroTrigger() {
         onEndZero.Invoke();
     }
 
-    public void adjust(int value) {
+    public void Adjust(int value) {
         if(value > 0) { 
             if(current == 0) {
-                endZeroTrigger();
+                EndZeroTrigger();
             }
         }
         current = Mathf.Clamp(current + value, 0, max);
 
         if(current <= 0) {
-            zeroTrigger();
+            ZeroTrigger();
         }
-        updateDisplay();
+        UpdateDisplay();
     }
 
-    private void updateDisplay() {
+    private void UpdateDisplay() {
         display.text = current.ToString();
     }
 
-    public int returnCurrent() {
+    public int ReturnCurrent() {
         return current;
     }
 }

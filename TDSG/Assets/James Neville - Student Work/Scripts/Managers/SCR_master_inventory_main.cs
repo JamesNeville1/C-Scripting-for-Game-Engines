@@ -66,7 +66,7 @@ public class SCR_master_inventory_main : MonoBehaviour {
 
             //Remove from gridData
             Vector2Int roundedPos = IzzetMain.CastToVector2Int(toCheck.transform.localPosition);
-            AdjustGridState(toCheck.returnChildren(roundedPos), cellState.EMPTY);
+            AdjustGridState(toCheck.ReturnChildren(roundedPos), cellState.EMPTY);
         }
     }
 
@@ -82,7 +82,7 @@ public class SCR_master_inventory_main : MonoBehaviour {
         //If True
         toManipulate.transform.localPosition = (Vector2)pos;
 
-        pieceData.Add(toManipulate, toManipulate.returnChildren(pos));
+        pieceData.Add(toManipulate, toManipulate.ReturnChildren(pos));
 
         return true;
     }
@@ -92,7 +92,7 @@ public class SCR_master_inventory_main : MonoBehaviour {
     private bool CheckPiece(SCR_inventory_piece piece, Vector2Int pos) { 
         
         //Loop through children, check all slots are free and valid
-        Vector2Int[] children = piece.returnChildren(pos);
+        Vector2Int[] children = piece.ReturnChildren(pos);
         foreach(Vector2Int vec in children) {
             bool invalid = !gridData.ContainsKey(vec) || gridData[vec] == cellState.OCCUPIED;
             if (invalid) return false;
