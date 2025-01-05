@@ -21,6 +21,4 @@ MonoBehaviour:
     dexterity: 1
     endurance: 5
   characterSelectionSprite: {fileID: 232619038, guid: 0bfd15b7bec44264c94fa00ac719bcee, type: 3}
-  flavourText: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Amet risus nullam eget felis
-    eget nunc lobortis. Consectetur adipiscing elit duis tristique.
+  flavourText: '"Shrok? Shrok... SHROK SMASH!!" - Direct Quote'

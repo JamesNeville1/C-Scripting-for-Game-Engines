@@ -21,7 +21,4 @@ MonoBehaviour:
     dexterity: 2
     endurance: 5
   characterSelectionSprite: {fileID: 2044368876, guid: d0c5bcce03aa4674ab358b4005b18de2, type: 3}
-  flavourText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Pharetra convallis posuere
-    morbi leo urna molestie at. Cursus euismod quis viverra nibh cras pulvinar mattis
-    nunc.\r"
+  flavourText: "Adam is a brave explorer, travelling the lands in search of adventure.\r"

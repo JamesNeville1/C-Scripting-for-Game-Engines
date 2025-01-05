@@ -21,6 +21,5 @@ MonoBehaviour:
     dexterity: 4
     endurance: 1
   characterSelectionSprite: {fileID: 1583947385, guid: a444559b8e57c2f4fb91eccc39443d28, type: 3}
-  flavourText: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Dictum varius duis at consectetur
-    lorem donec massa. Ultrices in iaculis nunc sed augue lacus viverra vitae congue.
+  flavourText: Zeke has a trick up his sleeve for every occasion, all focused around
+    him, and only him

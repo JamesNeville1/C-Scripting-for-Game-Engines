@@ -21,6 +21,4 @@ MonoBehaviour:
     dexterity: 5
     endurance: 2
   characterSelectionSprite: {fileID: -1371696633, guid: 8870bbfbf88cb4e4693c5f0c41a58370, type: 3}
-  flavourText: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Nisi est sit amet facilisis
-    magna etiam tempor. Massa tincidunt dui ut ornare lectus sit amet est placerat.
+  flavourText: Of all the fair ladies, none come close to Eves beauty.

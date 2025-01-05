@@ -21,7 +21,4 @@ MonoBehaviour:
     dexterity: 5
     endurance: 2
   characterSelectionSprite: {fileID: -1179758971, guid: 076cdfff38f9fcc44b532649fee3419e, type: 3}
-  flavourText: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. In massa tempor nec feugiat
-    nisl pretium. Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt
-    ornare.
+  flavourText: Greg is best boy.

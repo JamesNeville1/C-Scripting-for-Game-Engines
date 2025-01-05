@@ -21,6 +21,4 @@ MonoBehaviour:
     dexterity: 4
     endurance: 2
   characterSelectionSprite: {fileID: -1992358163, guid: c6f33cd98dbb671408086878757430a2, type: 3}
-  flavourText: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Commodo ullamcorper a lacus
-    vestibulum sed. Rhoncus mattis rhoncus urna neque viverra justo nec.
+  flavourText: Billy is following the scent of food, his instincts guide him.
