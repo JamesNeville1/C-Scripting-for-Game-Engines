@@ -99,7 +99,7 @@ public class SCR_master_main : MonoBehaviour {
 
         //Make Player
         Instantiate(playerPrefab, SCR_master_map.instance.StartPos(), Quaternion.identity, GameObject.Find(playerParent).transform);
-        SCR_player_main.returnInstance().setup(playerPreset);
+        SCR_player_main.returnInstance().Setup(playerPreset);
 
         //Play Correct Music
         SCR_master_audio.instance.PlayRandomMusic(SCR_master_audio.music.CALM);

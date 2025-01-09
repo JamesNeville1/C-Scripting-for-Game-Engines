@@ -4,6 +4,7 @@ using UnityEngine;
 using IzzetUtils;
 using IzzetUtils.IzzetAttributes;
 using UnityEngine.Tilemaps;
+using Unity.VisualScripting;
 
 public class SCR_player_main : MonoBehaviour {
 
@@ -24,13 +25,17 @@ public class SCR_player_main : MonoBehaviour {
     [SerializeField] [MyReadOnly] private SCR_unit_animation playerAnimation;
 
     [Header("Will not change once built")]
+    [SerializeField] [MyReadOnly] private float timeBetweenStepSFX;
     [SerializeField] private float timeBetweenWalkSFX;
+    [SerializeField] private float timeBetweenSwimSFX;
     [SerializeField] private float swimSpeedModif;
     [SerializeField] private GameObject waterResponsibleRef;
 
     [Header("Other")]
     [SerializeField] [MyReadOnly] private bool footstepCoroutineRunning = false;
     [SerializeField] [MyReadOnly] private float speedOrigin;
+    [SerializeField] [MyReadOnly] private SCR_master_audio.sfx stepID = SCR_master_audio.sfx.WALK_STEP;
+    Coroutine stepCoroutine;
 
     #region Set Instance
     private static SCR_player_main instance;
@@ -43,45 +48,49 @@ public class SCR_player_main : MonoBehaviour {
     #endregion
     #region Unity
     private void Update() {
-        playerMain();
+        PlayerMain();
     }
     #region Swimming / Walking Checks
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject == SCR_master_map.instance.ReturnGroundTilemap().gameObject) {
-            startWalking();
+            StartWalking();
         }
     }
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.gameObject == SCR_master_map.instance.ReturnGroundTilemap().gameObject) {
-            startSwimming();
+            StartSwimming();
         }
     }
     #endregion
     #endregion
     #region Main
     //All movement related stuff here
-    private void playerMain() {
-        Vector2Int input = returnMovementInput(); //Get Input
-        movePlayer(input); //Move Player
-        flipSprite(input); //Check If Should Flip Sprite
-        animate(input); //Do idle if still, and walk if moving
+    private void PlayerMain() {
+        Vector2Int input = ReturnMovementInput(); //Get Input
+        MovePlayer(input); //Move Player
+        FlipSprite(input); //Check If Should Flip Sprite
+        Animate(input); //Do idle if still, and walk if moving
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10); //Move Camera to follow players
     }
-    private void startSwimming() {
+    private void StartSwimming() {
+        timeBetweenStepSFX = timeBetweenSwimSFX;
+        stepID = SCR_master_audio.sfx.SWIM_STEP;
         speed = speedOrigin * swimSpeedModif;
         waterResponsibleRef.SetActive(true);
     }
-    private void startWalking() {
+    private void StartWalking() {
+        timeBetweenStepSFX = timeBetweenWalkSFX;
+        stepID = SCR_master_audio.sfx.WALK_STEP;
         speed = speedOrigin;
         waterResponsibleRef.SetActive(false);
     }
     #endregion
     #region playerMainFuncs
-    private Vector2Int returnMovementInput() { //Get input with Input.GetAxisRaw
+    private Vector2Int ReturnMovementInput() { //Get input with Input.GetAxisRaw
         Vector2Int movement = new Vector2Int((int)Input.GetAxisRaw("Horizontal"), (int)Input.GetAxisRaw("Vertical"));
         return movement;
     }
-    private void flipSprite(Vector2Int input) { 
+    private void FlipSprite(Vector2Int input) { 
         if (input.x == -1) {
             sr.flipX = true;
         }
@@ -89,7 +98,8 @@ public class SCR_player_main : MonoBehaviour {
             sr.flipX = false;
         }
     }
-    private void movePlayer(Vector2 input) {
+    //Note: Would use Enhanced Input in future
+    private void MovePlayer(Vector2 input) {
         
         //If we aren't moving
         if (input.x == 0 && input.y == 0) {
@@ -103,7 +113,7 @@ public class SCR_player_main : MonoBehaviour {
         //If we are moving
         else {
             if(footstepCoroutineRunning == false) {
-                StartCoroutine(Footstepsounds());
+                stepCoroutine = StartCoroutine(Footstepsounds());
             }
             
             if (input.x == 0 || input.y == 0) {
@@ -114,7 +124,7 @@ public class SCR_player_main : MonoBehaviour {
             }
         }
     }
-    private void animate(Vector2Int input) {
+    private void Animate(Vector2Int input) {
         if (input.x != 0 || input.y != 0) { //If moving, show walk animation, if not do idle
             playerAnimation.play(SCR_unit_animation.AnimationType.WALK);
         }
@@ -125,19 +135,21 @@ public class SCR_player_main : MonoBehaviour {
     private IEnumerator Footstepsounds() {
         footstepCoroutineRunning = true;
         while (true) {
-            SCR_master_audio.instance.PlayRandomEffect(SCR_master_audio.sfx.WALK_STEP, .15f);
-            yield return new WaitForSeconds(timeBetweenWalkSFX);
+            SCR_master_audio.instance.PlayRandomEffect(stepID, .25f);
+            yield return new WaitForSeconds(timeBetweenStepSFX);
         }
     }
     #endregion
     #region Returns & Publics
-    public SCR_player_attributes returnAttributes() {
+    public SCR_player_attributes ReturnAttributes() {
         return playerAttributes;
     }
-    public void changeOverworldSpeed(int modifBy = 1) {
+    public void ChangeOverworldSpeed(int modifBy = 1) {
         speedOrigin = (playerAttributes.ReturnSpeed() * modifOverworldSpeed) * modifBy;
     }
-    public void readyToDie() {
+    public void ReadyToDie() {
+        if(stepCoroutine != null) StopCoroutine(stepCoroutine);
+
         SCR_master_inventory_main.instance.DestroyAll();
         speed = 0;
         rb.linearVelocity = Vector2.zero;
@@ -146,7 +158,7 @@ public class SCR_player_main : MonoBehaviour {
     }
     #endregion
     #region Setup
-    public void setup(SCO_character_preset preset) {
+    public void Setup(SCO_character_preset preset) {
         //Get Components
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
@@ -158,7 +170,7 @@ public class SCR_player_main : MonoBehaviour {
         playerAttributes.SetupUniversal(preset.returnStartingStats());
 
         //Adjust Speed
-        changeOverworldSpeed();
+        ChangeOverworldSpeed();
 
         speed = speedOrigin;
     }

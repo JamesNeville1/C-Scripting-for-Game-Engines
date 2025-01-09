@@ -116,7 +116,7 @@ public class SCR_player_attributes : MonoBehaviour {
     }
     private void OnHealthEqualZeroFunc() {
         myAnimatior.play(SCR_unit_animation.AnimationType.DEATH); //Check if this should be in parent?
-        SCR_player_main.returnInstance().readyToDie();
+        SCR_player_main.returnInstance().ReadyToDie();
 
         SCR_master_timers.instance.Subscribe(
             SCR_master_timers.timerID.WAIT_AFTER_DEATH,
@@ -134,13 +134,13 @@ public class SCR_player_attributes : MonoBehaviour {
         );
 
         speed = Mathf.RoundToInt(speed / 2);
-        SCR_player_main.returnInstance().changeOverworldSpeed();
+        SCR_player_main.returnInstance().ChangeOverworldSpeed();
     }
     public void StopHungerFunc() {
         SCR_master_timers.instance.RemoveAll(SCR_master_timers.timerID.HUNGER_DAMAGE_TICK);
 
         speed = CalculateSpeed(stats);
-        SCR_player_main.returnInstance().changeOverworldSpeed();
+        SCR_player_main.returnInstance().ChangeOverworldSpeed();
     }
     private int CalculateHunger() {
         return stats.survival;

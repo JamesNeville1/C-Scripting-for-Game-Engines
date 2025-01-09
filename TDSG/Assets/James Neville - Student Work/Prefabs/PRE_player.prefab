@@ -5067,11 +5067,14 @@ MonoBehaviour:
   sr: {fileID: 0}
   playerAttributes: {fileID: 0}
   playerAnimation: {fileID: 0}
+  timeBetweenStepSFX: 0
   timeBetweenWalkSFX: 0.45
+  timeBetweenSwimSFX: 1.75
   swimSpeedModif: 0.65
   waterResponsibleRef: {fileID: 5018528797435852022}
   footstepCoroutineRunning: 0
   speedOrigin: 0
+  stepID: 0
 --- !u!114 &637631082962288691
 MonoBehaviour:
   m_ObjectHideFlags: 0

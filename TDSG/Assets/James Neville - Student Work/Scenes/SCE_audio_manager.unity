@@ -182,6 +182,10 @@ MonoBehaviour:
       - {fileID: 8300000, guid: 5c03be7f3f51e9842a658c6341657141, type: 3}
       - {fileID: 8300000, guid: 468ce35ae36933f48a7a9f5df0f6ec29, type: 3}
       - {fileID: 8300000, guid: f4ea03757a2b0d744a8585432c68e9df, type: 3}
+    - Key: 10
+      Value:
+      - {fileID: 8300000, guid: ec262aff6f37e2c43a8b41026558d7c5, type: 3}
+      - {fileID: 8300000, guid: a9876c7f857f91f41aaf7b682fbce196, type: 3}
     - Key: 7
       Value:
       - {fileID: 8300000, guid: ae4e83c921701a94682fde37e09fe270, type: 3}
@@ -209,6 +213,9 @@ MonoBehaviour:
       - {fileID: 8300000, guid: c770de91dd0efb44d9546edbefb0692d, type: 3}
       - {fileID: 8300000, guid: ba99e40aa810a2e4fbb0a36fe709e8f5, type: 3}
       - {fileID: 8300000, guid: 8a891747eaa809b45a5263ba47d0c0dd, type: 3}
+    - Key: 11
+      Value:
+      - {fileID: 8300000, guid: d5d4e10d6b14ce045a06099d1efc5d65, type: 3}
   musicDict:
     _serializedList:
     - Key: 0

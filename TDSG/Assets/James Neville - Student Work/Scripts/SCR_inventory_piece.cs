@@ -112,7 +112,7 @@ public class SCR_inventory_piece : MonoBehaviour {
                 Debug.Log("Using " + pieceItem.name);
 
                 SCO_ABS_item_useable_on_entity casted = pieceItem as SCO_ABS_item_useable_on_entity;
-                casted.UseOnEntity(SCR_player_main.returnInstance().returnAttributes());
+                casted.UseOnEntity(SCR_player_main.returnInstance().ReturnAttributes());
 
                 if (casted.ReturnShouldSFX()) {
                     audioManager.PlayRandomEffect(casted.ReturnOnUse());

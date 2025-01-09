@@ -19,6 +19,7 @@ public class SCR_master_audio : MonoBehaviour {
         EAT,
         CRAFT,
         DRINK,
+        SWIM_STEP,
     }
 
     public enum music {
